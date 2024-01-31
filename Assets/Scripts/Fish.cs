@@ -24,7 +24,16 @@ public class Fish : MonoBehaviour
             case FishState.Swimming:
                 SwimmingUpdate();
                 break;
-	    }
+			case FishState.Caught:
+                //wiggle
+				break;
+		}
+    }
+
+    public void Hooked() {
+        state = FishState.Caught;
+        transform.parent = Hook.ins.transform;
+        transform.position = Hook.ins.fishCaughtAnchor.position;
     }
 
     void SwimmingUpdate() {
