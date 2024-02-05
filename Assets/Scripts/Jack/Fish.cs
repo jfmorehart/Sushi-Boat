@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
+	public FishData data;
+	
+	[SerializeField]
+	string fishName;
     [SerializeField]
     float swimSpeed;
 
@@ -11,9 +15,19 @@ public class Fish : MonoBehaviour
 
     FishState state;
 
+
+    private SpriteRenderer sr;
+    public void Init(FishData fData)
+    {
+	    data = fData;
+	    fishName = data.itemName;
+	    swimSpeed = data.swimSpeed;
+	    GetComponent<SpriteRenderer>().sprite = data.fishSprite;
+    }
 	private void Awake()
 	{
         state = FishState.Swimming;
+        sr = GetComponent<SpriteRenderer>();
 	}
 	// Update is called once per frame
 	void Update()
@@ -38,6 +52,14 @@ public class Fish : MonoBehaviour
 
     void SwimmingUpdate() {
 		transform.Translate(direction * swimSpeed * Time.deltaTime * Vector3.right, Space.World);
+		if (direction == 1)
+		{
+			sr.flipX = true;
+		}
+		else
+		{
+			sr.flipX = false;
+		}
 		if (transform.position.x > FishSpawner.ins.rightBound)
 		{
 			Destroy(gameObject);

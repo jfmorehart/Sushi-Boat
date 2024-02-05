@@ -50,6 +50,7 @@ public class Hook : MonoBehaviour
             transform.position = new Vector3(pos.x, unhookHeight, pos.z);
             if (fishOn) {
 				fishOn = false;
+				InventoryManager.Instance.AddItem(onHook.data);
 				Destroy(onHook.gameObject);
 			}
 	    }

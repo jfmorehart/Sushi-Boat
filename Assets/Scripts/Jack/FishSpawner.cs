@@ -6,7 +6,7 @@ public class FishSpawner : MonoBehaviour
 {
 	public static FishSpawner ins;
 
-	public List<GameObject> fishprefabs;
+	public List<FishData> fishDatas;
 	List<int> fhistory = new List<int>();
 
 	public List<GameObject> obstacleprefabs;
@@ -60,7 +60,8 @@ public class FishSpawner : MonoBehaviour
 		bool facingRight = (Random.Range(0, 1000) % 2 == 0);
 		Vector2 pos = new Vector2(facingRight? leftBound : rightBound, Random.Range(lowerBound, upperBound));
 		int r = FishPseudoRandomizer();
-		GameObject go = Instantiate(fishprefabs[r], pos, Quaternion.identity, transform);
+		GameObject go = Instantiate(fishPrefab, pos, Quaternion.identity, transform);
+		go.GetComponent<Fish>().Init(fishDatas[r]);
 		go.GetComponent<Fish>().direction = facingRight ? 1 : -1;
     }
 	void SpawnObstacle()
@@ -85,12 +86,12 @@ public class FishSpawner : MonoBehaviour
 	}
 
 	int FishPseudoRandomizer() {
-		int r = Random.Range(0, fishprefabs.Count);
+		int r = Random.Range(0, fishDatas.Count);
 		if (fhistory.Contains(r)) {
-			r = Random.Range(0, fishprefabs.Count);
+			r = Random.Range(0, fishDatas.Count);
 		}
 		fhistory.Add(r);
-		if (fhistory.Count > Mathf.Min(historySize, fishprefabs.Count))
+		if (fhistory.Count > Mathf.Min(historySize, fishDatas.Count))
 			fhistory.RemoveAt(0);
 		return r;
     }

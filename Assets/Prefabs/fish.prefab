@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
-  m_Color: {r: 0.45189625, g: 0.6037736, b: 0.41295835, a: 1}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62691ae92b274614a452763531cc2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
+  fishName: Tuna
   swimSpeed: 5
   direction: 1
 --- !u!58 &4015425515691837106
