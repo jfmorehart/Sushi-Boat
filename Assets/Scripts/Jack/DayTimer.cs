@@ -13,6 +13,10 @@ public class DayTimer : MonoBehaviour
     float currentDay;
     bool live;
 
+	private void Awake()
+	{
+        Menu.StartDayAction += StartDay;
+	}
 	private void Start()
 	{
         StartDay();
@@ -23,6 +27,7 @@ public class DayTimer : MonoBehaviour
     }
     void EndDay() {
         live = false;
+        Menu.Instance.EndDay();
     }
     // Update is called once per frame
     void Update()

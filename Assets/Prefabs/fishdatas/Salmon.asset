@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Salmon
   m_EditorClassIdentifier: 
   itemName: Salmon
-  sprite: {fileID: 21300000, guid: 0ef763a6ff92bc34e8aa0ce7621205af, type: 3}
-  fishSprite: {fileID: 21300000, guid: 0ef763a6ff92bc34e8aa0ce7621205af, type: 3}
+  sprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
+  fishSprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
   swimSpeed: 3

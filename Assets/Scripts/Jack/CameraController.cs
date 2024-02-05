@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 	Transform target;
 	public Vector3 camoffset;
 
-	public float accel, velo, damp, followDist;
+	public float accel, velo, damp, followDist, sizeMult;
 
 	void Start() {
 		target = Hook.ins.transform;
@@ -36,7 +36,9 @@ public class CameraController : MonoBehaviour
 			pos.y = 0;
 		}
 		transform.position = pos + camoffset;
-		//Camera.main.orthographicSize = 5 + Mathf.Abs(velo) * 0.5f;
+		//float sz = Camera.main.orthographicSize;
+		//float sz2 = Mathf.Max(5, 4 + Mathf.Pow(Mathf.Abs(Hook.ins.velocity), 1.2f) * sizeMult);
+		//Camera.main.orthographicSize = (sz * 0.99f + sz2 * 0.01f);
 
 	}
 }

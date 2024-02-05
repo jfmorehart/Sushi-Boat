@@ -39,7 +39,6 @@ public class FishSpawner : MonoBehaviour
 		else {
 			ins = this;
 		}
-
 		AssignFishBounds();
 	}
 
@@ -63,6 +62,7 @@ public class FishSpawner : MonoBehaviour
 		GameObject go = Instantiate(fishPrefab, pos, Quaternion.identity, transform);
 		go.GetComponent<Fish>().Init(fishDatas[r]);
 		go.GetComponent<Fish>().direction = facingRight ? 1 : -1;
+		go.tag = "Fish";
     }
 	void SpawnObstacle()
 	{
@@ -71,6 +71,7 @@ public class FishSpawner : MonoBehaviour
 		int r = ObstaclePseudoRandomizer();
 		GameObject go = Instantiate(obstacleprefabs[r], pos, Quaternion.identity, transform);
 		go.GetComponent<Fish>().direction = facingRight ? 1 : -1;
+		go.tag = "Obstacle";
 	}
 
 	void AssignFishBounds() {

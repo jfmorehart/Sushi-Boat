@@ -15,8 +15,8 @@ public class Fish : MonoBehaviour
 
     FishState state;
 
-
     private SpriteRenderer sr;
+
     public void Init(FishData fData)
     {
 	    data = fData;
@@ -28,6 +28,7 @@ public class Fish : MonoBehaviour
 	{
         state = FishState.Swimming;
         sr = GetComponent<SpriteRenderer>();
+		Menu.EndDayAction += Despawn;
 	}
 	// Update is called once per frame
 	void Update()
@@ -43,6 +44,12 @@ public class Fish : MonoBehaviour
 				break;
 		}
     }
+	public void Despawn() {
+		Menu.EndDayAction -= Despawn;
+		if(gameObject != null) {
+			Destroy(gameObject);
+		}
+	}
 
     public void Hooked() {
         state = FishState.Caught;
@@ -62,11 +69,11 @@ public class Fish : MonoBehaviour
 		}
 		if (transform.position.x > FishSpawner.ins.rightBound)
 		{
-			Destroy(gameObject);
+			Despawn();
 		}
 		if (transform.position.x < FishSpawner.ins.leftBound)
 		{
-			Destroy(gameObject);
+			Despawn();
 		}
 
 	}

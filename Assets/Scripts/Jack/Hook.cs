@@ -21,7 +21,11 @@ public class Hook : MonoBehaviour
 	private void Awake()
 	{
         ins = this;
+        Menu.StartDayAction += ResetPos;
 	}
+    void ResetPos() {
+        transform.position = new Vector3(0, -1, 0);
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -51,7 +55,7 @@ public class Hook : MonoBehaviour
             if (fishOn) {
 				fishOn = false;
 				InventoryManager.Instance.AddItem(onHook.data);
-				Destroy(onHook.gameObject);
+                onHook.Despawn();
 			}
 	    }
     }
@@ -62,7 +66,7 @@ public class Hook : MonoBehaviour
 		if (!fishOn) { 
 
             //check if we hit a fish
-            if (collision.CompareTag("Fish")) {
+            if (collision.CompareTag("Fish") || collision.CompareTag("Obstacle")) {
                 if (collision.TryGetComponent<Fish>(out onHook))
                 {
 					//Catch the fish
