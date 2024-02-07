@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
-  m_Name: Salmon
+  m_Name: Eyefish
   m_EditorClassIdentifier: 
-  itemName: Salmon
-  sprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
-  fishSprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
-  swimSpeed: 4
+  itemName: Eyefish
+  sprite: {fileID: 21300000, guid: df07cd1f95ed94d2f8e19511f817f8ae, type: 3}
+  fishSprite: {fileID: 21300000, guid: df07cd1f95ed94d2f8e19511f817f8ae, type: 3}
+  swimSpeed: 5
