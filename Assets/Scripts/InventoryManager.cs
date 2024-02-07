@@ -21,7 +21,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> items;
 
-    public List<InventorySlot> slots;
+    public GameObject inventory;
     
     public void AddItem(Item item)
     {
@@ -36,16 +36,16 @@ public class InventoryManager : MonoBehaviour
 
     public void UpdateInventoryUI()
     {
-        for (int i = 0; i < slots.Count; i++)
+        for (int i = 0; i < inventory.transform.childCount; i++)
         {
             if (i < items.Count)
             {
-                slots[i].item = items[i];
-                slots[i].GetComponent<Image>().sprite = items[i].sprite;
+                inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = items[i];
+                inventory.transform.GetChild(i).GetComponent<Image>().sprite = items[i].sprite;
             }
             else
             {
-                slots[i].item = null;
+                inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = null;
             }
         }
     }
