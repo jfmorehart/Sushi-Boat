@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &434792469281367471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6418099049258157134}
+  - component: {fileID: 8038559835997968727}
+  m_Layer: 0
+  m_Name: FishSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6418099049258157134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434792469281367471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8038559835997968727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434792469281367471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21186a97da45e404da13c3b7d9b7d006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishDatas:
+  - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
+  - {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
+  obstacleprefabs:
+  - {fileID: 4519570081783965046, guid: 9a1dd5e2c2d644c42ab3144ad9cc89b4, type: 3}
+  fishSpawnRate: 4
+  obstacleSpawnRate: 2
+  leftBound: 0
+  rightBound: 0
+  upperBound: 0
+  lowerBound: -60
+  fishPrefab: {fileID: 8360919771665600274, guid: bc09e64d03a814ab3b885f41e4a958a7, type: 3}

@@ -19,6 +19,9 @@ public class Menu : MonoBehaviour
 			return;
 		}
 		Instance = this;
+		Debug.Log(Progress.CheckValidSave(0));
+		Progress.Load();
+
 	}
 
 	public void StartDay()
@@ -42,5 +45,10 @@ public class Menu : MonoBehaviour
 	{
 		gamePaused = false;
 		Time.timeScale = 1;
+	}
+
+	private void OnApplicationQuit()
+	{
+		Progress.Save();
 	}
 }

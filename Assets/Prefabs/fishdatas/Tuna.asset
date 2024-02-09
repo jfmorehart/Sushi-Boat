@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Tuna
   sprite: {fileID: 21300000, guid: 903e8b6444c174b249c54954b67b09fb, type: 3}
   fishSprite: {fileID: 21300000, guid: 903e8b6444c174b249c54954b67b09fb, type: 3}
-  swimSpeed: 5
+  swimSpeed: 6
