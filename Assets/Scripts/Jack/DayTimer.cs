@@ -42,7 +42,7 @@ public class DayTimer : MonoBehaviour
     {
         if (live) {
             currentDay -= Time.deltaTime;
-            timer.text = Mathf.Round(currentDay).ToString();
+            //timer.text = Mathf.Round(currentDay).ToString();
             float z = Mathf.Lerp(dayEndAngle, dayStartAngle, (currentDay / secondsPerDay));
             transform.eulerAngles = new Vector3(0, 0, z);
             if(currentDay <= 0) {
