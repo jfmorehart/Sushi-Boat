@@ -86,10 +86,10 @@ public class Fish : MonoBehaviour
 		}
 
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction * Vector2.right, 1);
-		Debug.Log(gameObject.name + " " + hit);
-		Debug.DrawRay(transform.position, direction * Vector2.right * 1, Color.red);
 		if (hit && !Hook.ins.fishOn) {
-			Hooked();
+			if (hit.collider.CompareTag("Hook")) {
+				Hooked();
+			}
 		}
 	}
 
