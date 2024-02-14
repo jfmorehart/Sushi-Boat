@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 2398226264106608689}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.02, z: 0}
-  m_LocalScale: {x: 0.15, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
+  m_LocalScale: {x: 0.07, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3032037952454956078}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd14fa696d56348e194234d6c3293e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {x: 0, y: 4, z: 0}
+  origin: {x: 0, y: 2.8, z: 0}
 --- !u!1 &3104184120888923722
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,8 +207,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ac77ffbf4fa5c4d169acb51610c8143c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   reelAccel: 25
   velocity: 0
   drag: 3
-  unhookHeight: 4
+  unhookHeight: 0
   fishOn: 0
   onHook: {fileID: 0}
 --- !u!61 &2907407016531697501
@@ -271,18 +271,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: -0.5706445}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    border: {x: 3.5, y: 1.67, z: 2.1499999, w: 3.1}
+    pivot: {x: 0.5991453, y: 0.4795911}
+    oldSize: {x: 6.61, y: 6.09}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.150603}
   m_EdgeRadius: 0
 --- !u!50 &3602927952806181400
 Rigidbody2D:

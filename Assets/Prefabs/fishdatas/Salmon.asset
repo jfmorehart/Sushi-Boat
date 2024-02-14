@@ -16,4 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
   fishSprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
   swimSpeed: 4
-  mouthDist: 1
+  mouthDist: 0
