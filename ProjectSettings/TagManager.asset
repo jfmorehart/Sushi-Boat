@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fish
   - Obstacle
+  - Hook
   layers:
   - Default
   - TransparentFX
