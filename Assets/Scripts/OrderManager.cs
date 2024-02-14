@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,6 +42,7 @@ public class OrderManager : MonoBehaviour
         {
             OrderManager.Instance.orders.Remove(this);
         }
+        
     }
 
     public List<Order> orders;
@@ -67,7 +69,9 @@ public class OrderManager : MonoBehaviour
         {
             NewOrder();
         }
+        UpdateOrderUI();
         UpdateOrderTimer();
+        CheckOrders();
     }
 
     public void NewOrder()
@@ -78,6 +82,8 @@ public class OrderManager : MonoBehaviour
 
     public void UpdateOrderUI()
     {
+        List<Order> ordersCopy = orders.OrderByDescending(o => o.timer).ToList();
+        orders = new List<Order>(ordersCopy);
         for (int i = 0; i < orders.Count; i++)
         {
             Transform ord = ordersUI.transform.GetChild(i);
@@ -121,4 +127,37 @@ public class OrderManager : MonoBehaviour
             }
         }
     }
+
+    public bool CheckOrder(Order order)
+    {
+        List<Item> inventoryCopy = new List<Item>(InventoryManager.Instance.items);
+        for (int i = 0; i < order.recipe.ingredients.Count; i++)
+        {
+            if (inventoryCopy.Contains(order.recipe.ingredients[i]))
+            {
+                inventoryCopy.Remove(order.recipe.ingredients[i]);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        for (int j = 0; j < order.recipe.ingredients.Count; j++)
+        {
+            InventoryManager.Instance.RemoveItem(order.recipe.ingredients[j]);
+        }
+        order.CompleteOrder();
+        UpdateOrderUI();
+        return true;
+    }
+
+    public void CheckOrders()
+    {
+        for (int i = 0; i < orders.Count; i++)
+        {
+            CheckOrder(orders[i]);
+        }
+    }
+
 }
