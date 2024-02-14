@@ -12,10 +12,8 @@ public class Hook : MonoBehaviour
 
     public float reelAccel, velocity, drag, unhookHeight;
 
-    [SerializeField]
-    bool fishOn;
-    [SerializeField]
-    Fish onHook;
+    public bool fishOn;
+    public Fish onHook;
 
 
 	private void Awake()
@@ -62,23 +60,25 @@ public class Hook : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// if we can catch a fish
-		if (!fishOn) { 
+        //no longer used, fish raycasts instead
 
-            //check if we hit a fish
-            if (collision.CompareTag("Fish") || collision.CompareTag("Obstacle")) {
-                if (collision.TryGetComponent<Fish>(out onHook))
-                {
-					//Catch the fish
-					onHook.Hooked();
-                    fishOn = true;
-                }
-                else {
-					Debug.LogError("Non Fish tagged as fish!");
-                    return;
-				}
-	        }
-	    }
+		// if we can catch a fish
+		//if (!fishOn) { 
+
+  //          //check if we hit a fish
+  //          if (collision.CompareTag("Fish") || collision.CompareTag("Obstacle")) {
+  //              if (collision.TryGetComponent<Fish>(out onHook))
+  //              {
+		//			//Catch the fish
+		//			onHook.Hooked();
+  //                  fishOn = true;
+  //              }
+  //              else {
+		//			Debug.LogError("Non Fish tagged as fish!");
+  //                  return;
+		//		}
+	 //       }
+	 //   }
 
         //check if its an obstacle or whatever
 	}
