@@ -8,4 +8,5 @@ public class FishData : Item
     public Sprite fishSprite;
 
     public float swimSpeed;
+    public float mouthDist;
 }
