@@ -17,5 +17,4 @@ MonoBehaviour:
   ingredients:
   - {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
   - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
-  - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
   price: 20

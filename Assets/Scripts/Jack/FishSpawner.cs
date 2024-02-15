@@ -44,15 +44,19 @@ public class FishSpawner : MonoBehaviour
 
 	private void Update()
 	{
-		if(Time.time - lastFishSpawn > (1 / fishSpawnRate)) {
-			lastFishSpawn = Time.time;
-			SpawnFish();
-		}
-		if (Time.time - lastObstacleSpawn > (1 / obstacleSpawnRate))
+		if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
 		{
-			lastObstacleSpawn = Time.time;
-			SpawnObstacle();
+			if(Time.time - lastFishSpawn > (1 / fishSpawnRate)) {
+				lastFishSpawn = Time.time;
+				SpawnFish();
+			}
+			if (Time.time - lastObstacleSpawn > (1 / obstacleSpawnRate))
+			{
+				lastObstacleSpawn = Time.time;
+				SpawnObstacle();
+			}
 		}
+
 	}
 
 	void SpawnFish() {

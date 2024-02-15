@@ -16,5 +16,4 @@ MonoBehaviour:
   recipeName: Salmon Sushi
   ingredients:
   - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
-  - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
   price: 5

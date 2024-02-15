@@ -84,6 +84,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6243311622904281221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5715467606000359557}
+  m_Layer: 0
+  m_Name: ThoughtBubbles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5715467606000359557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243311622904281221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5493806188111184387}
+  - {fileID: 2568169154969294459}
+  m_Father: {fileID: 3102472670644591209}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6911492184413237067
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,9 +148,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5715467606000359557}
   - {fileID: 5936297613696886649}
-  - {fileID: 5493806188111184387}
-  - {fileID: 2568169154969294459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6353984431850648532
@@ -160,7 +192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5bc2f1eb374f74f9899bbcfadc34c278, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,13 +221,14 @@ MonoBehaviour:
   sinAmp: 0.5
   timer: 0
   direction: 0
+  orderCount: 1
 --- !u!1001 &1543604691410297039
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3102472670644591209}
+    m_TransformParent: {fileID: 5715467606000359557}
     m_Modifications:
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalScale.x
@@ -207,11 +240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7738237
+      value: 1.7738037
       objectReference: {fileID: 0}
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9430661
+      value: 2.9430542
       objectReference: {fileID: 0}
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -249,6 +282,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: thoughtbubble (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4922959577985840657, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645894849912605655, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523112476922909092, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -265,7 +310,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3102472670644591209}
+    m_TransformParent: {fileID: 5715467606000359557}
     m_Modifications:
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalScale.x
@@ -277,11 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.963912
+      value: -0.9638672
       objectReference: {fileID: 0}
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.897437
+      value: 2.897461
       objectReference: {fileID: 0}
     - target: {fileID: 3947409971870463668, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -318,6 +363,18 @@ PrefabInstance:
     - target: {fileID: 4922959577985840657, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
       propertyPath: m_Name
       value: thoughtbubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922959577985840657, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645894849912605655, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523112476922909092, guid: f85f59a2314e84cc0b634eb8dcaa2f94, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

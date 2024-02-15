@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,66 +25,70 @@ public class OrderManager : MonoBehaviour
     {
         public Recipe recipe;
         public float timer;
-        public int money;
+        public float currentTimer;
+        public int price;
             
         public Order(Recipe r,float t)
         {
             recipe = r;
             timer = t;
-            money = r.price;
+            price = r.price;
+            currentTimer = timer;
         }
 
         public void FailOrder()
         {
             OrderManager.Instance.orders.Remove(this);
+            //temporary measure for keeping track of order count for customer spawning
+            CustomerSpawner.Instance.currentOrders --;
         }
 
         public void CompleteOrder()
         {
+            OrderManager.Instance.money += price;
             OrderManager.Instance.orders.Remove(this);
+            //temporary measure for keeping track of order count for customer spawning
+            CustomerSpawner.Instance.currentOrders --;
         }
         
     }
 
     public List<Order> orders;
-    public List<Recipe> recipes; 
-    public float orderExpireTime = 20f;
+    public List<Recipe> recipes;
     public int maxOrdersCount;
     public GameObject ordersUI;
+
+    public int money = 0;
+    public TMP_Text moneyUI;
     
     // Start is called before the first frame update
     void Start()
     {
         orders = new List<Order>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < ordersUI.transform.childCount; i++)
         {
-            NewOrder();
+            ordersUI.transform.GetChild(i).gameObject.SetActive(false);
         }
-        UpdateOrderUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (orders.Count < maxOrdersCount)
+        if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
-            NewOrder();
+            UpdateOrderTimer();
         }
-        UpdateOrderUI();
-        UpdateOrderTimer();
-        CheckOrders();
-    }
-
-    public void NewOrder()
-    {
-        Order newOrder = new Order( recipes[Random.Range(0,recipes.Count)],orderExpireTime);
-        orders.Add(newOrder);
+        moneyUI.text = "$" + money;
     }
 
     public void UpdateOrderUI()
     {
         List<Order> ordersCopy = orders.OrderByDescending(o => o.timer).ToList();
         orders = new List<Order>(ordersCopy);
+        for (int l = 0; l < maxOrdersCount; l++)
+        {
+            ordersUI.transform.GetChild(l).gameObject.SetActive(false);
+        }
         for (int i = 0; i < orders.Count; i++)
         {
             Transform ord = ordersUI.transform.GetChild(i);
@@ -101,7 +106,6 @@ public class OrderManager : MonoBehaviour
                 if (ingredient != null)
                 {
                     ord.GetChild(2).GetChild(j).gameObject.SetActive(true);
-                    ord.GetChild(2).GetChild(j).GetComponent<InventorySlot>().item = ingredient;
                     ord.GetChild(2).GetChild(j).GetComponent<Image>().sprite = ingredient.sprite;
                 }
                 else
@@ -118,9 +122,9 @@ public class OrderManager : MonoBehaviour
         for (int i = 0; i < orders.Count; i++)
         {
             Transform ord = ordersUI.transform.GetChild(i);
-            ord.GetChild(3).localScale = new Vector3(orders[i].timer / orderExpireTime, 1, 1);
-            orders[i].timer -= Time.deltaTime;
-            if (orders[i].timer <= 0)
+            ord.GetChild(3).localScale = new Vector3(orders[i].currentTimer / orders[i].timer, 1, 1);
+            orders[i].currentTimer -= Time.deltaTime;
+            if (orders[i].currentTimer <= 0)
             {
                 orders[i].FailOrder();
                 UpdateOrderUI();
@@ -139,6 +143,7 @@ public class OrderManager : MonoBehaviour
             }
             else
             {
+                UpdateOrderUI();
                 return false;
             }
         }
@@ -147,17 +152,11 @@ public class OrderManager : MonoBehaviour
         {
             InventoryManager.Instance.RemoveItem(order.recipe.ingredients[j]);
         }
+        InventoryManager.Instance.UpdateInventoryUI();
         order.CompleteOrder();
         UpdateOrderUI();
         return true;
     }
-
-    public void CheckOrders()
-    {
-        for (int i = 0; i < orders.Count; i++)
-        {
-            CheckOrder(orders[i]);
-        }
-    }
+    
 
 }

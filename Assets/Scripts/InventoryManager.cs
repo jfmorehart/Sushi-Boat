@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -41,11 +40,12 @@ public class InventoryManager : MonoBehaviour
             if (i < items.Count)
             {
                 inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = items[i];
-                inventory.transform.GetChild(i).GetComponent<Image>().sprite = items[i].sprite;
+                inventory.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = items[i].sprite;
             }
             else
             {
                 inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = null;
+                inventory.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = null;
             }
         }
     }

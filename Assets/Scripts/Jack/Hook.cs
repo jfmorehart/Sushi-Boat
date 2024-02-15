@@ -27,35 +27,39 @@ public class Hook : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-    { 
-        // mouse controls
-        //Vector3 mposQuery = Input.mousePosition; //mouse pos in pixel coords
-        //mposQuery.z = 10; // distance from camera to geometry
-        //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mposQuery);
+    {
+	    if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
+	    {
+		    // mouse controls
+		    //Vector3 mposQuery = Input.mousePosition; //mouse pos in pixel coords
+		    //mposQuery.z = 10; // distance from camera to geometry
+		    //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(mposQuery);
 
-        //Vector2 wpos = transform.position;
-        //wpos.y = mousePosition.y;
-        //transform.position = wpos;
+		    //Vector2 wpos = transform.position;
+		    //wpos.y = mousePosition.y;
+		    //transform.position = wpos;
 
-        //keyboard controls
-        float dir = Input.GetKey(up)? 1 : 0  + (Input.GetKey(down)? -1 : 0);
+		    //keyboard controls
+		    float dir = Input.GetKey(up)? 1 : 0  + (Input.GetKey(down)? -1 : 0);
 
-        //Moving the hook
-        velocity += (dir * reelAccel * Time.deltaTime);
-        velocity *= 1 - Time.deltaTime * drag;
-        transform.Translate(Time.deltaTime * velocity * Vector2.up, Space.World);
+		    //Moving the hook
+		    velocity += (dir * reelAccel * Time.deltaTime);
+		    velocity *= 1 - Time.deltaTime * drag;
+		    transform.Translate(Time.deltaTime * velocity * Vector2.up, Space.World);
 
-        //Code to handle unhooking the fish
-        if(transform.position.y > unhookHeight) {
-            velocity = 0;
-            Vector3 pos = transform.position;
-            transform.position = new Vector3(pos.x, unhookHeight, pos.z);
-            if (fishOn) {
-				fishOn = false;
-				InventoryManager.Instance.AddItem(onHook.data);
-                onHook.Despawn();
-			}
+		    //Code to handle unhooking the fish
+		    if(transform.position.y > unhookHeight) {
+			    velocity = 0;
+			    Vector3 pos = transform.position;
+			    transform.position = new Vector3(pos.x, unhookHeight, pos.z);
+			    if (fishOn) {
+				    fishOn = false;
+				    InventoryManager.Instance.AddItem(onHook.data);
+				    onHook.Despawn();
+			    }
+		    }
 	    }
+
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
