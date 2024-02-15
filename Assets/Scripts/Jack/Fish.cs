@@ -31,6 +31,7 @@ public class Fish : MonoBehaviour
 	{
         state = FishState.Swimming;
         sr = GetComponent<SpriteRenderer>();
+		sr.enabled = false;
 		Menu.EndDayAction += Despawn;
 	}
 	// Update is called once per frame
@@ -55,7 +56,11 @@ public class Fish : MonoBehaviour
 	}
 
     public void Hooked() {
-		sr.flipX = false;
+		if (sr.flipX) {
+			sr.flipX = false;
+			sr.flipY = true;
+		}
+
         state = FishState.Caught;
         transform.parent = Hook.ins.transform;
 
@@ -67,6 +72,7 @@ public class Fish : MonoBehaviour
     }
 
     void SwimmingUpdate() {
+		if(!sr.enabled)sr.enabled = true;
 		transform.Translate(direction * swimSpeed * Time.deltaTime * Vector3.right, Space.World);
 		if (direction == 1)
 		{
