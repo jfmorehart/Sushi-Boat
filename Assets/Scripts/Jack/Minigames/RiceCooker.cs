@@ -1,60 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class RiceCooker : Station
 {
-	public bool cooking;
-	public bool ready;
+	public SpriteRenderer riceRenderer;
+	CookingStage stage;
+	public Item goodRice;
+	public Item burntRice;
+	[SerializeField] bool cooking;
+	
 	public float riceTimer;
-	public float riceCookTime;
-	public float riceBurnTime;
+	float timeUntilCooked = 5;
+	float timeUntilBurned = 10;
 
-	public SpriteRenderer rice;
-
-
-	public override void OnItemAdd(Item item)
+	private void Awake()
 	{
-		base.OnItemAdd(item);
-
+		riceRenderer.enabled = false;
 	}
-	public override void OnColliderClicked()
+	public override bool OnItemAdd(Item item)
 	{
-		base.OnColliderClicked();
-		if (!cooking) {
-			riceTimer = 0;
-			cooking = true;
-			rice.color = Color.grey;
-			//start cooking
-			
-		}
-		else if(riceTimer > riceCookTime){
-			//give player rice :) 
-		}
+		bool canAdd = base.OnItemAdd(item);
+		cooking = true;
+		riceRenderer.enabled = true;
+		riceRenderer.color = Color.grey;
+		riceTimer = 0;
+		return canAdd;
 	}
+
 	private void Update()
 	{
-		if (cooking)
-		{
-			riceTimer += Time.deltaTime;
-			if (riceTimer > riceCookTime && !ready)
-			{
-				RiceReady();
+		if (!cooking) {
+			return;
+		}
+		riceTimer += Time.deltaTime;
+		if(riceTimer < timeUntilCooked) { 
+			if(stage != CookingStage.uncooked) {
+				stage = CookingStage.uncooked;
+				riceRenderer.color = Color.grey;
 			}
-			if (riceTimer > riceBurnTime)
+		}
+		else if (riceTimer < timeUntilBurned)
+		{
+			if (stage != CookingStage.ready)
 			{
-				cooking = false;
-				RiceBurnt();
+				stage = CookingStage.ready;
+				itemOnStation = goodRice;
+				riceRenderer.color = Color.white;
+			}
+		}
+		else {
+			if (stage != CookingStage.burnt)
+			{
+				stage = CookingStage.burnt;
+				itemOnStation = burntRice;
+				riceRenderer.color = Color.black;
 			}
 		}
 	}
-	void RiceReady() {
-		ready = true;
-		rice.color = Color.white;
-    }
-	void RiceBurnt()
+
+	public override void SpawnDraggableItem(Item item)
 	{
-		ready = false;
-		rice.color = Color.black;
+		base.SpawnDraggableItem(item);
+		cooking = false;
+		riceRenderer.enabled = false;
 	}
+
+	enum CookingStage { 
+		uncooked, 
+		ready, 
+		burnt
+    }
 }
