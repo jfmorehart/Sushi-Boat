@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RiceCooker : Clickable
+public class RiceCooker : Station
 {
 	public bool cooking;
 	public bool ready;
@@ -11,7 +11,13 @@ public class RiceCooker : Clickable
 	public float riceBurnTime;
 
 	public SpriteRenderer rice;
-	
+
+
+	public override void OnItemAdd(Item item)
+	{
+		base.OnItemAdd(item);
+
+	}
 	public override void OnColliderClicked()
 	{
 		base.OnColliderClicked();

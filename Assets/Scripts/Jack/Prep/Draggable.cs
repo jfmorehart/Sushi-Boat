@@ -11,15 +11,26 @@ public class Draggable : Clickable
 
 	Station prevStation;
 	Station hoveringOver;
+	SpriteRenderer ren;
 
+	private void Awake()
+	{
+		ren = GetComponent<SpriteRenderer>();
+	}
 	public void Initialize(Station st, Item it) {
 		prevStation = st;
 		item = it;
-    }
+		//ren.sprite = it.sprite;
+
+		if (beingDragged)
+		{
+			transform.position = Selection.instance.mouseWorldPosition;
+		}
+	}
 
 	private void Update()
 	{
-		if (Input.GetMouseButtonUp(0)) {
+		if (!Input.GetMouseButton(0) && beingDragged) {
 			EndDrag();
 		}
 
@@ -31,6 +42,8 @@ public class Draggable : Clickable
 		beingDragged = true;
     }
 	public void EndDrag() {
+		if (!beingDragged) return;
+
 		if (hoveringOver != null)
 		{
 			hoveringOver.OnItemAdd(item);
@@ -40,6 +53,7 @@ public class Draggable : Clickable
 		}
 		else {
 			prevStation.OnItemAdd(item);
+			Destroy(gameObject);
 		}
     }
 
