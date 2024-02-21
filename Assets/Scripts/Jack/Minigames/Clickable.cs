@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Clickable : MonoBehaviour
 {
-	public virtual void OnColldierClicked() {
+	public virtual void OnColliderClicked() {
         Debug.Log(gameObject.name + "clicked");
     }
 }
