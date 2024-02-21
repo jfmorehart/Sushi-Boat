@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class Station : Clickable
 {
-    public List<Item> itemsOnStation;
+    public bool isSpawner;
+
+    public Item itemOnStation;
     public int maxItems = 1;
     public GameObject DraggablePrefab;
-    public void OnItemAdd(Item item)
+    public virtual void OnItemAdd(Item item)
     {
-        itemsOnStation.Add(item);
+        itemOnStation = item;
     }
 
     public override void OnColliderClicked()
     {
+        if(itemOnStation== null) {
+            return;
+	    }
         base.OnColliderClicked();
         GameObject item = Instantiate(DraggablePrefab);
-        //item.GetComponent<Draggable>().Initialize(this,itemsOnStation[0]);
         item.GetComponent<Draggable>().StartDrag();
+		item.GetComponent<Draggable>().Initialize(this, itemOnStation);
+        if (!isSpawner) {
+			itemOnStation = null;
+		}
+ 
     }
 }
