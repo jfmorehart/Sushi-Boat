@@ -20,7 +20,7 @@ public class Draggable : Clickable
 	public void Initialize(Station st, Item it) {
 		prevStation = st;
 		item = it;
-		//ren.sprite = it.sprite;
+		ren.sprite = it.sprite;
 
 		if (beingDragged)
 		{
@@ -46,16 +46,23 @@ public class Draggable : Clickable
 
 		if (hoveringOver != null)
 		{
-			hoveringOver.OnItemAdd(item);
-			prevStation = hoveringOver;
-			hoveringOver = null;
-			Destroy(gameObject);
+			if (hoveringOver.OnItemAdd(item)) {
+				prevStation = hoveringOver;
+				hoveringOver = null;
+				Destroy(gameObject);
+			}
+			else {
+				ReturnToLastStation();
+			}
 		}
 		else {
-			prevStation.OnItemAdd(item);
-			Destroy(gameObject);
+			ReturnToLastStation();
 		}
     }
+	void ReturnToLastStation() {
+		prevStation.OnItemAdd(item);
+		Destroy(gameObject);
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
