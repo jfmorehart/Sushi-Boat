@@ -16,7 +16,7 @@ public class Station : Clickable
     {
         base.OnColliderClicked();
         GameObject item = Instantiate(DraggablePrefab);
-        //item.GetComponent<Draggable>().Initialize(this,itemsOnStation[0]);
+        item.GetComponent<Draggable>().Initialize(this,itemsOnStation[0]);
         item.GetComponent<Draggable>().StartDrag();
     }
 }
