@@ -12,9 +12,9 @@ public class RiceCooker : Clickable
 
 	public SpriteRenderer rice;
 	
-	public override void OnColldierClicked()
+	public override void OnColliderClicked()
 	{
-		base.OnColldierClicked();
+		base.OnColliderClicked();
 		if (!cooking) {
 			riceTimer = 0;
 			cooking = true;

@@ -23,9 +23,9 @@ public class ThoughtBubble : Clickable
         
     }
     
-    public override void OnColldierClicked()
+    public override void OnColliderClicked()
     {
-        base.OnColldierClicked();
+        base.OnColliderClicked();
         if (!orderAdded)
         {
             orderAdded = true;
