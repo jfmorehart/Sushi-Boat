@@ -2,30 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : Station, IPointerDownHandler
 {
     public Item item;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public override bool OnItemAdd(Item newItem)
+	{
+		item = newItem;
+		return base.OnItemAdd(item);
+	}
 
-    public void OnPointerClick(PointerEventData eventData)
+	public override void ReturnItem(Item newitem)
+	{
+		Debug.Log("returning " + newitem.itemName);
+		item = newitem;
+		transform.GetChild(0).GetComponent<Image>().sprite = newitem.sprite;
+		base.ReturnItem(newitem);
+	}
+
+	public void OnPointerDown(PointerEventData eventData)
     {
         if (item != null)
         {
-            InventoryManager.Instance.RemoveItem(item);
-            InventoryManager.Instance.UpdateInventoryUI();
+            if (OnColliderClicked()) {
+				InventoryManager.Instance.RemoveItem(item);
+				InventoryManager.Instance.UpdateInventoryUI();
+			}
         }
-            
-        
     }
 }

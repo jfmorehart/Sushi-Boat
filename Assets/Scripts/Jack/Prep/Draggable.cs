@@ -80,8 +80,9 @@ public class Draggable : Clickable
 			hoveringOver = null;
 		}
 	}
-	public override void OnColliderClicked()
+	public override bool OnColliderClicked()
 	{
 		StartDrag();
+		return base.OnColliderClicked();
 	}
 }

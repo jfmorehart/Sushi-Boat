@@ -89,6 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c264ab64d0f864f45945f2c0ae5a2d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpawner: 0
+  itemOnStation: {fileID: 0}
+  maxItems: 1
+  DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   item: {fileID: 0}
 --- !u!1 &3351550724894598803
 GameObject:

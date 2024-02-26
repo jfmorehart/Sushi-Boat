@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingBoard : MonoBehaviour
+public class CuttingBoard : Station
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public Item cutfish;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public override bool OnItemAdd(Item item)
+	{
+		Debug.Log(item + " " + item.itemName);
+		if (item.itemName == "whole fish") {
+			return base.OnItemAdd(cutfish);
+		}
+		else {
+			return false;
+		}
+
+	}
 }

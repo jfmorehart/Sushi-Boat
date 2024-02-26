@@ -23,9 +23,9 @@ public class ThoughtBubble : Clickable
         
     }
     
-    public override void OnColliderClicked()
+    public override bool OnColliderClicked()
     {
-        base.OnColliderClicked();
+        bool ret = base.OnColliderClicked();
         if (!orderAdded)
         {
             orderAdded = true;
@@ -41,6 +41,6 @@ public class ThoughtBubble : Clickable
                 Destroy(gameObject);
             }
         }
-
+        return ret;
     }
 }

@@ -4,36 +4,55 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+	public Transform boatTarget;
 	Transform target;
 	public Vector3 camoffset;
 
 	public float accel, velo, damp, followDist, sizeMult;
 
+	public bool trackingHook;
+
 	void Start() {
-		target = Hook.ins.transform;
-    }
+		trackingHook = false;
+		target = boatTarget;
+		transform.position = target.transform.position - camoffset;
+	}
 
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			if (trackingHook) {
+				trackingHook = false;
+				target = boatTarget;
+			}
+			else { 
+				target = Hook.ins.transform;
+				trackingHook = true;
+			}
+
+		}
 		//Sorry for not commenting this shit
 
 		Vector3 pos = transform.position - camoffset;
 		Vector2 delta = target.position - transform.position;
-		if(delta.y > 0) {
+		if(delta.y > 1) {
 			//pos.y = target.position.y;
 			//velo = 0;
-			float dterm = Mathf.Min(1, delta.magnitude - followDist);
+			float dterm = Mathf.Max(1, delta.magnitude - followDist);
 			velo += accel * Time.deltaTime * dterm;
 			velo *= 1 - Time.deltaTime * damp;
 		}
-		else {
-			float dterm = Mathf.Min(1, delta.magnitude - followDist);
+		else if (delta.y < -1){
+			float dterm = Mathf.Max(1, delta.magnitude - followDist);
 			velo -= accel * Time.deltaTime * dterm;
 			velo *= 1 - Time.deltaTime * damp;
 		}
+		else {
+			velo *= 1 - Time.deltaTime * damp * 2;
+		}
 		pos.y += velo * Time.deltaTime;
-		if (pos.y > 0) {
-			pos.y = 0;
+		if (pos.y > 0 && trackingHook) {
+			velo -= accel * Time.deltaTime;
 		}
 		transform.position = pos + camoffset;
 		//float sz = Camera.main.orthographicSize;
