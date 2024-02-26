@@ -60,7 +60,7 @@ public class Draggable : Clickable
 		}
     }
 	void ReturnToLastStation() {
-		prevStation.OnItemAdd(item);
+		prevStation.ReturnItem(item);
 		Destroy(gameObject);
 	}
 
