@@ -93,7 +93,7 @@ public class OrderManager : MonoBehaviour
         {
             Transform ord = ordersUI.transform.GetChild(i);
             ord.gameObject.SetActive(true);
-            ord.GetChild(1).GetComponent<Image>().sprite = orders[i].recipe.recipeSprie;
+            ord.GetChild(1).GetComponent<Image>().sprite = orders[i].recipe.recipeItem.sprite;
 
             for (int k = 0; k < ord.GetChild(2).childCount; k++)
             {

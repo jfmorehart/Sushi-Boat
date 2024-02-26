@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Recipe : ScriptableObject
 {
-    public Sprite recipeSprie;
-    public string recipeName;
+    public Item recipeItem;
     public List<Item> ingredients;
     public int price;
 }

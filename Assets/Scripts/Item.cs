@@ -9,6 +9,19 @@ public class Item : ScriptableObject
 
     public Sprite sprite;
 
+    public List<ItemTags> tags;
+    public enum ItemTags
+    {
+        //if the thing is combinable,please just have one of these
+        Ingredient,
+        Combinable,
+        Finished,
+        //other tags
+        Cookable,
+        Rice,
+        Fish,
+    }
+    
     public void Collect()
     {
         

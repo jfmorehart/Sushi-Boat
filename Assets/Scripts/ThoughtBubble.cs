@@ -14,7 +14,7 @@ public class ThoughtBubble : Clickable
     void Start()
     {
         recipe = OrderManager.Instance.recipes[Random.Range(0, OrderManager.Instance.recipes.Count)];
-        orderSR.sprite = recipe.recipeSprie;
+        orderSR.sprite = recipe.recipeItem.sprite;
     }
 
     // Update is called once per frame
