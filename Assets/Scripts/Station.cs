@@ -9,6 +9,8 @@ public class Station : Clickable
     public Item itemOnStation;
     public int maxItems = 1;
     public GameObject DraggablePrefab;
+
+
     public virtual bool OnItemAdd(Item item)
     {
         if(itemOnStation == null) {
@@ -28,9 +30,7 @@ public class Station : Clickable
 	    }
         base.OnColliderClicked();
         SpawnDraggableItem(itemOnStation);
- 
     }
-
     public virtual void SpawnDraggableItem(Item item) {
 		GameObject drag = Instantiate(DraggablePrefab);
 		drag.GetComponent<Draggable>().StartDrag();
@@ -40,4 +40,8 @@ public class Station : Clickable
 			itemOnStation = null;
 		}
 	}
+
+    public virtual void ReturnItem(Item item) {
+        itemOnStation = item;
+    }
 }

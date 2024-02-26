@@ -21,6 +21,7 @@ public class RiceCooker : Station
 	}
 	public override bool OnItemAdd(Item item)
 	{
+		if (item.itemName != "uncooked rice") return false;
 		bool canAdd = base.OnItemAdd(item);
 		cooking = true;
 		riceRenderer.enabled = true;
@@ -28,7 +29,19 @@ public class RiceCooker : Station
 		riceTimer = 0;
 		return canAdd;
 	}
+	public override void ReturnItem(Item item)
+	{
+		base.ReturnItem(item);
+		cooking = true;
+		riceRenderer.enabled = true;
+		if (item.itemName == "rice") {
+			riceRenderer.color = Color.white;
+		}
+		else {
+			riceRenderer.color = Color.black;
+		}
 
+	}
 	private void Update()
 	{
 		if (!cooking) {
@@ -59,7 +72,13 @@ public class RiceCooker : Station
 			}
 		}
 	}
+	public override void OnColliderClicked()
+	{
+		if(riceTimer > timeUntilCooked || riceTimer == 0) {
+			base.OnColliderClicked();
+		}
 
+	}
 	public override void SpawnDraggableItem(Item item)
 	{
 		base.SpawnDraggableItem(item);
