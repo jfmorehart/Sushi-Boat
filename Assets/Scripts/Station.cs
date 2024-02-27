@@ -20,16 +20,16 @@ public class Station : Clickable
         else {
             return false;
 	    }
-
     }
 
-    public override void OnColliderClicked()
+    public override bool OnColliderClicked()
     {
         if(itemOnStation== null) {
-            return;
+            return false;
 	    }
         base.OnColliderClicked();
         SpawnDraggableItem(itemOnStation);
+        return true;
     }
     public virtual void SpawnDraggableItem(Item item) {
 		GameObject drag = Instantiate(DraggablePrefab);

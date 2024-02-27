@@ -10,7 +10,8 @@ public class Hook : MonoBehaviour
     public KeyCode up;
     public KeyCode down;
 
-    public float reelAccel, velocity, drag, unhookHeight;
+	public float reelAccel, velocity, drag;
+	float unhookHeight;
 
     public bool fishOn;
     public Fish onHook;
@@ -20,6 +21,7 @@ public class Hook : MonoBehaviour
 	{
         ins = this;
         Menu.StartDayAction += ResetPos;
+		unhookHeight = transform.position.y;
 	}
     void ResetPos() {
         transform.position = new Vector3(0, -1, 0);
@@ -61,29 +63,4 @@ public class Hook : MonoBehaviour
 	    }
 
     }
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-        //no longer used, fish raycasts instead
-
-		// if we can catch a fish
-		//if (!fishOn) { 
-
-  //          //check if we hit a fish
-  //          if (collision.CompareTag("Fish") || collision.CompareTag("Obstacle")) {
-  //              if (collision.TryGetComponent<Fish>(out onHook))
-  //              {
-		//			//Catch the fish
-		//			onHook.Hooked();
-  //                  fishOn = true;
-  //              }
-  //              else {
-		//			Debug.LogError("Non Fish tagged as fish!");
-  //                  return;
-		//		}
-	 //       }
-	 //   }
-
-        //check if its an obstacle or whatever
-	}
 }
