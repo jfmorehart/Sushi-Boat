@@ -10,8 +10,10 @@ public class CuttingBoard : Station
 	{
 		Debug.Log(item + " " + item.itemName);
 		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {
-			cutfish.itemName = item.itemName;
-			return base.OnItemAdd(cutfish);
+			item.tags.Clear();
+			item.tags.Add(Item.ItemTags.Fish);
+			item.tags.Add(Item.ItemTags.Combinable);
+			return base.OnItemAdd(item);
 		}
 		else {
 			return false;
@@ -21,8 +23,5 @@ public class CuttingBoard : Station
 	public override void SpawnDraggableItem(Item item)
 	{
 		base.SpawnDraggableItem(item);
-		item.tags.Clear();
-		item.tags.Add(Item.ItemTags.Fish);
-		item.tags.Add(Item.ItemTags.Combinable);
 	}
 }
