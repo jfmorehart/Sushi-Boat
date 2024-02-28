@@ -9,12 +9,19 @@ public class CuttingBoard : Station
 	public override bool OnItemAdd(Item item)
 	{
 		Debug.Log(item + " " + item.itemName);
-		if (item.itemName == "whole fish") {
+		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {
 			return base.OnItemAdd(cutfish);
 		}
 		else {
 			return false;
 		}
+	}
 
+	public override void SpawnDraggableItem(Item item)
+	{
+		base.SpawnDraggableItem(item);
+		item.tags.Clear();
+		item.tags.Add(Item.ItemTags.Fish);
+		item.tags.Add(Item.ItemTags.Combinable);
 	}
 }
