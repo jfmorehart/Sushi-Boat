@@ -23,7 +23,7 @@ public class Fish : MonoBehaviour
     public void Init(FishData fData)
     {
 	    data = fData;
-	    fishName = data.fishItem.itemName;
+	    //fishName = data.fishItem.itemName;
 	    swimSpeed = data.swimSpeed;
 	    GetComponent<SpriteRenderer>().sprite = data.fishSprite;
     }

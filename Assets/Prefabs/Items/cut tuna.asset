@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
-  m_Name: Plastic Bag
+  m_Script: {fileID: 11500000, guid: 376771298bfba5d41b4c90e58e795a34, type: 3}
+  m_Name: cut tuna
   m_EditorClassIdentifier: 
-  fishItem: {fileID: 11400000, guid: 0dbcb94f948d24b1abbe9e8f8fcfe092, type: 2}
-  fishSprite: {fileID: 21300000, guid: 770ef2833cf204e50b3f170b67f398b4, type: 3}
-  swimSpeed: 3
-  mouthDist: 0
+  itemName: cut tuna
+  sprite: {fileID: 21300000, guid: a67b2243aa9694f599eb3d835db9d6b4, type: 3}
+  tags: 0100000005000000

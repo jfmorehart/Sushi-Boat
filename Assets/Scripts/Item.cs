@@ -7,6 +7,7 @@ using UnityEngine;
 public class Item : ScriptableObject, IComparable<Item>
 {
     public string itemName;
+    public Item processed;
 
     public Sprite sprite;
 
@@ -22,13 +23,6 @@ public class Item : ScriptableObject, IComparable<Item>
         Cookable,
         Rice,
         Fish,
-    }
-
-    public Item(Item i) {
-        name = i.name;
-        itemName = i.itemName;
-        sprite = i.sprite;
-        tags = new List<ItemTags>();
     }
     
 

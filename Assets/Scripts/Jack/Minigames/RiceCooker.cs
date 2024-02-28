@@ -30,7 +30,6 @@ public class RiceCooker : Station
 	}
 	public override bool OnItemAdd(Item item)
 	{
-
 		Debug.Log(item.tags[0]);
 		if (!(item.tags.Contains(Item.ItemTags.Rice) && item.tags.Contains(Item.ItemTags.Ingredient))) return false;
 
@@ -46,7 +45,7 @@ public class RiceCooker : Station
 		base.ReturnItem(item);
 		cooking = true;
 		riceRenderer.enabled = true;
-		if (item.itemName == "rice") {
+		if (item.tags.Contains(Item.ItemTags.Combinable)) {
 			riceRenderer.color = Color.green;
 		}
 		else {

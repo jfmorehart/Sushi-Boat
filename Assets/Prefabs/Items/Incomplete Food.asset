@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Incomplete Food
   m_EditorClassIdentifier: 
   itemName: Incomplete Food
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4d60b142c93674da586666bac5169b4c, type: 3}
   tags: 02000000

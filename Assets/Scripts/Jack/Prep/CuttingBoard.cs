@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class CuttingBoard : Station
 {
-	public Item cutfish;
 
 	public override bool OnItemAdd(Item item)
 	{
 		Debug.Log(item + " " + item.itemName);
 		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {
-			Item newitem = cutfish;
-			newitem.itemName = item.itemName;
+			Item newitem = item.processed;
 			return base.OnItemAdd(newitem);
 		}
 		else {
