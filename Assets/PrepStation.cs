@@ -12,7 +12,7 @@ public class PrepStation : Station
     public Item incompleteFood;
     public override bool OnItemAdd(Item item)
     {
-        if(currentItems.Count <maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
+        if(currentItems.Count < maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
             currentItems.Add(item);
             return true;
         }
