@@ -10,12 +10,12 @@ public class CuttingBoard : Station
 	{
 		Debug.Log(item + " " + item.itemName);
 		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {
-			item.tags.Clear();
-			item.tags.Add(Item.ItemTags.Fish);
-			item.tags.Add(Item.ItemTags.Combinable);
-			return base.OnItemAdd(item);
+			Item newitem = cutfish;
+			newitem.itemName = item.itemName;
+			return base.OnItemAdd(newitem);
 		}
 		else {
+			Debug.Log("invalid item " + item.itemName);
 			return false;
 		}
 	}

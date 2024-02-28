@@ -9,4 +9,8 @@ public class FishData : Item
 
     public float swimSpeed;
     public float mouthDist;
+
+	public FishData(Item i) : base(i)
+	{
+	}
 }

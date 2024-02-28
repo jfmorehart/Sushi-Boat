@@ -10,7 +10,12 @@ public class PrepStation : Station
     public List<Item> currentItems;
     public int maxItemCount = 3;
     public Item incompleteFood;
-    public override bool OnItemAdd(Item item)
+
+	private void Awake()
+	{
+        currentItems = new List<Item>();
+	}
+	public override bool OnItemAdd(Item item)
     {
         if(currentItems.Count < maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
             currentItems.Add(item);
@@ -26,7 +31,7 @@ public class PrepStation : Station
         if(currentItems.Count==0) {
             return false;
         }
-        base.OnColliderClicked();
+        //base.OnColliderClicked();
         SpawnDraggableItem(GetCurrentPreppedItem());
         return true;
     }
@@ -58,7 +63,7 @@ public class PrepStation : Station
         drag.GetComponent<Draggable>().Initialize(this, item,currentItems);
         if (!isSpawner)
         {
-            currentItems = null;
+            currentItems.Clear();
             itemOnStation = null;
         }
     }

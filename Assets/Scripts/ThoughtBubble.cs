@@ -20,14 +20,17 @@ public class ThoughtBubble : Station
 
 	public override bool OnItemAdd(Item item)
 	{
-        if(order.recipe.recipeItem == item) {
+        if (order == null) {
+            return false;
+		}
+        else if(order.recipe.recipeItem == item) {
             Debug.Log("CONGRATS");
 			order.CompleteOrder();
 		}
         else {
-            Debug.Log("wrong order");
-            order.FailOrder();
+
 		}
+		OrderManager.Instance.UpdateOrderUI();
 		Destroy(gameObject);
 		return base.OnItemAdd(item);
 	}

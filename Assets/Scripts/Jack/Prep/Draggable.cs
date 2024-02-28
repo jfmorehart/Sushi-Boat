@@ -89,6 +89,16 @@ public class Draggable : Clickable
 		if (!beingDragged) return;
 		if(collision.TryGetComponent(out Station stat)) {
 			hoveringOver = stat;
+			//if(hoveringOver != null) {
+			//	Debug.Log(stat is ThoughtBubble);
+			//	if(!(stat is ThoughtBubble)){
+
+			//		return;
+			//	}
+			//}
+			//else {
+			//	hoveringOver = stat;
+			//}
 		}
 	}
 

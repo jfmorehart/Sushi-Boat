@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -29,7 +30,10 @@ public class RiceCooker : Station
 	}
 	public override bool OnItemAdd(Item item)
 	{
-		if (item.itemName != "uncooked rice") return false;
+
+		Debug.Log(item.tags[0]);
+		if (!(item.tags.Contains(Item.ItemTags.Rice) && item.tags.Contains(Item.ItemTags.Ingredient))) return false;
+
 		bool canAdd = base.OnItemAdd(item);
 		cooking = true;
 		riceRenderer.enabled = true;

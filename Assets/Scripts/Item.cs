@@ -23,7 +23,16 @@ public class Item : ScriptableObject, IComparable<Item>
         Rice,
         Fish,
     }
+
+    public Item(Item i) {
+        name = i.name;
+        itemName = i.itemName;
+        sprite = i.sprite;
+        tags = new List<ItemTags>();
+    }
     
+
+
     public void Collect()
     {
         
