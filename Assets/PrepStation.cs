@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PrepStation : Station
@@ -37,10 +38,16 @@ public class PrepStation : Station
     }
     public Item GetCurrentPreppedItem()
     {
+        if (currentItems.Count == 1)
+        {
+            return currentItems[0];
+        }
         for (int i = 0; i < validRecipes.Count; i++)
         {
+            Debug.Log(CheckRecipe(validRecipes[i]));
             if (CheckRecipe(validRecipes[i]))
             {
+                
                 return validRecipes[i].recipeItem;
             }
             
@@ -69,6 +76,10 @@ public class PrepStation : Station
     }
     public void ReturnItem(List<Item> list)
     {
-        currentItems = new List<Item>(list);
+        currentItems.Clear();
+        foreach (var item in list)
+        {
+            currentItems.Add(item);
+        }
     }
 }

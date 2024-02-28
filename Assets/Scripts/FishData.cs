@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class FishData : Item
+public class FishData : ScriptableObject
 {
+	public Item fishItem;
     public Sprite fishSprite;
 
     public float swimSpeed;
     public float mouthDist;
-
-	public FishData(Item i) : base(i)
-	{
-	}
+    
 }
