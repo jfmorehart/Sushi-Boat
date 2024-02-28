@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 376771298bfba5d41b4c90e58e795a34, type: 3}
-  m_Name: Salmon Roll
+  m_Name: rice + nori
   m_EditorClassIdentifier: 
-  itemName: Salmon Roll
+  itemName: rice + nori
   processed: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 65cb4e8b181f946de8c78d6c04619c54, type: 3}
-  tags: 02000000
+  sprite: {fileID: 21300000, guid: 2daa12ca4b1574f44a02d0b00bb4ff20, type: 3}
+  tags: 01000000

@@ -9,17 +9,32 @@ public class Station : Clickable
     public Item itemOnStation;
     public int maxItems = 1;
     public GameObject DraggablePrefab;
+    public SpriteRenderer onStation;
 
-
-    public virtual bool OnItemAdd(Item item)
+	public virtual void Start()
+	{
+		UpdateSprite();
+	}
+	public virtual bool OnItemAdd(Item item)
     {
         if(itemOnStation == null) {
 			itemOnStation = item;
+            UpdateSprite();
 			return true;
 		}
         else {
+            UpdateSprite();
             return false;
 	    }
+    }
+
+    public virtual void UpdateSprite() {
+        if (onStation == null) return;
+        if(itemOnStation == null) {
+            onStation.sprite = null;
+            return;
+	    }
+        onStation.sprite = itemOnStation.sprite;
     }
 
     public override bool OnColliderClicked()
@@ -39,9 +54,11 @@ public class Station : Clickable
 		{
 			itemOnStation = null;
 		}
+        UpdateSprite();
 	}
 
     public virtual void ReturnItem(Item item) {
         itemOnStation = item;
+        UpdateSprite();
     }
 }

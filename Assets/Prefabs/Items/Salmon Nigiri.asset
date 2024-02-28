@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Salmon Nigiri
   m_EditorClassIdentifier: 
   itemName: Salmon Nigiri
-  sprite: {fileID: 21300000, guid: 2d11b7ecc549ee9468b1da73ed2e9319, type: 3}
+  processed: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 69276cd2b264647c5884e0eee5b35f41, type: 3}
   tags: 02000000

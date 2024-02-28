@@ -11,7 +11,6 @@ public class Draggable : Clickable
 	public bool onStation;
 
 	Station prevStation;
-	Station hoveringOver;
 	SpriteRenderer ren;
 
 	private void Awake()
@@ -56,11 +55,11 @@ public class Draggable : Clickable
 	public void EndDrag() {
 		if (!beingDragged) return;
 
-		if (hoveringOver != null)
+		Station st = CheckForStation();
+		if (st != null)
 		{
-			if (hoveringOver.OnItemAdd(item)) {
-				prevStation = hoveringOver;
-				hoveringOver = null;
+			if (st.OnItemAdd(item)) {
+				prevStation = st;
 				Destroy(gameObject);
 			}
 			else {
@@ -72,6 +71,22 @@ public class Draggable : Clickable
 			ReturnToLastStation();
 		}
     }
+
+	Station CheckForStation() {
+		Vector3 mposQuery = Input.mousePosition; //mouse pos in pixel coords
+		mposQuery.z = 10; // distance from camera to geometry
+		Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mposQuery);
+
+		Collider2D hit = Physics2D.OverlapPoint(mouseWorldPosition);
+		if (hit != null)
+		{
+			if (hit.TryGetComponent(out Station c))
+			{
+				return c;	
+			}
+		}
+		return null;
+	}
 	void ReturnToLastStation() {
 		
 		if (prevStation.GetComponent<PrepStation>())
@@ -86,35 +101,35 @@ public class Draggable : Clickable
 		Destroy(gameObject);
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (!beingDragged) return;
-		if(collision.TryGetComponent(out Station stat)) {
-			hoveringOver = stat;
-			//if(hoveringOver != null) {
-			//	Debug.Log(stat is ThoughtBubble);
-			//	if(!(stat is ThoughtBubble)){
+	//private void OnTriggerEnter2D(Collider2D collision)
+	//{
+	//	if (!beingDragged) return;
+	//	if(collision.TryGetComponent(out Station stat)) {
+	//		hoveringOver = stat;
+	//		//if(hoveringOver != null) {
+	//		//	Debug.Log(stat is ThoughtBubble);
+	//		//	if(!(stat is ThoughtBubble)){
 
-			//		return;
-			//	}
-			//}
-			//else {
-			//	hoveringOver = stat;
-			//}
-		}
-	}
+	//		//		return;
+	//		//	}
+	//		//}
+	//		//else {
+	//		//	hoveringOver = stat;
+	//		//}
+	//	}
+	//}
 
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		if (!beingDragged) return;
-		if (collision.TryGetComponent(out Station stat))
-		{
-			hoveringOver = null;
-		}
-	}
-	public override bool OnColliderClicked()
-	{
-		StartDrag();
-		return base.OnColliderClicked();
-	}
+	//private void OnTriggerExit2D(Collider2D collision)
+	//{
+	//	if (!beingDragged) return;
+	//	if (collision.TryGetComponent(out Station stat))
+	//	{
+	//		hoveringOver = null;
+	//	}
+	//}
+	//public override bool OnColliderClicked()
+	//{
+	//	StartDrag();
+	//	return base.OnColliderClicked();
+	//}
 }

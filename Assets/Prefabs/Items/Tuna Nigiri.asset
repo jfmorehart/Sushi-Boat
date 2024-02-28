@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Tuna Nigiri
   m_EditorClassIdentifier: 
   itemName: Tuna Nigiri
-  sprite: {fileID: 21300000, guid: 79d8bd92bfa4380449a02001b8b74667, type: 3}
+  processed: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b09eb7ac3a2dc4ec590bb8df1f29ecfb, type: 3}
   tags: 02000000

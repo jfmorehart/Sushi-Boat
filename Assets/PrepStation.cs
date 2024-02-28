@@ -20,10 +20,11 @@ public class PrepStation : Station
     {
         if(currentItems.Count < maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
             currentItems.Add(item);
+            UpdateSprite();
             return true;
         }
         else {
-            return false;
+			return false;
         }
     }
 
@@ -34,8 +35,20 @@ public class PrepStation : Station
         }
         //base.OnColliderClicked();
         SpawnDraggableItem(GetCurrentPreppedItem());
-        return true;
+		UpdateSprite();
+		return true;
     }
+    public override void UpdateSprite() {
+	    if (onStation == null) return;
+
+        if (currentItems.Count < 1)
+		{
+			onStation.sprite = null;
+			return;
+        }
+
+        onStation.sprite = GetCurrentPreppedItem().sprite;
+	}
     public Item GetCurrentPreppedItem()
     {
         if (currentItems.Count == 1)
@@ -81,5 +94,6 @@ public class PrepStation : Station
         {
             currentItems.Add(item);
         }
+        UpdateSprite();
     }
 }

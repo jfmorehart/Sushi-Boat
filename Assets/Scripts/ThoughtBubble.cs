@@ -10,12 +10,15 @@ public class ThoughtBubble : Station
     private Recipe recipe;
     private OrderManager.Order order;
 
+    public Sprite wrongOrder;
+    public Sprite rightOrder;
+
     [SerializeField] private SpriteRenderer orderSR;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         recipe = OrderManager.Instance.recipes[Random.Range(0, OrderManager.Instance.recipes.Count)];
-        orderSR.sprite = recipe.recipeItem.sprite;
+		base.Start();
     }
 
 	public override bool OnItemAdd(Item item)
@@ -25,13 +28,17 @@ public class ThoughtBubble : Station
 		}
         else if(order.recipe.recipeItem == item) {
             Debug.Log("CONGRATS");
+			orderSR.sprite = rightOrder;
 			order.CompleteOrder();
 		}
         else {
-
+            Debug.Log("wrong order");
+			orderSR.sprite = wrongOrder;
+			order.FailOrder();
 		}
 		OrderManager.Instance.UpdateOrderUI();
-		Destroy(gameObject);
+        //Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
 		return base.OnItemAdd(item);
 	}
 
@@ -40,11 +47,12 @@ public class ThoughtBubble : Station
         bool ret = base.OnColliderClicked();
         if (!orderAdded)
         {
-            orderAdded = true;
+			orderSR.sprite = recipe.recipeItem.sprite;
+			orderAdded = true;
             order = new OrderManager.Order(recipe, GetComponentInParent<Rowboat>().timer);
             OrderManager.Instance.orders.Add(order);
             OrderManager.Instance.UpdateOrderUI();
-        }
+		}
         //else
         //{
         //    if (OrderManager.Instance.CheckOrder(order))
