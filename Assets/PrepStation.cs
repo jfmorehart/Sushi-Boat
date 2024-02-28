@@ -10,10 +10,9 @@ public class PrepStation : Station
     public List<Item> currentItems;
     public int maxItemCount = 3;
     public Item incompleteFood;
-    public List<Item> savedItems;
     public override bool OnItemAdd(Item item)
     {
-        if(currentItems.Count <maxItemCount) {
+        if(currentItems.Count <maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
             currentItems.Add(item);
             return true;
         }
@@ -56,13 +55,15 @@ public class PrepStation : Station
     public override void SpawnDraggableItem(Item item) {
         GameObject drag = Instantiate(DraggablePrefab);
         drag.GetComponent<Draggable>().StartDrag();
-        drag.GetComponent<Draggable>().Initialize(this, item);
+        drag.GetComponent<Draggable>().Initialize(this, item,currentItems);
         if (!isSpawner)
         {
+            currentItems = null;
             itemOnStation = null;
         }
     }
-    public void ReturnItem(List<Item> list) {
-        
+    public void ReturnItem(List<Item> list)
+    {
+        currentItems = list;
     }
 }

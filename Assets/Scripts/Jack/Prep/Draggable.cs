@@ -28,6 +28,17 @@ public class Draggable : Clickable
 			transform.position = Selection.instance.mouseWorldPosition;
 		}
 	}
+	public void Initialize(Station st, Item it,List<Item> components) {
+		prevStation = st;
+		item = it;
+		ren.sprite = it.sprite;
+		items = components;
+
+		if (beingDragged)
+		{
+			transform.position = Selection.instance.mouseWorldPosition;
+		}
+	}
 
 	private void Update()
 	{
