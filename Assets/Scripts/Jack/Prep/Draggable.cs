@@ -6,6 +6,7 @@ using static System.Collections.Specialized.BitVector32;
 public class Draggable : Clickable
 {
 	public Item item;
+	public List<Item> items;
 	public bool beingDragged;
 	public bool onStation;
 
@@ -60,7 +61,15 @@ public class Draggable : Clickable
 		}
     }
 	void ReturnToLastStation() {
-		prevStation.ReturnItem(item);
+		if (prevStation.GetComponent<PrepStation>())
+		{
+			prevStation.GetComponent<PrepStation>().ReturnItem(items);
+		}
+		else
+		{
+			prevStation.ReturnItem(item);
+		}
+
 		Destroy(gameObject);
 	}
 

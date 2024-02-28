@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 376771298bfba5d41b4c90e58e795a34, type: 3}
-  m_Name: whole fish
+  m_Name: Tuna Nigiri
   m_EditorClassIdentifier: 
-  itemName: whole fish
-  sprite: {fileID: 21300000, guid: b6dd7f4ff9dc342fdae0da5fc39081b6, type: 3}
-  tags: 0000000005000000
+  itemName: Tuna Nigiri
+  sprite: {fileID: 21300000, guid: 79d8bd92bfa4380449a02001b8b74667, type: 3}
+  tags: 02000000

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04b173f69f514ed44b45939182fb9c18, type: 3}
-  m_Name: Tuna Sushi
+  m_Name: Salmon Nigiri
   m_EditorClassIdentifier: 
-  recipeSprie: {fileID: 21300000, guid: 79d8bd92bfa4380449a02001b8b74667, type: 3}
-  recipeName: Tuna Sushi
+  recipeItem: {fileID: 11400000, guid: c80109607557cd541afd508cd888e4f1, type: 2}
   ingredients:
-  - {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
-  price: 8
+  - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
+  - {fileID: 11400000, guid: 0ea2e64f06942499499b918ef9a3626e, type: 2}
+  price: 5

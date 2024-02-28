@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04b173f69f514ed44b45939182fb9c18, type: 3}
-  m_Name: Salmon Tuna Roll
+  m_Name: Salmon Roll
   m_EditorClassIdentifier: 
-  recipeSprie: {fileID: 21300000, guid: cecdf8d1e15c1df4bbbeef9bb121944e, type: 3}
-  recipeName: Salmon Tuna Roll
+  recipeItem: {fileID: 11400000, guid: 0ef082dc48a384d4a90ebfa7b7ffd33c, type: 2}
   ingredients:
-  - {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
   - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
-  price: 20
+  - {fileID: 11400000, guid: b3ed0a7e7b49141a2bc555d751607f0d, type: 2}
+  - {fileID: 11400000, guid: 0ea2e64f06942499499b918ef9a3626e, type: 2}
+  price: 10

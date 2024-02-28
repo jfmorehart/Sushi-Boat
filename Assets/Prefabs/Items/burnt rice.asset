@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: burnt rice
   sprite: {fileID: 21300000, guid: d229303e79a314ec8b9acdfa32dbdba0, type: 3}
+  tags: 0200000004000000
