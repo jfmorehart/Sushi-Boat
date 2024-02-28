@@ -32,7 +32,7 @@ public class Draggable : Clickable
 		prevStation = st;
 		item = it;
 		ren.sprite = it.sprite;
-		items = components;
+		items = new List<Item>(components);
 
 		if (beingDragged)
 		{
@@ -68,10 +68,12 @@ public class Draggable : Clickable
 			}
 		}
 		else {
+			
 			ReturnToLastStation();
 		}
     }
 	void ReturnToLastStation() {
+		
 		if (prevStation.GetComponent<PrepStation>())
 		{
 			prevStation.GetComponent<PrepStation>().ReturnItem(items);
