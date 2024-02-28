@@ -64,6 +64,6 @@ public class PrepStation : Station
     }
     public void ReturnItem(List<Item> list)
     {
-        currentItems = list;
+        currentItems = new List<Item>(list);
     }
 }
