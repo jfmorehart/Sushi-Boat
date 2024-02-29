@@ -10,7 +10,7 @@ public class DayTimer : MonoBehaviour
     [SerializeField]
     float secondsPerDay;
 
-    float currentDay;
+    public static float secondsRemainingToday;
     bool live;
 
     public float dayStartAngle;
@@ -19,6 +19,7 @@ public class DayTimer : MonoBehaviour
 
     public float springDamp;
     public float accel;
+    
 
 	private void Awake()
 	{
@@ -30,32 +31,35 @@ public class DayTimer : MonoBehaviour
 	}
 	void StartDay() {
         live = true;
-        currentDay = secondsPerDay;
+        secondsRemainingToday = secondsPerDay;
     }
     void EndDay() {
         live = false;
-        Menu.Instance.EndDay();
-        StartCoroutine(nameof(NightBounce));
+		Debug.Log("calling nbounce");
+		StartCoroutine(nameof(NightBounce));
+		Menu.Instance.EndDay();
     }
     // Update is called once per frame
     void Update()
     {
         if (live) {
-            currentDay -= Time.deltaTime;
+            secondsRemainingToday -= Time.deltaTime;
             //timer.text = Mathf.Round(currentDay).ToString();
-            float z = Mathf.Lerp(dayEndAngle, dayStartAngle, (currentDay / secondsPerDay));
+            float z = Mathf.Lerp(dayEndAngle, dayStartAngle, (secondsRemainingToday / secondsPerDay));
             transform.eulerAngles = new Vector3(0, 0, z);
-            if(currentDay <= 0) {
+            if(secondsRemainingToday <= 0) {
                 EndDay();
 	        }
 	    }
     }
 
-
+    public void StartDayBounce(){
+	    StartCoroutine(nameof(DayBounce));
+	}
     IEnumerator NightBounce() {
         float v = 0;
-        float dur = 10;
-
+        float dur = 2;
+        Debug.Log("nbounce bby");
         while(dur > 0) {
             dur -= Time.unscaledDeltaTime;
             float z = transform.eulerAngles.z;
@@ -69,8 +73,35 @@ public class DayTimer : MonoBehaviour
 				v *= 1 - Time.unscaledDeltaTime * springDamp;
 			}
             transform.eulerAngles = new Vector3(0, 0, z + v);
-            yield return new WaitForEndOfFrame();
-	    }
+            yield return null;
+			Debug.Log(dur);
+		}
         yield break;
     }
+	IEnumerator DayBounce()
+	{
+		float v = 0;
+		float dur = 1f;
+		Debug.Log("dbounce bby");
+		while (dur > 0)
+		{
+			dur -= Time.unscaledDeltaTime;
+			float z = transform.eulerAngles.z;
+			float d = Vector2.SignedAngle(transform.right, Vector2.up);
+			v += Mathf.Sign(d) * Time.unscaledDeltaTime * accel;
+
+			if (Mathf.Abs(d) < 10)
+			{
+				v *= 1 - Time.unscaledDeltaTime * springDamp * springDamp;
+			}
+			else
+			{
+				v *= 1 - Time.unscaledDeltaTime * springDamp;
+			}
+			transform.eulerAngles = new Vector3(0, 0, z + v);
+			yield return null;
+			Debug.Log(dur);
+		}
+		yield break;
+	}
 }

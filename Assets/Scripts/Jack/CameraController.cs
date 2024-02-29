@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 	public Transform boatTarget;
+	public Transform skyTarget;
 	Transform target;
 	public Vector3 camoffset;
 
@@ -16,8 +17,17 @@ public class CameraController : MonoBehaviour
 		trackingHook = false;
 		target = boatTarget;
 		transform.position = target.transform.position - camoffset;
+		Menu.EndDayAction += EndDay;
+		Menu.StartDayAction += StartDay;
 	}
-
+    void StartDay(){
+		target = boatTarget;
+		
+	}
+	void EndDay(){
+		trackingHook = false;
+		target = skyTarget;
+	}
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space)) {

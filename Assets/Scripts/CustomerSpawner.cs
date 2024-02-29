@@ -13,6 +13,8 @@ public class CustomerSpawner : MonoBehaviour
 
     public GameObject customer;
 
+    public float minimumOrderTime;
+
     public int currentOrders = 0;
     private void Awake()
     {
@@ -31,6 +33,8 @@ public class CustomerSpawner : MonoBehaviour
             //temporary measure for keeping track of order count
             if (currentOrders < OrderManager.Instance.maxOrdersCount-1)
             {
+		        if(DayTimer.secondsRemainingToday < minimumOrderTime) return;
+                 
                 SpawnCustomer();
             }
         }
@@ -59,6 +63,8 @@ public class CustomerSpawner : MonoBehaviour
         }
         GameObject c = Instantiate(customer);
         c.transform.position = spawnPos;
-        c.GetComponent<Rowboat>().Init(orderCount*30f,direction,orderCount);
+	    float timer = orderCount * 30f;
+	    timer = Mathf.Min(timer, DayTimer.secondsRemainingToday - 1);
+        c.GetComponent<Rowboat>().Init(timer,direction,orderCount);
     }
 }

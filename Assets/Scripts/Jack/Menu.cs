@@ -29,14 +29,18 @@ public class Menu : MonoBehaviour
 		Debug.Log("menu start day");
 		UnPause();
 		StartDayAction.Invoke();
+		GameManager.Instance.gameState = GameManager.GameState.DayGoing;
 	}
 	public void EndDay() {
 		Debug.Log("menu end day");
-		Pause();
+		//Pause();
 		EndDayAction.Invoke();
+		Invoke(nameof(PreStart), 4f);
 		Invoke(nameof(StartDay), 5f);
     }
-
+    void PreStart(){
+		GetComponent<DayTimer>().StartDayBounce();
+	}
 	public void Pause() {
 		gamePaused = true;
 		Time.timeScale = 0;
