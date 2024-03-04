@@ -32,7 +32,7 @@ public class Fish : MonoBehaviour
         state = FishState.Swimming;
         sr = GetComponent<SpriteRenderer>();
 		sr.enabled = false;
-		Menu.EndDayAction += Despawn;
+		//Menu.EndDayAction += Despawn;
 	}
 	// Update is called once per frame
 	void Update()
@@ -50,7 +50,8 @@ public class Fish : MonoBehaviour
     }
 	public void Despawn() {
 		Menu.EndDayAction -= Despawn;
-		if(gameObject != null) {
+		if (gameObject != null)
+		{
 			Destroy(gameObject);
 		}
 	}

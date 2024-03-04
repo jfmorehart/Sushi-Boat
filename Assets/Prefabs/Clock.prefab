@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2408841453991361467}
   - component: {fileID: 8148926652529028166}
   - component: {fileID: 6265362943972707616}
-  - component: {fileID: 4602341904795140277}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -100,26 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44ad23c411f646238d7b4516f63ade0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
   secondsPerDay: 10
   dayStartAngle: 103
   dayEndAngle: -103
   nightAngle: -180
   springDamp: 2
   accel: 1
---- !u!114 &4602341904795140277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3160820019129863389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472e7f1aa86044154b71696aaa00b21c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamePaused: 0
 --- !u!1 &5508220902027457596
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DayTimer : MonoBehaviour
 {
-    public TMP_Text timer; // temp
+    public static DayTimer ins;
 
     [SerializeField]
     float secondsPerDay;
@@ -23,6 +23,10 @@ public class DayTimer : MonoBehaviour
 
 	private void Awake()
 	{
+        if(ins != this && ins != null) {
+            Destroy(gameObject);
+	    }
+        ins = this;
         Menu.StartDayAction += StartDay;
 	}
 	private void Start()
@@ -35,7 +39,6 @@ public class DayTimer : MonoBehaviour
     }
     void EndDay() {
         live = false;
-		Debug.Log("calling nbounce");
 		StartCoroutine(nameof(NightBounce));
 		Menu.Instance.EndDay();
     }
@@ -44,7 +47,6 @@ public class DayTimer : MonoBehaviour
     {
         if (live) {
             secondsRemainingToday -= Time.deltaTime;
-            //timer.text = Mathf.Round(currentDay).ToString();
             float z = Mathf.Lerp(dayEndAngle, dayStartAngle, (secondsRemainingToday / secondsPerDay));
             transform.eulerAngles = new Vector3(0, 0, z);
             if(secondsRemainingToday <= 0) {
@@ -59,7 +61,6 @@ public class DayTimer : MonoBehaviour
     IEnumerator NightBounce() {
         float v = 0;
         float dur = 2;
-        Debug.Log("nbounce bby");
         while(dur > 0) {
             dur -= Time.unscaledDeltaTime;
             float z = transform.eulerAngles.z;
@@ -74,7 +75,6 @@ public class DayTimer : MonoBehaviour
 			}
             transform.eulerAngles = new Vector3(0, 0, z + v);
             yield return null;
-			Debug.Log(dur);
 		}
         yield break;
     }
@@ -82,7 +82,6 @@ public class DayTimer : MonoBehaviour
 	{
 		float v = 0;
 		float dur = 1f;
-		Debug.Log("dbounce bby");
 		while (dur > 0)
 		{
 			dur -= Time.unscaledDeltaTime;
@@ -100,7 +99,6 @@ public class DayTimer : MonoBehaviour
 			}
 			transform.eulerAngles = new Vector3(0, 0, z + v);
 			yield return null;
-			Debug.Log(dur);
 		}
 		yield break;
 	}

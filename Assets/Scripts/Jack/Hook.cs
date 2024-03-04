@@ -15,16 +15,22 @@ public class Hook : MonoBehaviour
 
     public bool fishOn;
     public Fish onHook;
-
+	float floor;
+	public float distFromFloor;
 
 	private void Awake()
 	{
         ins = this;
         Menu.StartDayAction += ResetPos;
 		unhookHeight = transform.position.y;
+		var f = GameObject.FindGameObjectWithTag("Finish");
+		if (f != null)
+		{
+			floor = f.transform.position.y + distFromFloor;
+		}
 	}
     void ResetPos() {
-        transform.position = new Vector3(0, -1, 0);
+        transform.position = new Vector3(transform.position.x, -1, 0);
     }
 
 	// Update is called once per frame
@@ -60,7 +66,14 @@ public class Hook : MonoBehaviour
 				    onHook.Despawn();
 			    }
 		    }
-	    }
+			//Don't go past floor
+			if (transform.position.y < floor + distFromFloor)
+			{
+				velocity = 0;
+				Vector3 pos = transform.position;
+				transform.position = new Vector3(pos.x, floor + distFromFloor, pos.z);
+			}
+		}
 
     }
 }

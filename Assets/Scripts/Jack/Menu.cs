@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
 	public static Menu Instance { get; private set; }
 
 	public bool gamePaused;
+	bool queuedRestart;
 	public static Action StartDayAction;
 	public static Action EndDayAction;
-
+	
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -21,7 +23,8 @@ public class Menu : MonoBehaviour
 		Instance = this;
 		Debug.Log(Progress.CheckValidSave(0));
 		Progress.Load();
-
+		StartDayAction = null;
+		EndDayAction = null;
 	}
 
 	public void StartDay()
@@ -32,14 +35,16 @@ public class Menu : MonoBehaviour
 		GameManager.Instance.gameState = GameManager.GameState.DayGoing;
 	}
 	public void EndDay() {
+		queuedRestart = false;
 		Debug.Log("menu end day");
 		//Pause();
 		EndDayAction.Invoke();
-		Invoke(nameof(PreStart), 4f);
-		Invoke(nameof(StartDay), 5f);
     }
-    void PreStart(){
-		GetComponent<DayTimer>().StartDayBounce();
+    public void PreStart(){
+		if (queuedRestart) return;
+		queuedRestart = true;
+		Invoke(nameof(StartDay), 1f);
+		DayTimer.ins.StartDayBounce();
 	}
 	public void Pause() {
 		gamePaused = true;
@@ -54,5 +59,10 @@ public class Menu : MonoBehaviour
 	private void OnApplicationQuit()
 	{
 		Progress.Save();
+	}
+
+	public void SwitchToMap()
+	{
+		SceneManager.LoadScene(1);
 	}
 }

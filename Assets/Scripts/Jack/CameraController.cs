@@ -9,7 +9,8 @@ public class CameraController : MonoBehaviour
 	Transform target;
 	public Vector3 camoffset;
 
-	public float accel, velo, damp, followDist, sizeMult;
+	public float accel, velo, damp, followDist, sizeMult, distFromFloor;
+	public float floor;
 
 	public bool trackingHook;
 
@@ -19,6 +20,10 @@ public class CameraController : MonoBehaviour
 		transform.position = target.transform.position - camoffset;
 		Menu.EndDayAction += EndDay;
 		Menu.StartDayAction += StartDay;
+		var f = GameObject.FindGameObjectWithTag("Finish");
+		if(f != null) {
+			floor = f.transform.position.y + distFromFloor;
+		}
 	}
     void StartDay(){
 		target = boatTarget;
@@ -30,7 +35,8 @@ public class CameraController : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space)) {
+
+		if (Input.GetKeyDown(KeyCode.Space) && DayTimer.secondsRemainingToday > 0.5f) {
 			if (trackingHook) {
 				trackingHook = false;
 				target = boatTarget;
@@ -60,10 +66,15 @@ public class CameraController : MonoBehaviour
 		else {
 			velo *= 1 - Time.deltaTime * damp * 2;
 		}
-		pos.y += velo * Time.deltaTime;
 		if (pos.y > 0 && trackingHook) {
 			velo -= accel * Time.deltaTime;
 		}
+		if (pos.y < floor)
+		{
+			pos.y = floor;
+			velo = 0;
+		}
+		pos.y += velo * Time.deltaTime;
 		transform.position = pos + camoffset;
 		//float sz = Camera.main.orthographicSize;
 		//float sz2 = Mathf.Max(5, 4 + Mathf.Pow(Mathf.Abs(Hook.ins.velocity), 1.2f) * sizeMult);

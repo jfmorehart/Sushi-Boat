@@ -40,6 +40,11 @@ public class FishSpawner : MonoBehaviour
 			ins = this;
 		}
 		AssignFishBounds();
+
+		GameObject floor = GameObject.FindGameObjectWithTag("Finish");
+		if(floor != null) {
+			lowerBound = floor.transform.position.y + 1;
+		}
 	}
 
 	private void Update()
