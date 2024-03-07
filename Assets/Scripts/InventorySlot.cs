@@ -11,16 +11,21 @@ public class InventorySlot : Station, IPointerDownHandler
 
 	public override bool OnItemAdd(Item newItem)
 	{
-		item = newItem;
-		return base.OnItemAdd(item);
+		bool ret = base.OnItemAdd(newItem);
+		if (ret) {
+			item = newItem;
+		}
+		return ret;
 	}
 
 	public override void ReturnItem(Item newitem)
 	{
 		Debug.Log("returning " + newitem.itemName);
-		item = newitem;
-		transform.GetChild(0).GetComponent<Image>().sprite = newitem.sprite;
-		base.ReturnItem(newitem);
+		InventoryManager.Instance.AddItem(newitem);
+		InventoryManager.Instance.UpdateInventoryUI();
+		//item = newitem;
+		//transform.GetChild(0).GetComponent<Image>().sprite = newitem.sprite;
+		//base.ReturnItem(newitem);
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
@@ -29,6 +34,7 @@ public class InventorySlot : Station, IPointerDownHandler
         {
             if (OnColliderClicked()) {
 				InventoryManager.Instance.RemoveItem(item);
+				item = null;
 				InventoryManager.Instance.UpdateInventoryUI();
 			}
         }

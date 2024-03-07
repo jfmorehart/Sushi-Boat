@@ -45,7 +45,7 @@ public class OrderManager : MonoBehaviour
 
         public void CompleteOrder()
         {
-            OrderManager.Instance.money += price;
+            GameManager.Instance.money += price;
             OrderManager.Instance.orders.Remove(this);
             //temporary measure for keeping track of order count for customer spawning
             CustomerSpawner.Instance.currentOrders --;
@@ -58,7 +58,6 @@ public class OrderManager : MonoBehaviour
     public int maxOrdersCount;
     public GameObject ordersUI;
 
-    public int money = 0;
     public TMP_Text moneyUI;
     
     // Start is called before the first frame update
@@ -78,7 +77,7 @@ public class OrderManager : MonoBehaviour
         {
             UpdateOrderTimer();
         }
-        moneyUI.text = "$" + money;
+        moneyUI.text = "$" + GameManager.Instance.money;
     }
 
     public void UpdateOrderUI()

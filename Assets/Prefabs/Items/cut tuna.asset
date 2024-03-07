@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: cut tuna
   processed: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 4b9c6201f0c564813963e8ae4d580aec, type: 3}
+  sprite: {fileID: 21300000, guid: f7c7d4523edc94b5da66a5040662b444, type: 3}
   tags: 0100000005000000

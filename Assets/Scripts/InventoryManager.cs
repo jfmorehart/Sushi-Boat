@@ -35,9 +35,13 @@ public class InventoryManager : MonoBehaviour
 
     public void UpdateInventoryUI()
     {
+        
         for (int i = 0; i < inventory.transform.childCount; i++)
         {
-            if (i < items.Count)
+            inventory.transform.GetChild(i).GetComponent<InventorySlot>().itemOnStation = null;
+			inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = null;
+
+			if (i < items.Count)
             {
                 //inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = items[i];
                 inventory.transform.GetChild(i).GetComponent<InventorySlot>().OnItemAdd(items[i]);

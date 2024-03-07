@@ -2501,7 +2501,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8da8872aef1b74ee3a0dec8e07892347, type: 2}
   maxOrdersCount: 4
   ordersUI: {fileID: 571827509}
-  money: 0
   moneyUI: {fileID: 1498125708}
 --- !u!4 &1115401027
 Transform:

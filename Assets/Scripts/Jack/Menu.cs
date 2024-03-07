@@ -37,6 +37,7 @@ public class Menu : MonoBehaviour
 	public void EndDay() {
 		queuedRestart = false;
 		Debug.Log("menu end day");
+		Progress.Save();
 		//Pause();
 		EndDayAction.Invoke();
     }
@@ -63,6 +64,7 @@ public class Menu : MonoBehaviour
 
 	public void SwitchToMap()
 	{
-		SceneManager.LoadScene(1);
+		Progress.Save();
+		SceneManager.LoadScene(0);
 	}
 }

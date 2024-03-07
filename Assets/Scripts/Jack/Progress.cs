@@ -6,9 +6,12 @@ public static class Progress
 {
 	public static int money = 0; //regular int
 	public static int upgrades = 0; // stores boolean values, ask jack if confused
+	public static int maxUnlockedLevel = 1;
 	public static int activeSaveSlot;
 
 	public static void Save() {
+		
+		Debug.Log("Saving..." + SaveString());
 		PlayerPrefs.SetString(activeSaveSlot.ToString(), SaveString());
 	}
 	public static void Load() {
@@ -18,7 +21,7 @@ public static class Progress
 			return;
 		}
 		string[] strs = save.Split(",");
-		if (strs.Length != 2)
+		if (strs.Length != 3)
 		{
 			Debug.LogError("Incorrect save format!");
 			NewLoad();
@@ -26,15 +29,17 @@ public static class Progress
 		}
 		money = int.Parse(strs[0]);
 		upgrades = int.Parse(strs[1]);
+		maxUnlockedLevel = Mathf.Max(1, int.Parse(strs[2]));
 
 		Debug.Log("Loading monayyy: " + strs[0]);
 		Debug.Log("Loading upgrades: " + strs[1]);
-
+		Debug.Log("Loading level: " + strs[2]);
 	}
 	public static void NewLoad() {
 		Debug.Log("No Save in Selected Slot! Overrwiting.");
 		money = 0;
 		upgrades = 0;
+		maxUnlockedLevel = 1;
 		Save();
 	}
 	public static bool CheckValidSave(int saveToCheck)
@@ -42,7 +47,7 @@ public static class Progress
 		string save = PlayerPrefs.GetString(saveToCheck.ToString());
 		if (save == null) return false;
 		string[] strs = save.Split(",");
-		if (strs.Length == 2)
+		if (strs.Length == 3)
 		{
 			return true;
 		}
@@ -96,7 +101,8 @@ public static class Progress
 	}
 
 	static string SaveString() {
-		return money.ToString() + "," + upgrades.ToString();
+
+		return GameManager.Instance.money.ToString() + "," + upgrades.ToString() + "," + maxUnlockedLevel.ToString();
     }
 
 }

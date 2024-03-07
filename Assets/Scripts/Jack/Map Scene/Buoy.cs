@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
 	public int levelToLoad;
+	public bool unlocked;
 
 	Vector3 regScale;
 	Vector3 bigScale;
@@ -15,6 +16,9 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 	{
 		regScale = transform.localScale;
 		bigScale = regScale * 2;
+		if(Progress.maxUnlockedLevel >= levelToLoad) {
+			unlocked = true;
+		}
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
@@ -31,7 +35,9 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		PlayerPrefs.SetInt("level", levelToLoad);
-		SceneManager.LoadScene(0);
+		if (unlocked) {
+			PlayerPrefs.SetInt("level", levelToLoad);
+			SceneManager.LoadScene(levelToLoad);
+		}
 	}
 }
