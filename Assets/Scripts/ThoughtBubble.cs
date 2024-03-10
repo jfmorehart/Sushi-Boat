@@ -13,13 +13,15 @@ public class ThoughtBubble : Station
     public Sprite wrongOrder;
     public Sprite rightOrder;
 
+    SpriteRenderer tsr;
     [SerializeField] private SpriteRenderer orderSR;
     // Start is called before the first frame update
     public override void Start()
     {
+        tsr = GetComponent<SpriteRenderer>();
         recipe = OrderManager.Instance.recipes[Random.Range(0, OrderManager.Instance.recipes.Count)];
 		base.Start();
-    }
+	}
 
 	public override bool OnItemAdd(Item item)
 	{
@@ -37,8 +39,10 @@ public class ThoughtBubble : Station
 			order.FailOrder();
 		}
 		OrderManager.Instance.UpdateOrderUI();
-        //Destroy(gameObject);
-        GetComponent<Collider2D>().enabled = false;
+		orderSR.sortingOrder = -21;
+        tsr.sortingOrder = -22;
+		//Destroy(gameObject);
+		GetComponent<Collider2D>().enabled = false;
 		return base.OnItemAdd(item);
 	}
 
