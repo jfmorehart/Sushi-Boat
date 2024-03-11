@@ -16,24 +16,26 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         Instance = this;
+        //UpdateInventoryUI();
     }
-
-    public List<Item> items;
+    
 
     public GameObject inventory;
     
     public void AddItem(Item item)
     {
-        items.Add(item);
-        UpdateInventoryUI();
-    }
-    public void RemoveItem(Item item)
-    {
-        items.Remove(item);
-        UpdateInventoryUI();
+        for (int i = 0; i < inventory.transform.childCount; i++)
+        {
+            if (inventory.transform.GetChild(i).GetComponent<Station>().itemOnStation== null)
+            {
+                inventory.transform.GetChild(i).GetComponent<Station>().OnItemAdd(item);
+                break;
+            }
+        }
+        //UpdateInventoryUI();
     }
 
-    public void UpdateInventoryUI()
+    /*public void UpdateInventoryUI()
     {
         
         for (int i = 0; i < inventory.transform.childCount; i++)
@@ -45,14 +47,14 @@ public class InventoryManager : MonoBehaviour
             {
                 //inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = items[i];
                 inventory.transform.GetChild(i).GetComponent<InventorySlot>().OnItemAdd(items[i]);
-				inventory.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = items[i].sprite;
+				inventory.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = items[i].sprite;
             }
             else
             {
                 inventory.transform.GetChild(i).GetComponent<InventorySlot>().item = null;
-                inventory.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = null;
+                inventory.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
             }
         }
-    }
+    }*/
     
 }

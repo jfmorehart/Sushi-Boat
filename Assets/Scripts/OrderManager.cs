@@ -131,7 +131,8 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    public bool CheckOrder(Order order)
+    //deprecated
+    /*public bool CheckOrder(Order order)
     {
         List<Item> inventoryCopy = new List<Item>(InventoryManager.Instance.items);
         for (int i = 0; i < order.recipe.ingredients.Count; i++)
@@ -155,7 +156,7 @@ public class OrderManager : MonoBehaviour
         order.CompleteOrder();
         UpdateOrderUI();
         return true;
-    }
+    }*/
     
 
 }
