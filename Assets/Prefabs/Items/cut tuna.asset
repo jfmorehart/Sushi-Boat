@@ -16,3 +16,4 @@ MonoBehaviour:
   processed: {fileID: 0}
   sprite: {fileID: 21300000, guid: f7c7d4523edc94b5da66a5040662b444, type: 3}
   tags: 0100000005000000
+  pickUpSound: {fileID: 8300000, guid: 9bd2b9bb28133ca4181cd918ad8993bd, type: 3}

@@ -15,6 +15,10 @@ public class ThoughtBubble : Station
 
     SpriteRenderer tsr;
     [SerializeField] private SpriteRenderer orderSR;
+
+    public AudioClip successSoundEffect;
+
+    public AudioClip failureSoundEffect;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -32,11 +36,13 @@ public class ThoughtBubble : Station
             Debug.Log("CONGRATS");
 			orderSR.sprite = rightOrder;
 			order.CompleteOrder();
+			SoundManager.Instance.PlaySoundEffect(successSoundEffect);
 		}
         else {
             Debug.Log("wrong order");
 			orderSR.sprite = wrongOrder;
 			order.FailOrder();
+			SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
 		}
 		OrderManager.Instance.UpdateOrderUI();
 		orderSR.sortingOrder = -21;
