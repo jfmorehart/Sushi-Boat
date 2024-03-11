@@ -22,7 +22,7 @@ public class InventorySlot : Station, IPointerDownHandler
 	{
 		Debug.Log("returning " + newitem.itemName);
 		InventoryManager.Instance.AddItem(newitem);
-		InventoryManager.Instance.UpdateInventoryUI();
+		//InventoryManager.Instance.UpdateInventoryUI();
 		//item = newitem;
 		//transform.GetChild(0).GetComponent<Image>().sprite = newitem.sprite;
 		//base.ReturnItem(newitem);
@@ -33,9 +33,9 @@ public class InventorySlot : Station, IPointerDownHandler
         if (item != null)
         {
             if (OnColliderClicked()) {
-				InventoryManager.Instance.RemoveItem(item);
+				//InventoryManager.Instance.RemoveItem(item);
 				item = null;
-				InventoryManager.Instance.UpdateInventoryUI();
+				//InventoryManager.Instance.UpdateInventoryUI();
 			}
         }
     }
