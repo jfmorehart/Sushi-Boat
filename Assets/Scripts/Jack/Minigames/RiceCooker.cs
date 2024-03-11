@@ -22,11 +22,15 @@ public class RiceCooker : Station
 	public Vector2 _initPos;
 	public float maxScale;
 
+	private AudioSource audioSource;
+	public AudioClip doneCooking;
+	public AudioClip overCooked;
 	private void Awake()
 	{
 		_initPos = progressBar.transform.localPosition;
 		riceRenderer = progressBar.gameObject.GetComponent<SpriteRenderer>();
 		riceRenderer.enabled = false;
+		audioSource = GetComponent<AudioSource>();
 	}
 	public override bool OnItemAdd(Item item)
 	{
@@ -38,6 +42,7 @@ public class RiceCooker : Station
 		riceRenderer.enabled = true;
 		riceRenderer.color = Color.yellow;
 		riceTimer = 0;
+		audioSource.Play();
 		return canAdd;
 	}
 	public override void ReturnItem(Item item)
@@ -57,6 +62,7 @@ public class RiceCooker : Station
 	{
 		DrawProgressBar();
 		if (!cooking) {
+			audioSource.Stop();
 			return;
 		}
 		riceTimer += Time.deltaTime;
@@ -72,6 +78,7 @@ public class RiceCooker : Station
 			{
 				stage = CookingStage.ready;
 				itemOnStation = goodRice;
+				audioSource.PlayOneShot(doneCooking);
 				riceRenderer.color = Color.green;
 			}
 		}
@@ -81,6 +88,8 @@ public class RiceCooker : Station
 				stage = CookingStage.burnt;
 				itemOnStation = burntRice;
 				riceRenderer.color = Color.red;
+				audioSource.Stop();
+				audioSource.PlayOneShot(overCooked);
 			}
 		}
 	}

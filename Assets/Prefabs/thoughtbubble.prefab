@@ -227,3 +227,5 @@ MonoBehaviour:
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
   orderSR: {fileID: 6523112476922909092}
+  successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}

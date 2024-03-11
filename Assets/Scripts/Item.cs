@@ -12,6 +12,8 @@ public class Item : ScriptableObject, IComparable<Item>
     public Sprite sprite;
 
     public List<ItemTags> tags;
+
+    public AudioClip pickUpSound;
     
     public enum ItemTags
     {

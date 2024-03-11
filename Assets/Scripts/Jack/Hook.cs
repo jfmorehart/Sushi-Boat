@@ -18,11 +18,14 @@ public class Hook : MonoBehaviour
 	float floor;
 	public float distFromFloor;
 
+	private AudioSource audioSource;
+
 	private void Awake()
 	{
         ins = this;
         Menu.StartDayAction += ResetPos;
 		unhookHeight = transform.position.y;
+		audioSource = GetComponent<AudioSource>();
 		var f = GameObject.FindGameObjectWithTag("Finish");
 		if (f != null)
 		{
@@ -49,7 +52,16 @@ public class Hook : MonoBehaviour
 
 		    //keyboard controls
 		    float dir = Input.GetKey(up)? 1 : 0  + (Input.GetKey(down)? -1 : 0);
+		    //sound effect
+		    if (dir == 0)
+		    {
+			    audioSource.Stop();
+		    }
 
+		    if (Input.GetKeyDown(up) || Input.GetKeyDown(down))
+		    {
+			    audioSource.Play();
+		    }
 		    //Moving the hook
 		    velocity += (dir * reelAccel * Time.deltaTime);
 		    velocity *= 1 - Time.deltaTime * drag;

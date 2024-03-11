@@ -10,7 +10,7 @@ public class Station : Clickable
     public int maxItems = 1;
     public GameObject DraggablePrefab;
     public SpriteRenderer onStation;
-
+    
 	public virtual void Start()
 	{
 		UpdateSprite();
@@ -55,6 +55,16 @@ public class Station : Clickable
 		{
 			itemOnStation = null;
 		}
+
+		if (item.pickUpSound != null)
+		{
+			SoundManager.Instance.PlaySoundEffect(item.pickUpSound);
+		}
+		else
+		{
+			SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.defaultPickupSound);
+		}
+
         UpdateSprite();
 	}
 
