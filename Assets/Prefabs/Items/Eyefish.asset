@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
+  m_Script: {fileID: 11500000, guid: 376771298bfba5d41b4c90e58e795a34, type: 3}
   m_Name: Eyefish
   m_EditorClassIdentifier: 
-  fishItem: {fileID: 11400000, guid: 4ff75cfccd9364b5eb950cd7b882c11f, type: 2}
-  fishSprite: {fileID: 21300000, guid: df07cd1f95ed94d2f8e19511f817f8ae, type: 3}
-  swimSpeed: 5
-  mouthDist: 0
+  itemName: eye fish
+  processed: {fileID: 11400000, guid: 57b7309aef3094019916a2e7cf0dc78e, type: 2}
+  sprite: {fileID: 21300000, guid: e3bb2dac7d04a4fce9357cd0eff95dd0, type: 3}
+  tags: 0000000005000000

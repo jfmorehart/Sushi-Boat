@@ -347,7 +347,7 @@ PrefabInstance:
     - target: {fileID: 3556832424530388265, guid: 4dbdffba429294823b96af9de5d95f9e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4d82190c0688d4c0d9ff00ea96a1e400, type: 3}
+      objectReference: {fileID: 21300000, guid: 42fbdc3b9a96145d0ac36ce26bcb99c1, type: 3}
     - target: {fileID: 4588149302957898358, guid: 4dbdffba429294823b96af9de5d95f9e, type: 3}
       propertyPath: m_Name
       value: cupboard
@@ -4290,7 +4290,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: a25c6d3b2b7fe4cf9a8607e232e1cfba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
