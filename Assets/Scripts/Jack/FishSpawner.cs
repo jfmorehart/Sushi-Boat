@@ -75,6 +75,7 @@ public class FishSpawner : MonoBehaviour
     }
 	void SpawnObstacle()
 	{
+		if (obstacleprefabs.Count < 1) return;
 		bool facingRight = (Random.Range(0, 1000) % 2 == 0);
 		Vector2 pos = new Vector2(facingRight ? leftBound : rightBound, Random.Range(lowerBound, upperBound));
 		int r = ObstaclePseudoRandomizer();

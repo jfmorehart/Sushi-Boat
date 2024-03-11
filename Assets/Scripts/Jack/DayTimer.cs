@@ -11,7 +11,7 @@ public class DayTimer : MonoBehaviour
     float secondsPerDay;
 
     public static float secondsRemainingToday;
-    bool live;
+    [SerializeField] bool live;
 
     public float dayStartAngle;
     public float dayEndAngle;
@@ -76,6 +76,7 @@ public class DayTimer : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, z + v);
             yield return null;
 		}
+
         yield break;
     }
 	IEnumerator DayBounce()
@@ -100,6 +101,7 @@ public class DayTimer : MonoBehaviour
 			transform.eulerAngles = new Vector3(0, 0, z + v);
 			yield return null;
 		}
+		StartDay();
 		yield break;
 	}
 }

@@ -16,6 +16,8 @@ public class CustomerSpawner : MonoBehaviour
     public float minimumOrderTime;
 
     public int currentOrders = 0;
+    bool lastSpawn;
+
     private void Awake()
     {
         if(Instance != null) {
@@ -43,7 +45,8 @@ public class CustomerSpawner : MonoBehaviour
 
     public void SpawnCustomer()
     {
-        int direction = Random.Range(0, 2);
+        int direction = lastSpawn ? 0 : 1;
+        lastSpawn = direction == 1;
         int orderCount = Random.Range(0, 3);
         currentOrders += orderCount;
         StartCoroutine(DelaySpawn(direction, orderCount));

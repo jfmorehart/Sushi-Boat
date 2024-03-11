@@ -24,7 +24,6 @@ public class Station : Clickable
 		}
         else {
             UpdateSprite();
-            Debug.Log("nyope");
             return false;
 	    }
     }

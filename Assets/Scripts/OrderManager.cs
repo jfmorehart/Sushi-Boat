@@ -11,7 +11,10 @@ using Random = UnityEngine.Random;
 public class OrderManager : MonoBehaviour
 {
     public static OrderManager Instance { get; private set; }
-    private void Awake()
+	public int completed;
+	public int failed;
+
+	private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -41,6 +44,7 @@ public class OrderManager : MonoBehaviour
             OrderManager.Instance.orders.Remove(this);
             //temporary measure for keeping track of order count for customer spawning
             CustomerSpawner.Instance.currentOrders --;
+            OrderManager.Instance.failed++;
         }
 
         public void CompleteOrder()
@@ -49,7 +53,8 @@ public class OrderManager : MonoBehaviour
             OrderManager.Instance.orders.Remove(this);
             //temporary measure for keeping track of order count for customer spawning
             CustomerSpawner.Instance.currentOrders --;
-        }
+			OrderManager.Instance.completed++;
+		}
         
     }
 

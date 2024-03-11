@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MapScene.unity
     guid: 052d5dd2beb724c2f888fc3dd0623fff
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/1_Tuna.unity
+    guid: 223ace63076b343e38e674acd142721c
+  - enabled: 1
+    path: Assets/Scenes/2_TS.unity
+    guid: 958a79aac4c624110939fa012af1e00d
+  - enabled: 1
+    path: Assets/Scenes/3_TSM.unity
+    guid: cffa543f5cb7648d6b8a65d52825c778
   m_configObjects: {}

@@ -47,12 +47,15 @@ MonoBehaviour:
   fishDatas:
   - {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
   - {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
+  - {fileID: 11400000, guid: 8fde0e472548c41adabc2c306f82bfb8, type: 2}
+  - {fileID: 11400000, guid: 397abada531264195b442ea0fd419b76, type: 2}
+  - {fileID: 11400000, guid: 5346c235ecf1646fd9b5453e8c029daf, type: 2}
   obstacleprefabs:
   - {fileID: 4519570081783965046, guid: 9a1dd5e2c2d644c42ab3144ad9cc89b4, type: 3}
-  fishSpawnRate: 4
-  obstacleSpawnRate: 2
+  fishSpawnRate: 2
+  obstacleSpawnRate: 0.3
   leftBound: 0
   rightBound: 0
-  upperBound: -8
+  upperBound: -4
   lowerBound: -60
   fishPrefab: {fileID: 8360919771665600274, guid: bc09e64d03a814ab3b885f41e4a958a7, type: 3}

@@ -12,12 +12,18 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 	Vector3 regScale;
 	Vector3 bigScale;
 
+	SpriteRenderer ren;
+
 	private void Awake()
 	{
+		ren = GetComponent<SpriteRenderer>();
 		regScale = transform.localScale;
 		bigScale = regScale * 2;
 		if(Progress.maxUnlockedLevel >= levelToLoad) {
 			unlocked = true;
+		}
+		else {
+			ren.color = Color.gray;
 		}
 	}
 

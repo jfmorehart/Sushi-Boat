@@ -157,6 +157,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3306ef410823845879e0b4ec5a414918, type: 2}
   - {fileID: 11400000, guid: 4ef795fc17cc8441188b696efd0ab11d, type: 2}
   - {fileID: 11400000, guid: 82576e0f0e1f14c12a531df54730088f, type: 2}
+  - {fileID: 11400000, guid: cc838810135f64bed8cc1d98718b0306, type: 2}
+  - {fileID: 11400000, guid: e9c8612b90fe249a3988cf1fdfe3ab30, type: 2}
+  - {fileID: 11400000, guid: f546fb3bb9767433ab3834884a7ed3bc, type: 2}
+  - {fileID: 11400000, guid: 63765c950b9b248de9ec6ce92123fabd, type: 2}
+  - {fileID: 11400000, guid: 4907bd97c03ff41c8b2f3df0036a214b, type: 2}
+  - {fileID: 11400000, guid: 5fd9b805a087d47a7b6ebf57b1578d1a, type: 2}
+  - {fileID: 11400000, guid: 1d52b060ac9ca4f3f8022557d945051b, type: 2}
+  - {fileID: 11400000, guid: ce4213717c88f48c98bb4b14c1e8d9b0, type: 2}
+  - {fileID: 11400000, guid: 99276aa42945a46c1812cc1c94c5fac8, type: 2}
+  - {fileID: 11400000, guid: df257e8fb6d7f46d1962b0f1c24d289e, type: 2}
   currentItems: []
   maxItemCount: 3
   incompleteFood: {fileID: 11400000, guid: efc5e27123a5d9e49802853c2097c083, type: 2}

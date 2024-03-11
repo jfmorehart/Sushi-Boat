@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour
 	bool queuedRestart;
 	public static Action StartDayAction;
 	public static Action EndDayAction;
+	public Sprite[] rankings;
+	public SpriteRenderer rankingPage;
 	
 	private void Awake()
 	{
@@ -29,17 +31,21 @@ public class Menu : MonoBehaviour
 
 	public void StartDay()
 	{
-		Debug.Log("menu start day");
 		UnPause();
 		StartDayAction.Invoke();
 		GameManager.Instance.gameState = GameManager.GameState.DayGoing;
 	}
 	public void EndDay() {
 		queuedRestart = false;
-		Debug.Log("menu end day");
 		Progress.Save();
 		//Pause();
 		EndDayAction.Invoke();
+		float ratio = OrderManager.Instance.completed / (OrderManager.Instance.completed + OrderManager.Instance.failed);
+		Debug.Log(ratio);
+		int index = 10 - Mathf.FloorToInt(ratio * 10);
+		if (index < 0) index = 0;
+		if (index > 4) index = 4;
+		rankingPage.sprite = rankings[index];
     }
     public void PreStart(){
 		if (queuedRestart) return;
@@ -64,6 +70,7 @@ public class Menu : MonoBehaviour
 
 	public void SwitchToMap()
 	{
+		Progress.maxUnlockedLevel++;
 		Progress.Save();
 		SceneManager.LoadScene(0);
 	}
