@@ -40,7 +40,8 @@ public class Menu : MonoBehaviour
 		Progress.Save();
 		//Pause();
 		EndDayAction.Invoke();
-		float ratio = OrderManager.Instance.completed / (OrderManager.Instance.completed + OrderManager.Instance.failed);
+		Debug.Log(OrderManager.Instance.completed + " " + OrderManager.Instance.totalOrders);
+		float ratio = (1 + (float)OrderManager.Instance.completed) / (1f + (float)OrderManager.Instance.totalOrders);
 		Debug.Log(ratio);
 		int index = 10 - Mathf.FloorToInt(ratio * 10);
 		if (index < 0) index = 0;
