@@ -21,6 +21,7 @@ public class PrepStation : Station
         if(currentItems.Count < maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
             currentItems.Add(item);
             UpdateSprite();
+            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.defaultPickupSound);
             return true;
         }
         else {

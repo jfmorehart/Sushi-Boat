@@ -20,6 +20,9 @@ public class Hook : MonoBehaviour
 
 	private AudioSource audioSource;
 
+	public AudioClip hooked;
+
+	public AudioClip fishOutofWater;
 	private void Awake()
 	{
         ins = this;
@@ -76,6 +79,7 @@ public class Hook : MonoBehaviour
 				    fishOn = false;
 				    InventoryManager.Instance.AddItem(onHook.data.fishItem);
 				    onHook.Despawn();
+				    SoundManager.Instance.PlaySoundEffect(fishOutofWater);
 			    }
 		    }
 			//Don't go past floor

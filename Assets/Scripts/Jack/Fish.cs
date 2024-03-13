@@ -70,6 +70,8 @@ public class Fish : MonoBehaviour
 		transform.localEulerAngles = new Vector3(0, 0, -90);
 		Hook.ins.fishOn = true;
 		Hook.ins.onHook = this;
+		
+		SoundManager.Instance.PlaySoundEffect(Hook.ins.hooked);
     }
 
     void SwimmingUpdate() {
