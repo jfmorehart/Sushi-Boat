@@ -69,5 +69,7 @@ public class CustomerSpawner : MonoBehaviour
 	    float timer = orderCount * 30f;
 	    timer = Mathf.Min(timer, DayTimer.secondsRemainingToday - 1);
         c.GetComponent<Rowboat>().Init(timer,direction,orderCount);
-    }
+		OrderManager.Instance.totalOrders++;
+        Debug.Log("adding order");
+	}
 }

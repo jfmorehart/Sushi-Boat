@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44ad23c411f646238d7b4516f63ade0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerDay: 10
+  secondsPerDay: 120
+  live: 0
   dayStartAngle: 103
   dayEndAngle: -103
   nightAngle: -180

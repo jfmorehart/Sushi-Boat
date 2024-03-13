@@ -57,7 +57,6 @@ public class PrepStation : Station
         }
         for (int i = 0; i < validRecipes.Count; i++)
         {
-            Debug.Log(CheckRecipe(validRecipes[i]));
             if (CheckRecipe(validRecipes[i]))
             {
                 

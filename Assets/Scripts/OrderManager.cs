@@ -12,7 +12,7 @@ public class OrderManager : MonoBehaviour
 {
     public static OrderManager Instance { get; private set; }
 	public int completed;
-	public int failed;
+	public int totalOrders;
 
 	private void Awake()
     {
@@ -44,7 +44,6 @@ public class OrderManager : MonoBehaviour
             OrderManager.Instance.orders.Remove(this);
             //temporary measure for keeping track of order count for customer spawning
             CustomerSpawner.Instance.currentOrders --;
-            OrderManager.Instance.failed++;
         }
 
         public void CompleteOrder()
@@ -54,6 +53,7 @@ public class OrderManager : MonoBehaviour
             //temporary measure for keeping track of order count for customer spawning
             CustomerSpawner.Instance.currentOrders --;
 			OrderManager.Instance.completed++;
+            Debug.Log("completed order");
 		}
         
     }
@@ -130,6 +130,7 @@ public class OrderManager : MonoBehaviour
             orders[i].currentTimer -= Time.deltaTime;
             if (orders[i].currentTimer <= 0)
             {
+                Debug.Log("out of time");
                 orders[i].FailOrder();
                 UpdateOrderUI();
             }
