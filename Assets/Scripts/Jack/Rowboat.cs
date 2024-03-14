@@ -57,6 +57,8 @@ public class Rowboat : MonoBehaviour
 
 
 		if(timer < 0) {
+			OrderManager.Instance.totalOrders++;
+			Debug.Log("adding order");
 			Destroy(gameObject);
 		}
 	}

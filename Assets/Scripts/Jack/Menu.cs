@@ -75,4 +75,9 @@ public class Menu : MonoBehaviour
 		Progress.Save();
 		SceneManager.LoadScene(0);
 	}
+	public void ReloadScene()
+	{
+		Progress.Save();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 }

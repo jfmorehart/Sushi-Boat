@@ -35,7 +35,7 @@ public class CustomerSpawner : MonoBehaviour
             //temporary measure for keeping track of order count
             if (currentOrders < OrderManager.Instance.maxOrdersCount-1)
             {
-		        if(DayTimer.secondsRemainingToday < minimumOrderTime) return;
+		        //if(DayTimer.secondsRemainingToday < minimumOrderTime) return;
                  
                 SpawnCustomer();
             }
@@ -47,7 +47,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         int direction = lastSpawn ? 0 : 1;
         lastSpawn = direction == 1;
-        int orderCount = Random.Range(0, 3);
+        int orderCount = Random.Range(1, 3);
         currentOrders += orderCount;
         StartCoroutine(DelaySpawn(direction, orderCount));
     }
@@ -68,8 +68,9 @@ public class CustomerSpawner : MonoBehaviour
         c.transform.position = spawnPos;
 	    float timer = orderCount * 30f;
 	    timer = Mathf.Min(timer, DayTimer.secondsRemainingToday - 1);
+        timer = Mathf.Max(timer, 25);
         c.GetComponent<Rowboat>().Init(timer,direction,orderCount);
-		OrderManager.Instance.totalOrders++;
-        Debug.Log("adding order");
+
+   
 	}
 }
