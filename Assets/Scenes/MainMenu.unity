@@ -2465,7 +2465,6 @@ GameObject:
   - component: {fileID: 3947148425325971946}
   - component: {fileID: 7295161827793531689}
   - component: {fileID: 1820866605695521978}
-  - component: {fileID: 4409447340388885484}
   m_Layer: 0
   m_Name: cutting station
   m_TagString: Untagged
@@ -2837,24 +2836,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8903836982662622803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4409447340388885484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3547447358484684855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed673852154904672a159a9b460402a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSpawner: 0
-  itemOnStation: {fileID: 0}
-  maxItems: 1
-  DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
-  onStation: {fileID: 8702390817697773357}
-  cuttingBoard: {fileID: 8300000, guid: 6f60c31828fcc5d40b97675391770dc5, type: 3}
 --- !u!1 &4588149302746361687
 GameObject:
   m_ObjectHideFlags: 0
