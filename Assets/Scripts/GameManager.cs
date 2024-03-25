@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,65 +20,43 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
-        BeforeDayStarted,
         DayGoing,
         DayEnded
     }
 
-    public GameState gameState = GameState.BeforeDayStarted;
-    
-    //temp menu
-    public GameObject tempMenu;
+    public GameState gameState = GameState.DayGoing;
 
-    public GameObject tempText;
+    public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
         Progress.Load();
         money = Progress.money;
+        gameState = GameState.DayGoing;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameState == GameState.BeforeDayStarted)
-        {
-            if (Input.anyKey)
-            {
-                StartGame();
-                gameState = GameState.DayGoing;
-            }
-        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
         }
     }
 
-    
-    
-    //temporary
-    public void StartGame()
+
+    public void Continue()
     {
-        StartCoroutine(TempStart());
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 
-    IEnumerator TempStart()
+    public void MainMenu()
     {
-        tempText.SetActive(false);
-        float moveTime = 1f;
-        float timer = 0f;
-        Vector2 startPosition = tempMenu.GetComponent<RectTransform>().anchoredPosition;
-        Vector2 endPosition = new Vector2(0, 800);
-        while (timer<moveTime)
-        {
-            tempMenu.GetComponent<RectTransform>().anchoredPosition =
-                Vector2.Lerp(startPosition, endPosition, timer/moveTime);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        tempMenu.SetActive(false);
-        
+        SceneManager.LoadScene("MainMenu");
     }
+   
 }

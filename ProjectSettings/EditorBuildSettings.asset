@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3_TSM.unity
     guid: cffa543f5cb7648d6b8a65d52825c778
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8de3af34f358ae84cae8a6311e0a8b7a
   m_configObjects: {}
