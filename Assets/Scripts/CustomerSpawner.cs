@@ -7,16 +7,24 @@ using Random = UnityEngine.Random;
 public class CustomerSpawner : MonoBehaviour
 {
     public static CustomerSpawner Instance { get; private set; }
-    public Transform leftSpawn;
+    public Transform spawn;
 
-    public Transform rightSpawn;
-
-    public GameObject customer;
+    public GameObject customerBoat;
 
     public float minimumOrderTime;
-
-    public int currentOrders = 0;
+    
+    
     bool lastSpawn;
+
+    public int maxBoatCount = 1;
+    public int currentBoatCount = 0;
+    
+    
+    //Adjustable Settings
+    public bool twoLanes = false;
+    public bool doubleOrders = false;
+    public int maxOrderCountPerPerson = 3; 
+    public int customerPerBoat =1;
 
     private void Awake()
     {
@@ -32,45 +40,25 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
-            //temporary measure for keeping track of order count
-            if (currentOrders < OrderManager.Instance.maxOrdersCount-1)
+            if (currentBoatCount<maxBoatCount)
             {
-		        //if(DayTimer.secondsRemainingToday < minimumOrderTime) return;
-                 
-                SpawnCustomer();
+                SpawnBoat();
             }
         }
 
     }
 
-    public void SpawnCustomer()
+    public void SpawnBoat()
     {
-        int direction = lastSpawn ? 0 : 1;
-        lastSpawn = direction == 1;
-        int orderCount = Random.Range(1, 3);
-        currentOrders += orderCount;
-        StartCoroutine(DelaySpawn(direction, orderCount));
+        StartCoroutine(DelaySpawn());
     }
 
-    IEnumerator DelaySpawn(int direction, int orderCount)
+    IEnumerator DelaySpawn()
     {
+        currentBoatCount++;
         yield return new WaitForSeconds(Random.Range(1f,5f));
-        Vector3 spawnPos = leftSpawn.position;
-        if (direction == 0)
-        {
-            spawnPos = rightSpawn.position;
-        }
-        else if (direction == 1)
-        {
-            spawnPos = leftSpawn.position;
-        }
-        GameObject c = Instantiate(customer);
+        Vector3 spawnPos = spawn.position;
+        GameObject c = Instantiate(customerBoat);
         c.transform.position = spawnPos;
-	    float timer = orderCount * 30f;
-	    timer = Mathf.Min(timer, DayTimer.secondsRemainingToday - 1);
-        timer = Mathf.Max(timer, 25);
-        c.GetComponent<Rowboat>().Init(timer,direction,orderCount);
-
-   
 	}
 }

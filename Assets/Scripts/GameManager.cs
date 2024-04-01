@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int money = 0;
-
+    
     public enum GameState
     {
         DayGoing,
