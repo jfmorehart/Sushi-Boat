@@ -156,7 +156,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5651422460544192116}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -309,11 +309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3032037952454956078, guid: 8f091efc945dc4cbc922e4da8ec0fdb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.35
+      value: -6.98
       objectReference: {fileID: 0}
     - target: {fileID: 3032037952454956078, guid: 8f091efc945dc4cbc922e4da8ec0fdb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.59
+      value: 15.87
       objectReference: {fileID: 0}
     - target: {fileID: 3032037952454956078, guid: 8f091efc945dc4cbc922e4da8ec0fdb8, type: 3}
       propertyPath: m_LocalPosition.z

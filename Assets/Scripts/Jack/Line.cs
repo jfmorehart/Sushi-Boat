@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-	Vector2 origin;
+	public Vector2 origin;
 	public Vector3 hookOffset = new Vector3(0, 0.1f, 0);
 
 	float width = 0.1f;
 
 	private void Awake()
 	{
-		origin = transform.position;
+		origin = new Vector2(transform.position.x, origin.y);
 	}
 	private void Update()
 	{

@@ -243,6 +243,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: bowler
       objectReference: {fileID: 0}
+    - target: {fileID: 7297629526438921105, guid: 93b3b3c7545624377acfad9b239b07b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297629526438921105, guid: 93b3b3c7545624377acfad9b239b07b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -981,6 +989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boatTarget: {fileID: 1208474621}
   skyTarget: {fileID: 1581638312}
+  fishTarget: {fileID: 0}
   camoffset: {x: 0, y: 0, z: 10}
   accel: 20
   velo: 0

@@ -11,6 +11,8 @@ public class Fish : MonoBehaviour
 	string fishName;
     [SerializeField]
     float swimSpeed;
+	[SerializeField] float bobFreq, bobSpeed;
+	float freqSeed, ampSeed;
 
     public int direction;
 
@@ -24,9 +26,11 @@ public class Fish : MonoBehaviour
     {
 	    data = fData;
 	    //fishName = data.fishItem.itemName;
-	    swimSpeed = data.swimSpeed * Random.Range(0.85f, 1.15f);
+	    swimSpeed = data.swimSpeed * Random.Range(0.75f, 1.25f);
 	    GetComponent<SpriteRenderer>().sprite = data.fishSprite;
-    }
+		freqSeed = Random.Range(1, 1000f);
+		ampSeed = Random.Range(0.6f, 1.5f);
+	}
 	private void Awake()
 	{
         state = FishState.Swimming;
@@ -77,6 +81,7 @@ public class Fish : MonoBehaviour
     void SwimmingUpdate() {
 		if(!sr.enabled)sr.enabled = true;
 		transform.Translate(direction * swimSpeed * Time.deltaTime * Vector3.right, Space.World);
+		transform.Translate(Vector2.up * bobSpeed * Mathf.Sin(freqSeed + Time.time * bobFreq * ampSeed) * Time.deltaTime, Space.World);
 		if (direction == 1)
 		{
 			sr.flipX = true;

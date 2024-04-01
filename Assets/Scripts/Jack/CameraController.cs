@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
 	public Transform boatTarget;
 	public Transform skyTarget;
+	public Transform fishTarget;
 	Transform target;
 	public Vector3 camoffset;
 
@@ -32,21 +33,26 @@ public class CameraController : MonoBehaviour
 	void EndDay(){
 		trackingHook = false;
 		target = skyTarget;
+		Hook.ins.active = false;
 	}
 	private void Update()
 	{
 
 		if (Input.GetKeyDown(KeyCode.Space) && DayTimer.secondsRemainingToday > 0.5f) {
 			if (trackingHook) {
+				Hook.ins.active = false;
 				trackingHook = false;
 				target = boatTarget;
 			}
-			else { 
-				target = Hook.ins.transform;
+			else {
+				Hook.ins.active = true;
+				//target = Hook.ins.transform;
+				target = fishTarget;
 				trackingHook = true;
 			}
 
 		}
+
 		//Sorry for not commenting this shit
 
 		Vector3 pos = transform.position - camoffset;

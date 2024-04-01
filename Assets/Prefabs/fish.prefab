@@ -100,6 +100,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
   fishName: Tuna
   swimSpeed: 5
+  bobFreq: 1
+  bobSpeed: 2
   direction: 1
   hookmask:
     serializedVersion: 2
