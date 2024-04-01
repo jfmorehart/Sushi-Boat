@@ -11,11 +11,31 @@ public class Station : Clickable
     public int maxItems = 1;
     public GameObject DraggablePrefab;
     public SpriteRenderer onStation;
+
+    public GameObject blinker;
+
     
 	public virtual void Start()
 	{
 		UpdateSprite();
 	}
+
+    public void Blink() {
+        Invoke(nameof(BlinkOn), 0);
+		Invoke(nameof(BlinkOff), 0.25f);
+		Invoke(nameof(BlinkOn), 0.5f);
+		Invoke(nameof(BlinkOff), 0.75f);
+	}
+
+    public void BlinkOn() {
+        blinker.SetActive(true);
+    }
+	public void BlinkOff()
+	{
+		blinker.SetActive(false);
+	}
+
+
 	public virtual bool OnItemAdd(Item item)
     {
         if(itemOnStation == null) {

@@ -2,7 +2,10 @@ Shader "Unlit/SkyShader"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("broken?", 2D) = "white" {}
+        _DayTex ("day", 2D) = "black" {}
+        _NightTex ("night", 2D) = "black" {}
+        _clerp("day to night lerp", Float) = 0
     }
     SubShader
     {
@@ -46,6 +49,11 @@ Shader "Unlit/SkyShader"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            sampler2D _DayTex;
+            float4 _DayTex_ST;
+             sampler2D _NightTex;
+            float4 _NightTex_ST;
+            float _clerp;
             
             float rand (float2 uv) { 
                 return frac(sin(dot(uv.xy, float2(12.9898, 78.233))) * 43758.5453123);
@@ -98,25 +106,8 @@ Shader "Unlit/SkyShader"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                col = 0;
-
-                float time =  (_Time.x * 1);
-                float2 starUV = i.uv + _Time.x * 0.01;
-
-                float2 uv = i.wsp + float2(0, -20);
-                float d = length(uv);
-                float angle = atan2(uv.y, uv.x) + 180;
-
-                float2 pUV = float2((angle + time)/ UNITY_TWO_PI, pow(d, 0.5));
-                pUV *= 10;
-                float noise1 = rand(scale(pUV, 2) * 5);
-                //noise1 *= frac(pUV.x * 100);
-                //noise1 *= frac(pUV.y * 100);
-                col = step(0.9, pow(noise1, 2));
-                
-                //test
-                //col = frac(pUV.x * 15) * frac(pUV.y);
+                fixed4 col = tex2D(_DayTex, i.uv);
+                col = (1 - _clerp) * col + (_clerp) *  tex2D(_NightTex, i.uv);
                 return float4(col.xyz, 1);
             }
             ENDCG

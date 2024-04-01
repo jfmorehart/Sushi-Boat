@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: green nigiri
   processed: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 75fb23adc43f24f11a6d190621658b1a, type: 3}
+  sprite: {fileID: 21300000, guid: 5e975923586e0427d887d6650fb179fd, type: 3}
   tags: 02000000
   pickUpSound: {fileID: 8300000, guid: 9bd2b9bb28133ca4181cd918ad8993bd, type: 3}

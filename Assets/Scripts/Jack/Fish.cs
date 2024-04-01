@@ -27,9 +27,10 @@ public class Fish : MonoBehaviour
 	    data = fData;
 	    //fishName = data.fishItem.itemName;
 	    swimSpeed = data.swimSpeed * Random.Range(0.75f, 1.25f);
-	    GetComponent<SpriteRenderer>().sprite = data.fishSprite;
+		bobFreq *= Random.Range(1f, 1.25f);
+		GetComponent<SpriteRenderer>().sprite = data.fishSprite;
 		freqSeed = Random.Range(1, 1000f);
-		ampSeed = Random.Range(0.6f, 1.5f);
+		ampSeed = Random.Range(0.6f, 1f);
 	}
 	private void Awake()
 	{

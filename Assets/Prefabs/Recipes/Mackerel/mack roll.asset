@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b173f69f514ed44b45939182fb9c18, type: 3}
   m_Name: mack roll
   m_EditorClassIdentifier: 
-  recipeItem: {fileID: 11400000, guid: 38fcaf209fc4443b4ade4905a36fa1f1, type: 2}
+  recipeItem: {fileID: 11400000, guid: d53ff3aa962c84a3d8fa3b06519100c0, type: 2}
   ingredients:
   - {fileID: 11400000, guid: 1124065cb1e2b4412a47e73d28974e73, type: 2}
   - {fileID: 11400000, guid: b3ed0a7e7b49141a2bc555d751607f0d, type: 2}

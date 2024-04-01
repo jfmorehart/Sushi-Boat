@@ -6,6 +6,7 @@ public class CuttingBoard : Station
 {
 
 	public AudioClip cuttingBoard;
+
 	public override bool OnItemAdd(Item item)
 	{
 		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {

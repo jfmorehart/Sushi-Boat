@@ -19,6 +19,8 @@ public class DayTimer : MonoBehaviour
 
     public float springDamp;
     public float accel;
+
+    public Material mat;
     
 
 	private void Awake()
@@ -47,6 +49,7 @@ public class DayTimer : MonoBehaviour
     {
         if (live) {
             secondsRemainingToday -= Time.deltaTime;
+            mat.SetFloat("_clerp", 1 - secondsRemainingToday / secondsPerDay);
             float z = Mathf.Lerp(dayEndAngle, dayStartAngle, (secondsRemainingToday / secondsPerDay));
             transform.eulerAngles = new Vector3(0, 0, z);
             if(secondsRemainingToday <= 0) {

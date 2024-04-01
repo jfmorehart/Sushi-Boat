@@ -26,6 +26,7 @@ public class Draggable : Clickable
 		{
 			transform.position = Selection.instance.mouseWorldPosition;
 		}
+		AnticipateBlink();
 	}
 	public void Initialize(Station st, Item it,List<Item> components) {
 		prevStation = st;
@@ -36,6 +37,41 @@ public class Draggable : Clickable
 		if (beingDragged)
 		{
 			transform.position = Selection.instance.mouseWorldPosition;
+		}
+		AnticipateBlink();
+	}
+
+	void AnticipateBlink() {
+
+		GameObject[] gos = GameObject.FindGameObjectsWithTag("Station");
+		Debug.Log("st dr" + gos.Length);
+		foreach (Item.ItemTags itt in item.tags)
+		{
+			Debug.Log(itt);
+		}
+
+		if (item.tags.Contains(Item.ItemTags.Fish) && (item.tags.Contains(Item.ItemTags.Ingredient)))
+		{
+			foreach (GameObject go in gos)
+			{
+				if (go.TryGetComponent(out SectionCuttingBoard scb))
+				{
+					Debug.Log("blinking board");
+					scb.Blink();
+					return;
+				}
+			}
+		}
+		else if (item.tags.Contains(Item.ItemTags.Rice) && item.tags.Contains(Item.ItemTags.Ingredient))
+		{
+			foreach (GameObject go in gos)
+			{
+				if (go.TryGetComponent(out RiceCooker scb))
+				{
+					scb.Blink();
+					return;
+				}
+			}
 		}
 	}
 
@@ -51,6 +87,7 @@ public class Draggable : Clickable
 	}
 	public void StartDrag() {
 		beingDragged = true;
+
     }
 	public void EndDrag() {
 		if (!beingDragged) return;

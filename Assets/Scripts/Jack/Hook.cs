@@ -45,7 +45,7 @@ public class Hook : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		if (!active) return;
+		//if (!active) return;
 
 	    if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
 	    {
@@ -83,7 +83,7 @@ public class Hook : MonoBehaviour
 				dir = 2;
 			}
 
-			if (Input.GetMouseButtonDown(0)) {
+			if (Input.GetMouseButtonDown(0) && active) {
 				goinDown = !goinDown;
 				audioSource.Play();
 			}
@@ -109,7 +109,7 @@ public class Hook : MonoBehaviour
 		    }
 			//Don't go past floor
 			if (transform.position.y < floor + distFromFloor){
-				Debug.Log(transform.position.y + " " + floor + distFromFloor + " " + distFromFloor);
+				//Debug.Log(transform.position.y + " " + floor + distFromFloor + " " + distFromFloor);
 				velocity = 0;
 				Vector3 pos = transform.position;
 				transform.position = new Vector3(pos.x, floor + distFromFloor, pos.z);
