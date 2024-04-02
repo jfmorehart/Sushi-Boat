@@ -66,7 +66,7 @@ public class CustomerBoat : MonoBehaviour
 	public IEnumerator PullUp()
 	{
 		float timeElapsed = 0;
-		Vector3 startScale = transform.localScale;
+		Vector3 startScale = Vector3.zero;
 
 		Vector3 targetScale = new Vector3(2, 2, 1);
 		while (timeElapsed < 2f)

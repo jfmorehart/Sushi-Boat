@@ -808,6 +808,10 @@ PrefabInstance:
       value: Clock
       objectReference: {fileID: 0}
     - target: {fileID: 6265362943972707616, guid: ec902e8710fde40368d6fdb02e9386d9, type: 3}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 2100000, guid: 199d0ee66f07d45899d858654d9348b9, type: 2}
+    - target: {fileID: 6265362943972707616, guid: ec902e8710fde40368d6fdb02e9386d9, type: 3}
       propertyPath: dayStartAngle
       value: 86
       objectReference: {fileID: 0}
@@ -924,6 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boatTarget: {fileID: 1208474621}
   skyTarget: {fileID: 1581638312}
+  fishTarget: {fileID: 0}
   camoffset: {x: 0, y: 0, z: 10}
   accel: 20
   velo: 0
@@ -2477,6 +2482,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
 --- !u!4 &997772523675828873
 Transform:
   m_ObjectHideFlags: 0
