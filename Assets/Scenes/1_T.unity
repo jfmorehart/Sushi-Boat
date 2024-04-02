@@ -928,7 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boatTarget: {fileID: 1208474621}
   skyTarget: {fileID: 1581638312}
-  fishTarget: {fileID: 0}
+  fishTarget: {fileID: 1266006706}
   camoffset: {x: 0, y: 0, z: 10}
   accel: 20
   velo: 0
@@ -1681,6 +1681,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1266006706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8203838952095996125, guid: 6fe4d2e10f2eb437da139da09ec7c409, type: 3}
+  m_PrefabInstance: {fileID: 629272566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1269131809 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7977918324810789548, guid: e4ae806147516514889ae974816cfd5e, type: 3}
