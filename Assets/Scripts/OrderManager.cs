@@ -14,6 +14,8 @@ public class OrderManager : MonoBehaviour
 	public int completed;
 	public int totalOrders;
 
+    
+
 	private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -42,16 +44,14 @@ public class OrderManager : MonoBehaviour
         public void FailOrder()
         {
             OrderManager.Instance.orders.Remove(this);
-            //temporary measure for keeping track of order count for customer spawning
-            CustomerSpawner.Instance.currentOrders --;
+
         }
 
         public void CompleteOrder()
         {
             GameManager.Instance.money += price;
             OrderManager.Instance.orders.Remove(this);
-            //temporary measure for keeping track of order count for customer spawning
-            CustomerSpawner.Instance.currentOrders --;
+
 			OrderManager.Instance.completed++;
             Debug.Log("completed order");
 		}

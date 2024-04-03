@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ThoughtBubble : Station
 {
+	
     public bool orderAdded = false;
 
     private Recipe recipe;
@@ -12,41 +13,45 @@ public class ThoughtBubble : Station
 
     public Sprite wrongOrder;
     public Sprite rightOrder;
-
-    SpriteRenderer tsr;
+    
     [SerializeField] private SpriteRenderer orderSR;
 
     public AudioClip successSoundEffect;
 
     public AudioClip failureSoundEffect;
+
+    public bool orderComplete = false;
+
+    public bool orderFailed = false;
+    
     // Start is called before the first frame update
     public override void Start()
     {
-        tsr = GetComponent<SpriteRenderer>();
-        recipe = OrderManager.Instance.recipes[Random.Range(0, OrderManager.Instance.recipes.Count)];
+        
+        Init();
 		base.Start();
 	}
 
-	public override bool OnItemAdd(Item item)
-	{
-        if (order == null) {
+    public override bool OnItemAdd(Item item)
+    {
+	    if (order == null|| orderComplete|| orderFailed) {
             return false;
 		}
         else if(order.recipe.recipeItem == item) {
             Debug.Log("CONGRATS");
 			orderSR.sprite = rightOrder;
 			order.CompleteOrder();
+			orderFailed = true;
 			SoundManager.Instance.PlaySoundEffect(successSoundEffect);
 		}
         else {
             Debug.Log("wrong order");
 			orderSR.sprite = wrongOrder;
 			order.FailOrder();
+			orderComplete = true;
 			SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
 		}
 		OrderManager.Instance.UpdateOrderUI();
-		orderSR.sortingOrder = -21;
-        tsr.sortingOrder = -22;
 		//Destroy(gameObject);
 		GetComponent<Collider2D>().enabled = false;
 		return base.OnItemAdd(item);
@@ -55,14 +60,7 @@ public class ThoughtBubble : Station
 	public override bool OnColliderClicked()
     {
         bool ret = base.OnColliderClicked();
-        if (!orderAdded)
-        {
-			orderSR.sprite = recipe.recipeItem.sprite;
-			orderAdded = true;
-            order = new OrderManager.Order(recipe, GetComponentInParent<Rowboat>().timer);
-            OrderManager.Instance.orders.Add(order);
-            OrderManager.Instance.UpdateOrderUI();
-		}
+
         //else
         //{
         //    if (OrderManager.Instance.CheckOrder(order))
@@ -73,4 +71,19 @@ public class ThoughtBubble : Station
         //}
         return ret;
     }
+
+	public void Init()
+	{
+		
+		orderComplete = false;
+		orderFailed = false;
+		itemOnStation = null;
+		recipe = OrderManager.Instance.recipes[Random.Range(0, OrderManager.Instance.recipes.Count)];
+		orderSR.sprite = recipe.recipeItem.sprite;
+		GetComponent<Collider2D>().enabled = true;
+		orderAdded = true;
+		order = new OrderManager.Order(recipe, transform.parent.parent.GetComponent<Customer>().timer);
+		OrderManager.Instance.orders.Add(order);
+		OrderManager.Instance.UpdateOrderUI();
+	}
 }
