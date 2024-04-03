@@ -26,6 +26,8 @@ public class CoolerSlot : Station
 
 	public override bool OnItemAdd(Item item)
 	{
+        if (item.tags.Contains(Item.ItemTags.Finished)) return false;
+
         bool onitem = base.OnItemAdd(item);
      //   if (onitem) { 
 	    //    ogPos -

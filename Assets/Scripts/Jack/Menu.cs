@@ -73,11 +73,11 @@ public class Menu : MonoBehaviour
 	{
 		Progress.maxUnlockedLevel++;
 		Progress.Save();
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene("MapScene");
 	}
 	public void ReloadScene()
 	{
 		Progress.Save();
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex.ToString());
 	}
 }

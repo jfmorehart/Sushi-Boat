@@ -43,7 +43,7 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 	{
 		if (unlocked) {
 			PlayerPrefs.SetInt("level", levelToLoad);
-			SceneManager.LoadScene(levelToLoad);
+			SceneManager.LoadScene(levelToLoad.ToString());
 		}
 	}
 }

@@ -59,6 +59,7 @@ public class CustomerSpawner : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1f,5f));
         Vector3 spawnPos = spawn.position;
         GameObject c = Instantiate(customerBoat);
+        OrderManager.Instance.totalOrders += 2;
         c.transform.position = spawnPos;
 	}
 }

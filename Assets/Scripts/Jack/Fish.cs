@@ -25,6 +25,9 @@ public class Fish : MonoBehaviour
     public void Init(FishData fData)
     {
 	    data = fData;
+		if(data == null) {
+			Debug.LogError("no data!");
+		}
 		FishAnimInfo f = FindObjectOfType<FishAnimInfo>(false);
 		GetComponent<Animator>().runtimeAnimatorController = f.anims[data.fishIndex];
 	    //fishName = data.fishItem.itemName;
