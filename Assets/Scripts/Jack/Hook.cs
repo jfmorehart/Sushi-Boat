@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Hook : MonoBehaviour
 {
@@ -26,9 +27,12 @@ public class Hook : MonoBehaviour
 	public AudioClip hooked;
 
 	public AudioClip fishOutofWater;
+	FishAnimInfo fishAnim;
+
 	private void Awake()
 	{
-        ins = this;
+		fishAnim = FindObjectOfType<FishAnimInfo>(false);
+		ins = this;
         Menu.StartDayAction += ResetPos;
 		unhookHeight = transform.position.y;
 		audioSource = GetComponent<AudioSource>();
@@ -99,6 +103,7 @@ public class Hook : MonoBehaviour
 			    transform.position = new Vector3(pos.x, unhookHeight, pos.z);
 			    if (fishOn) {
 				    fishOn = false;
+					onHook.data.fishItem.sprite = onHook.GetComponent<SpriteRenderer>().sprite;
 				    InventoryManager.Instance.AddItem(onHook.data.fishItem);
 				    onHook.Despawn();
 				    SoundManager.Instance.PlaySoundEffect(fishOutofWater);

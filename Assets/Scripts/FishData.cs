@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class FishData : ScriptableObject
 {
+    public int fishIndex;
 	public Item fishItem;
     public Sprite fishSprite;
 
     public float swimSpeed;
-    public float mouthDist;
-    
+    public Vector2 mouthPos;
 }

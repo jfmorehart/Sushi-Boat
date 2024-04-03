@@ -24,7 +24,17 @@ public class CoolerSlot : Station
         ogPos = transform.position;
     }
 
-    IEnumerator Hovering()
+	public override bool OnItemAdd(Item item)
+	{
+        bool onitem = base.OnItemAdd(item);
+     //   if (onitem) { 
+	    //    ogPos -
+	    //}
+
+        return onitem;
+	}
+
+	IEnumerator Hovering()
     {
         float timeElapsed = 0;
         Vector3 startPosition = transform.position;

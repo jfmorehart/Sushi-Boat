@@ -25,6 +25,8 @@ public class Fish : MonoBehaviour
     public void Init(FishData fData)
     {
 	    data = fData;
+		FishAnimInfo f = FindObjectOfType<FishAnimInfo>(false);
+		GetComponent<Animator>().runtimeAnimatorController = f.anims[data.fishIndex];
 	    //fishName = data.fishItem.itemName;
 	    swimSpeed = data.swimSpeed * Random.Range(0.75f, 1.25f);
 		bobFreq *= Random.Range(1f, 1.25f);
@@ -71,7 +73,7 @@ public class Fish : MonoBehaviour
         transform.parent = Hook.ins.transform;
 
         transform.position = Hook.ins.fishCaughtAnchor.position;
-		transform.localPosition = transform.localPosition - data.mouthDist * Vector3.up;
+		transform.localPosition = (Vector2)transform.localPosition - new Vector2(direction * -data.mouthPos.y, data.mouthPos.x);
 		transform.localEulerAngles = new Vector3(0, 0, -90);
 		Hook.ins.fishOn = true;
 		Hook.ins.onHook = this;
@@ -99,8 +101,8 @@ public class Fish : MonoBehaviour
 		{
 			Despawn();
 		}
-
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction * Vector2.right, 1);
+		Debug.DrawRay(transform.position + new Vector3(data.mouthPos.x * direction, data.mouthPos.y, 0), direction * Vector2.right, Color.red);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(data.mouthPos.x * direction, data.mouthPos.y, 0), direction * Vector2.right, 1 );
 		if (hit && !Hook.ins.fishOn) {
 			if (hit.collider.CompareTag("Hook")) {
 				Hooked();

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
   m_Name: Tuna
   m_EditorClassIdentifier: 
+  fishIndex: 0
   fishItem: {fileID: 11400000, guid: fec9b53a29b65cf42bb3311e3194e5bd, type: 2}
   fishSprite: {fileID: 21300000, guid: 903e8b6444c174b249c54954b67b09fb, type: 3}
   swimSpeed: 6
-  mouthDist: 0
+  mouthPos: {x: 2, y: -0.4}

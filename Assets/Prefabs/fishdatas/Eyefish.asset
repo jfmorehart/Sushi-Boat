@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
   m_Name: Eyefish
   m_EditorClassIdentifier: 
+  fishIndex: 4
   fishItem: {fileID: 11400000, guid: 4ff75cfccd9364b5eb950cd7b882c11f, type: 2}
   fishSprite: {fileID: 21300000, guid: e3bb2dac7d04a4fce9357cd0eff95dd0, type: 3}
   swimSpeed: 5
-  mouthDist: 0
+  mouthPos: {x: 0.7, y: -0.2}

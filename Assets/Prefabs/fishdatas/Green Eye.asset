@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
   m_Name: Green Eye
   m_EditorClassIdentifier: 
+  fishIndex: 5
   fishItem: {fileID: 11400000, guid: d4a8b049eab19457295fbabee4fcd129, type: 2}
   fishSprite: {fileID: 21300000, guid: df07cd1f95ed94d2f8e19511f817f8ae, type: 3}
   swimSpeed: 5
-  mouthDist: 0
+  mouthPos: {x: 1.3, y: -0.17}

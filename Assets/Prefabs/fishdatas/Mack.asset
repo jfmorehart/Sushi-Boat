@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48109369734a73e43892288ee2ee7138, type: 3}
   m_Name: Mack
   m_EditorClassIdentifier: 
+  fishIndex: 3
   fishItem: {fileID: 11400000, guid: 22eb0a48b28db4640bc2f63c5c4989d7, type: 2}
   fishSprite: {fileID: 21300000, guid: 0d7f3213350a943a99fbbd5f3a973041, type: 3}
   swimSpeed: 6
-  mouthDist: 0
+  mouthPos: {x: 1.6, y: -0.2}
