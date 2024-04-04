@@ -121,17 +121,28 @@ public class Customer : MonoBehaviour
     }
     public void SetThoughtBubble()
     {
-        if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
-        {
-            doubleBubble.SetActive(true);
-            orderCount -= 2;
-            timer = 60f;
-        }
-        else
+        //tutorial
+        if (GameManager.Instance.tutorial)
         {
             bubble.SetActive(true);
             orderCount -= 1;
-            timer = 30f;
+            timer = 1000f;
         }
+        else
+        {
+            if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
+            {
+                doubleBubble.SetActive(true);
+                orderCount -= 2;
+                timer = CustomerSpawner.Instance.minimumOrderTime*1.5f;
+            }
+            else
+            {
+                bubble.SetActive(true);
+                orderCount -= 1;
+                timer = CustomerSpawner.Instance.minimumOrderTime;
+            }
+        }
+
     }
 }

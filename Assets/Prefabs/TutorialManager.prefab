@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7420594872994711401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2444008448748192443}
+  - component: {fileID: 579131510611097453}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2444008448748192443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420594872994711401}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579131510611097453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420594872994711401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d79bac61fe68f844acc63c691ab45e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialText:
+  - "Ahoy there! Seems it\u2019s your first time on me trusty old vessel, eh? Been
+    seein' a fair share o' you youngins lately!"
+  - "Now hold on\u2026 what've ye got there in yer hand, lad?"
+  - "Humph! Well don't be gettin' yer hopes too high with all that nonsense. A bunch
+    a baloney if ya ask me! Out here, there\u2019s nothin\u2019 but hungry mouths
+    and some good ol\u2019 regular fish."
+  - Though, if ye aim to earn a coin or two aboard this here ship, ye best know what
+    to do.
+  - Well looky here, seems like ye've got yer first customer! Go on and take their
+    order.
+  - 'Now that ye''ve taken their order, it''s time to get to work! Our sushi here
+    relies on fish, rice, and sometimes a bit o'' seaweed. Let''s reel in some fish.
+
+'
+  - Ah, good catch! Now, let's get to slicin' and dicin'!
+  tutorialImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  textIndex: 0
+  imageIndex: 0
+  textUI: {fileID: 0}
+  stations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorialBoat: {fileID: 1754498851477151231, guid: 430ce15944081ce4f8560c67316d3352, type: 3}
+  hook: {fileID: 0}

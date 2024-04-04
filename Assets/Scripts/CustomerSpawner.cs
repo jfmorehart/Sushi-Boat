@@ -62,4 +62,6 @@ public class CustomerSpawner : MonoBehaviour
         OrderManager.Instance.totalOrders += 2;
         c.transform.position = spawnPos;
 	}
+
+
 }

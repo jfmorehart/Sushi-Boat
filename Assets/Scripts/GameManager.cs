@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public GameState gameState = GameState.DayGoing;
 
     public GameObject pauseMenu;
+
+    public bool tutorial = false;
     // Start is called before the first frame update
     void Start()
     {

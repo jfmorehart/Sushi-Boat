@@ -19,6 +19,10 @@ public class CustomerBoat : MonoBehaviour
 
 	public void Init()
 	{
+		if (CustomerSpawner.Instance.customerPerBoat == 0)
+		{
+			transform.GetChild(3).gameObject.SetActive(true);	
+		}
 		if (CustomerSpawner.Instance.customerPerBoat == 1)
 		{
 			transform.GetChild(0).gameObject.SetActive(true);	
@@ -95,7 +99,7 @@ public class CustomerBoat : MonoBehaviour
 			yield return null;
 		}
 		transform.position = targetPosition;
-		CustomerSpawner.Instance.currentBoatCount--;
+		CustomerSpawner.Instance.currentBoatCount = Mathf.Max(0, CustomerSpawner.Instance.currentBoatCount - 1);
 		Destroy(gameObject);
 	}
 }

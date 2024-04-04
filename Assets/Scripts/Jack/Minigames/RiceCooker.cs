@@ -11,11 +11,11 @@ public class RiceCooker : Station
 	CookingStage stage;
 	public Item goodRice;
 	public Item burntRice;
-	[SerializeField] bool cooking;
+	public bool cooking;
 
 	public float riceTimer;
-	float timeUntilCooked = 5;
-	float timeUntilBurned = 10;
+	public float timeUntilCooked = 5;
+	public float timeUntilBurned = 10;
 
 	public Transform progressBar;
 	public Transform middle;

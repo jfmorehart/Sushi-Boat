@@ -26,7 +26,9 @@ public class Draggable : Clickable
 		{
 			transform.position = Selection.instance.mouseWorldPosition;
 		}
-		AnticipateBlink();
+		//tutorialcheck
+		if(!GameManager.Instance.tutorial)
+			AnticipateBlink();
 	}
 	public void Initialize(Station st, Item it,List<Item> components) {
 		prevStation = st;
@@ -38,7 +40,9 @@ public class Draggable : Clickable
 		{
 			transform.position = Selection.instance.mouseWorldPosition;
 		}
-		AnticipateBlink();
+		//tutorialcheck
+		if(!GameManager.Instance.tutorial)
+			AnticipateBlink();
 	}
 
 	void AnticipateBlink() {

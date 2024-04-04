@@ -25,6 +25,8 @@ public class Station : Clickable
 		Invoke(nameof(BlinkOff), 0.25f);
 		Invoke(nameof(BlinkOn), 0.5f);
 		Invoke(nameof(BlinkOff), 0.75f);
+		Invoke(nameof(BlinkOn), 1f);
+		Invoke(nameof(BlinkOff), 1.25f);
 	}
 
     public void BlinkOn() {
