@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -44,22 +45,20 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0;
             pauseMenu.SetActive(true);
+            StartCoroutine(Pause());
+            
         }
     }
 
-
-    public void Continue()
+    IEnumerator Pause()
     {
-        Time.timeScale = 1;
-        pauseMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0;
+        
     }
 
-    public void MainMenu()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
-    }
+
    
 }
