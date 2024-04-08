@@ -1189,22 +1189,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1438874510410034561, guid: 092a09db048294c42806f2d809b7037b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5288115972653380546}
-    - target: {fileID: 1438874510410034561, guid: 092a09db048294c42806f2d809b7037b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Continue
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179227265835850562, guid: 092a09db048294c42806f2d809b7037b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5288115972653380546}
-    - target: {fileID: 3179227265835850562, guid: 092a09db048294c42806f2d809b7037b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 5831088988861014521, guid: 092a09db048294c42806f2d809b7037b, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -3267,17 +3251,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
---- !u!114 &5288115972653380546 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
-  m_PrefabInstance: {fileID: 5288115972653380545}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b5431c8a0eb4b47af6343afdc5f2c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7991638674958644775
 PrefabInstance:
   m_ObjectHideFlags: 0
