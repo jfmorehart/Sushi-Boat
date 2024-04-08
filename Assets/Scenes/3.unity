@@ -1022,6 +1022,7 @@ MonoBehaviour:
   distFromFloor: 0
   floor: 0
   trackingHook: 0
+  dist: {fileID: 2100000, guid: a0cdd8acb19994d72b19a73f5d7c8064, type: 2}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
