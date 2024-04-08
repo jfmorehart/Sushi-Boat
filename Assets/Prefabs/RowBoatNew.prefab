@@ -156,6 +156,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -248,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.170032, y: 0.72006273}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 7.540064, y: 3.840125}
   m_EdgeRadius: 0
 --- !u!1 &1754498851477151231
 GameObject:
@@ -416,6 +417,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -508,7 +510,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -2.5316978, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -519,7 +521,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 8.263398, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &2145094408952559909
 GameObject:
@@ -952,6 +954,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -1044,7 +1047,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.2427006, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1055,7 +1058,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 7.685401, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &4354166391108389793
 GameObject:
@@ -1193,6 +1196,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -1285,7 +1289,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.283089, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1296,7 +1300,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 7.7661777, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &5721116318496094301
 GameObject:
@@ -1349,6 +1353,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -1441,7 +1446,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.0954542, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1452,7 +1457,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 7.390909, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &5882697048760238529
 GameObject:
@@ -1591,6 +1596,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -1683,7 +1689,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.159208, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1694,7 +1700,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 7.518418, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &7181275710344477463
 GameObject:
@@ -1747,6 +1753,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
+  blinker: {fileID: 0}
   orderAdded: 0
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
@@ -1839,7 +1846,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.20837, y: 0.9079404}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1850,7 +1857,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 2.4}
+  m_Size: {x: 7.616738, y: 4.2158804}
   m_EdgeRadius: 0
 --- !u!1 &9105494944903645293
 GameObject:
