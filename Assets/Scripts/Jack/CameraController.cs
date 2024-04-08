@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
 
 	public bool trackingHook;
 
+	public Material dist;
+
 	void Start() {
 		trackingHook = false;
 		target = boatTarget;
@@ -86,5 +88,11 @@ public class CameraController : MonoBehaviour
 		//float sz2 = Mathf.Max(5, 4 + Mathf.Pow(Mathf.Abs(Hook.ins.velocity), 1.2f) * sizeMult);
 		//Camera.main.orthographicSize = (sz * 0.99f + sz2 * 0.01f);
 
+	}
+
+	private void OnRenderImage(RenderTexture source, RenderTexture destination)
+	{
+		dist.SetFloat("_yval", transform.position.y);
+		Graphics.Blit(source, destination, dist);
 	}
 }

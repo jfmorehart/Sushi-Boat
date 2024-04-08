@@ -3146,6 +3146,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---------Managers---------
       objectReference: {fileID: 0}
+    - target: {fileID: 5176677045807525870, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: anims.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 5e62bfb73067a4920ad5c4e003082cd4, type: 2}
+    - target: {fileID: 5176677045807525870, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: anims.Array.data[3]
+      value: 
+      objectReference: {fileID: 9100000, guid: 8026c50aebb3141b9ac2f1145c0aa312, type: 2}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3196,16 +3204,60 @@ PrefabInstance:
       objectReference: {fileID: 571827509}
     - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: recipes.Array.size
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f546fb3bb9767433ab3834884a7ed3bc, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0158cccfc06f349aebba5024468c1287, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fd9b805a087d47a7b6ebf57b1578d1a, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d52b060ac9ca4f3f8022557d945051b, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bb1490a7b6a3b04a9f8e0212fa880b1, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: c7cf6249a26189f43ad0810f08127fe6, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8da8872aef1b74ee3a0dec8e07892347, type: 2}
+    - target: {fileID: 6497763292571552900, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: recipes.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f153a4fb3dfb1c4485651e585f0cb4a, type: 2}
     - target: {fileID: 6798824461031367824, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: fishDatas.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6798824461031367824, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5346c235ecf1646fd9b5453e8c029daf, type: 2}
+    - target: {fileID: 6798824461031367824, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
+    - target: {fileID: 6798824461031367824, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: fishDatas.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 397abada531264195b442ea0fd419b76, type: 2}
     - target: {fileID: 6798824461031367824, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: fishDatas.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: a14f8315ccfdbc34ebd0b5739ddf0b3d, type: 2}
+      objectReference: {fileID: 11400000, guid: df330713eda935946af2ce30181e4b4d, type: 2}
     - target: {fileID: 6798824461031367824, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: fishDatas.Array.data[4]
       value: 

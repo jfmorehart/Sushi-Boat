@@ -118,18 +118,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.1997037, y: 0.33185184}
+  m_Offset: {x: 0.7509967, y: 0.29161358}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.10341879, y: 0.39363724}
-    oldSize: {x: 5.5466666, y: 3.12}
+    oldSize: {x: 4.754286, y: 2.6742857}
     newSize: {x: 5.5466666, y: 3.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.546666, y: 1.2}
+  m_Size: {x: 5.2202454, y: 2.3827085}
   m_EdgeRadius: 0
 --- !u!114 &-5193653760558579486
 MonoBehaviour:
@@ -148,3 +148,4 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 7154657044750280228}
+  blinker: {fileID: 0}

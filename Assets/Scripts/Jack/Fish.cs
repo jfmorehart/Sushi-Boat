@@ -22,6 +22,8 @@ public class Fish : MonoBehaviour
 
 	public LayerMask hookmask;
 
+	public bool inBackground;
+
     public void Init(FishData fData)
     {
 	    data = fData;
@@ -36,6 +38,17 @@ public class Fish : MonoBehaviour
 		GetComponent<SpriteRenderer>().sprite = data.fishSprite;
 		freqSeed = Random.Range(1, 1000f);
 		ampSeed = Random.Range(0.6f, 1f);
+
+		if (inBackground) {
+			Vector3 pos = transform.position;
+			Vector3 scl = transform.localScale;
+			pos.y *= 0.8f;
+			pos.z = -0.1f;
+			scl *= 0.6f;
+			swimSpeed *= 0.5f;
+			transform.position = pos;
+			transform.localScale = scl;
+		}
 	}
 	private void Awake()
 	{
@@ -104,6 +117,7 @@ public class Fish : MonoBehaviour
 		{
 			Despawn();
 		}
+		if (inBackground) return;
 		Debug.DrawRay(transform.position + new Vector3(data.mouthPos.x * direction, data.mouthPos.y, 0), direction * Vector2.right, Color.red);
 		RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(data.mouthPos.x * direction, data.mouthPos.y, 0), direction * Vector2.right, 1 );
 		if (hit && !Hook.ins.fishOn) {

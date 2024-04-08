@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/5.unity
     guid: 1e23bf3fc5c864cfd93999c2d651000c
   - enabled: 1
-    path: Assets/Scenes/6.unity
+    path: Assets/Scenes/CUT.unity
     guid: 2b52b388b76504a3696e37de3fcbe579
   - enabled: 0
     path: Assets/Scenes/TemplateLevel.unity

@@ -30,6 +30,7 @@ public class FishSpawner : MonoBehaviour
 	public float lowerBound;
 
 	public GameObject fishPrefab;
+	public GameObject backgroundfishPrefab;
 
 	private void Awake()
 	{
@@ -54,6 +55,7 @@ public class FishSpawner : MonoBehaviour
 			if(Time.time - lastFishSpawn > (1 / fishSpawnRate)) {
 				lastFishSpawn = Time.time;
 				SpawnFish();
+				SpawnBackgroundFish();
 			}
 			if (Time.time - lastObstacleSpawn > (1 / obstacleSpawnRate))
 			{
@@ -118,4 +120,16 @@ public class FishSpawner : MonoBehaviour
 			ohistory.RemoveAt(0);
 		return r;
 	}
+
+	void SpawnBackgroundFish()
+	{
+		bool facingRight = (Random.Range(0, 1000) % 2 == 0);
+		Vector2 pos = new Vector2(facingRight ? leftBound : rightBound, Random.Range(lowerBound, upperBound));
+		int r = Random.Range(0, fishDatas.Count); //to not fuck with the pseudo
+
+		GameObject go = Instantiate(backgroundfishPrefab, pos, Quaternion.identity, transform);
+		go.GetComponent<Fish>().Init(fishDatas[r]);
+		go.GetComponent<Fish>().direction = facingRight ? 1 : -1;
+	}
+
 }

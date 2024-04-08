@@ -24,4 +24,16 @@ public class CuttingBoard : Station
 	{
 		base.SpawnDraggableItem(item);
 	}
+
+	public override bool OnColliderClicked()
+	{
+		bool baseHasItem = base.OnColliderClicked();
+		if (baseHasItem) return baseHasItem;
+
+		//otherwise we should ask bossman
+		if(transform.parent.TryGetComponent(out SectionCuttingBoard scb)){
+			scb.EmptyChildClicked();
+		}
+		return false;
+	}
 }

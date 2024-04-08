@@ -99,13 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44ad23c411f646238d7b4516f63ade0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerDay: 120
+  secondsPerDay: 216
   live: 0
   dayStartAngle: 103
   dayEndAngle: -103
   nightAngle: -180
   springDamp: 2
   accel: 1
+  mat: {fileID: 0}
 --- !u!1 &5508220902027457596
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,3 +59,4 @@ MonoBehaviour:
   upperBound: -4
   lowerBound: -60
   fishPrefab: {fileID: 8360919771665600274, guid: bc09e64d03a814ab3b885f41e4a958a7, type: 3}
+  backgroundfishPrefab: {fileID: 8360919771665600274, guid: 57d8c441e792a4932950b4e83952aba2, type: 3}
