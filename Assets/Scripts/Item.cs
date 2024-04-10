@@ -15,6 +15,9 @@ public class Item : ScriptableObject, IComparable<Item>
 
     public AudioClip pickUpSound;
     
+
+    public float quality;//
+    
     public enum ItemTags
     {
         //if the thing is combinable,please just have one of these

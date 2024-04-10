@@ -1374,6 +1374,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8284125902380265794, guid: 6fe4d2e10f2eb437da139da09ec7c409, type: 3}
+      propertyPath: reelAccel
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284125902380265794, guid: 6fe4d2e10f2eb437da139da09ec7c409, type: 3}
       propertyPath: distFromFloor
       value: 0
       objectReference: {fileID: 0}

@@ -29,9 +29,10 @@ public class CoolerSlot : Station
         if (item.tags.Contains(Item.ItemTags.Finished)) return false;
 
         bool onitem = base.OnItemAdd(item);
-     //   if (onitem) { 
-	    //    ogPos -
-	    //}
+        if (onitem)
+        {
+            GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
+        }
 
         return onitem;
 	}

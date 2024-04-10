@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 735a5fb95b51a4f5dbe6abce09d0bdde, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2774657691734608035
@@ -149,6 +149,7 @@ MonoBehaviour:
   maxItems: 1
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 6919503059677774019}
+  blinker: {fileID: 0}
   validRecipes:
   - {fileID: 11400000, guid: 0bb1490a7b6a3b04a9f8e0212fa880b1, type: 2}
   - {fileID: 11400000, guid: 0f153a4fb3dfb1c4485651e585f0cb4a, type: 2}
@@ -224,7 +225,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d537717747eca46d4bed09743eeab5a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,14 +246,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a25c6d3b2b7fe4cf9a8607e232e1cfba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 19.2, y: 15.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

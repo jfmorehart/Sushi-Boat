@@ -73,6 +73,7 @@ public class Station : Clickable
 		GameObject drag = Instantiate(DraggablePrefab);
 		drag.GetComponent<Draggable>().StartDrag();
 		drag.GetComponent<Draggable>().Initialize(this, item);
+        Debug.Log("spawning " + item.quality);
 		if (!isSpawner)
 		{
 			itemOnStation = null;

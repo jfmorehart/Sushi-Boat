@@ -514,6 +514,10 @@ MonoBehaviour:
   burntRice: {fileID: 0}
   cooking: 0
   riceTimer: 0
+  minUsableTime: 1
+  timeUntilCooked: 5
+  gracePeriod: 2
+  timeUntilBurned: 10
   progressBar: {fileID: 7661809637449514522}
   middle: {fileID: 6656023382168435174}
   _initPos: {x: 0, y: 0}

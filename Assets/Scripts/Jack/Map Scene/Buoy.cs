@@ -19,16 +19,28 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 	public float freq;
 
 	float seed;
-	private void Awake()
+
+	public Transform[] stars;
+
+	private void Start()
 	{
 		ren = GetComponent<SpriteRenderer>();
 		regScale = transform.localScale;
 		bigScale = regScale * 1.25f;
 		if(Progress.maxUnlockedLevel >= levelToLoad) {
 			unlocked = true;
+			foreach(Transform t in stars) {
+				t.GetComponent<SpriteRenderer>().color = Color.white;
+				t.GetComponent<SpriteRenderer>().enabled = true;
+			}
 		}
 		else {
 			ren.color = Color.gray;
+			foreach (Transform t in stars)
+			{
+				t.GetComponent<SpriteRenderer>().color = Color.black;
+				t.GetComponent<SpriteRenderer>().enabled = false;
+			}
 		}
 		baseTilt = tilt;
 		seed = Random.Range(0, 100f);
@@ -53,6 +65,10 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 		if (unlocked) {
 			PlayerPrefs.SetInt("level", levelToLoad);
 			SceneManager.LoadScene(levelToLoad.ToString());
+			//foreach (Transform t in stars)
+			//{
+			//	t.GetComponent<SpriteRenderer>().color = Color.white;
+			//}
 		}
 	}
 	private void Update()

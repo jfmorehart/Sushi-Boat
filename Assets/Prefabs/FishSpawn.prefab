@@ -53,7 +53,7 @@ MonoBehaviour:
   obstacleprefabs:
   - {fileID: 4519570081783965046, guid: 9a1dd5e2c2d644c42ab3144ad9cc89b4, type: 3}
   fishSpawnRate: 2
-  obstacleSpawnRate: 0.3
+  obstacleSpawnRate: 0.1
   leftBound: 0
   rightBound: 0
   upperBound: -4

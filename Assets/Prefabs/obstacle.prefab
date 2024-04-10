@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 770ef2833cf204e50b3f170b67f398b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,10 +101,13 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: eb56fc326eb79234a85613b44dd2d7b5, type: 2}
   fishName: 
   swimSpeed: 3
+  bobFreq: 0
+  bobSpeed: 0
   direction: 1
   hookmask:
     serializedVersion: 2
     m_Bits: 0
+  inBackground: 0
 --- !u!58 &8535581678622692248
 CircleCollider2D:
   m_ObjectHideFlags: 0

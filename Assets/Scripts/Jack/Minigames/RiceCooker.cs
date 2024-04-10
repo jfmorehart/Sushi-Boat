@@ -14,7 +14,9 @@ public class RiceCooker : Station
 	public bool cooking;
 
 	public float riceTimer;
+	public float minUsableTime = 1;
 	public float timeUntilCooked = 5;
+	public float gracePeriod;
 	public float timeUntilBurned = 10;
 
 	public Transform progressBar;
@@ -25,6 +27,10 @@ public class RiceCooker : Station
 	private AudioSource audioSource;
 	public AudioClip doneCooking;
 	public AudioClip overCooked;
+
+	bool beep;
+
+
 	private void Awake()
 	{
 		_initPos = progressBar.transform.localPosition;
@@ -34,15 +40,17 @@ public class RiceCooker : Station
 	}
 	public override bool OnItemAdd(Item item)
 	{
-		Debug.Log(item.tags[0]);
 		if (!(item.tags.Contains(Item.ItemTags.Rice) && item.tags.Contains(Item.ItemTags.Ingredient))) return false;
 
 		bool canAdd = base.OnItemAdd(item);
-		cooking = true;
-		riceRenderer.enabled = true;
-		riceRenderer.color = Color.yellow;
-		riceTimer = 0;
-		audioSource.Play();
+		if (canAdd) {
+			cooking = true;
+			riceRenderer.enabled = true;
+			riceRenderer.color = Color.yellow;
+			riceTimer = 0;
+			audioSource.Play();
+			beep = false;
+		}
 		return canAdd;
 	}
 	public override void ReturnItem(Item item)
@@ -60,29 +68,50 @@ public class RiceCooker : Station
 	}
 	private void Update()
 	{
-		DrawProgressBar();
+
 		if (!cooking) {
 			audioSource.Stop();
 			return;
 		}
+		DrawProgressBar();
 		riceTimer += Time.deltaTime;
-		if (riceTimer < timeUntilCooked) {
-			if (stage != CookingStage.uncooked) {
+		if (riceTimer > timeUntilCooked && riceTimer < timeUntilCooked + gracePeriod) {
+			if (!beep) {
+				audioSource.PlayOneShot(doneCooking);
+				beep = true;
+			}
+			return;
+		}
+		if (riceTimer < minUsableTime)
+		{
+			if (stage != CookingStage.uncooked)
+			{
 				stage = CookingStage.uncooked;
-				riceRenderer.color = Color.yellow;
 			}
 		}
-		else if (riceTimer < timeUntilBurned)
+		else if (riceTimer < timeUntilCooked)
 		{
 			if (stage != CookingStage.ready)
 			{
 				stage = CookingStage.ready;
 				itemOnStation = goodRice;
-				audioSource.PlayOneShot(doneCooking);
-				riceRenderer.color = Color.green;
+			}
+			float p = riceTimer / timeUntilCooked;
+			riceRenderer.color = Vector4.Lerp((Vector4)Color.yellow, ((Vector4)Color.green), p);
+		}
+		else if (riceTimer < timeUntilBurned + gracePeriod)
+		{
+			float p = (riceTimer - (timeUntilCooked + gracePeriod)) / (timeUntilBurned - (timeUntilCooked + gracePeriod));
+			riceRenderer.color = Vector4.Lerp((Vector4)Color.green, ((Vector4)Color.red), p);
+			if (stage != CookingStage.ready)
+			{
+				stage = CookingStage.ready;
+				itemOnStation = goodRice;
+				//riceRenderer.color = Color.green;
 			}
 		}
-		else {
+		else
+		{
 			if (stage != CookingStage.burnt)
 			{
 				stage = CookingStage.burnt;
@@ -94,7 +123,18 @@ public class RiceCooker : Station
 		}
 	}
 	void DrawProgressBar() {
-		float p = riceTimer / timeUntilCooked;
+		float p;
+		if (riceTimer < timeUntilCooked) {
+			p = riceTimer / timeUntilBurned;
+		}
+		else if(riceTimer > timeUntilCooked + gracePeriod) {
+			p = ((riceTimer - gracePeriod) / (timeUntilBurned));
+		}
+		else {
+			p = 0.5f;
+		}
+		itemOnStation.quality = 1 - Mathf.Abs(2 * (p - 0.5f));
+		Debug.Log(p);
 		if (p > 1) p = 1;
 		progressBar.localScale = new Vector3(p * (maxScale), 0.51f, 1);
 		progressBar.localPosition = new Vector3(
@@ -105,7 +145,7 @@ public class RiceCooker : Station
 	
 	public override bool OnColliderClicked()
 	{
-		if(riceTimer > timeUntilCooked || riceTimer == 0) {
+		if(riceTimer > minUsableTime || riceTimer == 0) {
 			return base.OnColliderClicked();
 		}
 		return false;
