@@ -71,8 +71,10 @@ public class FishSpawner : MonoBehaviour
 		Vector2 pos = new Vector2(facingRight? leftBound : rightBound, Random.Range(lowerBound, upperBound));
 		int r = FishPseudoRandomizer();
 		GameObject go = Instantiate(fishPrefab, pos, Quaternion.identity, transform);
-		go.GetComponent<Fish>().Init(fishDatas[r]);
-		go.GetComponent<Fish>().direction = facingRight ? 1 : -1;
+		Fish f = go.GetComponent<Fish>();
+		f.Init(fishDatas[r]);
+		f.direction = facingRight ? 1 : -1;
+		f.data.fishItem.quality = Random.Range(0, 1f);
 		go.tag = "Fish";
     }
 	void SpawnObstacle()

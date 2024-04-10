@@ -12,6 +12,7 @@ public class CuttingBoard : Station
 		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {
 			SoundManager.Instance.PlaySoundEffect(cuttingBoard);
 			Item newitem = item.processed;
+			transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
 			return base.OnItemAdd(newitem);
 		}
 		else {

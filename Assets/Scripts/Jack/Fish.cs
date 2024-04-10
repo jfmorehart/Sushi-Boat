@@ -49,6 +49,8 @@ public class Fish : MonoBehaviour
 			transform.position = pos;
 			transform.localScale = scl;
 		}
+
+		GetComponent<Renderer>().material.SetFloat("_qual", data.fishItem.quality);
 	}
 	private void Awake()
 	{

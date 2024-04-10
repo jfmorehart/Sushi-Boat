@@ -111,14 +111,14 @@ Shader "Unlit/Test"
 
 
      
-                float wy = 1 - (_yval * 0.05 + 0.1 + i.uv.y);
-                wy = step(0, wy) * pow(wy, 1);
-                float inten = step(0.01, wy) + pow(wy, 0.5);
+                float wy = 1 - (_yval * 0.05 + 0.08 + i.uv.y);
+                wy = smoothstep(0, 0.05, wy) * pow(wy, 1);
+                float inten = smoothstep(0, 0.4, wy) * 3;//+ pow(wy, 0.5);
                 float2 dUV;// distorted UVs
-
+	
                 int mask = step(1.5, wy);
                 float2 sUV = float2(i.uv.x, wy) * 8;//scale(, 100);
-                float noise = fractal_noise(sUV.xy + _Time.y);
+                float noise = fractal_noise(0.8 * sUV.xy + _Time.y) - 0.5;
                 noise = noise * inten * 0.01;
                 dUV = i.uv.xy + noise;
 
