@@ -7,7 +7,8 @@ public class Station : Clickable
 {
     public bool isSpawner;
 
-    public Item itemOnStation;
+	public Item toSpawn;//
+    public ItemInstance itemOnStation;
     public int maxItems = 1;
     public GameObject DraggablePrefab;
     public SpriteRenderer onStation;
@@ -18,6 +19,9 @@ public class Station : Clickable
 	public virtual void Start()
 	{
 		UpdateSprite();
+		if (toSpawn != null) {
+			itemOnStation = new ItemInstance(toSpawn, 1);
+		}
 	}
 
     public void Blink() {
@@ -38,7 +42,7 @@ public class Station : Clickable
 	}
 
 
-	public virtual bool OnItemAdd(Item item)
+	public virtual bool OnItemAdd(ItemInstance item)
     {
         if(itemOnStation == null) {
 			itemOnStation = item;
@@ -57,31 +61,43 @@ public class Station : Clickable
             onStation.sprite = null;
             return;
 	    }
-        onStation.sprite = itemOnStation.sprite;
-    }
+        onStation.sprite = itemOnStation.itemData.sprite;
+
+		if (onStation != null)
+		{
+			onStation.material.SetFloat("_qual", itemOnStation.quality);
+		}
+	}
 
     public override bool OnColliderClicked()
     {
-        if(itemOnStation== null) {
+		Debug.Log("click " + itemOnStation);
+		if (itemOnStation== null) {
             return false;
 	    }
         base.OnColliderClicked();
         SpawnDraggableItem(itemOnStation);
         return true;
     }
-    public virtual void SpawnDraggableItem(Item item) {
+    public virtual void SpawnDraggableItem(ItemInstance item) {
 		GameObject drag = Instantiate(DraggablePrefab);
 		drag.GetComponent<Draggable>().StartDrag();
 		drag.GetComponent<Draggable>().Initialize(this, item);
-        Debug.Log("spawning " + item.quality);
 		if (!isSpawner)
 		{
 			itemOnStation = null;
 		}
+		else {
 
-		if (item.pickUpSound != null)
+			if (toSpawn != null)
+			{
+				itemOnStation = new ItemInstance(toSpawn, 1);
+			}
+		}
+
+		if (item.itemData.pickUpSound != null)
 		{
-			SoundManager.Instance.PlaySoundEffect(item.pickUpSound);
+			SoundManager.Instance.PlaySoundEffect(item.itemData.pickUpSound);
 		}
 		else
 		{
@@ -91,8 +107,9 @@ public class Station : Clickable
         UpdateSprite();
 	}
 
-    public virtual void ReturnItem(Item item) {
+    public virtual void ReturnItem(ItemInstance item) {
         itemOnStation = item;
-        UpdateSprite();
+		Debug.Log(item.quality);
+		UpdateSprite();
     }
 }

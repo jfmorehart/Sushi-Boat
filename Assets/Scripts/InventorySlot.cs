@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class InventorySlot : Station, IPointerDownHandler
 {
-    public Item item;
+    public ItemInstance item;
 	
 
-	public override bool OnItemAdd(Item newItem)
+	public override bool OnItemAdd(ItemInstance newItem)
 	{
 		bool ret = base.OnItemAdd(newItem);
 		if (ret) {
@@ -18,9 +18,9 @@ public class InventorySlot : Station, IPointerDownHandler
 		return ret;
 	}
 
-	public override void ReturnItem(Item newitem)
+	public override void ReturnItem(ItemInstance newitem)
 	{
-		Debug.Log("returning " + newitem.itemName);
+		Debug.Log("returning " + newitem.itemData.itemName);
 		InventoryManager.Instance.AddItem(newitem);
 		//InventoryManager.Instance.UpdateInventoryUI();
 		//item = newitem;

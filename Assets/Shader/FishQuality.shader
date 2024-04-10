@@ -3,7 +3,7 @@ Shader "Unlit/FishQuality"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _qual ("Quality0-1", Float) = 0.5
+        _qual ("Quality0-1", Float) = 1
     }
     SubShader
     {

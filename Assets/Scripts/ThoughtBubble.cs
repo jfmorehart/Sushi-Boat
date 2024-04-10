@@ -32,12 +32,12 @@ public class ThoughtBubble : Station
 		base.Start();
 	}
 
-    public override bool OnItemAdd(Item item)
+    public override bool OnItemAdd(ItemInstance item)
     {
 	    if (order == null|| orderComplete|| orderFailed) {
             return false;
 		}
-        else if(order.recipe.recipeItem == item) {
+        else if(order.recipe.recipeItem == item.itemData) {
             Debug.Log("CONGRATS");
 			orderSR.sprite = rightOrder;
 			order.CompleteOrder();

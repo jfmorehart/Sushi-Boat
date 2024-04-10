@@ -31,16 +31,17 @@ public class RiceCooker : Station
 	bool beep;
 
 
-	private void Awake()
+	public override void Awake()
 	{
+		base.Awake();
 		_initPos = progressBar.transform.localPosition;
 		riceRenderer = progressBar.gameObject.GetComponent<SpriteRenderer>();
 		riceRenderer.enabled = false;
 		audioSource = GetComponent<AudioSource>();
 	}
-	public override bool OnItemAdd(Item item)
+	public override bool OnItemAdd(ItemInstance item)
 	{
-		if (!(item.tags.Contains(Item.ItemTags.Rice) && item.tags.Contains(Item.ItemTags.Ingredient))) return false;
+		if (!(item.itemData.tags.Contains(Item.ItemTags.Rice) && item.itemData.tags.Contains(Item.ItemTags.Ingredient))) return false;
 
 		bool canAdd = base.OnItemAdd(item);
 		if (canAdd) {
@@ -53,12 +54,12 @@ public class RiceCooker : Station
 		}
 		return canAdd;
 	}
-	public override void ReturnItem(Item item)
+	public override void ReturnItem(ItemInstance item)
 	{
 		base.ReturnItem(item);
 		cooking = true;
 		riceRenderer.enabled = true;
-		if (item.tags.Contains(Item.ItemTags.Combinable)) {
+		if (item.itemData.tags.Contains(Item.ItemTags.Combinable)) {
 			riceRenderer.color = Color.green;
 		}
 		else {
@@ -94,7 +95,7 @@ public class RiceCooker : Station
 			if (stage != CookingStage.ready)
 			{
 				stage = CookingStage.ready;
-				itemOnStation = goodRice;
+				itemOnStation = new ItemInstance(goodRice, itemOnStation.quality);
 			}
 			float p = riceTimer / timeUntilCooked;
 			riceRenderer.color = Vector4.Lerp((Vector4)Color.yellow, ((Vector4)Color.green), p);
@@ -106,7 +107,7 @@ public class RiceCooker : Station
 			if (stage != CookingStage.ready)
 			{
 				stage = CookingStage.ready;
-				itemOnStation = goodRice;
+				itemOnStation = new ItemInstance(goodRice, itemOnStation.quality);
 				//riceRenderer.color = Color.green;
 			}
 		}
@@ -115,7 +116,7 @@ public class RiceCooker : Station
 			if (stage != CookingStage.burnt)
 			{
 				stage = CookingStage.burnt;
-				itemOnStation = burntRice;
+				itemOnStation = new ItemInstance(burntRice, itemOnStation.quality);
 				riceRenderer.color = Color.red;
 				audioSource.Stop();
 				audioSource.PlayOneShot(overCooked);
@@ -133,8 +134,8 @@ public class RiceCooker : Station
 		else {
 			p = 0.5f;
 		}
+		if (p > 1) p = 1;
 		itemOnStation.quality = 1 - Mathf.Abs(2 * (p - 0.5f));
-		Debug.Log(p);
 		if (p > 1) p = 1;
 		progressBar.localScale = new Vector3(p * (maxScale), 0.51f, 1);
 		progressBar.localPosition = new Vector3(
@@ -150,7 +151,7 @@ public class RiceCooker : Station
 		}
 		return false;
 	}
-	public override void SpawnDraggableItem(Item item)
+	public override void SpawnDraggableItem(ItemInstance item)
 	{
 		base.SpawnDraggableItem(item);
 		cooking = false;

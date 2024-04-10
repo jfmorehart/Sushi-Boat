@@ -24,9 +24,11 @@ public class Fish : MonoBehaviour
 
 	public bool inBackground;
 
+	public float quality;
+
     public void Init(FishData fData)
     {
-	    data = fData;
+		data = fData;
 		if(data == null) {
 			Debug.LogError("no data!");
 		}
@@ -49,8 +51,8 @@ public class Fish : MonoBehaviour
 			transform.position = pos;
 			transform.localScale = scl;
 		}
-
-		GetComponent<Renderer>().material.SetFloat("_qual", data.fishItem.quality);
+		quality = Random.Range(0, 1f);
+		GetComponent<Renderer>().material.SetFloat("_qual", quality);
 	}
 	private void Awake()
 	{

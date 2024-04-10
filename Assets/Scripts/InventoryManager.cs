@@ -22,7 +22,7 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject inventory;
     
-    public void AddItem(Item item)
+    public void AddItem(ItemInstance item)
     {
         for (int i = 0; i < inventory.transform.childCount; i++)
         {

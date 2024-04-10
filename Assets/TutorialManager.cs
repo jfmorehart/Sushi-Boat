@@ -193,15 +193,19 @@ public class TutorialManager : MonoBehaviour
             prepTable.BlinkOn();
             yield return new WaitForSeconds(0.1f);
             yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse0));
-            if (prepTable.GetComponent<PrepStation>().currentItems.Contains(cookedRice))
-            {
-                r = true;
-            }
-            if (prepTable.GetComponent<PrepStation>().currentItems.Contains(cutTuna))
-            {
-                f = true;
-            }
-            if (prepTable.GetComponent<PrepStation>().GetCurrentPreppedItem()==tunaNigiri)
+			foreach (ItemInstance ii in prepTable.GetComponent<PrepStation>().currentItems)
+			{
+				if (ii.itemData == cookedRice)
+				{
+					r = true;
+				}
+			}
+			foreach (ItemInstance ii in prepTable.GetComponent<PrepStation>().currentItems) { 
+	            if(ii.itemData == cutTuna) {
+					f = true;
+				}
+	        }
+            if (prepTable.GetComponent<PrepStation>().GetCurrentPreppedItem().itemData ==tunaNigiri)
             {
                 flag3= true;
             }

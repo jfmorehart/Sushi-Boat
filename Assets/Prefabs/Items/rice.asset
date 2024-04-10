@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: rice
   m_EditorClassIdentifier: 
   itemName: rice
+  processed: {fileID: 0}
   sprite: {fileID: 21300000, guid: 80536262bb0f54520857c7cfdeb41765, type: 3}
   tags: 0100000004000000
+  pickUpSound: {fileID: 0}
+  quality: 1
