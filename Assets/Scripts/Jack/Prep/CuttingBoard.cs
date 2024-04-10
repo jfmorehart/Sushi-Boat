@@ -7,21 +7,21 @@ public class CuttingBoard : Station
 
 	public AudioClip cuttingBoard;
 
-	public override bool OnItemAdd(Item item)
+	public override bool OnItemAdd(ItemInstance item)
 	{
-		if (item.tags.Contains(Item.ItemTags.Fish) && item.tags.Contains(Item.ItemTags.Ingredient)) {
+		if (item.itemData.tags.Contains(Item.ItemTags.Fish) && item.itemData.tags.Contains(Item.ItemTags.Ingredient)) {
 			SoundManager.Instance.PlaySoundEffect(cuttingBoard);
-			Item newitem = item.processed;
-			transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
+			ItemInstance newitem = new ItemInstance(item.itemData.processed, item.quality);
+			//transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
 			return base.OnItemAdd(newitem);
 		}
 		else {
-			Debug.Log("invalid item " + item.itemName);
+			Debug.Log("invalid item " + item.itemData.itemName);
 			return false;
 		}
 	}
 
-	public override void SpawnDraggableItem(Item item)
+	public override void SpawnDraggableItem(ItemInstance item)
 	{
 		base.SpawnDraggableItem(item);
 	}

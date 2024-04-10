@@ -104,7 +104,7 @@ public class Hook : MonoBehaviour
 			    if (fishOn) {
 				    fishOn = false;
 					onHook.data.fishItem.sprite = onHook.GetComponent<SpriteRenderer>().sprite;
-				    InventoryManager.Instance.AddItem(onHook.data.fishItem);
+				    InventoryManager.Instance.AddItem(new ItemInstance(onHook.data.fishItem, onHook.quality));
 				    onHook.Despawn();
 				    SoundManager.Instance.PlaySoundEffect(fishOutofWater);
 					goinDown = false;

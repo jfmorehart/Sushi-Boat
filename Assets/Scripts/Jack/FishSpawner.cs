@@ -74,7 +74,6 @@ public class FishSpawner : MonoBehaviour
 		Fish f = go.GetComponent<Fish>();
 		f.Init(fishDatas[r]);
 		f.direction = facingRight ? 1 : -1;
-		f.data.fishItem.quality = Random.Range(0, 1f);
 		go.tag = "Fish";
     }
 	void SpawnObstacle()

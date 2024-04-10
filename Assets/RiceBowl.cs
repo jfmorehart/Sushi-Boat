@@ -13,12 +13,14 @@ public class RiceBowl : Station
     {
         sr = GetComponent<SpriteRenderer>();
         UpdateSprite();
-    }
+		sr.material.SetFloat("_qual", 1);
+	}
 
-    public override bool OnItemAdd(Item item)
+    public override bool OnItemAdd(ItemInstance item)
     {
-        if(itemOnStation == null&& item.tags.Contains(Item.ItemTags.Rice)&&item.tags.Contains(Item.ItemTags.Combinable)) {
+        if(itemOnStation == null&& item.itemData.tags.Contains(Item.ItemTags.Rice)&&item.itemData.tags.Contains(Item.ItemTags.Combinable)) {
             itemOnStation = item;
+            sr.material.SetFloat("_qual", item.quality);
             UpdateSprite();
             return true;
         }
@@ -28,7 +30,13 @@ public class RiceBowl : Station
         }
     }
 
-    public override void UpdateSprite()
+
+	public override void SpawnDraggableItem(ItemInstance item)
+	{
+		base.SpawnDraggableItem(item);
+		sr.material.SetFloat("_qual", 1);
+	}
+	public override void UpdateSprite()
     {
         if (itemOnStation == null)
         {

@@ -10,8 +10,9 @@ public class SectionCuttingBoard : Station
 	Collider2D col;
 	bool waitframe = true;
 
-	private void Awake()
+	public override void Awake()
 	{
+		base.Awake();
 		col = GetComponent<Collider2D>();
 		Disable();
 	}
@@ -77,7 +78,7 @@ public class SectionCuttingBoard : Station
 		}
     }
 
-	public override bool OnItemAdd(Item item)
+	public override bool OnItemAdd(ItemInstance item)
 	{
 		foreach(Station s in stations) {
 			if (s.OnItemAdd(item)) {

@@ -145,10 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpawner: 1
-  itemOnStation: {fileID: 11400000, guid: b3ed0a7e7b49141a2bc555d751607f0d, type: 2}
+  toSpawn: {fileID: 11400000, guid: 0faf8056de17145fa8a3791eee925413, type: 2}
   maxItems: 1
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 8483664940922779806}
+  blinker: {fileID: 0}
 --- !u!1 &7086483912500443520
 GameObject:
   m_ObjectHideFlags: 0

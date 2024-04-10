@@ -5,23 +5,24 @@ using static System.Collections.Specialized.BitVector32;
 
 public class Draggable : Clickable
 {
-	public Item item;
-	public List<Item> items;
+	public ItemInstance item;
+	public List<ItemInstance> items;
 	public bool beingDragged;
 	public bool onStation;
 
 	Station prevStation;
 	SpriteRenderer ren;
 
-	private void Awake()
+	public override void Awake()
 	{
+		base.Awake();
 		ren = GetComponent<SpriteRenderer>();
 	}
-	public void Initialize(Station st, Item it) {
+	public void Initialize(Station st, ItemInstance it) {
 		prevStation = st;
 		item = it;
-		ren.sprite = it.sprite;
-
+		ren.sprite = it.itemData.sprite;
+		ren.material.SetFloat("_qual", it.quality);
 		if (beingDragged)
 		{
 			transform.position = Selection.instance.mouseWorldPosition;
@@ -30,11 +31,11 @@ public class Draggable : Clickable
 		if(!GameManager.Instance.tutorial)
 			AnticipateBlink();
 	}
-	public void Initialize(Station st, Item it,List<Item> components) {
+	public void Initialize(Station st, ItemInstance it,List<ItemInstance> components) {
 		prevStation = st;
 		item = it;
-		ren.sprite = it.sprite;
-		items = new List<Item>(components);
+		ren.sprite = it.itemData.sprite;
+		items = new List<ItemInstance>(components);
 
 		if (beingDragged)
 		{
@@ -49,12 +50,12 @@ public class Draggable : Clickable
 
 		GameObject[] gos = GameObject.FindGameObjectsWithTag("Station");
 		Debug.Log("st dr" + gos.Length);
-		foreach (Item.ItemTags itt in item.tags)
+		foreach (Item.ItemTags itt in item.itemData.tags)
 		{
 			Debug.Log(itt);
 		}
 
-		if (item.tags.Contains(Item.ItemTags.Fish) && (item.tags.Contains(Item.ItemTags.Ingredient)))
+		if (item.itemData.tags.Contains(Item.ItemTags.Fish) && (item.itemData.tags.Contains(Item.ItemTags.Ingredient)))
 		{
 			foreach (GameObject go in gos)
 			{
@@ -66,7 +67,7 @@ public class Draggable : Clickable
 				}
 			}
 		}
-		else if (item.tags.Contains(Item.ItemTags.Rice) && item.tags.Contains(Item.ItemTags.Ingredient))
+		else if (item.itemData.tags.Contains(Item.ItemTags.Rice) && item.itemData.tags.Contains(Item.ItemTags.Ingredient))
 		{
 			foreach (GameObject go in gos)
 			{

@@ -24,15 +24,12 @@ public class CoolerSlot : Station
         ogPos = transform.position;
     }
 
-	public override bool OnItemAdd(Item item)
+	public override bool OnItemAdd(ItemInstance item)
 	{
-        if (item.tags.Contains(Item.ItemTags.Finished)) return false;
+        if (!item.itemData.tags.Contains(Item.ItemTags.Fish)) return false;
+		if (item.itemData.tags.Contains(Item.ItemTags.Finished)) return false;
 
-        bool onitem = base.OnItemAdd(item);
-        if (onitem)
-        {
-            GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
-        }
+		bool onitem = base.OnItemAdd(item);
 
         return onitem;
 	}

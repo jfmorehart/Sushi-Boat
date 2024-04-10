@@ -8,17 +8,18 @@ public class PrepStation : Station
 {
     public List<Recipe> validRecipes;
 
-    public List<Item> currentItems;
+    public List<ItemInstance> currentItems;
     public int maxItemCount = 3;
     public Item incompleteFood;
 
-	private void Awake()
+	public override void Awake()
 	{
-        currentItems = new List<Item>();
+        base.Awake();
+        currentItems = new List<ItemInstance>();
 	}
-	public override bool OnItemAdd(Item item)
+	public override bool OnItemAdd(ItemInstance item)
     {
-        if(currentItems.Count < maxItemCount&& item.tags.Contains(Item.ItemTags.Combinable)) {
+        if(currentItems.Count < maxItemCount&& item.itemData.tags.Contains(Item.ItemTags.Combinable)) {
             currentItems.Add(item);
             UpdateSprite();
             SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.defaultPickupSound);
@@ -48,24 +49,34 @@ public class PrepStation : Station
 			return;
         }
 
-        onStation.sprite = GetCurrentPreppedItem().sprite;
+        ItemInstance ii = GetCurrentPreppedItem();
+
+		onStation.sprite = ii.itemData.sprite;
+        onStation.GetComponent<Renderer>().material.SetFloat("_qual", ii.quality);
 	}
-    public Item GetCurrentPreppedItem()
+    public ItemInstance GetCurrentPreppedItem()
     {
         if (currentItems.Count == 1)
         {
             return currentItems[0];
         }
-        for (int i = 0; i < validRecipes.Count; i++)
+        Item it = null;
+        float qual = 0;
+        for (int i = 0; i < currentItems.Count; i++)
+        {
+            qual += currentItems[i].quality;
+        }
+        qual /= currentItems.Count;
+		for (int i = 0; i < validRecipes.Count; i++)
         {
             if (CheckRecipe(validRecipes[i]))
             {
-                
-                return validRecipes[i].recipeItem;
-            }
+               it = validRecipes[i].recipeItem;
+			    return new ItemInstance(it, qual);
+			}
             
         }
-        return incompleteFood;
+        return new ItemInstance(incompleteFood, 0);
     }
 
     public bool CheckRecipe(Recipe recipe)
@@ -74,16 +85,20 @@ public class PrepStation : Station
         {
             return false;
         }
-        return Enumerable.SequenceEqual(recipe.ingredients.OrderBy(e => e), currentItems.OrderBy(e => e));
+        List<Item> currentItemData = new List<Item>();
+        for(int i = 0; i < currentItems.Count; i++) {
+            currentItemData.Add(currentItems[i].itemData);
+	    }
+        return Enumerable.SequenceEqual(recipe.ingredients.OrderBy(e => e), currentItemData.OrderBy(e => e));
     }
     
-    public override void SpawnDraggableItem(Item item) {
+    public override void SpawnDraggableItem(ItemInstance item) {
         GameObject drag = Instantiate(DraggablePrefab);
         drag.GetComponent<Draggable>().StartDrag();
-        drag.GetComponent<Draggable>().Initialize(this, item,currentItems);
-        if (item.pickUpSound != null)
+        drag.GetComponent<Draggable>().Initialize(this, item, currentItems);
+        if (item.itemData.pickUpSound != null)
         {
-            SoundManager.Instance.PlaySoundEffect(item.pickUpSound);
+            SoundManager.Instance.PlaySoundEffect(item.itemData.pickUpSound);
         }
         else
         {
@@ -95,7 +110,7 @@ public class PrepStation : Station
             itemOnStation = null;
         }
     }
-    public void ReturnItem(List<Item> list)
+    public void ReturnItem(List<ItemInstance> list)
     {
         currentItems.Clear();
         foreach (var item in list)
