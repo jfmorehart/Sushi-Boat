@@ -96,7 +96,6 @@ public class PrepStation : Station
         GameObject drag = Instantiate(DraggablePrefab);
         drag.GetComponent<Draggable>().StartDrag();
         drag.GetComponent<Draggable>().Initialize(this, item, currentItems);
-        Debug.Log(item.quality);
         if (item.itemData.pickUpSound != null)
         {
             SoundManager.Instance.PlaySoundEffect(item.itemData.pickUpSound);

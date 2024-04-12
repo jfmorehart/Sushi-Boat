@@ -50,11 +50,6 @@ public class Draggable : Clickable
 	void AnticipateBlink() {
 
 		GameObject[] gos = GameObject.FindGameObjectsWithTag("Station");
-		Debug.Log("st dr" + gos.Length);
-		foreach (Item.ItemTags itt in item.itemData.tags)
-		{
-			Debug.Log(itt);
-		}
 
 		if (item.itemData.tags.Contains(Item.ItemTags.Fish) && (item.itemData.tags.Contains(Item.ItemTags.Ingredient)))
 		{
