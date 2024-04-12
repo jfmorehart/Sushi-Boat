@@ -35,6 +35,7 @@ public class Draggable : Clickable
 		prevStation = st;
 		item = it;
 		ren.sprite = it.itemData.sprite;
+		ren.material.SetFloat("_qual", it.quality);
 		items = new List<ItemInstance>(components);
 
 		if (beingDragged)
