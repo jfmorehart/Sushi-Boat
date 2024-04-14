@@ -108,6 +108,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   inBackground: 0
+  quality: 0
 --- !u!95 &34475823013154474
 Animator:
   serializedVersion: 5

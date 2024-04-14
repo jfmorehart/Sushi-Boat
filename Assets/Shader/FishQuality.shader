@@ -4,6 +4,7 @@ Shader "Unlit/FishQuality"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _qual ("Quality0-1", Float) = 1
+        _tint("Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -39,6 +40,7 @@ Shader "Unlit/FishQuality"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float _qual;
+            float4 _tint;
 
             v2f vert (appdata v)
             {
@@ -55,8 +57,9 @@ Shader "Unlit/FishQuality"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 int mask = step(col.a, 0.2f);
                 col = float4(0, 0, 0, 0) * mask + col * 1 - mask;
-                col = pow(col, _qual + 0.5);
-                col = (_qual + 0.15) * col + (1 - _qual) * float4(0.04, 0, 0.1, 1) * (1 - mask);
+                col = (_qual + 0.15) * col + (1 - _qual) * _tint * (1 - mask);
+                col = pow(col, min(1.4, _qual + 0.8));
+              
                 return col;
             }
             ENDCG

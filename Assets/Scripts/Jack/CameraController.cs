@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 	public Transform boatTarget;
 	public Transform skyTarget;
 	public Transform fishTarget;
-	Transform target;
+	[HideInInspector] public Transform target;
 	public Vector3 camoffset;
 
 	public float accel, velo, damp, followDist, sizeMult, distFromFloor;
@@ -17,12 +17,15 @@ public class CameraController : MonoBehaviour
 
 	public Material dist;
 
+	private void Awake()
+	{
+		Menu.EndDayAction += EndDay;
+		Menu.StartDayAction += StartDay;
+	}
 	void Start() {
 		trackingHook = false;
 		target = boatTarget;
 		transform.position = target.transform.position - camoffset;
-		Menu.EndDayAction += EndDay;
-		Menu.StartDayAction += StartDay;
 		var f = GameObject.FindGameObjectWithTag("Finish");
 		if(f != null) {
 			floor = f.transform.position.y + distFromFloor;
@@ -40,7 +43,9 @@ public class CameraController : MonoBehaviour
 	private void Update()
 	{
 
-		if (Input.GetKeyDown(KeyCode.Space) && DayTimer.secondsRemainingToday > 0.5f) {
+		if (Input.GetKeyDown(KeyCode.Space) && DayTimer.secondsRemainingToday > 0.5f 
+	    && GameManager.Instance.gameState == GameManager.GameState.DayGoing) {
+
 			if (trackingHook) {
 				Hook.ins.active = false;
 				trackingHook = false;

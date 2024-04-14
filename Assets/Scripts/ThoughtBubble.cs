@@ -51,6 +51,12 @@ public class ThoughtBubble : Station
 			orderComplete = true;
 			SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
 		}
+        float total = OrderManager.Instance.numOrdersEaten + 1;
+        float oldweight = OrderManager.Instance.numOrdersEaten / total;
+        float oldavg = OrderManager.Instance.averageOrderQuality * oldweight;
+        float newavg = oldavg + item.quality * (1 - oldweight);
+        OrderManager.Instance.averageOrderQuality = newavg;
+        OrderManager.Instance.numOrdersEaten += 1;
 		OrderManager.Instance.UpdateOrderUI();
 		//Destroy(gameObject);
 		GetComponent<Collider2D>().enabled = false;

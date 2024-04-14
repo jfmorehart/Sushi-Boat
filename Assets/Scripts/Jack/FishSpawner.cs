@@ -20,6 +20,8 @@ public class FishSpawner : MonoBehaviour
 	public float obstacleSpawnRate;
 	float lastObstacleSpawn;
 
+	public Color backCol = new(0, 0.345f, 0.427f);//0.345f
+
 	//Bounds are used for knowing where to spawn/despawn the fish
 	[HideInInspector]
 	public float leftBound;
