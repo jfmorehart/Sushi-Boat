@@ -40,7 +40,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
-            if (currentBoatCount<maxBoatCount)
+            if (currentBoatCount < maxBoatCount)
             {
                 SpawnBoat();
             }

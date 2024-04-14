@@ -14,7 +14,8 @@ public class OrderManager : MonoBehaviour
 	public int completed;
 	public int totalOrders;
 
-    
+    public float averageOrderQuality;
+    public int numOrdersEaten;
 
 	private void Awake()
     {

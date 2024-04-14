@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Incomplete Food
   m_EditorClassIdentifier: 
   itemName: Incomplete Food
-  sprite: {fileID: 21300000, guid: 4d60b142c93674da586666bac5169b4c, type: 3}
+  processed: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7ee7bc5893b2b4a74ba9ebde0c510d02, type: 3}
   tags: 02000000
+  pickUpSound: {fileID: 0}
+  quality: 0

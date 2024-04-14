@@ -24,6 +24,7 @@ public class Fish : MonoBehaviour
 
 	public bool inBackground;
 
+
 	public float quality;
 
     public void Init(FishData fData)
@@ -50,6 +51,7 @@ public class Fish : MonoBehaviour
 			swimSpeed *= 0.5f;
 			transform.position = pos;
 			transform.localScale = scl;
+			GetComponent<Renderer>().material.SetColor("_col", FishSpawner.ins.backCol);
 		}
 		quality = Random.Range(0, 1f);
 		GetComponent<Renderer>().material.SetFloat("_qual", quality);
