@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 305442900925381286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.92, y: 1.16, z: 0}
+  m_LocalScale: {x: 0.81438, y: 0.81438, z: 0.81438}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2584152207823721996}
@@ -75,16 +75,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: -20
+  m_Sprite: {fileID: 21300000, guid: fecec03d3792447e1be2f591864627b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4516505737917777986
@@ -103,6 +103,7 @@ MonoBehaviour:
   bubble: {fileID: 8643662064426989123}
   doubleBubble: {fileID: 3592385368104559872}
   timer: 0
+  maxTime: 0
   orderCount: 0
   finished: 0
 --- !u!1 &757688712176492038
@@ -339,7 +340,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: e983240142047944fb3190184ef7ad50, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -347,7 +348,7 @@ SpriteRenderer:
   m_Size: {x: 11.24, y: 6.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5385475760593632668
@@ -366,6 +367,7 @@ MonoBehaviour:
   sinFreq: 0.2
   sinAmp: 0.5
   ready: 0
+  bossLevel: 0
 --- !u!1 &2145094408952559909
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +471,7 @@ MonoBehaviour:
   bubble: {fileID: 3305141320113558043}
   doubleBubble: {fileID: 5882697048760238529}
   timer: 0
+  maxTime: 0
   orderCount: 0
   finished: 0
 --- !u!1 &2404585479226435802
@@ -498,8 +501,8 @@ Transform:
   m_GameObject: {fileID: 2404585479226435802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.82, y: 1.1599998, z: 0}
+  m_LocalScale: {x: 0.81438, y: 0.81438, z: 0.81438}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7513604136694885358}
@@ -545,16 +548,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: -20
+  m_Sprite: {fileID: 21300000, guid: b7db3c55cb3a24c81abd477c0b1c8e90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.192, y: 8.192}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6100903066724759601
@@ -573,6 +576,7 @@ MonoBehaviour:
   bubble: {fileID: 4354166391108389793}
   doubleBubble: {fileID: 0}
   timer: 0
+  maxTime: 0
   orderCount: 0
   finished: 0
 --- !u!1 &3305141320113558043
@@ -1474,11 +1478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.55
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1549,11 +1553,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.03
+      value: 2.89
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1561,19 +1565,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99689573
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.078733645
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1585,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539622689849061581, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 9.032
       objectReference: {fileID: 0}
     - target: {fileID: 6004894373553033346, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_Name

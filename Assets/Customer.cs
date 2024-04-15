@@ -11,15 +11,23 @@ public class Customer : MonoBehaviour
     private bool ready = false;
 
     public float timer = 0;
+    [SerializeField] float maxTime;
 
     public int orderCount;
 
     public bool finished = false;
-    
+
+    int customer;
+    int state;
+    SpriteRenderer ren;
+
     // Start is called before the first frame update
     void Start()
     {
         orderCount = Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson+1);
+        ren = GetComponent<SpriteRenderer>();
+        customer = Random.Range(0, 10);
+        ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
     }
 
     // Update is called once per frame
@@ -36,7 +44,13 @@ public class Customer : MonoBehaviour
             if (timer >= 0)
             {
                 timer -= Time.deltaTime;
-            }
+                if ((state + 1) < (1 - (timer / maxTime)) * 3) {
+                    state++;
+                    if (state > 3) state = 3;
+					ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
+				}
+
+			}
             else
             {
                 if (bubble.activeSelf)
@@ -109,7 +123,8 @@ public class Customer : MonoBehaviour
             doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>().Init();
             orderCount -= 2;
             timer = 60f;
-        }
+			maxTime = timer;
+		}
         else
         {
             bubble.SetActive(true);
@@ -117,6 +132,7 @@ public class Customer : MonoBehaviour
             bubble.SetActive(true);
             orderCount -= 1;
             timer = 30f;
+            maxTime = timer;
         }
     }
     public void SetThoughtBubble()
@@ -127,7 +143,8 @@ public class Customer : MonoBehaviour
             bubble.SetActive(true);
             orderCount -= 1;
             timer = 1000f;
-        }
+			maxTime = timer;
+		}
         else
         {
             if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
@@ -135,13 +152,15 @@ public class Customer : MonoBehaviour
                 doubleBubble.SetActive(true);
                 orderCount -= 2;
                 timer = CustomerSpawner.Instance.minimumOrderTime*1.5f;
-            }
+				maxTime = timer;
+			}
             else
             {
                 bubble.SetActive(true);
                 orderCount -= 1;
                 timer = CustomerSpawner.Instance.minimumOrderTime;
-            }
+				maxTime = timer;
+			}
         }
 
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Menu : MonoBehaviour
 {
@@ -14,7 +15,14 @@ public class Menu : MonoBehaviour
 	public static Action EndDayAction;
 	public Sprite[] rankings;
 	public SpriteRenderer rankingPage;
-	
+
+	public SpriteRenderer[] stars;
+
+	public TMP_Text quality;
+	public TMP_Text peoplefed;
+	public TMP_Text scoretext;
+
+
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -41,13 +49,23 @@ public class Menu : MonoBehaviour
 		//Pause();
 		EndDayAction.Invoke();
 		Debug.Log(OrderManager.Instance.completed + " " + OrderManager.Instance.totalOrders);
-		float ratio = (1 + (float)OrderManager.Instance.completed) / (1f + (float)OrderManager.Instance.totalOrders);
+		float ratio = (1 + (float)OrderManager.Instance.numOrdersEaten) / (1f + (float)OrderManager.Instance.totalOrders);
+		float score = ratio * OrderManager.Instance.averageOrderQuality;
+		Debug.Log(score + " score");
 		Debug.Log(ratio);
 		int index = 10 - Mathf.FloorToInt(ratio * 10);
 		if (index < 0) index = 0;
 		if (index > 4) index = 4;
 		rankingPage.sprite = rankings[index];
-    }
+
+		for(int i = 0; i < 3; i++) {
+			stars[i].color = (0.5f + (i * 0.15f) < score) ? Color.white : Color.black;
+		}
+
+		peoplefed.text = ((int)(ratio * 100)).ToString() + "%";
+		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
+		scoretext.text = ((int)(score * 100)).ToString() + "%";
+	}
     public void PreStart(){
 		if (queuedRestart) return;
 		queuedRestart = true;

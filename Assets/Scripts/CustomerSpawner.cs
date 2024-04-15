@@ -12,7 +12,9 @@ public class CustomerSpawner : MonoBehaviour
     public GameObject customerBoat;
 
     public float minimumOrderTime;
-    
+
+	[NonReorderable]
+	public Sprite[] customers;
     
     bool lastSpawn;
 
@@ -63,5 +65,10 @@ public class CustomerSpawner : MonoBehaviour
         c.transform.position = spawnPos;
 	}
 
-
+    public Sprite GetCustomerState(int customer, int state) {
+        if (state > 3) state = 3;
+        if (customer > 9) customer = 9;
+        //0 happy, etc
+        return customers[customer * 4 + state];
+    }
 }

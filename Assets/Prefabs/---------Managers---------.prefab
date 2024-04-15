@@ -84,6 +84,7 @@ MonoBehaviour:
   money: 0
   gameState: 0
   pauseMenu: {fileID: 0}
+  tutorial: 0
 --- !u!1 &3736635013895125465
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +164,47 @@ MonoBehaviour:
   spawn: {fileID: 4275532496540903966}
   customerBoat: {fileID: 1754498851477151231, guid: bace097cd0258fe4389648b7881d6fac, type: 3}
   minimumOrderTime: 45
+  customers:
+  - {fileID: 21300000, guid: 762d0779d7d6846f0adadf508b0f42c9, type: 3}
+  - {fileID: 21300000, guid: edce0140953e4450c9d969ac51f4a5d2, type: 3}
+  - {fileID: 21300000, guid: e62e7674a478b43e3b4a752ee967401f, type: 3}
+  - {fileID: 21300000, guid: fecec03d3792447e1be2f591864627b5, type: 3}
+  - {fileID: 21300000, guid: dd1490f391a7c4d45a5d122a44c657ef, type: 3}
+  - {fileID: 21300000, guid: 3bb142ecf702e4e9d818f98dfc9f23f6, type: 3}
+  - {fileID: 21300000, guid: 0e3333590a1024515b2dfacfe5ab1b76, type: 3}
+  - {fileID: 21300000, guid: 896479cc0a73d4a739f22ea4d0e1b73b, type: 3}
+  - {fileID: 21300000, guid: b7db3c55cb3a24c81abd477c0b1c8e90, type: 3}
+  - {fileID: 21300000, guid: 96b0c2af48ddc45b1ad23d16905c83f4, type: 3}
+  - {fileID: 21300000, guid: 2448ca4bd350145c4acc411ee83da732, type: 3}
+  - {fileID: 21300000, guid: a18742672a4454a4181402cf12729563, type: 3}
+  - {fileID: 21300000, guid: a1c81e58b44404ca8a7c2839f3bde626, type: 3}
+  - {fileID: 21300000, guid: ff62c9bf0fe654117a41377d76022aaf, type: 3}
+  - {fileID: 21300000, guid: 12133efb3d035452c984ba25a24b7a62, type: 3}
+  - {fileID: 21300000, guid: 825be34a344504317a834b711985ae1d, type: 3}
+  - {fileID: 21300000, guid: 2a207f831e6b8407a8ba24a0f14f2ee5, type: 3}
+  - {fileID: 21300000, guid: af82c0c306c954295bd1d87dd6ffde8a, type: 3}
+  - {fileID: 21300000, guid: 717edc1beca9947d4825f3eafd924b0a, type: 3}
+  - {fileID: 21300000, guid: 96b3460aa0b674d78af145d17c62ef3c, type: 3}
+  - {fileID: 21300000, guid: 992270248aff14ef9925110dfad902ff, type: 3}
+  - {fileID: 21300000, guid: e961685530f8a45adb0198f6332346ae, type: 3}
+  - {fileID: 21300000, guid: d0261ed6ae6714d5183eb18e395e3bd8, type: 3}
+  - {fileID: 21300000, guid: bb158fcadb9a44fb4b13c1b22c351ac2, type: 3}
+  - {fileID: 21300000, guid: f91544f2149fd4033a51681a3138974c, type: 3}
+  - {fileID: 21300000, guid: 916c3814065514e1b9cb39ec9202d7f6, type: 3}
+  - {fileID: 21300000, guid: 59894fdcb04944b7389d1baf09174bc7, type: 3}
+  - {fileID: 21300000, guid: 7fee0454b869647ed88c5aebf52ed4a4, type: 3}
+  - {fileID: 21300000, guid: 0ad935e55dc6a48dc839b25e2654c791, type: 3}
+  - {fileID: 21300000, guid: 5b75467aecf734abf928b99bd44714b9, type: 3}
+  - {fileID: 21300000, guid: f223fee6d9f754417ac484b453d7f4bd, type: 3}
+  - {fileID: 21300000, guid: f059367e91b114ac7b9dd86249221c17, type: 3}
+  - {fileID: 21300000, guid: bed3802282a6346d69894f4ca481e2d4, type: 3}
+  - {fileID: 21300000, guid: 65a91637a6b244e82a2101bf847c1fee, type: 3}
+  - {fileID: 21300000, guid: 88e6634e4ec304d9e8c2124c0cee7e1d, type: 3}
+  - {fileID: 21300000, guid: 1ca0938474d5949f58a91ab88638bbb7, type: 3}
+  - {fileID: 21300000, guid: 5908040d3700c4aca81a2706e97064b6, type: 3}
+  - {fileID: 21300000, guid: 2461bcc031f32422588b6f3af20ecc1f, type: 3}
+  - {fileID: 21300000, guid: 0ec217df1a37448388af59c0db646cd7, type: 3}
+  - {fileID: 21300000, guid: 870ae53b59900487bb3f840602918148, type: 3}
   maxBoatCount: 1
   currentBoatCount: 0
   twoLanes: 0
