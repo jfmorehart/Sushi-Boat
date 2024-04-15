@@ -93,16 +93,39 @@ public class CuttingBoardPopup : MonoBehaviour
 
     public float DetermineQuality()
     {
+        float qualityMultiplier = 1;
+        float totalDist = 0;
         for (int i = 0; i < correctCutPositions.Count; i++)
         {
-            
+            float minDiff = Mathf.Abs(correctCutPositions[i] - cutPositions[0]);
+            for (int j = 0; j < cutPositions.Count; j++)
+            {
+                float diff = Mathf.Abs(correctCutPositions[i] - cutPositions[j]);
+                if (diff < minDiff)
+                {
+                    minDiff = diff;
+                }
+            }
+            totalDist += minDiff;
         }
 
-        return fish.quality*1;
+        if (totalDist >= 500)
+        {
+            qualityMultiplier = 0;
+        }
+        else if(totalDist<=30)
+        {
+            qualityMultiplier = 1.5f;
+        }
+        else
+        {
+            qualityMultiplier = (500 - totalDist) / 500;
+        }
+        return fish.quality* qualityMultiplier;
     }
     public void CloseBoard()
     {
-        ItemInstance newitem = new ItemInstance(fish.itemData.processed, DetermineQuality());
+        ItemInstance newitem = new ItemInstance(fish.itemData.processed, Mathf.Min(1,DetermineQuality()));
         cuttingBoard.itemOnStation = newitem;
         cuttingBoard.UpdateSprite();
         gameObject.SetActive(false);
