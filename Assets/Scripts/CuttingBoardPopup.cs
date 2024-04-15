@@ -16,6 +16,7 @@ public class CuttingBoardPopup : MonoBehaviour
     public CuttingBoard cuttingBoard;
 
     public Image im;
+    public Image shadow;
     public ItemInstance fish;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,8 @@ public class CuttingBoardPopup : MonoBehaviour
         knife.GetComponent<RectTransform>().localPosition = new Vector3(-500, knife.GetComponent<RectTransform>().localPosition.y,
             knife.GetComponent<RectTransform>().localPosition.z);
         fish = item;
-        im.sprite = fish.itemData.cuttingBoardSprite;
+        im.sprite = fish.itemData.sprite;
+        shadow.sprite = fish.itemData.sprite;
         cuttingBoard = board;
         cutPositions = new List<float>();
         correctCutPositions = item.itemData.cutPositions;

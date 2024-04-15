@@ -16,7 +16,6 @@ public class Item : ScriptableObject, IComparable<Item>
     public AudioClip pickUpSound;
 
     public List<float> cutPositions;
-    public Sprite cuttingBoardSprite;
     
 
     public float quality;//
