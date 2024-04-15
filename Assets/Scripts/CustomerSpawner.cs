@@ -28,6 +28,8 @@ public class CustomerSpawner : MonoBehaviour
     public int maxOrderCountPerPerson = 3; 
     public int customerPerBoat =1;
 
+    public float customerSpawnDelay = 5f;
+
     private void Awake()
     {
         if(Instance != null) {
@@ -58,7 +60,7 @@ public class CustomerSpawner : MonoBehaviour
     IEnumerator DelaySpawn()
     {
         currentBoatCount++;
-        yield return new WaitForSeconds(Random.Range(1f,5f));
+        yield return new WaitForSeconds(customerSpawnDelay);
         Vector3 spawnPos = spawn.position;
         GameObject c = Instantiate(customerBoat);
         OrderManager.Instance.totalOrders += 2;
