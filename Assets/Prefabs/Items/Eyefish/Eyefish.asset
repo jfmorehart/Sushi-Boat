@@ -16,3 +16,11 @@ MonoBehaviour:
   processed: {fileID: 11400000, guid: 57b7309aef3094019916a2e7cf0dc78e, type: 2}
   sprite: {fileID: 21300000, guid: e3bb2dac7d04a4fce9357cd0eff95dd0, type: 3}
   tags: 0000000005000000
+  pickUpSound: {fileID: 0}
+  cutPositions:
+  - -300
+  - 0
+  - 100
+  - 300
+  cuttingBoardSprite: {fileID: 21300000, guid: 2910dcfdf0d9fa04e8d447711172f675, type: 3}
+  quality: 0

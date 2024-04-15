@@ -17,3 +17,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 0d7f3213350a943a99fbbd5f3a973041, type: 3}
   tags: 0500000000000000
   pickUpSound: {fileID: 8300000, guid: 9bd2b9bb28133ca4181cd918ad8993bd, type: 3}
+  cutPositions:
+  - -300
+  - -100
+  - 100
+  - 300
+  cuttingBoardSprite: {fileID: 21300000, guid: f1a448bb1e370d74db8f7a0b678d77b2, type: 3}
+  quality: 0
