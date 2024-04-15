@@ -14,7 +14,8 @@ public class CuttingBoardPopup : MonoBehaviour
     public List<GameObject> cutLines;
     private bool moving = true;
     public CuttingBoard cuttingBoard;
-    
+
+    public Image im;
     public ItemInstance fish;
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,11 @@ public class CuttingBoardPopup : MonoBehaviour
         knife.GetComponent<RectTransform>().localPosition = new Vector3(-500, knife.GetComponent<RectTransform>().localPosition.y,
             knife.GetComponent<RectTransform>().localPosition.z);
         fish = item;
+        im.sprite = fish.itemData.cuttingBoardSprite;
         cuttingBoard = board;
         cutPositions = new List<float>();
         correctCutPositions = item.itemData.cutPositions;
+        
         for (int j = 0; j < correctCutPositions.Count; j++)
         {
             cutLines[j].SetActive(true);
