@@ -26,7 +26,9 @@ public class Customer : MonoBehaviour
     {
         orderCount = Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson+1);
         ren = GetComponent<SpriteRenderer>();
-        customer = Random.Range(0, 10);
+
+		if (GameManager.Instance.boss) return;
+		customer = Random.Range(0, 10);
         ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
     }
 
@@ -44,6 +46,7 @@ public class Customer : MonoBehaviour
             if (timer >= 0)
             {
                 timer -= Time.deltaTime;
+                if (GameManager.Instance.boss) return;
                 if ((state + 1) < (1 - (timer / maxTime)) * 3) {
                     state++;
                     if (state > 3) state = 3;

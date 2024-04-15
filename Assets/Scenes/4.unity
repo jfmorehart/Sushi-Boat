@@ -3105,6 +3105,10 @@ PrefabInstance:
       value: ---------Managers---------
       objectReference: {fileID: 0}
     - target: {fileID: 5176677045807525870, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: anims.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: b87e15a1304bb44308bf0ebc30f346ae, type: 2}
+    - target: {fileID: 5176677045807525870, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: anims.Array.data[1]
       value: 
       objectReference: {fileID: 9100000, guid: 5e62bfb73067a4920ad5c4e003082cd4, type: 2}
