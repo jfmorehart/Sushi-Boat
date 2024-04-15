@@ -10,10 +10,17 @@ public class CuttingBoard : Station
 	public override bool OnItemAdd(ItemInstance item)
 	{
 		if (item.itemData.tags.Contains(Item.ItemTags.Fish) && item.itemData.tags.Contains(Item.ItemTags.Ingredient)) {
-			SoundManager.Instance.PlaySoundEffect(cuttingBoard);
-			ItemInstance newitem = new ItemInstance(item.itemData.processed, item.quality);
+			//SoundManager.Instance.PlaySoundEffect(cuttingBoard);
+			//ItemInstance newitem = new ItemInstance(item.itemData.processed, item.quality);
 			//transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
-			return base.OnItemAdd(newitem);
+			if(itemOnStation == null) {
+				PopUp(item);
+				return true;
+			}
+			else {
+				UpdateSprite();
+				return false;
+			}
 		}
 		else {
 			Debug.Log("invalid item " + item.itemData.itemName);
@@ -21,6 +28,13 @@ public class CuttingBoard : Station
 		}
 	}
 
+
+	public void PopUp(ItemInstance item)
+	{
+		GetComponentInParent<SectionCuttingBoard>().cuttingBoardUI.gameObject.SetActive(true);
+		GetComponentInParent<SectionCuttingBoard>().cuttingBoardUI.Init(item,this);
+	}
+	
 	public override void SpawnDraggableItem(ItemInstance item)
 	{
 		base.SpawnDraggableItem(item);

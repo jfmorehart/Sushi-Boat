@@ -10,6 +10,8 @@ public class SectionCuttingBoard : Station
 	Collider2D col;
 	bool waitframe = true;
 
+	public CuttingBoardPopup cuttingBoardUI;
+
 	public override void Awake()
 	{
 		base.Awake();

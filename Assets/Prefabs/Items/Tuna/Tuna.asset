@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Tuna
   processed: {fileID: 11400000, guid: 32748f7e1b85646f993766b0feea3c72, type: 2}
-  sprite: {fileID: 21300000, guid: 903e8b6444c174b249c54954b67b09fb, type: 3}
+  sprite: {fileID: -1125930062, guid: 77bfadf8ee10940539191336062afe61, type: 3}
   tags: 0500000000000000
   pickUpSound: {fileID: 8300000, guid: 9bd2b9bb28133ca4181cd918ad8993bd, type: 3}
+  cutPositions:
+  - -400
+  - 400
+  cuttingBoardSprite: {fileID: 21300000, guid: 3553459d70482854da96817f09604b07, type: 3}
+  quality: 0
