@@ -127,7 +127,7 @@ public class OrderManager : MonoBehaviour
         for (int i = 0; i < orders.Count; i++)
         {
             Transform ord = ordersUI.transform.GetChild(i);
-            ord.GetChild(3).localScale = new Vector3(orders[i].currentTimer / orders[i].timer, 1, 1);
+            ord.GetChild(3).localScale = new Vector3(orders[i].currentTimer / (orders[i].timer + 0.01f), 1, 1);
             orders[i].currentTimer -= Time.deltaTime;
             if (orders[i].currentTimer <= 0)
             {
