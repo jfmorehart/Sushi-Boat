@@ -57,7 +57,7 @@ public class ThoughtBubble : Station
         float newavg = oldavg + item.quality * (1 - oldweight);
         OrderManager.Instance.averageOrderQuality = newavg;
         OrderManager.Instance.numOrdersEaten += 1;
-		OrderManager.Instance.UpdateOrderUI();
+		//OrderManager.Instance.UpdateOrderUI();
 		//Destroy(gameObject);
 		GetComponent<Collider2D>().enabled = false;
 		return base.OnItemAdd(item);
@@ -90,6 +90,6 @@ public class ThoughtBubble : Station
 		orderAdded = true;
 		order = new OrderManager.Order(recipe, transform.parent.parent.GetComponent<Customer>().timer);
 		OrderManager.Instance.orders.Add(order);
-		OrderManager.Instance.UpdateOrderUI();
+		//OrderManager.Instance.UpdateOrderUI();
 	}
 }
