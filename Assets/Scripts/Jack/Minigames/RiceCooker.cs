@@ -116,7 +116,7 @@ public class RiceCooker : Station
 			if (stage != CookingStage.burnt)
 			{
 				stage = CookingStage.burnt;
-				itemOnStation = new ItemInstance(burntRice, itemOnStation.quality);
+				//itemOnStation = new ItemInstance(burntRice, itemOnStation.quality);
 				riceRenderer.color = Color.red;
 				audioSource.Stop();
 				audioSource.PlayOneShot(overCooked);
