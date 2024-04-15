@@ -19,15 +19,13 @@ public class BossLogic : MonoBehaviour
 	void Start()
     {
 		if (cutscene) {
+			CustomerSpawner.Instance.bossLock = true;
 			Invoke(nameof(CutScene), 0.1f);
 		}
         start = tentacles.transform.position;
     }
 
     void CutScene() {
-        CameraController cc = Camera.main.GetComponent<CameraController>();
-        cc.target = cc.fishTarget;
-        cc.trackingHook = true;
         GameManager.Instance.gameState = GameManager.GameState.DayEnded;
 		StartCoroutine(Grab());
 	}
@@ -35,11 +33,16 @@ public class BossLogic : MonoBehaviour
 
 	IEnumerator Grab()
 	{
+		yield return new WaitForSeconds(2f);
+		CameraController cc = Camera.main.GetComponent<CameraController>();
+		cc.target = cc.fishTarget;
+		cc.trackingHook = true;
+		yield return new WaitForSeconds(2f);
 		float st = Time.time;
 		while (true) {
 			if (Vector3.Distance(grabby.position, Vector3.zero) > 0.1f)
 			{
-				grabby.position = Vector3.Lerp(start, Vector3.zero, (Time.time - st) / 5);
+				grabby.position = Vector3.Lerp(start, Vector3.zero, (Time.time - st) / 3);
 				yield return new WaitForEndOfFrame();
             }
             else {
@@ -57,7 +60,7 @@ public class BossLogic : MonoBehaviour
 		{
 			if (Vector3.Distance(grabby.position, start) > 0.1f)
 			{
-				grabby.position = Vector3.Lerp(Vector3.zero, start, (Time.time - st) / 5);
+				grabby.position = Vector3.Lerp(Vector3.zero, start, (Time.time - st) / 3);
 				yield return new WaitForEndOfFrame();
 			}
 			else
@@ -74,13 +77,17 @@ public class BossLogic : MonoBehaviour
 		{
 			if (Vector3.Distance(tentacles.position, Vector3.zero) > 0.1f)
 			{
-				tentacles.transform.position = Vector3.Lerp(start, Vector3.zero, (Time.time - st) / 5);
+				tentacles.transform.position = Vector3.Lerp(start, Vector3.zero, (Time.time - st) / 2);
 				yield return new WaitForEndOfFrame();
 			}
 			else
 			{
 				GameManager.Instance.gameState = GameManager.GameState.DayGoing;
 				Hook.ins.active = true;
+				CameraController cc = Camera.main.GetComponent<CameraController>();
+				cc.target = cc.boatTarget;
+				yield return new WaitForSeconds(2f);
+				CustomerSpawner.Instance.bossLock = false;
 				yield break;
 			}
 		}

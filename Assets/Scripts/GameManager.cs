@@ -30,12 +30,20 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
 
     public bool tutorial = false;
-    // Start is called before the first frame update
-    void Start()
+	public bool boss = false;
+	// Start is called before the first frame update
+	void Start()
     {
         Progress.Load();
         money = Progress.money;
         gameState = GameState.DayGoing;
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {  //boss scene
+            boss = true;
+        }
+        else {
+            boss = false;
+	    }
     }
 
     // Update is called once per frame

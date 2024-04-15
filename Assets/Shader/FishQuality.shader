@@ -57,9 +57,12 @@ Shader "Unlit/FishQuality"
                 fixed4 col = tex2D(_MainTex, i.uv);
                 int mask = step(col.a, 0.2f);
                 col = float4(0, 0, 0, 0) * mask + col * 1 - mask;
-                col = (_qual + 0.15) * col + (1 - _qual) * _tint * (1 - mask);
+                col = (_qual + 0.3) * col + (1 - _qual) * _tint * (1 - mask);
                 col = pow(col, min(1.4, _qual + 0.8));
               
+                //int rmask = step(0.5, _qual) * step(0.5, col.b);
+                //col = rmask * float4(0.7, 0.6, 0.1, 1) + (1 - rmask) * col;
+                //col *= 1 - mask;
                 return col;
             }
             ENDCG
