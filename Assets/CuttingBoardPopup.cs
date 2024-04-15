@@ -28,8 +28,12 @@ public class CuttingBoardPopup : MonoBehaviour
         {
             cutLines[i].SetActive(false);
         }
+
+        knife.GetComponent<RectTransform>().localPosition = new Vector3(-500, knife.GetComponent<RectTransform>().localPosition.y,
+            knife.GetComponent<RectTransform>().localPosition.z);
         fish = item;
         cuttingBoard = board;
+        cutPositions = new List<float>();
         correctCutPositions = item.itemData.cutPositions;
         for (int j = 0; j < correctCutPositions.Count; j++)
         {
@@ -62,12 +66,12 @@ public class CuttingBoardPopup : MonoBehaviour
             if (direction == 1)
             {
                 knife.GetComponent<RectTransform>().localPosition =
-                    knife.GetComponent<RectTransform>().localPosition + new Vector3(knifeSpeed, 0, 0);
+                    knife.GetComponent<RectTransform>().localPosition + new Vector3(knifeSpeed, 0, 0)*Time.deltaTime;
             }
             else if (direction == -1)
             {
                 knife.GetComponent<RectTransform>().localPosition =
-                    knife.GetComponent<RectTransform>().localPosition - new Vector3(knifeSpeed, 0, 0);
+                    knife.GetComponent<RectTransform>().localPosition - new Vector3(knifeSpeed, 0, 0)*Time.deltaTime;
             }
         }
 
