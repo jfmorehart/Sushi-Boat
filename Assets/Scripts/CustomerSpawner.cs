@@ -45,7 +45,7 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.DayGoing && !bossLock)
         {
-            if (currentBoatCount < maxBoatCount)
+            if (currentBoatCount < maxBoatCount && DayTimer.secondsRemainingToday > 30)
             {
                 Debug.Log("spawn " + bossLock);
                 SpawnBoat();

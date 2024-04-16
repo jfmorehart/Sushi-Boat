@@ -31,22 +31,23 @@ public class Menu : MonoBehaviour
 			return;
 		}
 		Instance = this;
-		Debug.Log(Progress.CheckValidSave(0));
 		Progress.Load();
 		StartDayAction = null;
 		EndDayAction = null;
-	}
 
+	}
+	
+	//Defunct
 	public void StartDay()
 	{
+		//apparently this doesnt get called?
 		UnPause();
 		StartDayAction.Invoke();
 		GameManager.Instance.gameState = GameManager.GameState.DayGoing;
+
 	}
 	public void EndDay() {
 		queuedRestart = false;
-		Progress.Save();
-		//Pause();
 		EndDayAction.Invoke();
 		Debug.Log(OrderManager.Instance.completed + " " + OrderManager.Instance.totalOrders);
 		float ratio = (1 + (float)OrderManager.Instance.numOrdersEaten) / (1f + (float)OrderManager.Instance.totalOrders);
@@ -58,14 +59,18 @@ public class Menu : MonoBehaviour
 		if (index > 4) index = 4;
 		rankingPage.sprite = rankings[index];
 
+		int starCount = Mathf.FloorToInt((score * 11f) * 0.333f);
 		for(int i = 0; i < 3; i++) {
-			stars[i].color = (0.5f + (i * 0.15f) < score) ? Color.white : Color.black;
+			stars[i].color =  i < starCount ? Color.white : Color.black;
 		}
 
 		peoplefed.text = ((int)(ratio * 100)).ToString() + "%";
 		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
 		scoretext.text = ((int)(score * 100)).ToString() + "%";
+		Progress.SetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1, starCount);
+		Progress.Save();
 	}
+	//Defunct?
     public void PreStart(){
 		if (queuedRestart) return;
 		queuedRestart = true;
@@ -89,7 +94,6 @@ public class Menu : MonoBehaviour
 
 	public void SwitchToMap()
 	{
-		Progress.maxUnlockedLevel++;
 		Progress.Save();
 		SceneManager.LoadScene("MapScene");
 	}

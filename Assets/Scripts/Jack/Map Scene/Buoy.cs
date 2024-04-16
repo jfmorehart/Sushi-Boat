@@ -22,16 +22,32 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
 	public Transform[] stars;
 
+	private void Awake()
+	{
+		if (levelToLoad == 1)
+		{
+			Progress.Load();
+
+			//	//Progress.SetScoreOnLevel(1, 3);
+			//	Progress.SetScoreOnLevel(2, 3);
+			//	//Progress.maxUnlockedLevel = 3;
+			//	Progress.Save();
+			
+		}
+	}
 	private void Start()
 	{
 		ren = GetComponent<SpriteRenderer>();
 		regScale = transform.localScale;
 		bigScale = regScale * 1.25f;
+
 		if(Progress.maxUnlockedLevel >= levelToLoad) {
 			unlocked = true;
-			foreach(Transform t in stars) {
-				t.GetComponent<SpriteRenderer>().color = Color.white;
-				t.GetComponent<SpriteRenderer>().enabled = true;
+			int score = Progress.GetScoreOnLevel(levelToLoad);
+			//Debug.Log(levelToLoad + " " + score);
+			for(int i = 0; i < stars.Length; i++) {
+				stars[i].GetComponent<SpriteRenderer>().color = (i < score)? Color.white : Color.black;
+				stars[i].GetComponent<SpriteRenderer>().enabled = true;
 			}
 		}
 		else {
