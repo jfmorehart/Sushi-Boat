@@ -389,7 +389,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187017535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2630,6 +2630,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710237888782351282, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555925477020956079, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260544092287979043, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+      propertyPath: m_Color.b
+      value: 0.17254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260544092287979043, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+      propertyPath: m_Color.g
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260544092287979043, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8842810177074432831, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
