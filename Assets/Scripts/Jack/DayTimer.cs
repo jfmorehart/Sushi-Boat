@@ -49,6 +49,10 @@ public class DayTimer : MonoBehaviour
     {
         if (live) {
             secondsRemainingToday -= Time.deltaTime;
+            if(CustomerSpawner.Instance.currentBoatCount == 0 && secondsRemainingToday < 30) {
+				secondsRemainingToday -= 3 * Time.deltaTime;
+                //4x speed after end
+			}
             mat.SetFloat("_clerp", 1 - secondsRemainingToday / secondsPerDay);
             float z = Mathf.Lerp(dayEndAngle, dayStartAngle, (secondsRemainingToday / secondsPerDay));
             transform.eulerAngles = new Vector3(0, 0, z);

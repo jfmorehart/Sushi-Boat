@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public void StartGame()
+	private void Start()
+	{
+
+	}
+	public void StartGame()
     {
-        SceneManager.LoadScene("MapScene");
+		if (!Progress.HasBeatenTutorial())
+		{
+			SceneManager.LoadScene("Tutorial");
+            return;
+		}
+		SceneManager.LoadScene("MapScene");
     }
 
     public void Quit()

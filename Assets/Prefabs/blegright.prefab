@@ -50,7 +50,9 @@ MonoBehaviour:
   bubble: {fileID: 134354247344736480}
   doubleBubble: {fileID: 0}
   timer: 45
+  maxTime: 0
   orderCount: 1
+  maxRed: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
   finished: 0
 --- !u!212 &927222899094907873
 SpriteRenderer:
@@ -154,7 +156,9 @@ MonoBehaviour:
   bubble: {fileID: 2592191799718432824}
   doubleBubble: {fileID: 0}
   timer: 45
+  maxTime: 0
   orderCount: 1
+  maxRed: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
   finished: 0
 --- !u!212 &6401301303165310132
 SpriteRenderer:
@@ -258,7 +262,9 @@ MonoBehaviour:
   bubble: {fileID: 5680481580820587851}
   doubleBubble: {fileID: 0}
   timer: 45
+  maxTime: 0
   orderCount: 1
+  maxRed: {r: 1, g: 0.5990566, b: 0.5990566, a: 1}
   finished: 0
 --- !u!212 &3644076720161801294
 SpriteRenderer:

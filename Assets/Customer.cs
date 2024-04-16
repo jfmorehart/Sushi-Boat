@@ -11,9 +11,10 @@ public class Customer : MonoBehaviour
     private bool ready = false;
 
     public float timer = 0;
-    [SerializeField] float maxTime;
+    float maxTime;
 
     public int orderCount;
+    public Color maxRed;
 
     public bool finished = false;
 
@@ -21,17 +22,27 @@ public class Customer : MonoBehaviour
     int state;
     SpriteRenderer ren;
 
+    bool steaming;
+    public ParticleSystem[] steamers;
+
+    public int singleBubbleTimerLength, doubleBubbleTimerLength;
     // Start is called before the first frame update
     void Start()
     {
         orderCount = Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson+1);
         ren = GetComponent<SpriteRenderer>();
-
+        ren.material.SetFloat("_rh", 0);
 		if (GameManager.Instance.boss) return;
 		customer = Random.Range(0, 10);
         ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
     }
 
+    void StartSteam() { 
+        foreach(ParticleSystem ps in steamers) {
+            ps.Play();
+	    }
+        steaming = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -46,12 +57,23 @@ public class Customer : MonoBehaviour
             if (timer >= 0)
             {
                 timer -= Time.deltaTime;
-                if (GameManager.Instance.boss) return;
-                if ((state + 1) < (1 - (timer / maxTime)) * 3) {
-                    state++;
-                    if (state > 3) state = 3;
-					ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
+                if (!finished) {
+					if (GameManager.Instance.boss) return;
+                    float l = (timer > maxTime * 0.5f) ? 0 :1 - (timer / (maxTime * 0.5f));
+                    if(l > 0) {
+						ren.material.SetFloat("_rh", l);
+					}
+                    if(l > 0.5 && !steaming) {
+                        StartSteam();
+		            }
+					if ((state + 1) < (1 - (timer / maxTime)) * 4)
+					{
+						state++;
+						if (state > 3) state = 3;
+						ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
+					}
 				}
+
 
 			}
             else
@@ -125,7 +147,7 @@ public class Customer : MonoBehaviour
             doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();
             doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>().Init();
             orderCount -= 2;
-            timer = 60f;
+            timer = doubleBubbleTimerLength + Random.Range(-1, 1f); //for variance
 			maxTime = timer;
 		}
         else
@@ -134,8 +156,8 @@ public class Customer : MonoBehaviour
             bubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();
             bubble.SetActive(true);
             orderCount -= 1;
-            timer = 30f;
-            maxTime = timer;
+            timer = singleBubbleTimerLength + Random.Range(-1, 1f);//for variance
+			maxTime = timer;
         }
     }
     public void SetThoughtBubble()
@@ -154,14 +176,14 @@ public class Customer : MonoBehaviour
             {
                 doubleBubble.SetActive(true);
                 orderCount -= 2;
-                timer = CustomerSpawner.Instance.minimumOrderTime*1.5f;
+                timer = Mathf.Max(CustomerSpawner.Instance.minimumOrderTime, doubleBubbleTimerLength);
 				maxTime = timer;
 			}
             else
             {
                 bubble.SetActive(true);
                 orderCount -= 1;
-                timer = CustomerSpawner.Instance.minimumOrderTime;
+                timer = Mathf.Max(CustomerSpawner.Instance.minimumOrderTime, singleBubbleTimerLength);
 				maxTime = timer;
 			}
         }

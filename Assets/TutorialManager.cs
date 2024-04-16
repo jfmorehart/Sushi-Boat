@@ -259,6 +259,7 @@ public class TutorialManager : MonoBehaviour
         ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+        Progress.BeatTutorial();
         SceneManager.LoadScene("MainMenu");
 
     }

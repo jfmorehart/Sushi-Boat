@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: 4800000, guid: e8fd721e89cc445efa65a3b97466b4f2, type: 3}
+  m_Name: CustomerMat
+  m_Shader: {fileID: 4800000, guid: 901f20890bc2f45cca05512374da98d2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -77,8 +77,9 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _yval: 25.609154
+    - _rh: 0.58
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _col: {r: 1, g: 0.5330188, b: 0.5330188, a: 1}
   m_BuildTextureStacks: []
