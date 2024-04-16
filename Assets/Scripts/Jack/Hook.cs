@@ -28,9 +28,12 @@ public class Hook : MonoBehaviour
 
 	public AudioClip fishOutofWater;
 	FishAnimInfo fishAnim;
+	float xorigin;
 
 	private void Awake()
 	{
+		xorigin = transform.position.x;
+
 		fishAnim = FindObjectOfType<FishAnimInfo>(false);
 		ins = this;
         Menu.StartDayAction += ResetPos;
@@ -50,7 +53,7 @@ public class Hook : MonoBehaviour
 	void Update()
     {
 		//if (!active) return;
-
+		transform.position = new Vector3(xorigin, transform.position.y, 0);
 	    if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
 	    {
 			// mouse controls
