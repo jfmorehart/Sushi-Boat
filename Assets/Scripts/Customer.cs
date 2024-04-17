@@ -51,12 +51,17 @@ public class Customer : MonoBehaviour
     }
 
     public void ReactToFood(float quality) {
-
+        if (GameManager.Instance.boss) return;
 		state = Mathf.RoundToInt((1 - quality) * 3);
         state = Mathf.Clamp(state, 0, 3);
+		ren.material.SetFloat("_rh", 0);
 		if (state != 3) {
             StopSteam();
-	    }
+
+		}
+        else {
+			//ren.material.SetFloat("_rh", ((1 - quality) - 0.5f) / 0.5f);
+		}
 
 		ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
 	}

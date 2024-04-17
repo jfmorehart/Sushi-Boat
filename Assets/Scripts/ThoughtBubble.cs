@@ -66,6 +66,8 @@ public class ThoughtBubble : Station
         float newavg = oldavg + item.quality * (1 - oldweight);
         OrderManager.Instance.averageOrderQuality = newavg;
         OrderManager.Instance.numOrdersEaten += 1;
+
+        transform.parent.parent.GetComponent<Customer>().ReactToFood(item.quality);
 		//OrderManager.Instance.UpdateOrderUI();
 		//Destroy(gameObject);
 		GetComponent<Collider2D>().enabled = false;

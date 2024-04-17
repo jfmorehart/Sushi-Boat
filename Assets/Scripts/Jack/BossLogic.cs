@@ -13,13 +13,13 @@ public class BossLogic : MonoBehaviour
     public Transform grabby;
     public Sprite grabby2;
 	public Vector2 grabbyEnd;
+	public Vector2 tentaclesEnd;
 
 	public bool cutscene;
 	// Start is called before the first frame update
 	void Start()
     {
 		if (cutscene) {
-			CustomerSpawner.Instance.bossLock = true;
 			Invoke(nameof(CutScene), 0.1f);
 		}
         start = tentacles.transform.position;
@@ -37,12 +37,14 @@ public class BossLogic : MonoBehaviour
 		CameraController cc = Camera.main.GetComponent<CameraController>();
 		cc.target = cc.fishTarget;
 		cc.trackingHook = true;
+		Hook.ins.active = false;
 		yield return new WaitForSeconds(2f);
 		float st = Time.time;
+
 		while (true) {
-			if (Vector3.Distance(grabby.position, Vector3.zero) > 0.1f)
+			if (Vector3.Distance(grabby.position, grabbyEnd) > 0.1f)
 			{
-				grabby.position = Vector3.Lerp(start, Vector3.zero, (Time.time - st) / 3);
+				grabby.position = Vector3.Lerp(start, grabbyEnd, (Time.time - st) / 3);
 				yield return new WaitForEndOfFrame();
             }
             else {
@@ -60,7 +62,7 @@ public class BossLogic : MonoBehaviour
 		{
 			if (Vector3.Distance(grabby.position, start) > 0.1f)
 			{
-				grabby.position = Vector3.Lerp(Vector3.zero, start, (Time.time - st) / 3);
+				grabby.position = Vector3.Lerp(grabbyEnd, start, (Time.time - st) / 3);
 				yield return new WaitForEndOfFrame();
 			}
 			else
@@ -75,19 +77,18 @@ public class BossLogic : MonoBehaviour
 		float st = Time.time;
 		while (true)
 		{
-			if (Vector3.Distance(tentacles.position, Vector3.zero) > 0.1f)
+			if (Vector3.Distance(tentacles.position, tentaclesEnd) > 0.1f)
 			{
-				tentacles.transform.position = Vector3.Lerp(start, Vector3.zero, (Time.time - st) / 2);
+				tentacles.transform.position = Vector3.Lerp(start, tentaclesEnd, (Time.time - st) / 2);
 				yield return new WaitForEndOfFrame();
 			}
 			else
 			{
 				GameManager.Instance.gameState = GameManager.GameState.DayGoing;
-				Hook.ins.active = true;
 				CameraController cc = Camera.main.GetComponent<CameraController>();
 				cc.target = cc.boatTarget;
-				yield return new WaitForSeconds(2f);
-				CustomerSpawner.Instance.bossLock = false;
+				cc.trackingHook = false;
+				Hook.ins.active = false;
 				yield break;
 			}
 		}

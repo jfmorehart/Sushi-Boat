@@ -29,8 +29,6 @@ public class CustomerSpawner : MonoBehaviour
     public int customerPerBoat =1;
 
     public float customerSpawnDelay = 5f;
-
-    public bool bossLock = false; //set by bosslogic on boss level to ensure customers dont spawn until we want
     private void Awake()
     {
         if(Instance != null) {
@@ -43,11 +41,10 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.DayGoing && !bossLock)
+        if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
             if (currentBoatCount < maxBoatCount && DayTimer.secondsRemainingToday > 30)
             {
-                Debug.Log("spawn " + bossLock);
                 SpawnBoat();
             }
         }
