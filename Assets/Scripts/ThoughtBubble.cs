@@ -57,6 +57,7 @@ public class ThoughtBubble : Station
 			orderSR.sprite = wrongOrder;
 			order.FailOrder();
 			orderFailed = true;
+            item.quality = 0;
 			SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
 		}
         float total = OrderManager.Instance.numOrdersEaten + 1;

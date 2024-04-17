@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
 
     public bool tutorial = false;
 	public bool boss = false;
+
+    public static bool paused;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -53,7 +56,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.SetActive(true);
+            if (paused) return;
+            paused = true;
             StartCoroutine(Pause());
             
         }
@@ -62,8 +66,9 @@ public class GameManager : MonoBehaviour
     IEnumerator Pause()
     {
         EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForSeconds(0.5f);
-        Time.timeScale = 0;
+        yield return new WaitForSeconds(0.05f);
+		pauseMenu.SetActive(true);
+		Time.timeScale = 0;
         
     }
 

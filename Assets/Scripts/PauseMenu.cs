@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
+        GameManager.paused = false;
         Time.timeScale = 1;
         gameObject.SetActive(false);
 
@@ -17,17 +18,22 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+		GameManager.paused = false;
+		Time.timeScale = 1;
+		SceneManager.LoadScene("MainMenu");
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		GameManager.paused = false;
+		Time.timeScale = 1;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToMap()
     {
-        SceneManager.LoadScene("MapScene");
+		GameManager.paused = false;
+		Time.timeScale = 1;
+		SceneManager.LoadScene("MapScene");
     }
 }

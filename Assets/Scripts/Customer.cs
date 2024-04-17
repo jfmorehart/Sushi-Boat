@@ -43,8 +43,27 @@ public class Customer : MonoBehaviour
 	    }
         steaming = true;
     }
-    // Update is called once per frame
-    void Update()
+
+    public void ReactToFood(float quality) {
+
+		state = Mathf.RoundToInt((1 - quality) * 3);
+        state = Mathf.Clamp(state, 0, 3);
+		if (state != 3) {
+            StopSteam();
+	    }
+
+		ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
+	}
+	public void StopSteam()
+	{
+		foreach (ParticleSystem ps in steamers)
+		{
+			ps.Stop();
+		}
+		steaming = false;
+	}
+	// Update is called once per frame
+	void Update()
     {
         if (GetComponentInParent<CustomerBoat>().ready&& !ready)
         {
