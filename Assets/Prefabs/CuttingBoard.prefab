@@ -217,7 +217,7 @@ RectTransform:
   m_GameObject: {fileID: 2934734233705205508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1810103004425023590}
@@ -225,7 +225,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 475.42856, y: 267.42856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5686228165328943573
 CanvasRenderer:
@@ -255,7 +255,82 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3553459d70482854da96817f09604b07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 903e8b6444c174b249c54954b67b09fb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3994725133488959030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4741508333012066707}
+  - component: {fileID: 2814859723956510795}
+  - component: {fileID: 8816906987826832720}
+  m_Layer: 5
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4741508333012066707
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994725133488959030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1810103004425023590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -47}
+  m_SizeDelta: {x: 475.42856, y: 267.42856}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2814859723956510795
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994725133488959030}
+  m_CullTransparentMesh: 1
+--- !u!114 &8816906987826832720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994725133488959030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.827451}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 903e8b6444c174b249c54954b67b09fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -445,6 +520,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6900796593204331967}
+  - {fileID: 4741508333012066707}
   - {fileID: 6257286179524225642}
   - {fileID: 4262976605532194363}
   - {fileID: 99698078544831572}
@@ -469,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 7308765124797689921}
   cutPosition: 0
-  knifeSpeed: 500
+  knifeSpeed: 2000
   correctCutPositions: []
   cutPositions: []
   cutLines:
@@ -480,6 +556,12 @@ MonoBehaviour:
   - {fileID: 4642948161142316660}
   cuttingBoard: {fileID: 0}
   im: {fileID: 6248714134332229411}
+  shadow: {fileID: 8816906987826832720}
+  lines:
+  - {fileID: 21300000, guid: f0fbfb703b0571146b609a1f9c848943, type: 3}
+  - {fileID: 21300000, guid: 1e98479a79e49cf48bfc54464502dd0b, type: 3}
+  - {fileID: 21300000, guid: 13130e3e5c15fe24d89dd9c84d8df9eb, type: 3}
+  cutSound: {fileID: 8300000, guid: 6f60c31828fcc5d40b97675391770dc5, type: 3}
 --- !u!1 &6154489650788638952
 GameObject:
   m_ObjectHideFlags: 0

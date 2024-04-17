@@ -81,12 +81,12 @@ public class OrderManager : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
-            UpdateOrderTimer();
+            //UpdateOrderTimer();
         }
         moneyUI.text = "$" + GameManager.Instance.money;
     }
 
-    public void UpdateOrderUI()
+    /*public void UpdateOrderUI()
     {
         List<Order> ordersCopy = orders.OrderByDescending(o => o.timer).ToList();
         orders = new List<Order>(ordersCopy);
@@ -136,7 +136,7 @@ public class OrderManager : MonoBehaviour
                 UpdateOrderUI();
             }
         }
-    }
+    }*/
 
     //deprecated
     /*public bool CheckOrder(Order order)

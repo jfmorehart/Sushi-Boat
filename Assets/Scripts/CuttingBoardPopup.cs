@@ -16,7 +16,14 @@ public class CuttingBoardPopup : MonoBehaviour
     public CuttingBoard cuttingBoard;
 
     public Image im;
+    public Image shadow;
     public ItemInstance fish;
+    
+    float totalDist = 0;
+
+    public Sprite[] lines;
+
+    public AudioClip cutSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,16 +34,20 @@ public class CuttingBoardPopup : MonoBehaviour
     {
         for (int i = 0; i < cutLines.Count; i++)
         {
+            cutLines[i].GetComponent<Image>().sprite = lines[0];
             cutLines[i].SetActive(false);
+            
         }
 
         knife.GetComponent<RectTransform>().localPosition = new Vector3(-500, knife.GetComponent<RectTransform>().localPosition.y,
             knife.GetComponent<RectTransform>().localPosition.z);
         fish = item;
-        im.sprite = fish.itemData.cuttingBoardSprite;
+        im.sprite = fish.itemData.sprite;
+        shadow.sprite = fish.itemData.sprite;
         cuttingBoard = board;
         cutPositions = new List<float>();
-        correctCutPositions = item.itemData.cutPositions;
+        correctCutPositions = new List<float>(item.itemData.cutPositions);
+        totalDist = 0;
         
         for (int j = 0; j < correctCutPositions.Count; j++)
         {
@@ -52,7 +63,7 @@ public class CuttingBoardPopup : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if(cutPositions.Count<correctCutPositions.Count)
+            if(correctCutPositions.Count>0)
                 Cut();
         }
         if (knife.GetComponent<RectTransform>().localPosition.x <= -500f)
@@ -83,50 +94,72 @@ public class CuttingBoardPopup : MonoBehaviour
     public void Cut()
     {
         cutPositions.Add(knife.GetComponent<RectTransform>().localPosition.x);
+        
         StartCoroutine(CutDelay());
     }
 
     public IEnumerator CutDelay()
     {
         moving = false;
+        SoundManager.Instance.PlaySoundEffect(cutSound);
         yield return new WaitForSeconds(0.5f);
         moving = true;
-        if (cutPositions.Count == correctCutPositions.Count)
+        UpdateCut();
+        
+        if (correctCutPositions.Count==0)
         {
+            yield return new WaitForSeconds(0.5f);
             CloseBoard();
         }
     }
 
 
+    public void UpdateCut()
+    {
+        float minDiff = Mathf.Abs(correctCutPositions[0]- cutPositions[cutPositions.Count-1]);
+        float posToRemove = correctCutPositions[0];
+         
+        GameObject lineToChange= cutLines[cutPositions.Count-1];
+        for (int i = 0; i < correctCutPositions.Count; i++)
+        {
+            float diff = Mathf.Abs(correctCutPositions[i]-cutPositions[cutPositions.Count-1]);
+            if (diff < minDiff)
+            {
+                minDiff = diff;
+                posToRemove = correctCutPositions[i];
+            }
+        }
+        totalDist += minDiff;
+        if (minDiff <= 100)
+        {
+            lineToChange.GetComponent<Image>().sprite = lines[1];
+
+        }
+        else
+        {
+            lineToChange.GetComponent<Image>().sprite = lines[2];
+        }
+        lineToChange.GetComponent<RectTransform>().localPosition = new Vector3(
+            cutPositions[cutPositions.Count-1],
+            lineToChange.GetComponent<RectTransform>().localPosition.y,
+            lineToChange.GetComponent<RectTransform>().localPosition.z);
+        correctCutPositions.Remove(posToRemove);
+    }
+
     public float DetermineQuality()
     {
         float qualityMultiplier = 1;
-        float totalDist = 0;
-        for (int i = 0; i < correctCutPositions.Count; i++)
-        {
-            float minDiff = Mathf.Abs(correctCutPositions[i] - cutPositions[0]);
-            for (int j = 0; j < cutPositions.Count; j++)
-            {
-                float diff = Mathf.Abs(correctCutPositions[i] - cutPositions[j]);
-                if (diff < minDiff)
-                {
-                    minDiff = diff;
-                }
-            }
-            totalDist += minDiff;
-        }
-
         if (totalDist >= 500)
         {
             qualityMultiplier = 0;
         }
-        else if(totalDist<=30)
+        else if(totalDist<=100)
         {
             qualityMultiplier = 1.5f;
         }
         else
         {
-            qualityMultiplier = (500 - totalDist) / 500;
+            qualityMultiplier = (1000 - totalDist) / 1000;
         }
         return fish.quality* qualityMultiplier;
     }

@@ -28,6 +28,8 @@ public class CustomerSpawner : MonoBehaviour
     public int maxOrderCountPerPerson = 3; 
     public int customerPerBoat =1;
 
+    public float customerSpawnDelay = 5f;
+
     public bool bossLock = false; //set by bosslogic on boss level to ensure customers dont spawn until we want
     private void Awake()
     {
@@ -60,7 +62,7 @@ public class CustomerSpawner : MonoBehaviour
     IEnumerator DelaySpawn()
     {
         currentBoatCount++;
-        yield return new WaitForSeconds(Random.Range(1f,5f));
+        yield return new WaitForSeconds(customerSpawnDelay);
         Vector3 spawnPos = spawn.position;
         GameObject c = Instantiate(customerBoat);
         OrderManager.Instance.totalOrders += 2;

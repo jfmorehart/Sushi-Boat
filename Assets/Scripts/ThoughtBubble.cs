@@ -17,6 +17,7 @@ public class ThoughtBubble : Station
     [SerializeField] private SpriteRenderer orderSR;
 
     public AudioClip successSoundEffect;
+    public AudioClip okSoundEffect;
 
     public AudioClip failureSoundEffect;
 
@@ -40,15 +41,22 @@ public class ThoughtBubble : Station
         else if(order.recipe.recipeItem == item.itemData) {
             Debug.Log("CONGRATS");
 			orderSR.sprite = rightOrder;
+			if (item.quality >= 0.85f)
+			{
+				SoundManager.Instance.PlaySoundEffect(successSoundEffect);
+			}
+			else
+			{
+				SoundManager.Instance.PlaySoundEffect(okSoundEffect);
+			}
 			order.CompleteOrder();
-			orderFailed = true;
-			SoundManager.Instance.PlaySoundEffect(successSoundEffect);
+			orderComplete = true;
 		}
         else {
             Debug.Log("wrong order");
 			orderSR.sprite = wrongOrder;
 			order.FailOrder();
-			orderComplete = true;
+			orderFailed = true;
 			SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
 		}
         float total = OrderManager.Instance.numOrdersEaten + 1;
@@ -57,7 +65,7 @@ public class ThoughtBubble : Station
         float newavg = oldavg + item.quality * (1 - oldweight);
         OrderManager.Instance.averageOrderQuality = newavg;
         OrderManager.Instance.numOrdersEaten += 1;
-		OrderManager.Instance.UpdateOrderUI();
+		//OrderManager.Instance.UpdateOrderUI();
 		//Destroy(gameObject);
 		GetComponent<Collider2D>().enabled = false;
 		return base.OnItemAdd(item);
@@ -90,6 +98,6 @@ public class ThoughtBubble : Station
 		orderAdded = true;
 		order = new OrderManager.Order(recipe, transform.parent.parent.GetComponent<Customer>().timer);
 		OrderManager.Instance.orders.Add(order);
-		OrderManager.Instance.UpdateOrderUI();
+		//OrderManager.Instance.UpdateOrderUI();
 	}
 }
