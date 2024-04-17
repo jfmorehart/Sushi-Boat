@@ -1041,6 +1041,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2425749471922983614, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Color.a
+      value: 0.65882355
+      objectReference: {fileID: 0}
     - target: {fileID: 5881720254606992408, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2109,6 +2113,10 @@ PrefabInstance:
       propertyPath: cuttingBoard
       value: 
       objectReference: {fileID: 8740771342442581158}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialBoat
+      value: 
+      objectReference: {fileID: 1754498851477151231, guid: ab479a85c7563424daef5188a9c0c577, type: 3}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.size
       value: 5
@@ -3474,8 +3482,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: maxBoatCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: customerPerBoat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: minimumOrderTime
-      value: 90
+      value: 1000000
       objectReference: {fileID: 0}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: tempMenu
