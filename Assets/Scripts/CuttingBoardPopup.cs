@@ -12,6 +12,7 @@ public class CuttingBoardPopup : MonoBehaviour
     public List<float> correctCutPositions;
     public List<float> cutPositions;
     public List<GameObject> cutLines;
+    public List<GameObject> activeCutLines;
     private bool moving = true;
     public CuttingBoard cuttingBoard;
 
@@ -47,11 +48,13 @@ public class CuttingBoardPopup : MonoBehaviour
         cuttingBoard = board;
         cutPositions = new List<float>();
         correctCutPositions = new List<float>(item.itemData.cutPositions);
+        activeCutLines = new List<GameObject>();
         totalDist = 0;
         
         for (int j = 0; j < correctCutPositions.Count; j++)
         {
             cutLines[j].SetActive(true);
+            activeCutLines.Add(cutLines[j]);
             cutLines[j].GetComponent<RectTransform>().localPosition = new Vector3(correctCutPositions[j],
                 cutLines[j].GetComponent<RectTransform>().localPosition.y,
                 cutLines[j].GetComponent<RectTransform>().localPosition.z);
@@ -119,21 +122,24 @@ public class CuttingBoardPopup : MonoBehaviour
         float minDiff = Mathf.Abs(correctCutPositions[0]- cutPositions[cutPositions.Count-1]);
         float posToRemove = correctCutPositions[0];
          
-        GameObject lineToChange= cutLines[cutPositions.Count-1];
+        GameObject lineToChange= activeCutLines[0];
+        int indexToRemove = 0;
         for (int i = 0; i < correctCutPositions.Count; i++)
         {
             float diff = Mathf.Abs(correctCutPositions[i]-cutPositions[cutPositions.Count-1]);
             if (diff < minDiff)
             {
                 minDiff = diff;
-                posToRemove = correctCutPositions[i];
+                indexToRemove = i;
+                
             }
         }
         totalDist += minDiff;
+        posToRemove = correctCutPositions[indexToRemove];
+        lineToChange= activeCutLines[indexToRemove];
         if (minDiff <= 100)
         {
             lineToChange.GetComponent<Image>().sprite = lines[1];
-
         }
         else
         {
@@ -143,7 +149,8 @@ public class CuttingBoardPopup : MonoBehaviour
             cutPositions[cutPositions.Count-1],
             lineToChange.GetComponent<RectTransform>().localPosition.y,
             lineToChange.GetComponent<RectTransform>().localPosition.z);
-        correctCutPositions.Remove(posToRemove);
+        correctCutPositions.RemoveAt(indexToRemove);
+        activeCutLines.RemoveAt(indexToRemove);
     }
 
     public float DetermineQuality()
