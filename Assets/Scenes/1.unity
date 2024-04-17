@@ -2145,6 +2145,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: minimumOrderTime
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: maxOrderCountPerPerson
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
@@ -2163,6 +2167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---------Managers---------
       objectReference: {fileID: 0}
+    - target: {fileID: 5176677045807525870, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: anims.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: da2cb5a0cf98346c7a858d4f0175d630, type: 2}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

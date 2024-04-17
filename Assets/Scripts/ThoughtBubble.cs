@@ -49,7 +49,7 @@ public class ThoughtBubble : Station
 			{
 				SoundManager.Instance.PlaySoundEffect(okSoundEffect);
 			}
-			order.CompleteOrder();
+			order.CompleteOrder(item.quality);
 			orderComplete = true;
 		}
         else {

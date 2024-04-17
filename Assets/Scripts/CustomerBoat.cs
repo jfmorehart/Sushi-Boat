@@ -71,15 +71,20 @@ public class CustomerBoat : MonoBehaviour
 			}
 			if (CustomerSpawner.Instance.customerPerBoat == 2)
 			{
+				Debug.Log("yall ready?");
 				if (transform.GetChild(1).GetComponent<Customer>().finished &&
 					transform.GetChild(2).GetComponent<Customer>().finished)
 				{
 					if (!leaving)
 					{
+						Debug.Log("leaving");
 						leaving = true;
 						StartCoroutine(Leave());
 						transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
 						transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
+					}
+					else {
+						Debug.Log("not leaving");
 					}
 				}
 			}

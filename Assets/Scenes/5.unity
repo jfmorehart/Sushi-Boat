@@ -2705,6 +2705,14 @@ PrefabInstance:
       propertyPath: customerBoat
       value: 
       objectReference: {fileID: 9074021716726711445, guid: eebf673c7fc7645358dd126467f28b0c, type: 3}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: minimumOrderTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: maxOrderCountPerPerson
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: tempMenu
       value: 

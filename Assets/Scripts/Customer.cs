@@ -29,7 +29,13 @@ public class Customer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        orderCount = Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson+1);
+        if (leftCustomer) {
+			orderCount = Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson + 1);
+        }
+        else {
+            orderCount = 1;
+		}
+        
         ren = GetComponent<SpriteRenderer>();
         ren.material.SetFloat("_rh", 0);
 		if (GameManager.Instance.boss) return;
@@ -92,25 +98,29 @@ public class Customer : MonoBehaviour
 						ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
 					}
 				}
-
-
 			}
             else
             {
                 if (bubble.activeSelf)
                 {
                     ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
-                    t.orderFailed = true;
-                }
+					t.orderFailed = true;
+
+					//t.transform.parent.gameObject.SetActive(false);
+				}
                 else if (leftCustomer)
                 {
                     if (doubleBubble.activeSelf)
                     {
                         ThoughtBubble t1 = doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
                         ThoughtBubble t2 = doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>();
-                        t1.orderFailed = true;
+		
+						t1.orderFailed = true;
                         t2.orderFailed = true;
-                    }
+
+						//t1.transform.parent.gameObject.SetActive(false);
+						//t2.transform.parent.gameObject.SetActive(false);
+					}
                 }
             }
 
@@ -119,13 +129,16 @@ public class Customer : MonoBehaviour
                 ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
                 if (t.orderComplete || t.orderFailed)
                 {
-                    if (orderCount<=0)
+					finished = true;
+
+					if (orderCount<=0)
                     {
-                        finished = true;
-                    }
+                        //finished = true;
+
+					}
                     else
                     {
-                        NextOrder();
+                        //NextOrder();
                     }
                 }
             }
@@ -137,13 +150,15 @@ public class Customer : MonoBehaviour
                     ThoughtBubble t2 = doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>();
                     if ((t1.orderComplete || t1.orderFailed)&&(t2.orderComplete || t2.orderFailed))
                     {
-                        if (orderCount<=0)
+						finished = true;
+						if (orderCount<=0)
                         {
-                            finished = true;
-                        }
+                            //finished = true;
+
+						}
                         else
                         {
-                            NextOrder();
+                            //NextOrder();
                         }
                     }
                 }

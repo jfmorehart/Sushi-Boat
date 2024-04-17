@@ -48,9 +48,9 @@ public class OrderManager : MonoBehaviour
 
         }
 
-        public void CompleteOrder()
+        public void CompleteOrder(float qual)
         {
-            GameManager.Instance.money += price;
+            GameManager.Instance.money += Mathf.RoundToInt(price * qual);
             OrderManager.Instance.orders.Remove(this);
 
 			OrderManager.Instance.completed++;

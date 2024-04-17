@@ -85,6 +85,7 @@ MonoBehaviour:
   gameState: 0
   pauseMenu: {fileID: 0}
   tutorial: 0
+  boss: 0
 --- !u!1 &3736635013895125465
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +212,8 @@ MonoBehaviour:
   doubleOrders: 1
   maxOrderCountPerPerson: 1
   customerPerBoat: 2
+  customerSpawnDelay: 10
+  bossLock: 0
 --- !u!1 &7773442082603837680
 GameObject:
   m_ObjectHideFlags: 0

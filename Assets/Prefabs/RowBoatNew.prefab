@@ -4939,8 +4939,8 @@ MonoBehaviour:
   steamers:
   - {fileID: 7208536120992295733}
   - {fileID: 1720037858562491042}
-  singleBubbleTimerLength: 30
-  doubleBubbleTimerLength: 60
+  singleBubbleTimerLength: 1
+  doubleBubbleTimerLength: 1
 --- !u!1 &757688712176492038
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,6 +4998,7 @@ MonoBehaviour:
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
   orderSR: {fileID: 1074219559817875405}
   successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  okSoundEffect: {fileID: 0}
   failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}
   orderComplete: 0
   orderFailed: 0
@@ -5423,8 +5424,8 @@ MonoBehaviour:
   steamers:
   - {fileID: 37945535147900026}
   - {fileID: 5798833861086829607}
-  singleBubbleTimerLength: 30
-  doubleBubbleTimerLength: 60
+  singleBubbleTimerLength: 1
+  doubleBubbleTimerLength: 1
 --- !u!1 &3305141320113558043
 GameObject:
   m_ObjectHideFlags: 0
@@ -5536,7 +5537,7 @@ Transform:
   m_GameObject: {fileID: 3592385368104559872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.63, y: 1.4, z: 0}
+  m_LocalPosition: {x: -3.32, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5649,10 +5650,11 @@ MonoBehaviour:
   onStation: {fileID: 0}
   blinker: {fileID: 0}
   orderAdded: 0
-  wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
-  rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
+  wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
+  rightOrder: {fileID: 21300000, guid: 5666707bba8024a1d949be3f9e2f8e53, type: 3}
   orderSR: {fileID: 7730660324506713100}
   successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  okSoundEffect: {fileID: 0}
   failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}
   orderComplete: 0
   orderFailed: 0
@@ -5806,10 +5808,11 @@ MonoBehaviour:
   onStation: {fileID: 0}
   blinker: {fileID: 0}
   orderAdded: 0
-  wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
-  rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
+  wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
+  rightOrder: {fileID: 21300000, guid: 5666707bba8024a1d949be3f9e2f8e53, type: 3}
   orderSR: {fileID: 2220292452017683894}
   successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  okSoundEffect: {fileID: 0}
   failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}
   orderComplete: 0
   orderFailed: 0
@@ -15623,6 +15626,7 @@ MonoBehaviour:
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
   orderSR: {fileID: 2486558101365824985}
   successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  okSoundEffect: {fileID: 0}
   failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}
   orderComplete: 0
   orderFailed: 0
@@ -20694,6 +20698,7 @@ MonoBehaviour:
   rightOrder: {fileID: 21300000, guid: 2aa3cb06b5e3d46f3b7e4c23e22f40e6, type: 3}
   orderSR: {fileID: 8269128801241208128}
   successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  okSoundEffect: {fileID: 0}
   failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}
   orderComplete: 0
   orderFailed: 0
@@ -20942,6 +20947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftThoughtBubble (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6004894373553033346, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6034840712648362526, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_Size.x
       value: 10.1170845
@@ -21024,6 +21033,10 @@ PrefabInstance:
     - target: {fileID: 6004894373553033346, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_Name
       value: LeftThoughtBubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004894373553033346, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6034840712648362526, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_Size.x

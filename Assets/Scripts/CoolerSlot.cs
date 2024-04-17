@@ -39,7 +39,7 @@ public class CoolerSlot : Station
         float timeElapsed = 0;
         Vector3 startPosition = transform.position;
         float duration = 0.3f;
-        Vector3 hoverPos = ogPos + new Vector3(0, 1f, 0);
+        Vector3 hoverPos = ogPos - transform.right; //dont ask
         while (timeElapsed < duration)
         {
             transform.position = Vector3.Lerp(startPosition, hoverPos, timeElapsed / duration);
