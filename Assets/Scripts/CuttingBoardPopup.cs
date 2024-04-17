@@ -22,6 +22,8 @@ public class CuttingBoardPopup : MonoBehaviour
     float totalDist = 0;
 
     public Sprite[] lines;
+
+    public AudioClip cutSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +101,7 @@ public class CuttingBoardPopup : MonoBehaviour
     public IEnumerator CutDelay()
     {
         moving = false;
+        SoundManager.Instance.PlaySoundEffect(cutSound);
         yield return new WaitForSeconds(0.5f);
         moving = true;
         UpdateCut();

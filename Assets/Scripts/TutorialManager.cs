@@ -28,8 +28,14 @@ public class TutorialManager : MonoBehaviour
     public Item tunaNigiri;
 
     public Hook hook;
-    
-    
+
+
+
+    public void SkipTutorial()
+    {
+        Progress.BeatTutorial();
+        SceneManager.LoadScene("MainMenu");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -70,12 +76,13 @@ public class TutorialManager : MonoBehaviour
     
 
     
+    
     public void TutorialBoat()
     {
         Vector3 spawnPos = CustomerSpawner.Instance.spawn.position;
         GameObject c = Instantiate(tutorialBoat);
         c.transform.position = spawnPos;
-        customer = c.transform.GetChild(0).gameObject;
+        customer = c.transform.GetChild(1).gameObject;
     }
     IEnumerator Tutorial()
     {
@@ -137,6 +144,8 @@ public class TutorialManager : MonoBehaviour
             cuttingBoard.BlinkOn();
             yield return new WaitForSeconds(0.1f);
             yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse0));
+            yield return new WaitForSeconds(0.1f);
+            yield return new WaitUntil(() => !cuttingBoard.GetComponent<SectionCuttingBoard>().cuttingBoardUI.isActiveAndEnabled);
             foreach (var st in cuttingBoard.GetComponent<SectionCuttingBoard>().stations)
             {
                 if (st.itemOnStation != null)

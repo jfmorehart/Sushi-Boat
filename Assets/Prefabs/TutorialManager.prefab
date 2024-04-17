@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420594872994711401}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60,7 +60,25 @@ MonoBehaviour:
 
 '
   - Ah, good catch! Now, let's get to slicin' and dicin'!
+  - Now, onto the rice. Mind ye, me rice cooker's a tad wonky, so best to keep an
+    eye on it.
+  - Well done! Once it's cooked, ye can either stash it away in one o' them bowls
+    for later or start preppin' the sushi right away! Let's get everything ready.
+    Bring it all on over to this here prepping station.
+  - Great Job! Now serve it to the hungry customer!
+  - "That's a pleased customer if ever I've seen one! But ye best be quick about
+    it, folks 'round these parts aren\u2019t known for their patience. Remember,
+    the quicker ye serve, the better the tips!\r\n"
+  - "But don\u2019t be pushing yerself too hard cause you can wait a bit to take
+    their orders if yer feeling overwhelmed. It\u2019ll help with their patience,
+    but it also means fewer tips!"
+  - "Though, er, an angry customer will give you nothing\u2026 Just something to
+    keep in mind."
+  - Some might fancy a bit o' seaweed in their sushi, so keep an eye out for that
+    and bring it to the table if needed.
+  - Well done, matey! Seems ye've got the hang of it. Good luck!
   tutorialImages:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -68,19 +86,14 @@ MonoBehaviour:
   textIndex: 0
   imageIndex: 0
   textUI: {fileID: 0}
-  stations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  cooler: {fileID: 0}
+  cuttingBoard: {fileID: 0}
+  riceDrawer: {fileID: 0}
+  riceCooker: {fileID: 0}
+  prepTable: {fileID: 0}
+  customer: {fileID: 0}
   tutorialBoat: {fileID: 1754498851477151231, guid: 430ce15944081ce4f8560c67316d3352, type: 3}
+  cookedRice: {fileID: 11400000, guid: 0ea2e64f06942499499b918ef9a3626e, type: 2}
+  cutTuna: {fileID: 11400000, guid: 32748f7e1b85646f993766b0feea3c72, type: 2}
+  tunaNigiri: {fileID: 11400000, guid: a7ab8a06cc0aac14e8cbcc25148637a4, type: 2}
   hook: {fileID: 0}

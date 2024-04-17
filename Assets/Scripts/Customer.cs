@@ -165,10 +165,18 @@ public class Customer : MonoBehaviour
         //tutorial
         if (GameManager.Instance.tutorial)
         {
-            bubble.SetActive(true);
-            orderCount -= 1;
-            timer = 1000f;
-			maxTime = timer;
+            if (leftCustomer)
+            {
+                bubble.SetActive(true);
+                orderCount -= 1;
+                timer = 1000f;
+                maxTime = timer;
+            }
+            else
+            {
+                bubble.SetActive(false);
+            }
+
 		}
         else
         {

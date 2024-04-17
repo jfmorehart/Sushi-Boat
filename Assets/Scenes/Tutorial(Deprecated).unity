@@ -196,17 +196,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &97044258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8506956956591534603, guid: 82a40b1b948a546fab1d2da28502d91d, type: 3}
-  m_PrefabInstance: {fileID: 1668097158}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &97044261 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7203022646257259687, guid: 82a40b1b948a546fab1d2da28502d91d, type: 3}
   m_PrefabInstance: {fileID: 1668097158}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97044258}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f71efebc82fe49d2aa31ab9db4f9d2d, type: 3}
@@ -870,11 +865,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &433448456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4682874879120897928, guid: ae37aa63a236747e9a1a01aa04a27890, type: 3}
-  m_PrefabInstance: {fileID: 7991638674958644775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &481393587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1149,6 +1139,7 @@ MonoBehaviour:
   boatTarget: {fileID: 1208474621}
   skyTarget: {fileID: 1581638312}
   fishTarget: {fileID: 2039167234}
+  target: {fileID: 0}
   camoffset: {x: 0, y: 0, z: 10}
   accel: 20
   velo: 0
@@ -1158,6 +1149,7 @@ MonoBehaviour:
   distFromFloor: 0
   floor: 0
   trackingHook: 0
+  dist: {fileID: 0}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,10 +1533,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 145996798}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tuna
-      value: 
-      objectReference: {fileID: 11400000, guid: fec9b53a29b65cf42bb3311e3194e5bd, type: 2}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: cooler
       value: 
       objectReference: {fileID: 1710095762}
@@ -1553,17 +1541,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1554500257}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: cutTuna
-      value: 
-      objectReference: {fileID: 11400000, guid: 32748f7e1b85646f993766b0feea3c72, type: 2}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: prepTable
       value: 
       objectReference: {fileID: 1708087208}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: cookedRice
-      value: 
-      objectReference: {fileID: 11400000, guid: 0ea2e64f06942499499b918ef9a3626e, type: 2}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: riceCooker
       value: 
@@ -1573,94 +1553,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1695721198}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tunaNigiri
-      value: 
-      objectReference: {fileID: 11400000, guid: a7ab8a06cc0aac14e8cbcc25148637a4, type: 2}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: cuttingBoard
       value: 
       objectReference: {fileID: 1436619965}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[0]
-      value: 
-      objectReference: {fileID: 1695721197}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[1]
-      value: 
-      objectReference: {fileID: 433448456}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[2]
-      value: 
-      objectReference: {fileID: 1436619964}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[3]
-      value: 
-      objectReference: {fileID: 97044258}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[4]
-      value: 
-      objectReference: {fileID: 1708087207}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[5]
-      value: 
-      objectReference: {fileID: 1710095760}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: stations.Array.data[6]
-      value: 
-      objectReference: {fileID: 4588149303015527351}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialImages.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[7]
-      value: Now, onto the rice. Mind ye, me rice cooker's a tad wonky, so best to
-        keep an eye on it.
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[8]
-      value: Well done! Once it's cooked, ye can either stash it away in one o' them
-        bowls for later or start preppin' the sushi right away! Let's get everything
-        ready. Bring it all on over to this here prepping station.
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[9]
-      value: Great Job! Now serve it to the hungry customer!
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[10]
-      value: "That's a pleased customer if ever I've seen one! But ye best be quick
-        about it, folks 'round these parts aren\u2019t known for their patience.
-        Remember, the quicker ye serve, the better the tips!\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[11]
-      value: "But don\u2019t be pushing yerself too hard cause you can wait a bit
-        to take their orders if yer feeling overwhelmed. It\u2019ll help with their
-        patience, but it also means fewer tips!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[12]
-      value: "Though, er, an angry customer will give you nothing\u2026 Just something
-        to keep in mind."
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[13]
-      value: Some might fancy a bit o' seaweed in their sushi, so keep an eye out
-        for that and bring it to the table if needed.
-      objectReference: {fileID: 0}
-    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
-      propertyPath: tutorialText.Array.data[14]
-      value: Well done, matey! Seems ye've got the hang of it. Good luck!
-      objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.data[0]
       value: 
@@ -2404,17 +2299,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9178652439423513714, guid: 820958a2e9f714da5ada49195b3e632a, type: 3}
   m_PrefabInstance: {fileID: 8740771342442581157}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1436619964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5762310681835507866, guid: 820958a2e9f714da5ada49195b3e632a, type: 3}
-  m_PrefabInstance: {fileID: 8740771342442581157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1436619965 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3121563157209893732, guid: 820958a2e9f714da5ada49195b3e632a, type: 3}
   m_PrefabInstance: {fileID: 8740771342442581157}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436619964}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1de1fe03e6f574c94a5ca03cacef31ff, type: 3}
@@ -2962,17 +2852,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5046007644636291231, guid: 82a40b1b948a546fab1d2da28502d91d, type: 3}
   m_PrefabInstance: {fileID: 1668097158}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1695721197 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4588149302957898358, guid: 4dbdffba429294823b96af9de5d95f9e, type: 3}
-  m_PrefabInstance: {fileID: 904254753}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1695721198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 731859197468109457, guid: 4dbdffba429294823b96af9de5d95f9e, type: 3}
   m_PrefabInstance: {fileID: 904254753}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695721197}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 930951ae078e6604a9a1b8d219ad6139, type: 3}
@@ -2983,17 +2868,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 997772523764935496, guid: 4dbdffba429294823b96af9de5d95f9e, type: 3}
   m_PrefabInstance: {fileID: 904254753}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1708087207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2328112118870806211, guid: f9c5d80c8948d8345bcf9e32bc73e5fd, type: 3}
-  m_PrefabInstance: {fileID: 1521237866}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1708087208 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3102385424180415394, guid: f9c5d80c8948d8345bcf9e32bc73e5fd, type: 3}
   m_PrefabInstance: {fileID: 1521237866}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708087207}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22f7d5043e241ad4fa56cc49be7f4ee6, type: 3}
@@ -3004,17 +2884,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4641178759019706332, guid: f9c5d80c8948d8345bcf9e32bc73e5fd, type: 3}
   m_PrefabInstance: {fileID: 1521237866}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1710095760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4976943618045480881, guid: 329fece25d275bc4bb80dc65dbcd9ed3, type: 3}
-  m_PrefabInstance: {fileID: 1179440890}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1710095762 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 131077421393511071, guid: 329fece25d275bc4bb80dc65dbcd9ed3, type: 3}
   m_PrefabInstance: {fileID: 1179440890}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710095760}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01b3dfc5302b2354a828d672327de742, type: 3}
@@ -3677,7 +3552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpawner: 1
-  itemOnStation: {fileID: 11400000, guid: b3ed0a7e7b49141a2bc555d751607f0d, type: 2}
+  toSpawn: {fileID: 0}
   maxItems: 1
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 0}

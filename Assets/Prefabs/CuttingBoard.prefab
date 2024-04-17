@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 7308765124797689921}
   cutPosition: 0
-  knifeSpeed: 500
+  knifeSpeed: 2000
   correctCutPositions: []
   cutPositions: []
   cutLines:
@@ -557,6 +557,11 @@ MonoBehaviour:
   cuttingBoard: {fileID: 0}
   im: {fileID: 6248714134332229411}
   shadow: {fileID: 8816906987826832720}
+  lines:
+  - {fileID: 21300000, guid: f0fbfb703b0571146b609a1f9c848943, type: 3}
+  - {fileID: 21300000, guid: 1e98479a79e49cf48bfc54464502dd0b, type: 3}
+  - {fileID: 21300000, guid: 13130e3e5c15fe24d89dd9c84d8df9eb, type: 3}
+  cutSound: {fileID: 8300000, guid: 6f60c31828fcc5d40b97675391770dc5, type: 3}
 --- !u!1 &6154489650788638952
 GameObject:
   m_ObjectHideFlags: 0
