@@ -2170,7 +2170,7 @@ PrefabInstance:
     - target: {fileID: 5176677045807525870, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: anims.Array.data[0]
       value: 
-      objectReference: {fileID: 9100000, guid: da2cb5a0cf98346c7a858d4f0175d630, type: 2}
+      objectReference: {fileID: 9100000, guid: a2435a95658f1414e9627371d06b63ec, type: 2}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

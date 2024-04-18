@@ -36,4 +36,9 @@ public class PauseMenu : MonoBehaviour
 		Time.timeScale = 1;
 		SceneManager.LoadScene("MapScene");
     }
+
+    public void EraseProgress() {
+        Progress.NewLoad();
+        Restart();
+    }
 }

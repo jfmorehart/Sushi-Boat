@@ -28,10 +28,10 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 		{
 			Progress.Load();
 
-			Progress.SetScoreOnLevel(1, 3);
-			Progress.SetScoreOnLevel(2, 3);
+			//Progress.SetScoreOnLevel(1, 3);
+			//Progress.SetScoreOnLevel(2, 3);
 			//Progress.maxUnlockedLevel = 3;
-			Progress.Save();
+			//Progress.Save();
 
 		}
 	}
