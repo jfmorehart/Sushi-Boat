@@ -23,7 +23,6 @@ public class Menu : MonoBehaviour
 	public TMP_Text peoplemissed;
 	public TMP_Text scoretext;
 
-
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -49,7 +48,8 @@ public class Menu : MonoBehaviour
 	}
 	public void EndDay() {
 		queuedRestart = false;
-		EndDayAction.Invoke();
+		//EndDayAction.Invoke();
+		Camera.main.GetComponent<CameraController>().EndDay();
 		Debug.Log(OrderManager.Instance.completed + " " + OrderManager.Instance.totalOrders);
 		float ratio = (1 + (float)OrderManager.Instance.numOrdersEaten) / (1f + (float)OrderManager.Instance.totalOrders);
 		float score = ratio * OrderManager.Instance.averageOrderQuality;
@@ -99,7 +99,6 @@ public class Menu : MonoBehaviour
 
 	public void SwitchToMap()
 	{
-		Progress.Save();
 		SceneManager.LoadScene("MapScene");
 	}
 	public void ReloadScene()

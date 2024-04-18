@@ -17,6 +17,7 @@ public static class Progress
 		PlayerPrefs.SetString("scores", scores);
 
 		Debug.Log("Saving:" + money + "$, " + maxUnlockedLevel + " unlocked, " + scores);
+		PlayerPrefs.Save();
 	}
 	public static void Load() {
 		money = PlayerPrefs.GetInt("money", 0);

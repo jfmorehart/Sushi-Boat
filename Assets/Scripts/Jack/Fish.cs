@@ -97,7 +97,7 @@ public class Fish : MonoBehaviour
 		}
     }
 	public void Despawn() {
-		Menu.EndDayAction -= Despawn;
+		//Menu.EndDayAction -= Despawn;
 		if (gameObject != null)
 		{
 			Destroy(gameObject);

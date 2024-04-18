@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
 		target = boatTarget;
 		
 	}
-	void EndDay(){
+	public void EndDay(){
 		trackingHook = false;
 		target = skyTarget;
 		Hook.ins.active = false;
