@@ -33,8 +33,8 @@ public class Fish : MonoBehaviour
 		if(data == null) {
 			Debug.LogError("no data!");
 		}
-		FishAnimInfo f = FindObjectOfType<FishAnimInfo>(false);
-		GetComponent<Animator>().runtimeAnimatorController = f.anims[data.fishIndex];
+		//FishAnimInfo f = FindObjectOfType<FishAnimInfo>(false);
+		GetComponent<Animator>().runtimeAnimatorController = fData.animController;
 	    //fishName = data.fishItem.itemName;
 	    swimSpeed = data.swimSpeed * Random.Range(0.75f, 1.25f);
 		bobFreq *= Random.Range(1f, 1.25f);
@@ -54,7 +54,23 @@ public class Fish : MonoBehaviour
 			GetComponent<Renderer>().material.SetColor("_col", FishSpawner.ins.backCol);
 		}
 		quality = Random.Range(0, 1f);
-		GetComponent<Renderer>().material.SetFloat("_qual", quality);
+		if (quality >= 0.8f)
+		{
+			GetComponent<Animator>().SetInteger("QualityLevel",4);
+		}
+		else if (quality >= 0.5f)
+		{
+			GetComponent<Animator>().SetInteger("QualityLevel",3);
+		}
+		else if (quality >= 0.25f)
+		{
+			GetComponent<Animator>().SetInteger("QualityLevel",2);
+		}
+		else
+		{
+			GetComponent<Animator>().SetInteger("QualityLevel",1);
+		}
+		GetComponent<Renderer>().material.SetFloat("_qual", 1);
 	}
 	private void Awake()
 	{

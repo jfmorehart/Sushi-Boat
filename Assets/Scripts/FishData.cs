@@ -11,4 +11,5 @@ public class FishData : ScriptableObject
 
     public float swimSpeed;
     public Vector2 mouthPos;
+    public RuntimeAnimatorController animController;
 }
