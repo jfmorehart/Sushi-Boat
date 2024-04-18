@@ -17,3 +17,4 @@ MonoBehaviour:
   fishSprite: {fileID: 21300000, guid: e3bb2dac7d04a4fce9357cd0eff95dd0, type: 3}
   swimSpeed: 5
   mouthPos: {x: 0.7, y: -0.2}
+  animController: {fileID: 9100000, guid: d8ede4621a3553d418c3b5746fd0ddb3, type: 2}

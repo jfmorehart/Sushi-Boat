@@ -105,13 +105,10 @@ public class TutorialManager : MonoBehaviour
         ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+        ShowText();
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         TutorialBoat();
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
@@ -127,6 +124,11 @@ public class TutorialManager : MonoBehaviour
         ShowImage();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        HideImage();
+        ShowText();
+        ShowImage();
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         HideImage();
         ShowText();
         yield return new WaitForSeconds(0.1f);
@@ -156,7 +158,13 @@ public class TutorialManager : MonoBehaviour
             cuttingBoard.BlinkOff();
             yield return null;
         }
+        
         cooler.GetComponent<Collider2D>().enabled = true;
+        ShowImage();
+        ShowText();
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+        HideImage();
         ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));

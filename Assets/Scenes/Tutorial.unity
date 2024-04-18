@@ -454,181 +454,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &202358830
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 202358831}
-  - component: {fileID: 202358835}
-  - component: {fileID: 202358834}
-  - component: {fileID: 202358833}
-  - component: {fileID: 202358832}
-  m_Layer: 5
-  m_Name: Skip Tutorial
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &202358831
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202358830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 578041794}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -748.5, y: 472.5}
-  m_SizeDelta: {x: 423, y: 135}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &202358832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202358830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d497175fca5776946a0a688e137a2ce5, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!23 &202358833
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202358830}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -656481755009959221, guid: 201c9f4ff850b9340aba10f3451be172, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &202358834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202358830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 5030813a1e1edbd48b5149f52b582f5e, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 7e7ddcb56ac9bab4290cb18d95574e1f, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 7e7ddcb56ac9bab4290cb18d95574e1f, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: d497175fca5776946a0a688e137a2ce5, type: 3}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 202358832}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1277775549}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: SkipTutorial
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!222 &202358835
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202358830}
-  m_CullTransparentMesh: 1
 --- !u!1 &204689011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +916,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec902e8710fde40368d6fdb02e9386d9, type: 3}
+--- !u!1 &511822118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7261767625407472254, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+  m_PrefabInstance: {fileID: 578041793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,12 +1212,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialStuff
       objectReference: {fileID: 0}
+    - target: {fileID: 8379548336190982795, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1277775549}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6558166821513901687, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 202358831}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
 --- !u!224 &578041794 stripped
@@ -2432,8 +2263,89 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1754498851477151231, guid: ab479a85c7563424daef5188a9c0c577, type: 3}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.size
-      value: 5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[2]
+      value: Humph! Trying to get rich off all that meteor nonsense huh? It's cursed
+        I tell you! Seen at least a dozen lads just like you go missing after searching
+        for that dang thing! You best be careful...
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[3]
+      value: You're set on it, eh? Well, you aren't gonna last long out there without
+        any money! If you want to earn a coin or two aboard this here ship, ye best
+        know what to do.
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[4]
+      value: Well looky here, seems like ye've got yer first customer! It's time
+        to get to work. Our sushi here relies on fish, rice, and sometimes a bit
+        o' seaweed. Let's reel in some fish.
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[5]
+      value: Now you may have noticed that some of the fish looks a tad bit... grimier
+        than the others. The greener the fish, the worse they are! It's best to aim
+        for the healthier lookin fish and especially those rare gold ones.
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[6]
+      value: Ah, good catch! Now, let's get to slicin' and dicin'!
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[7]
+      value: Go ahead and aim for those lines for a better cut. A clean cut will
+        getcha more money..
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[8]
+      value: Now, onto the rice. Customers will prefer that sweet spot in the middle
+        where the rice isn't undercooked or burnt, though you can serve whatever
+        ya have.
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[9]
+      value: Well done! Ye can either stash the rice away in one o' them bowls for
+        later or start preppin' the sushi right away! Let's bring everything on over
+        to this here prepping station when you're ready.
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[10]
+      value: Great Job! Now serve it to the hungry customer!
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[11]
+      value: "That's a pleased customer if ever I've seen one! But ye best be quick
+        about it, folks 'round these parts aren\u2019t known for their patience.
+        Remember, the quicker ye serve, the more people will show up!\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[12]
+      value: "Though, er, an angry customer will give you nothing\u2026 Just something
+        to keep in mind."
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[13]
+      value: Some might fancy a bit o' seaweed in their sushi, so keep an eye out
+        for that and bring it to the table if needed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[14]
+      value: Finally, not all sushi is created equal. Some of it will be gross and
+        grimy if you have poor fish, rice and cuts. To make the most money, you gotta
+        be both quick AND careful with your preparation!
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[15]
+      value: "That's about it! Well done, matey! Do be careful around that meteor
+        though, I've been seeing some VERY strange stuff out there and the fish ain't
+        right... Good luck. You're gonna need it. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.data[0]
@@ -2453,6 +2365,14 @@ PrefabInstance:
       objectReference: {fileID: 578041796}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 511822118}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 1613641830}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialImages.Array.data[6]
       value: 
       objectReference: {fileID: 578041795}
     - target: {fileID: 2444008448748192443, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
@@ -2859,6 +2779,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e18847355544d61af777c9fd89c100, type: 3}
+--- !u!1 &1613641830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3500310296155735435, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+  m_PrefabInstance: {fileID: 578041793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1616232942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3928,6 +3853,10 @@ PrefabInstance:
     - target: {fileID: 2392860159122746706, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_Name
       value: ---------Managers---------
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333148722577665677, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
