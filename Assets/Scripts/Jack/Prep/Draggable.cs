@@ -21,7 +21,7 @@ public class Draggable : Clickable
 	public void Initialize(Station st, ItemInstance it) {
 		prevStation = st;
 		item = it;
-		ren.sprite = it.itemData.sprite;
+		ren.sprite = it.uniqueSprite;
 		ren.material.SetFloat("_qual", it.quality);
 		if (beingDragged)
 		{

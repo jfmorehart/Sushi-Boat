@@ -20,7 +20,7 @@ public class Station : Clickable
 	{
 		UpdateSprite();
 		if (toSpawn != null) {
-			itemOnStation = new ItemInstance(toSpawn, 1);
+			itemOnStation = new ItemInstance(toSpawn, 1, toSpawn.sprite);
 		}
 	}
 
@@ -61,7 +61,7 @@ public class Station : Clickable
             onStation.sprite = null;
             return;
 	    }
-        onStation.sprite = itemOnStation.itemData.sprite;
+		onStation.sprite = itemOnStation.uniqueSprite;// itemOnStation.itemData.sprite;
 
 		if (onStation != null)
 		{
@@ -91,7 +91,7 @@ public class Station : Clickable
 
 			if (toSpawn != null)
 			{
-				itemOnStation = new ItemInstance(toSpawn, 1);
+				itemOnStation = new ItemInstance(toSpawn, 1, toSpawn.sprite);
 			}
 		}
 

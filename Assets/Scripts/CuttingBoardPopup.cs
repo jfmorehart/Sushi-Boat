@@ -43,9 +43,9 @@ public class CuttingBoardPopup : MonoBehaviour
         knife.GetComponent<RectTransform>().localPosition = new Vector3(-500, knife.GetComponent<RectTransform>().localPosition.y,
             knife.GetComponent<RectTransform>().localPosition.z);
         fish = item;
-        im.sprite = fish.itemData.sprite;
-        shadow.sprite = fish.itemData.sprite;
-        cuttingBoard = board;
+        im.sprite = fish.uniqueSprite;
+        shadow.sprite = fish.uniqueSprite;
+		cuttingBoard = board;
         cutPositions = new List<float>();
         correctCutPositions = new List<float>(item.itemData.cutPositions);
         activeCutLines = new List<GameObject>();
@@ -172,7 +172,7 @@ public class CuttingBoardPopup : MonoBehaviour
     }
     public void CloseBoard()
     {
-        ItemInstance newitem = new ItemInstance(fish.itemData.processed, Mathf.Min(1,DetermineQuality()));
+        ItemInstance newitem = new ItemInstance(fish.itemData.processed, Mathf.Min(1,DetermineQuality()), fish.itemData.processed.sprite);
         cuttingBoard.itemOnStation = newitem;
         cuttingBoard.UpdateSprite();
         gameObject.SetActive(false);

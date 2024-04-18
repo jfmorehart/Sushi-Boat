@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour
 
 	public TMP_Text quality;
 	public TMP_Text peoplefed;
+	public TMP_Text peoplemissed;
 	public TMP_Text scoretext;
 
 
@@ -57,14 +58,18 @@ public class Menu : MonoBehaviour
 		int index = 10 - Mathf.FloorToInt(ratio * 10);
 		if (index < 0) index = 0;
 		if (index > 4) index = 4;
-		rankingPage.sprite = rankings[index];
+		//rankingPage.sprite = rankings[index];
 
 		int starCount = Mathf.FloorToInt((score * 11f) * 0.333f);
 		for(int i = 0; i < 3; i++) {
 			stars[i].color =  i < starCount ? Color.white : Color.black;
 		}
 
-		peoplefed.text = ((int)(ratio * 100)).ToString() + "%";
+		int fed = OrderManager.Instance.numOrdersEaten;
+		int missed = OrderManager.Instance.totalOrders - OrderManager.Instance.numOrdersEaten;
+		missed = Mathf.Max(missed, 0);
+		peoplefed.text = fed.ToString() + ".";
+		peoplemissed.text = missed.ToString() + ".";
 		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
 		scoretext.text = ((int)(score * 100)).ToString() + "%";
 		Progress.SetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1, starCount);

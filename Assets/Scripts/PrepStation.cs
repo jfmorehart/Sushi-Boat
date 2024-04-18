@@ -72,11 +72,11 @@ public class PrepStation : Station
             if (CheckRecipe(validRecipes[i]))
             {
                it = validRecipes[i].recipeItem;
-			    return new ItemInstance(it, qual);
+			    return new ItemInstance(it, qual, it.sprite);
 			}
             
         }
-        return new ItemInstance(incompleteFood, 0);
+        return new ItemInstance(incompleteFood, 0, incompleteFood.sprite);
     }
 
     public bool CheckRecipe(Recipe recipe)

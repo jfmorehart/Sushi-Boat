@@ -26,11 +26,13 @@ public class Customer : MonoBehaviour
     public ParticleSystem[] steamers;
 
     public int singleBubbleTimerLength, doubleBubbleTimerLength;
+    Vector2 lpos;
     // Start is called before the first frame update
     void Start()
     {
+        lpos = transform.localPosition;
         if (leftCustomer) {
-			orderCount = Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson + 1);
+            orderCount = 2;// Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson + 1);
         }
         else {
             orderCount = 1;
@@ -51,10 +53,10 @@ public class Customer : MonoBehaviour
     }
 
     public void ReactToFood(float quality) {
-        if (GameManager.Instance.boss) return;
+		ren.material.SetFloat("_rh", 0);
+		if (GameManager.Instance.boss) return;
 		state = Mathf.RoundToInt((1 - quality) * 3);
         state = Mathf.Clamp(state, 0, 3);
-		ren.material.SetFloat("_rh", 0);
 		if (state != 3) {
             StopSteam();
 
@@ -88,19 +90,29 @@ public class Customer : MonoBehaviour
             {
                 timer -= Time.deltaTime;
                 if (!finished) {
-					if (GameManager.Instance.boss) return;
-                    float l = (timer > maxTime * 0.5f) ? 0 :1 - (timer / (maxTime * 0.5f));
-                    if(l > 0) {
-						ren.material.SetFloat("_rh", l);
+					if (!GameManager.Instance.boss) {
+						//float l = (timer > maxTime * 0.5f) ? 0 : 1 - (timer / (maxTime * 0.5f));
+						float l = 1 - (timer / maxTime);
+						if (l > 0)
+						{
+							ren.material.SetFloat("_rh", l);
+						}
+						if (l > 0.5 && !steaming)
+						{
+							StartSteam();
+						}
+						if ((state + 1) < (1 - (timer / maxTime)) * 4)
+						{
+							state++;
+							if (state > 3) state = 3;
+							ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
+						}
+                        transform.localPosition = lpos + Random.insideUnitCircle * l * l * l* 0.5f;
 					}
-                    if(l > 0.5 && !steaming) {
-                        StartSteam();
-		            }
-					if ((state + 1) < (1 - (timer / maxTime)) * 4)
-					{
-						state++;
-						if (state > 3) state = 3;
-						ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
+                    else{
+                        float l = 1 - (timer / maxTime);
+						ren.material.SetFloat("_rh", l);
+						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.5f;
 					}
 				}
 			}
@@ -131,9 +143,11 @@ public class Customer : MonoBehaviour
 
             if (bubble.activeSelf)
             {
+                Debug.Log("a");
                 ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
                 if (t.orderComplete || t.orderFailed)
                 {
+					Debug.Log("b");
 					finished = true;
 
 					if (orderCount<=0)
@@ -173,32 +187,31 @@ public class Customer : MonoBehaviour
         }
     }
 
-    public void NextOrder()
-    {
-        if (leftCustomer)
-        {
-            doubleBubble.SetActive(false);
-        }
-        bubble.SetActive(false);
-        if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
-        {
-            doubleBubble.SetActive(true);
-            doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();
-            doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>().Init();
-            orderCount -= 2;
-            timer = doubleBubbleTimerLength + Random.Range(-1, 1f); //for variance
-			maxTime = timer;
-		}
-        else
-        {
-            bubble.SetActive(true);
-            bubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();
-            bubble.SetActive(true);
-            orderCount -= 1;
-            timer = singleBubbleTimerLength + Random.Range(-1, 1f);//for variance
-			maxTime = timer;
-        }
-    }
+  //  public void NextOrder()
+  //  {
+  //      if (leftCustomer)
+  //      {
+  //          doubleBubble.SetActive(false);
+  //      }
+  //      bubble.SetActive(false);
+  //      if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
+  //      {
+  //          doubleBubble.SetActive(true);
+  //          doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();
+  //          doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>().Init();
+  //          orderCount -= 2;
+  //          timer = doubleBubbleTimerLength + Random.Range(-1, 1f); //for variance
+		//	maxTime = timer;
+		//}
+  //      else
+  //      {
+  //          bubble.SetActive(true);
+  //          bubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();\
+  //          orderCount -= 1;
+  //          timer = singleBubbleTimerLength + Random.Range(-1, 1f);//for variance
+		//	maxTime = timer;
+  //      }
+  //  }
     public void SetThoughtBubble()
     {
         //tutorial
@@ -219,10 +232,11 @@ public class Customer : MonoBehaviour
 		}
         else
         {
-            if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
+            if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2) //removed randomness
             {
                 doubleBubble.SetActive(true);
-                orderCount -= 2;
+				bubble.SetActive(false);
+				orderCount -= 2;
                 timer = Mathf.Max(CustomerSpawner.Instance.minimumOrderTime, doubleBubbleTimerLength);
 				maxTime = timer;
 			}

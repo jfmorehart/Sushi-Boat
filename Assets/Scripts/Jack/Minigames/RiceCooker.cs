@@ -95,7 +95,7 @@ public class RiceCooker : Station
 			if (stage != CookingStage.ready)
 			{
 				stage = CookingStage.ready;
-				itemOnStation = new ItemInstance(goodRice, itemOnStation.quality);
+				itemOnStation = new ItemInstance(goodRice, itemOnStation.quality, goodRice.sprite);
 			}
 			float p = riceTimer / timeUntilCooked;
 			riceRenderer.color = Vector4.Lerp((Vector4)Color.yellow, ((Vector4)Color.green), p);
@@ -107,7 +107,7 @@ public class RiceCooker : Station
 			if (stage != CookingStage.ready)
 			{
 				stage = CookingStage.ready;
-				itemOnStation = new ItemInstance(goodRice, itemOnStation.quality);
+				itemOnStation = new ItemInstance(goodRice, itemOnStation.quality, goodRice.sprite);
 				//riceRenderer.color = Color.green;
 			}
 		}

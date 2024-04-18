@@ -342,7 +342,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 64ee6f7c3adba49cb86ce1bd57e3e750, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7cad61e6b3dda419cc61ff003fb195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCustomer: 0
+  leftCustomer: 1
   bubble: {fileID: 5680481580820587851}
   doubleBubble: {fileID: 5414033445811675296}
   timer: 45
@@ -451,7 +451,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 64ee6f7c3adba49cb86ce1bd57e3e750, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -915,6 +915,14 @@ PrefabInstance:
     - target: {fileID: 6004894373553033346, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_Name
       value: LeftThoughtBubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004894373553033346, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382464442198775897, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

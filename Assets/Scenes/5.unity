@@ -462,9 +462,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1157397905148115600, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b82a8f18628d3456d84e7b696f608339, type: 3}
+    - target: {fileID: 1157397905148115600, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157397905148115600, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157397905148115600, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982111823014527182, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982111823014527182, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982111823014527182, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2639015286352573482, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
       propertyPath: m_Name
       value: DAYOVER (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663419842739824725, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03754769
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663419842739824725, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.03754769
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663419842739824725, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03754769
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663419842739824725, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -955.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663419842739824725, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -491.38
       objectReference: {fileID: 0}
     - target: {fileID: 4807101408444125264, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -549,6 +597,32 @@ PrefabInstance:
     - target: {fileID: 6388791036779500390, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877453112067311969, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_text
+      value: 'served
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094080566898035523, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Name
+      value: served
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817914028805572681, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b82a8f18628d3456d84e7b696f608339, type: 3}
+    - target: {fileID: 8817914028805572681, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817914028805572681, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817914028805572681, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

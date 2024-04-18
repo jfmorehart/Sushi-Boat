@@ -34,9 +34,10 @@ public class Fish : MonoBehaviour
 			Debug.LogError("no data!");
 		}
 		//FishAnimInfo f = FindObjectOfType<FishAnimInfo>(false);
-		GetComponent<Animator>().runtimeAnimatorController = fData.animController;
-	    //fishName = data.fishItem.itemName;
-	    swimSpeed = data.swimSpeed * Random.Range(0.75f, 1.25f);
+		GetComponent<Animator>().runtimeAnimatorController = Instantiate(fData.animController);
+
+		//fishName = data.fishItem.itemName;
+		swimSpeed = data.swimSpeed * Random.Range(0.75f, 1.25f);
 		bobFreq *= Random.Range(1f, 1.25f);
 		GetComponent<SpriteRenderer>().sprite = data.fishSprite;
 		freqSeed = Random.Range(1, 1000f);
@@ -53,22 +54,24 @@ public class Fish : MonoBehaviour
 			transform.localScale = scl;
 			GetComponent<Renderer>().material.SetColor("_col", FishSpawner.ins.backCol);
 		}
-		quality = Random.Range(0, 1f);
-		if (quality >= 0.8f)
-		{
-			GetComponent<Animator>().SetInteger("QualityLevel",4);
+		
+		float roll = Random.Range(0, 100f);
+		if(roll > 96) {
+			GetComponent<Animator>().SetInteger("QualityLevel", 4);
+			quality = 2;
+		}else if(roll > 60) {
+			GetComponent<Animator>().SetInteger("QualityLevel", 3);
+			quality = 0.8f;
 		}
-		else if (quality >= 0.5f)
-		{
-			GetComponent<Animator>().SetInteger("QualityLevel",3);
-		}
-		else if (quality >= 0.25f)
+		else if (roll > 30)
 		{
 			GetComponent<Animator>().SetInteger("QualityLevel",2);
+			quality = 0.5f;
 		}
 		else
 		{
 			GetComponent<Animator>().SetInteger("QualityLevel",1);
+			quality = 0.3f;
 		}
 		GetComponent<Renderer>().material.SetFloat("_qual", 1);
 	}
