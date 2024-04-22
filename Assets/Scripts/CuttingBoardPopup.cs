@@ -105,9 +105,10 @@ public class CuttingBoardPopup : MonoBehaviour
     {
         moving = false;
         SoundManager.Instance.PlaySoundEffect(cutSound);
+        UpdateCut();
         yield return new WaitForSeconds(0.5f);
         moving = true;
-        UpdateCut();
+        
         
         if (correctCutPositions.Count==0)
         {
