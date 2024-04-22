@@ -112,7 +112,7 @@ public class Customer : MonoBehaviour
                     else{
                         float l = 1 - (timer / maxTime);
 						ren.material.SetFloat("_rh", l);
-						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.2f;
+						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.05f;
 					}
 				}
 			}
