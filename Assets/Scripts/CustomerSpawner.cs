@@ -8,27 +8,25 @@ public class CustomerSpawner : MonoBehaviour
 {
     public static CustomerSpawner Instance { get; private set; }
     public Transform spawn;
-
     public GameObject customerBoat;
-
-    public float minimumOrderTime;
 
 	[NonReorderable]
 	public Sprite[] customers;
     
-    bool lastSpawn;
-
     public int maxBoatCount = 1;
     public int currentBoatCount = 0;
     
-    
     //Adjustable Settings
-    public bool twoLanes = false;
-    public bool doubleOrders = false;
-    public int maxOrderCountPerPerson = 3; 
     public int customerPerBoat =1;
 
-    public float customerSpawnDelay = 5f;
+    [HideInInspector]
+    public int numOrdersThisWave;
+
+    public Wave[] waves;
+    public int currentWave;
+    public bool waveLive;
+    public float waveTime;
+
     private void Awake()
     {
         if(Instance != null) {
@@ -37,33 +35,51 @@ public class CustomerSpawner : MonoBehaviour
         else {
             Instance = this;
         }
-    }
+		numOrdersThisWave = waves[currentWave].numOrders;
+	}
 
     private void Update()
     {
         if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
-            if (currentBoatCount < maxBoatCount && DayTimer.secondsRemainingToday > 30)
-            {
-                SpawnBoat();
-            }
+            waveTime += Time.deltaTime;
+            EvaluateWave();
         }
 
     }
 
+    public void EvaluateWave() {
+        if (waveLive) {
+            if(waveTime > waves[currentWave].orderTime) {
+                NextWave();
+	        }
+        }
+        else { 
+	        if(waveTime > waves[currentWave].preDelay) {
+                waveLive = true;
+                SpawnBoat();
+                waveTime = 0;
+	        }
+	    }
+    }
+    void NextWave() {
+		waveLive = false;
+        currentWave++;
+        if(currentWave >= waves.Length) {
+            currentWave = 0;
+	    }
+        waveTime = 0;
+		numOrdersThisWave = waves[currentWave].numOrders;
+	}
+
     public void SpawnBoat()
     {
-        StartCoroutine(DelaySpawn());
-    }
-
-    IEnumerator DelaySpawn()
-    {
-        currentBoatCount++;
-        yield return new WaitForSeconds(customerSpawnDelay);
-        Vector3 spawnPos = spawn.position;
-        GameObject c = Instantiate(customerBoat);
-        OrderManager.Instance.totalOrders += 2;
-        c.transform.position = spawnPos;
+		currentBoatCount++;
+		Vector3 spawnPos = spawn.position;
+		GameObject c = Instantiate(customerBoat);
+		c.transform.position = spawnPos;
+		OrderManager.Instance.totalOrders += waves[currentWave].numOrders;
+		c.GetComponent<CustomerBoat>().timer = waves[currentWave].orderTime;
 	}
 
     public Sprite GetCustomerState(int customer, int state) {

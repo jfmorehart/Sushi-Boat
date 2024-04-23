@@ -10,7 +10,6 @@ public class Customer : MonoBehaviour
 
     private bool ready = false;
 
-    public float timer = 0;
     float maxTime;
 
     public int orderCount;
@@ -27,23 +26,29 @@ public class Customer : MonoBehaviour
 
     public int singleBubbleTimerLength, doubleBubbleTimerLength;
     Vector2 lpos;
+
+    CustomerBoat parentBoat;
+
     // Start is called before the first frame update
     void Start()
     {
         lpos = transform.localPosition;
         if (leftCustomer) {
-            orderCount = 2;// Random.Range(1, CustomerSpawner.Instance.maxOrderCountPerPerson + 1);
+            orderCount = Mathf.CeilToInt(CustomerSpawner.Instance.numOrdersThisWave / 2f);
         }
         else {
-            orderCount = 1;
+			orderCount = Mathf.FloorToInt(CustomerSpawner.Instance.numOrdersThisWave / 2f);
 		}
-        
+        Debug.Log(leftCustomer + " " + orderCount + " " + CustomerSpawner.Instance.numOrdersThisWave);
         ren = GetComponent<SpriteRenderer>();
         ren.material.SetFloat("_rh", 0);
 		if (GameManager.Instance.boss) return;
 		customer = Random.Range(0, 10);
         ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
-    }
+
+        parentBoat = GetComponentInParent<CustomerBoat>();
+
+	}
 
     void StartSteam() { 
         foreach(ParticleSystem ps in steamers) {
@@ -59,10 +64,6 @@ public class Customer : MonoBehaviour
         state = Mathf.Clamp(state, 0, 3);
 		if (state != 3) {
             StopSteam();
-
-		}
-        else {
-			//ren.material.SetFloat("_rh", ((1 - quality) - 0.5f) / 0.5f);
 		}
 
 		ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
@@ -78,7 +79,7 @@ public class Customer : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if (GetComponentInParent<CustomerBoat>().ready&& !ready)
+        if (parentBoat.ready&& !ready)
         {
             ready = true;
             SetThoughtBubble();
@@ -86,13 +87,11 @@ public class Customer : MonoBehaviour
 
         if (ready)
         {
-            if (timer >= 0)
+            if (parentBoat.timer >= 0)
             {
-                timer -= Time.deltaTime;
                 if (!finished) {
 					if (!GameManager.Instance.boss) {
-						//float l = (timer > maxTime * 0.5f) ? 0 : 1 - (timer / (maxTime * 0.5f));
-						float l = 1 - (timer / maxTime);
+						float l = Mathf.Max(0, ((1 - (parentBoat.timer / maxTime)) - 0.75f)) * 4;
 						if (l > 0)
 						{
 							ren.material.SetFloat("_rh", l);
@@ -101,7 +100,7 @@ public class Customer : MonoBehaviour
 						{
 							StartSteam();
 						}
-						if ((state + 1) < (1 - (timer / maxTime)) * 4)
+						if ((state + 1) < (1 - (parentBoat.timer / maxTime)) * 4)
 						{
 							state++;
 							if (state > 3) state = 3;
@@ -110,7 +109,7 @@ public class Customer : MonoBehaviour
                         transform.localPosition = lpos + Random.insideUnitCircle * l * l * l* 0.5f;
 					}
                     else{
-                        float l = 1 - (timer / maxTime);
+                        float l = 1 - (parentBoat.timer / maxTime);
 						ren.material.SetFloat("_rh", l);
 						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.05f;
 					}
@@ -143,22 +142,10 @@ public class Customer : MonoBehaviour
 
             if (bubble.activeSelf)
             {
-                Debug.Log("a");
                 ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
                 if (t.orderComplete || t.orderFailed)
                 {
-					Debug.Log("b");
 					finished = true;
-
-					if (orderCount<=0)
-                    {
-                        //finished = true;
-
-					}
-                    else
-                    {
-                        //NextOrder();
-                    }
                 }
             }
             else if (leftCustomer)
@@ -170,15 +157,6 @@ public class Customer : MonoBehaviour
                     if ((t1.orderComplete || t1.orderFailed)&&(t2.orderComplete || t2.orderFailed))
                     {
 						finished = true;
-						if (orderCount<=0)
-                        {
-                            //finished = true;
-
-						}
-                        else
-                        {
-                            //NextOrder();
-                        }
                     }
                 }
             }
@@ -187,31 +165,7 @@ public class Customer : MonoBehaviour
         }
     }
 
-  //  public void NextOrder()
-  //  {
-  //      if (leftCustomer)
-  //      {
-  //          doubleBubble.SetActive(false);
-  //      }
-  //      bubble.SetActive(false);
-  //      if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2&&(Random.Range(0, 2) == 0))
-  //      {
-  //          doubleBubble.SetActive(true);
-  //          doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();
-  //          doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>().Init();
-  //          orderCount -= 2;
-  //          timer = doubleBubbleTimerLength + Random.Range(-1, 1f); //for variance
-		//	maxTime = timer;
-		//}
-  //      else
-  //      {
-  //          bubble.SetActive(true);
-  //          bubble.transform.GetChild(0).GetComponent<ThoughtBubble>().Init();\
-  //          orderCount -= 1;
-  //          timer = singleBubbleTimerLength + Random.Range(-1, 1f);//for variance
-		//	maxTime = timer;
-  //      }
-  //  }
+
     public void SetThoughtBubble()
     {
         //tutorial
@@ -221,8 +175,7 @@ public class Customer : MonoBehaviour
             {
                 bubble.SetActive(true);
                 orderCount -= 1;
-                timer = 1000f;
-                maxTime = timer;
+                maxTime = parentBoat.timer;
             }
             else
             {
@@ -232,20 +185,18 @@ public class Customer : MonoBehaviour
 		}
         else
         {
-            if (CustomerSpawner.Instance.doubleOrders&&leftCustomer&&orderCount>=2) //removed randomness
+            if (orderCount == 2)
             {
                 doubleBubble.SetActive(true);
 				bubble.SetActive(false);
 				orderCount -= 2;
-                timer = Mathf.Max(CustomerSpawner.Instance.minimumOrderTime, doubleBubbleTimerLength);
-				maxTime = timer;
+				maxTime = parentBoat.timer;
 			}
-            else
+            else if(orderCount == 1)
             {
                 bubble.SetActive(true);
                 orderCount -= 1;
-                timer = Mathf.Max(CustomerSpawner.Instance.minimumOrderTime, singleBubbleTimerLength);
-				maxTime = timer;
+				maxTime = parentBoat.timer;
 			}
         }
 

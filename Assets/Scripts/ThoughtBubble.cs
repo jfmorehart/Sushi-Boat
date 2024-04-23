@@ -99,7 +99,7 @@ public class ThoughtBubble : Station
 		orderSR.sprite = recipe.recipeItem.sprite;
 		GetComponent<Collider2D>().enabled = true;
 		orderAdded = true;
-		order = new OrderManager.Order(recipe, transform.parent.parent.GetComponent<Customer>().timer);
+		order = new OrderManager.Order(recipe, transform.parent.parent.parent.GetComponent<CustomerBoat>().timer);
 		OrderManager.Instance.orders.Add(order);
 		//OrderManager.Instance.UpdateOrderUI();
 	}

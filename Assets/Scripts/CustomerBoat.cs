@@ -11,6 +11,9 @@ public class CustomerBoat : MonoBehaviour
 	private bool leaving = false;
 
 	public bool bossLevel;
+
+	public float timer;
+
 	private void Start()
 	{
 		Init();
@@ -24,13 +27,13 @@ public class CustomerBoat : MonoBehaviour
 		//	transform.GetChild(0).gameObject.SetActive(true);
 		//	return;
 		//}
-		if (CustomerSpawner.Instance.customerPerBoat == 0)
-		{
-			transform.GetChild(3).gameObject.SetActive(true);
-		}
+		//if (CustomerSpawner.Instance.customerPerBoat == 0)
+		//{
+		//	transform.GetChild(3).gameObject.SetActive(true);
+		//}
 		if (CustomerSpawner.Instance.customerPerBoat == 1)
 		{
-			transform.GetChild(0).gameObject.SetActive(true);
+			transform.GetChild(2).gameObject.SetActive(true);
 		}
 		if (CustomerSpawner.Instance.customerPerBoat == 2)
 		{
@@ -41,22 +44,11 @@ public class CustomerBoat : MonoBehaviour
 
 	private void Update()
 	{
+		timer -= Time.deltaTime;
+
 		transform.Translate(Mathf.Sin(Time.time / sinFreq) * sinAmp * Time.deltaTime * transform.up, Space.World);
 		if (ready)
 		{
-			//if (transform.childCount < 2)
-			//{
-			//	if (transform.GetChild(0).GetComponent<Customer>().finished)
-			//	{
-			//		if (!leaving)
-			//		{
-			//			leaving = true;
-			//			StartCoroutine(Leave());
-			//			transform.GetChild(0).gameObject.SetActive(false);
-			//		}
-			//	}
-			//	return;
-			//}
 			if (CustomerSpawner.Instance.customerPerBoat == 1)
 			{
 				if (transform.GetChild(0).GetComponent<Customer>().finished)
@@ -71,20 +63,15 @@ public class CustomerBoat : MonoBehaviour
 			}
 			if (CustomerSpawner.Instance.customerPerBoat == 2)
 			{
-				Debug.Log("yall ready?");
 				if (transform.GetChild(1).GetComponent<Customer>().finished &&
 					transform.GetChild(2).GetComponent<Customer>().finished)
 				{
 					if (!leaving)
 					{
-						Debug.Log("leaving");
 						leaving = true;
 						StartCoroutine(Leave());
 						transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
 						transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
-					}
-					else {
-						Debug.Log("not leaving");
 					}
 				}
 			}

@@ -210,10 +210,33 @@ MonoBehaviour:
   currentBoatCount: 0
   twoLanes: 0
   doubleOrders: 1
-  maxOrderCountPerPerson: 1
   customerPerBoat: 2
-  customerSpawnDelay: 10
-  bossLock: 0
+  numOrdersThisWave: 0
+  waves:
+  - preDelay: 30
+    numOrders: 1
+    orderTime: 60
+  - preDelay: 20
+    numOrders: 2
+    orderTime: 60
+  - preDelay: 30
+    numOrders: 1
+    orderTime: 60
+  - preDelay: 30
+    numOrders: 2
+    orderTime: 60
+  - preDelay: 30
+    numOrders: 1
+    orderTime: 60
+  - preDelay: 30
+    numOrders: 2
+    orderTime: 60
+  - preDelay: 30
+    numOrders: 1
+    orderTime: 60
+  currentWave: 0
+  waveLive: 0
+  waveTime: 0
 --- !u!1 &7773442082603837680
 GameObject:
   m_ObjectHideFlags: 0
