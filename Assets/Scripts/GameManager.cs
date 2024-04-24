@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         DayGoing,
-        DayEnded
+        DayEnded,
+        Dead
     }
 
     public GameState gameState = GameState.DayGoing;
@@ -32,8 +33,19 @@ public class GameManager : MonoBehaviour
     public bool tutorial = false;
 	public bool boss = false;
 
+    public bool bossLevel = false;
+
     public static bool paused;
 
+    
+    
+    //boss stuff
+    public int BossLevelMaxHP = 3;
+    public int BossLevelCurrentHP = 3;
+
+    public GameObject loseScreen;
+    public GameObject health;
+    
 	// Start is called before the first frame update
 	void Start()
     {
@@ -41,7 +53,7 @@ public class GameManager : MonoBehaviour
         money = Progress.money;
         gameState = GameState.DayGoing;
         if (SceneManager.GetActiveScene().buildIndex == 6)
-        {  //boss scene
+        {  //boss scene 
             boss = true;
         }
         else {
@@ -52,6 +64,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -72,6 +85,21 @@ public class GameManager : MonoBehaviour
         
     }
 
+
+    public void Die()
+    {
+        gameState = GameState.Dead;
+        loseScreen.SetActive(true);
+    }
+
+    public void TakeDamage()
+    {
+        BossLevelCurrentHP -= 1;
+        if (bossLevel && BossLevelCurrentHP <= 0)
+        {
+            Die();
+        }
+    }
 
    
 }

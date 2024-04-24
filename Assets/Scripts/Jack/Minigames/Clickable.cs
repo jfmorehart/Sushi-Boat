@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Clickable : MonoBehaviour
 {
@@ -17,4 +19,6 @@ public class Clickable : MonoBehaviour
 	public virtual bool OnColliderClicked() {
         return false;
     }
+
+
 }

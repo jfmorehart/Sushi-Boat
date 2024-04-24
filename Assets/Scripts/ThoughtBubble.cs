@@ -39,16 +39,32 @@ public class ThoughtBubble : Station
             return false;
 		}
         else if(order.recipe.recipeItem == item.itemData) {
+
             Debug.Log("CONGRATS");
 			orderSR.sprite = rightOrder;
-			if (item.quality >= 0.85f)
+			if (GameManager.Instance.bossLevel)
 			{
-				SoundManager.Instance.PlaySoundEffect(successSoundEffect);
+				if (item.quality >= 0.85f)
+				{
+					SoundManager.Instance.PlaySoundEffect(successSoundEffect);
+				}
+				else
+				{
+					SoundManager.Instance.PlaySoundEffect(okSoundEffect);
+				}
 			}
 			else
 			{
-				SoundManager.Instance.PlaySoundEffect(okSoundEffect);
+				if (item.quality >= 0.85f)
+				{
+					SoundManager.Instance.PlaySoundEffect(successSoundEffect);
+				}
+				else
+				{
+					SoundManager.Instance.PlaySoundEffect(okSoundEffect);
+				}
 			}
+
 			order.CompleteOrder(item.quality);
 			orderComplete = true;
 		}
@@ -58,7 +74,15 @@ public class ThoughtBubble : Station
 			order.FailOrder();
 			orderFailed = true;
             item.quality = 0;
-			SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
+            if (GameManager.Instance.bossLevel)
+            {
+	            GameManager.Instance.TakeDamage();
+            }
+            else
+            {
+	            SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
+            }
+			
 		}
         float total = OrderManager.Instance.numOrdersEaten + 1;
         float oldweight = OrderManager.Instance.numOrdersEaten / total;
