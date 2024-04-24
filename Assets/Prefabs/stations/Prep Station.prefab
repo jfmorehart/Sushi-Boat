@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3102385424180415394}
   m_Layer: 0
   m_Name: Prep Station
-  m_TagString: Untagged
+  m_TagString: Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpawner: 0
-  itemOnStation: {fileID: 0}
+  toSpawn: {fileID: 0}
   maxItems: 1
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 6919503059677774019}
@@ -170,7 +170,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce4213717c88f48c98bb4b14c1e8d9b0, type: 2}
   - {fileID: 11400000, guid: 99276aa42945a46c1812cc1c94c5fac8, type: 2}
   - {fileID: 11400000, guid: df257e8fb6d7f46d1962b0f1c24d289e, type: 2}
-  currentItems: []
   maxItemCount: 3
   incompleteFood: {fileID: 11400000, guid: efc5e27123a5d9e49802853c2097c083, type: 2}
 --- !u!1 &6238389462233226240

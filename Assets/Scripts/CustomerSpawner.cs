@@ -15,9 +15,6 @@ public class CustomerSpawner : MonoBehaviour
     
     public int maxBoatCount = 1;
     public int currentBoatCount = 0;
-    
-    //Adjustable Settings
-    public int customerPerBoat =1;
 
     [HideInInspector]
     public int numOrdersThisWave;
@@ -50,9 +47,16 @@ public class CustomerSpawner : MonoBehaviour
 
     public void EvaluateWave() {
         if (waveLive) {
-            if(waveTime > waves[currentWave].orderTime) {
-                NextWave();
-	        }
+			if (currentBoatCount < 1) //player fed the customers, new wave
+			{
+				NextWave();
+                return;
+			}
+			if (waveTime > waves[currentWave].orderTime) { //timer ran out
+                //NextWave();
+				//return;
+			}
+  
         }
         else { 
 	        if(waveTime > waves[currentWave].preDelay) {

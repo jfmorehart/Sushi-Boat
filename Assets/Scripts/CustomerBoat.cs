@@ -22,20 +22,12 @@ public class CustomerBoat : MonoBehaviour
 
 	public void Init()
 	{
-		//if (transform.childCount < 2)
-		//{
-		//	transform.GetChild(0).gameObject.SetActive(true);
-		//	return;
-		//}
-		//if (CustomerSpawner.Instance.customerPerBoat == 0)
-		//{
-		//	transform.GetChild(3).gameObject.SetActive(true);
-		//}
-		if (CustomerSpawner.Instance.customerPerBoat == 1)
+		if (CustomerSpawner.Instance.numOrdersThisWave < 2)
 		{
-			transform.GetChild(2).gameObject.SetActive(true);
+			Debug.Log("setactive!");
+			transform.GetChild(0).gameObject.SetActive(true);
 		}
-		if (CustomerSpawner.Instance.customerPerBoat == 2)
+		else
 		{
 			transform.GetChild(1).gameObject.SetActive(true);
 			transform.GetChild(2).gameObject.SetActive(true);
@@ -49,7 +41,7 @@ public class CustomerBoat : MonoBehaviour
 		transform.Translate(Mathf.Sin(Time.time / sinFreq) * sinAmp * Time.deltaTime * transform.up, Space.World);
 		if (ready)
 		{
-			if (CustomerSpawner.Instance.customerPerBoat == 1)
+			if (CustomerSpawner.Instance.numOrdersThisWave < 2)
 			{
 				if (transform.GetChild(0).GetComponent<Customer>().finished)
 				{
@@ -57,11 +49,11 @@ public class CustomerBoat : MonoBehaviour
 					{
 						leaving = true;
 						StartCoroutine(Leave());
-						transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+						//transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
 					}
 				}
 			}
-			if (CustomerSpawner.Instance.customerPerBoat == 2)
+			else
 			{
 				if (transform.GetChild(1).GetComponent<Customer>().finished &&
 					transform.GetChild(2).GetComponent<Customer>().finished)
@@ -70,8 +62,8 @@ public class CustomerBoat : MonoBehaviour
 					{
 						leaving = true;
 						StartCoroutine(Leave());
-						transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
-						transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
+						//transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+						//transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
 					}
 				}
 			}

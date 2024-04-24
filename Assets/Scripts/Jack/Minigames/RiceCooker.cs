@@ -48,6 +48,7 @@ public class RiceCooker : Station
 			cooking = true;
 			riceRenderer.enabled = true;
 			riceRenderer.color = Color.yellow;
+			progressBar.localScale = Vector3.zero;
 			riceTimer = 0;
 			audioSource.Play();
 			beep = false;

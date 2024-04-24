@@ -98,21 +98,6 @@ public class ThoughtBubble : Station
 		return base.OnItemAdd(item);
 	}
 
-	public override bool OnColliderClicked()
-    {
-        bool ret = base.OnColliderClicked();
-
-        //else
-        //{
-        //    if (OrderManager.Instance.CheckOrder(order))
-        //    {
-        //        OrderManager.Instance.UpdateOrderUI();
-        //        Destroy(gameObject);
-        //    }
-        //}
-        return ret;
-    }
-
 	public void Init()
 	{
 		
