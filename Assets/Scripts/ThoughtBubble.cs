@@ -8,8 +8,8 @@ public class ThoughtBubble : Station
 	
     public bool orderAdded = false;
 
-    private Recipe recipe;
-    private OrderManager.Order order;
+    public Recipe recipe;
+    public OrderManager.Order order;
 
     public Sprite wrongOrder;
     public Sprite rightOrder;
@@ -28,7 +28,6 @@ public class ThoughtBubble : Station
     // Start is called before the first frame update
     public override void Start()
     {
-        
         Init();
 		base.Start();
 	}
@@ -94,7 +93,7 @@ public class ThoughtBubble : Station
         transform.parent.parent.GetComponent<Customer>().ReactToFood(item.quality);
 		//OrderManager.Instance.UpdateOrderUI();
 		//Destroy(gameObject);
-		GetComponent<Collider2D>().enabled = false;
+		//GetComponent<Collider2D>().enabled = false;
 		return base.OnItemAdd(item);
 	}
 
@@ -106,7 +105,7 @@ public class ThoughtBubble : Station
 		itemOnStation = null;
 		recipe = OrderManager.Instance.recipes[Random.Range(0, OrderManager.Instance.recipes.Count)];
 		orderSR.sprite = recipe.recipeItem.sprite;
-		GetComponent<Collider2D>().enabled = true;
+		//GetComponent<Collider2D>().enabled = true;
 		orderAdded = true;
 		order = new OrderManager.Order(recipe, transform.parent.parent.parent.GetComponent<CustomerBoat>().timer);
 		OrderManager.Instance.orders.Add(order);

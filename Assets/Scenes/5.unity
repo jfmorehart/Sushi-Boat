@@ -2880,6 +2880,30 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].preDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[1].preDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[2].preDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[0].numOrders
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[1].numOrders
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[2].numOrders
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[3].numOrders
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: boss
       value: 1

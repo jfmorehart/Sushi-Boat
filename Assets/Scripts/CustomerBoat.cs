@@ -37,6 +37,10 @@ public class CustomerBoat : MonoBehaviour
 	{
 		timer -= Time.deltaTime;
 
+		if(timer < 0) {
+			StartCoroutine(Leave());
+			leaving = true;
+		}
 		transform.Translate(Mathf.Sin(Time.time / sinFreq) * sinAmp * Time.deltaTime * transform.up, Space.World);
 		if (ready)
 		{
@@ -44,10 +48,8 @@ public class CustomerBoat : MonoBehaviour
 			{
 				if (transform.GetChild(0).GetComponent<Customer>().finished)
 				{
-					Debug.Log("fin");
 					if (!leaving)
 					{
-						Debug.Log("going");
 						leaving = true;
 						StartCoroutine(Leave());
 						//transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
