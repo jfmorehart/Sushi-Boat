@@ -12,15 +12,15 @@ public static class Progress
 	public static string scores; //32100 etc
 
 	public static void Save() {
-		PlayerPrefs.SetInt("money", money);
+		//PlayerPrefs.SetInt("money", money);
 		PlayerPrefs.SetInt("level", maxUnlockedLevel);
 		PlayerPrefs.SetString("scores", scores);
 
-		Debug.Log("Saving:" + money + "$, " + maxUnlockedLevel + " unlocked, " + scores);
+		Debug.Log("Saving: " + maxUnlockedLevel + " unlocked, " + scores);
 		PlayerPrefs.Save();
 	}
 	public static void Load() {
-		money = PlayerPrefs.GetInt("money", 0);
+		//money = PlayerPrefs.GetInt("money", 0);
 		maxUnlockedLevel = PlayerPrefs.GetInt("level", 1);
 		scores = PlayerPrefs.GetString("scores", "00000");
 

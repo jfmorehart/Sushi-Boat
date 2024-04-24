@@ -51,14 +51,10 @@ public class Menu : MonoBehaviour
 		//EndDayAction.Invoke();
 		Camera.main.GetComponent<CameraController>().EndDay();
 		Debug.Log(OrderManager.Instance.completed + " " + OrderManager.Instance.totalOrders);
-		float ratio = (1 + (float)OrderManager.Instance.numOrdersEaten) / (1f + (float)OrderManager.Instance.totalOrders);
-		float score = ratio * OrderManager.Instance.averageOrderQuality;
+		//float ratio = (1 + (float)OrderManager.Instance.numOrdersEaten) / (1f + (float)OrderManager.Instance.totalOrders);
+		float score = GameManager.Instance.money / 50;
 		Debug.Log(score + " score");
-		Debug.Log(ratio);
-		int index = 10 - Mathf.FloorToInt(ratio * 10);
-		if (index < 0) index = 0;
-		if (index > 4) index = 4;
-		//rankingPage.sprite = rankings[index];
+
 
 		int starCount = Mathf.FloorToInt((score * 11f) * 0.333f);
 		for(int i = 0; i < 3; i++) {
@@ -71,7 +67,7 @@ public class Menu : MonoBehaviour
 		peoplefed.text = fed.ToString() + ".";
 		peoplemissed.text = missed.ToString() + ".";
 		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
-		scoretext.text = ((int)(score * 100)).ToString() + "%";
+		scoretext.text = "$" + GameManager.Instance.money.ToString();
 		Progress.SetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1, starCount);
 		Progress.Save();
 	}
