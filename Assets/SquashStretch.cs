@@ -6,6 +6,7 @@ using DG.Tweening;
 public class SquashStretch : MonoBehaviour
 {
     private Vector3 ogScale;
+    public float clickScale = 1.2f;
     public Vector3 squashScale = new Vector3(1.1f,0.9f,1f);
     public float squashDuration=0.3f;
     public Vector3 stretchScale = new Vector3(0.9f,1.1f,1f);
@@ -18,7 +19,12 @@ public class SquashStretch : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        StartCoroutine(SquashAndStretch());
+        StartCoroutine(SquashAndStretch(1));
+    }
+
+    private void OnMouseDown()
+    {
+        StartCoroutine(SquashAndStretch(clickScale));
     }
 
     private void OnMouseExit()
@@ -26,12 +32,12 @@ public class SquashStretch : MonoBehaviour
         transform.localScale = ogScale;
     }
 
-    IEnumerator SquashAndStretch()
+    IEnumerator SquashAndStretch(float extraScale)
     {
-        transform.localScale = Vector3.one;
-       Tween squash1 = transform.DOScale(new Vector3( ogScale.x*squashScale.x,ogScale.y*squashScale.y,ogScale.z*squashScale.z),squashDuration);
+        transform.localScale = ogScale;
+       Tween squash1 = transform.DOScale(new Vector3( ogScale.x*squashScale.x,ogScale.y*squashScale.y,ogScale.z*squashScale.z)*extraScale,squashDuration);
         yield return squash1.WaitForCompletion();
-        Tween stretch1 = transform.DOScale(new Vector3(ogScale.x*stretchScale.x,ogScale.y*stretchScale.y,ogScale.z*stretchScale.z),stretchDuration);
+        Tween stretch1 = transform.DOScale(new Vector3(ogScale.x*stretchScale.x,ogScale.y*stretchScale.y,ogScale.z*stretchScale.z)*extraScale,stretchDuration);
         yield return stretch1.WaitForCompletion();
         Tween back = transform.DOScale(ogScale,returnDuration);
         yield return back.WaitForCompletion();
