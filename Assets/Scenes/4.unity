@@ -422,6 +422,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7824048002782032664, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8842810177074432831, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
       propertyPath: cuttingBoardUI
       value: 
@@ -2078,6 +2082,10 @@ PrefabInstance:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: maxOrderCountPerPerson
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[0].numOrders
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: tempMenu

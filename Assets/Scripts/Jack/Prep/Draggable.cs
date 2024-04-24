@@ -73,6 +73,15 @@ public class Draggable : Clickable
 					return;
 				}
 			}
+		}else if (item.itemData.tags.Contains(Item.ItemTags.Combinable)) {
+			foreach (GameObject go in gos)
+			{
+				if (go.TryGetComponent(out PrepStation prep))
+				{
+					prep.Blink();
+					return;
+				}
+			}
 		}
 	}
 

@@ -39,6 +39,11 @@ public class Customer : MonoBehaviour
         else {
 			orderCount = Mathf.FloorToInt(CustomerSpawner.Instance.numOrdersThisWave / 2f);
 		}
+        if (orderCount < 1) {
+            ready = true;
+            gameObject.SetActive(false);
+	    }
+
         Debug.Log(leftCustomer + " " + orderCount + " " + CustomerSpawner.Instance.numOrdersThisWave);
         ren = GetComponent<SpriteRenderer>();
         ren.material.SetFloat("_rh", 0);
@@ -106,12 +111,12 @@ public class Customer : MonoBehaviour
 							if (state > 3) state = 3;
 							ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
 						}
-                        transform.localPosition = lpos + Random.insideUnitCircle * l * l * l* 0.5f;
+                        transform.localPosition = lpos + Random.insideUnitCircle * l * l * l* 0.1f;
 					}
                     else{
                         float l = 1 - (parentBoat.timer / maxTime);
 						ren.material.SetFloat("_rh", l);
-						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.05f;
+						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.25f;
 					}
 				}
 			}
