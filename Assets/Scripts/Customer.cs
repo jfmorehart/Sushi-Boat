@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Customer : MonoBehaviour
+public class Customer : Station
 {
     public bool leftCustomer = false;
     public GameObject bubble;
@@ -29,8 +30,10 @@ public class Customer : MonoBehaviour
 
     CustomerBoat parentBoat;
 
+    public ThoughtBubble[] thoughts;
+
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         lpos = transform.localPosition;
         if (leftCustomer) {
@@ -49,6 +52,11 @@ public class Customer : MonoBehaviour
         ren.material.SetFloat("_rh", 0);
 
 		parentBoat = GetComponentInParent<CustomerBoat>();
+        thoughts = GetComponentsInChildren<ThoughtBubble>(true);
+
+
+		GetComponent<Collider2D>().enabled = true;
+
 		if (GameManager.Instance.boss) return;
 		customer = Random.Range(0, 10);
         ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
@@ -81,6 +89,40 @@ public class Customer : MonoBehaviour
 		}
 		steaming = false;
 	}
+
+	public override bool OnItemAdd(ItemInstance item)
+	{
+        //Add if true
+        foreach (ThoughtBubble tb in thoughts)
+        {
+            if (tb.order == null || tb.orderComplete || tb.orderFailed)
+            {
+                continue;
+            }
+            else if (tb.order.recipe.recipeItem == item.itemData)
+            {
+                tb.OnItemAdd(item);
+                return true;
+            }
+        }
+
+        //If order doesnt match, just feed a random thought bubble
+		foreach (ThoughtBubble tb in thoughts)
+		{
+			if (tb.order == null || tb.orderComplete || tb.orderFailed)
+			{
+				continue;
+			}
+			else
+			{
+				tb.OnItemAdd(item);
+				return true;
+			}
+		}
+		return false;
+	}
+
+
 	// Update is called once per frame
 	void Update()
     {
@@ -151,23 +193,22 @@ public class Customer : MonoBehaviour
                 if (t.orderComplete || t.orderFailed)
                 {
 					finished = true;
-                }
+                    GetComponent<Collider2D>().enabled = false;
+				}
             }
-            else if (leftCustomer)
-            {
-                if (doubleBubble.activeSelf)
-                {
-                    ThoughtBubble t1 = doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
-                    ThoughtBubble t2 = doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>();
-                    if ((t1.orderComplete || t1.orderFailed)&&(t2.orderComplete || t2.orderFailed))
-                    {
-						finished = true;
-                    }
-                }
-            }
-            
+			else if (doubleBubble.activeSelf)
+			{
+				ThoughtBubble t1 = doubleBubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
+				ThoughtBubble t2 = doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>();
+				if ((t1.orderComplete || t1.orderFailed) && (t2.orderComplete || t2.orderFailed))
+				{
+					finished = true;
+					GetComponent<Collider2D>().enabled = false;
+				}
+			}
 
-        }
+
+		}
     }
 
 

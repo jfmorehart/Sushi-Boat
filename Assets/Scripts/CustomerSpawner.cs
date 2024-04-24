@@ -53,8 +53,8 @@ public class CustomerSpawner : MonoBehaviour
                 return;
 			}
 			if (waveTime > waves[currentWave].orderTime) { //timer ran out
-                //NextWave();
-				//return;
+                NextWave();
+				return;
 			}
   
         }
