@@ -70,7 +70,7 @@ public class FishSpawner : MonoBehaviour
 
 	void SpawnFish() {
 		bool facingRight = (Random.Range(0, 1000) % 2 == 0);
-		Vector2 pos = new Vector2(facingRight? leftBound : rightBound, Random.Range(lowerBound, upperBound));
+		Vector2 pos = new Vector2(facingRight? leftBound : rightBound, 0);
 		int r = FishPseudoRandomizer();
 		GameObject go = Instantiate(fishPrefab, pos, Quaternion.identity, transform);
 		Fish f = go.GetComponent<Fish>();
@@ -82,7 +82,7 @@ public class FishSpawner : MonoBehaviour
 	{
 		if (obstacleprefabs.Count < 1) return;
 		bool facingRight = (Random.Range(0, 1000) % 2 == 0);
-		Vector2 pos = new Vector2(facingRight ? leftBound : rightBound, Random.Range(lowerBound, upperBound));
+		Vector2 pos = new Vector2(facingRight ? leftBound : rightBound, 0);
 		int r = ObstaclePseudoRandomizer();
 		GameObject go = Instantiate(obstacleprefabs[r], pos, Quaternion.identity, transform);
 		go.GetComponent<Fish>().direction = facingRight ? 1 : -1;

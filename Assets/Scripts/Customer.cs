@@ -47,11 +47,11 @@ public class Customer : MonoBehaviour
         Debug.Log(leftCustomer + " " + orderCount + " " + CustomerSpawner.Instance.numOrdersThisWave);
         ren = GetComponent<SpriteRenderer>();
         ren.material.SetFloat("_rh", 0);
+
+		parentBoat = GetComponentInParent<CustomerBoat>();
 		if (GameManager.Instance.boss) return;
 		customer = Random.Range(0, 10);
         ren.sprite = CustomerSpawner.Instance.GetCustomerState(customer, state);
-
-        parentBoat = GetComponentInParent<CustomerBoat>();
 
 	}
 
