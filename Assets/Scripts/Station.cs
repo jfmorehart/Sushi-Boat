@@ -80,6 +80,10 @@ public class Station : Clickable
         return true;
     }
     public virtual void SpawnDraggableItem(ItemInstance item) {
+	    if (GetComponent<SquashStretch>())
+	    {
+		    GetComponent<SquashStretch>().SS(1.2f);
+	    }
 		GameObject drag = Instantiate(DraggablePrefab);
 		drag.GetComponent<Draggable>().StartDrag();
 		drag.GetComponent<Draggable>().Initialize(this, item);

@@ -22,6 +22,10 @@ public class RiceBowl : Station
             itemOnStation = item;
             sr.material.SetFloat("_qual", item.quality);
             UpdateSprite();
+            if (GetComponent<SquashStretch>())
+            {
+                GetComponent<SquashStretch>().SS(1.2f);
+            }
             return true;
         }
         else {

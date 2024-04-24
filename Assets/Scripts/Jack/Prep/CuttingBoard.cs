@@ -15,6 +15,10 @@ public class CuttingBoard : Station
 			//transform.GetChild(0).GetComponent<Renderer>().material.SetFloat("_qual", item.quality);
 			if(itemOnStation == null) {
 				PopUp(item);
+				if (GetComponent<SquashStretch>())
+				{
+					GetComponent<SquashStretch>().SS(1.2f);
+				}
 				return true;
 			}
 			else {

@@ -52,6 +52,10 @@ public class RiceCooker : Station
 			riceTimer = 0;
 			audioSource.Play();
 			beep = false;
+			if (GetComponent<SquashStretch>())
+			{
+				GetComponent<SquashStretch>().SS(1.2f);
+			}
 		}
 		return canAdd;
 	}

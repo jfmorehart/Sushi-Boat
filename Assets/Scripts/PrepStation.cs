@@ -23,6 +23,10 @@ public class PrepStation : Station
             currentItems.Add(item);
             UpdateSprite();
             SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.defaultPickupSound);
+            if (GetComponent<SquashStretch>())
+            {
+                GetComponent<SquashStretch>().SS(1.2f);
+            }
             return true;
         }
         else {

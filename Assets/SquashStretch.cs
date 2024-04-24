@@ -19,12 +19,12 @@ public class SquashStretch : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        StartCoroutine(SquashAndStretch(1));
+        SS(1);
     }
 
     private void OnMouseDown()
     {
-        StartCoroutine(SquashAndStretch(clickScale));
+        SS(clickScale);
     }
 
     private void OnMouseExit()
@@ -32,6 +32,11 @@ public class SquashStretch : MonoBehaviour
         transform.localScale = ogScale;
     }
 
+
+    public void SS(float extraScale)
+    {
+        StartCoroutine(SquashAndStretch(clickScale));
+    }
     IEnumerator SquashAndStretch(float extraScale)
     {
         transform.localScale = ogScale;
