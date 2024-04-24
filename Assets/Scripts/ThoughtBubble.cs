@@ -76,6 +76,7 @@ public class ThoughtBubble : Station
             item.quality = 0;
             if (GameManager.Instance.bossLevel)
             {
+	            SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
 	            GameManager.Instance.TakeDamage();
             }
             else

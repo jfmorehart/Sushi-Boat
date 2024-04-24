@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject loseScreen;
     public GameObject health;
+    public YachtRock yr;
+    public SpriteRenderer boatCracks;
+    public Sprite crack1;
+    public Sprite crack2;
+    public Sprite crack3;
     
 	// Start is called before the first frame update
 	void Start()
@@ -95,6 +100,19 @@ public class GameManager : MonoBehaviour
     public void TakeDamage()
     {
         BossLevelCurrentHP -= 1;
+        StartCoroutine(BoatShake());
+
+    }
+
+    IEnumerator BoatShake()
+    {
+        float ogf = yr.freq;
+        float ogamp = yr.amp;
+        yr.freq = 5f;
+        yr.amp = 4;
+        yield return new WaitForSeconds(3f);
+        yr.freq = ogf;
+        yr.amp = ogamp;
         if (bossLevel && BossLevelCurrentHP <= 0)
         {
             Die();

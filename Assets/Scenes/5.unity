@@ -2768,6 +2768,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4061573965179389, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
   m_PrefabInstance: {fileID: 2062606535}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2104979226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4540738614568172422, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+  m_PrefabInstance: {fileID: 2062606535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7d8d239a4574f55a89d148f9f80de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2119911099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,6 +2891,10 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].preDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: yr
+      value: 
+      objectReference: {fileID: 2104979226}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: boss
       value: 1
