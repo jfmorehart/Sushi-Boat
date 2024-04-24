@@ -42,18 +42,6 @@ public class Fish : MonoBehaviour
 		GetComponent<SpriteRenderer>().sprite = data.fishSprite;
 		freqSeed = Random.Range(1, 1000f);
 		ampSeed = Random.Range(0.6f, 1f);
-
-		if (inBackground) {
-			Vector3 pos = transform.position;
-			Vector3 scl = transform.localScale;
-			pos.y *= 0.8f;
-			pos.z = -0.1f;
-			scl *= 0.6f;
-			swimSpeed *= 0.5f;
-			transform.position = pos;
-			transform.localScale = scl;
-			GetComponent<Renderer>().material.SetColor("_col", FishSpawner.ins.backCol);
-		}
 		
 		float roll = Random.Range(0, 100f);
 		if(roll > 96) {
@@ -74,6 +62,25 @@ public class Fish : MonoBehaviour
 			quality = 0.3f;
 		}
 		GetComponent<Renderer>().material.SetFloat("_qual", 1);
+
+		Vector3 pos = transform.position;
+		float height = 0;
+		height = Mathf.Lerp(FishSpawner.ins.upperBound, FishSpawner.ins.lowerBound, Mathf.Min(quality, 1));
+		height += Random.Range(-1, 1f);
+		transform.position = new Vector3(pos.x, height, pos.z);
+
+		if (inBackground)
+		{
+			pos = transform.position;
+			Vector3 scl = transform.localScale;
+			pos.y *= 0.8f;
+			pos.z = -0.1f;
+			scl *= 0.6f;
+			swimSpeed *= 0.5f;
+			transform.position = pos;
+			transform.localScale = scl;
+			GetComponent<Renderer>().material.SetColor("_col", FishSpawner.ins.backCol);
+		}
 	}
 	private void Awake()
 	{

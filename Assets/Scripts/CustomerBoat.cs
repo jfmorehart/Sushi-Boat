@@ -24,7 +24,6 @@ public class CustomerBoat : MonoBehaviour
 	{
 		if (CustomerSpawner.Instance.numOrdersThisWave < 2)
 		{
-			Debug.Log("setactive!");
 			transform.GetChild(0).gameObject.SetActive(true);
 		}
 		else
@@ -45,8 +44,10 @@ public class CustomerBoat : MonoBehaviour
 			{
 				if (transform.GetChild(0).GetComponent<Customer>().finished)
 				{
+					Debug.Log("fin");
 					if (!leaving)
 					{
+						Debug.Log("going");
 						leaving = true;
 						StartCoroutine(Leave());
 						//transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
@@ -121,8 +122,6 @@ public class CustomerBoat : MonoBehaviour
 
 	public IEnumerator Rise()
 	{
-		transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
-		transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
 		float timeElapsed = 0;
 		Vector3 startPos = new Vector3(0, 20, 0);
 
@@ -134,8 +133,8 @@ public class CustomerBoat : MonoBehaviour
 			yield return null;
 		}
 		ready = true;
-		transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
-		transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+		//transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+		//transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
 	}
 	public IEnumerator Fall()
 	{
