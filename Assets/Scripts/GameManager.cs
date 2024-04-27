@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -53,6 +54,10 @@ public class GameManager : MonoBehaviour
     public GameObject tentacle1;
     public GameObject tentacle2;
     public GameObject tentacle3;
+
+    public GameObject hpBar;
+
+    public Sprite damaged;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -118,6 +123,7 @@ public class GameManager : MonoBehaviour
     public void TakeDamage()
     {
         BossLevelCurrentHP -= 1;
+        hpBar.transform.GetChild(BossLevelCurrentHP).GetComponent<Image>().sprite = damaged;
         if (boss && BossLevelCurrentHP <= 0)
         {
             Die();

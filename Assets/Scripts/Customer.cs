@@ -192,8 +192,8 @@ public class Customer : Station
                 ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
                 if (t.orderComplete || t.orderFailed)
                 {
-	                if(GameManager.Instance.boss&&t.orderFailed&&!finished)
-		                GameManager.Instance.TakeDamage();
+	                if (GameManager.Instance.boss && t.orderFailed && !finished)
+		                parentBoat.GetComponent<CustomerBoat>().dealDamage = true;
 					finished = true;
                     GetComponent<Collider2D>().enabled = false;
 				}
@@ -205,7 +205,7 @@ public class Customer : Station
 				if ((t1.orderComplete || t1.orderFailed) && (t2.orderComplete || t2.orderFailed))
 				{
 					if(GameManager.Instance.boss&&(t1.orderFailed||t2.orderFailed)&&!finished)
-						GameManager.Instance.TakeDamage();
+						parentBoat.GetComponent<CustomerBoat>().dealDamage = true;
 					finished = true;
 					GetComponent<Collider2D>().enabled = false;
 				}
