@@ -2215,6 +2215,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[3].orderTime
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[4].numOrders
       value: 2
       objectReference: {fileID: 0}

@@ -86,6 +86,16 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   tutorial: 0
   boss: 0
+  bossLevel: 0
+  BossLevelMaxHP: 3
+  BossLevelCurrentHP: 3
+  loseScreen: {fileID: 0}
+  health: {fileID: 0}
+  yr: {fileID: 0}
+  boatCracks: {fileID: 0}
+  crack1: {fileID: 0}
+  crack2: {fileID: 0}
+  crack3: {fileID: 0}
 --- !u!1 &3736635013895125465
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 4275532496540903966}
   customerBoat: {fileID: 1754498851477151231, guid: bace097cd0258fe4389648b7881d6fac, type: 3}
-  minimumOrderTime: 45
   customers:
   - {fileID: 21300000, guid: 762d0779d7d6846f0adadf508b0f42c9, type: 3}
   - {fileID: 21300000, guid: edce0140953e4450c9d969ac51f4a5d2, type: 3}
@@ -208,10 +217,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 870ae53b59900487bb3f840602918148, type: 3}
   maxBoatCount: 1
   currentBoatCount: 0
-  twoLanes: 0
-  doubleOrders: 1
-  customerPerBoat: 2
   numOrdersThisWave: 0
+  targetScore: 25
   waves:
   - preDelay: 30
     numOrders: 1

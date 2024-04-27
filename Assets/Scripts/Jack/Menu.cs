@@ -48,11 +48,12 @@ public class Menu : MonoBehaviour
 	}
 	public void EndDay() {
 		queuedRestart = false;
+		GameManager.Instance.gameState = GameManager.GameState.DayEnded;
 		//EndDayAction.Invoke();
 		Camera.main.GetComponent<CameraController>().EndDay();
 		Debug.Log(OrderManager.Instance.completed + " " + OrderManager.Instance.totalOrders);
 		//float ratio = (1 + (float)OrderManager.Instance.numOrdersEaten) / (1f + (float)OrderManager.Instance.totalOrders);
-		float score = GameManager.Instance.money / 50;
+		float score = GameManager.Instance.money / (float)CustomerSpawner.Instance.targetScore;
 		Debug.Log(score + " score");
 
 

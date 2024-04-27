@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour
 
 	public Material dist;
 
+	public bool locked;
+
 	private void Awake()
 	{
 		Menu.EndDayAction += EndDay;
@@ -44,7 +46,7 @@ public class CameraController : MonoBehaviour
 	{
 
 		if (Input.GetKeyDown(KeyCode.Space) && DayTimer.secondsRemainingToday > 0.5f 
-	    && GameManager.Instance.gameState == GameManager.GameState.DayGoing) {
+	    && GameManager.Instance.gameState == GameManager.GameState.DayGoing && !locked) {
 
 			if (trackingHook) {
 				Hook.ins.active = false;

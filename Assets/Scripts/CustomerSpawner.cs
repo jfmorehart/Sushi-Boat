@@ -19,6 +19,7 @@ public class CustomerSpawner : MonoBehaviour
     [HideInInspector]
     public int numOrdersThisWave;
 
+    public int targetScore;
     public Wave[] waves;
     public int currentWave;
     public bool waveLive;

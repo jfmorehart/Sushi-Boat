@@ -132,7 +132,7 @@ public class Customer : Station
             SetThoughtBubble();
         }
 
-        if (ready)
+        if (ready && GameManager.Instance.gameState == GameManager.GameState.DayGoing)
         {
             if (parentBoat.timer >= 0)
             {

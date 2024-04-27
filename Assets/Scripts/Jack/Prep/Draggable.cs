@@ -65,13 +65,15 @@ public class Draggable : Clickable
 		}
 		else if (item.itemData.tags.Contains(Item.ItemTags.Rice) && item.itemData.tags.Contains(Item.ItemTags.Ingredient))
 		{
+			int blinked = 0;
 			foreach (GameObject go in gos)
 			{
 				if (go.TryGetComponent(out RiceCooker scb))
 				{
 					scb.Blink();
-					return;
+					blinked++;
 				}
+				if (blinked > 1) return;
 			}
 		}else if (item.itemData.tags.Contains(Item.ItemTags.Combinable)) {
 			foreach (GameObject go in gos)

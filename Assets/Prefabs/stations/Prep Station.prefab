@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2166100255153911840}
   - component: {fileID: 2774657691734608035}
   - component: {fileID: 3102385424180415394}
+  - component: {fileID: 6611508433313446078}
   m_Layer: 0
   m_Name: Prep Station
   m_TagString: Station
@@ -172,6 +173,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df257e8fb6d7f46d1962b0f1c24d289e, type: 2}
   maxItemCount: 3
   incompleteFood: {fileID: 11400000, guid: efc5e27123a5d9e49802853c2097c083, type: 2}
+--- !u!114 &6611508433313446078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328112118870806211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d122dc21816413248b940192aecc48e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickScale: 1.2
+  squashScale: {x: 1.05, y: 0.95, z: 1}
+  squashDuration: 0.1
+  stretchScale: {x: 0.95, y: 1.05, z: 1}
+  stretchDuration: 0.1
+  returnDuration: 0.1
 --- !u!1 &6238389462233226240
 GameObject:
   m_ObjectHideFlags: 0

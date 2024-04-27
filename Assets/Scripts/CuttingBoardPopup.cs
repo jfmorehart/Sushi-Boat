@@ -33,7 +33,13 @@ public class CuttingBoardPopup : MonoBehaviour
 
     public void Init(ItemInstance item, CuttingBoard board)
     {
-        for (int i = 0; i < cutLines.Count; i++)
+        CameraController cc = Camera.main.GetComponent<CameraController>();
+        cc.locked = true;
+		Hook.ins.active = false;
+		cc.trackingHook = false;
+		cc.target = cc.boatTarget;
+
+		for (int i = 0; i < cutLines.Count; i++)
         {
             cutLines[i].GetComponent<Image>().sprite = lines[0];
             cutLines[i].SetActive(false);
@@ -64,7 +70,7 @@ public class CuttingBoardPopup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if(correctCutPositions.Count>0)
                 Cut();
@@ -173,7 +179,8 @@ public class CuttingBoardPopup : MonoBehaviour
     }
     public void CloseBoard()
     {
-        ItemInstance newitem = new ItemInstance(fish.itemData.processed, Mathf.Min(1,DetermineQuality()), fish.itemData.processed.sprite);
+        Camera.main.GetComponent<CameraController>().locked = false;
+		ItemInstance newitem = new ItemInstance(fish.itemData.processed, Mathf.Min(1,DetermineQuality()), fish.itemData.processed.sprite);
         cuttingBoard.itemOnStation = newitem;
         cuttingBoard.UpdateSprite();
         gameObject.SetActive(false);
