@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
 
     public bool tutorial = false;
 	public bool boss = false;
-
-    public bool bossLevel = false;
+    
 
     public static bool paused;
 
@@ -93,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void Die()
     {
+        boatCracks.sprite = crack3;
         gameState = GameState.Dead;
         loseScreen.SetActive(true);
     }
@@ -106,14 +106,22 @@ public class GameManager : MonoBehaviour
 
     IEnumerator BoatShake()
     {
-        float ogf = yr.freq;
-        float ogamp = yr.amp;
+        float ogf = 0.7f;
+        float ogamp = 1f;
         yr.freq = 5f;
-        yr.amp = 4;
-        yield return new WaitForSeconds(3f);
+        yr.amp = 3f;
+        yield return new WaitForSeconds(1.5f);
         yr.freq = ogf;
         yr.amp = ogamp;
-        if (bossLevel && BossLevelCurrentHP <= 0)
+        if (BossLevelCurrentHP == 2)
+        {
+            boatCracks.sprite = crack1;
+        }
+        else if (BossLevelCurrentHP == 1)
+        {
+            boatCracks.sprite = crack2;
+        }
+        else if (boss && BossLevelCurrentHP <= 0)
         {
             Die();
         }

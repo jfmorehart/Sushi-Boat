@@ -168,7 +168,7 @@ public class Customer : Station
                 {
                     ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
 					t.orderFailed = true;
-
+					
 					//t.transform.parent.gameObject.SetActive(false);
 				}
                 else if (leftCustomer)
@@ -192,6 +192,8 @@ public class Customer : Station
                 ThoughtBubble t = bubble.transform.GetChild(0).GetComponent<ThoughtBubble>();
                 if (t.orderComplete || t.orderFailed)
                 {
+	                if(GameManager.Instance.boss&&t.orderFailed&&!finished)
+		                GameManager.Instance.TakeDamage();
 					finished = true;
                     GetComponent<Collider2D>().enabled = false;
 				}
@@ -202,6 +204,8 @@ public class Customer : Station
 				ThoughtBubble t2 = doubleBubble.transform.GetChild(1).GetComponent<ThoughtBubble>();
 				if ((t1.orderComplete || t1.orderFailed) && (t2.orderComplete || t2.orderFailed))
 				{
+					if(GameManager.Instance.boss&&(t1.orderFailed||t2.orderFailed)&&!finished)
+						GameManager.Instance.TakeDamage();
 					finished = true;
 					GetComponent<Collider2D>().enabled = false;
 				}
