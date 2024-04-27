@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,7 +50,9 @@ public class GameManager : MonoBehaviour
     public Sprite crack1;
     public Sprite crack2;
     public Sprite crack3;
-    
+    public GameObject tentacle1;
+    public GameObject tentacle2;
+    public GameObject tentacle3;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -94,18 +97,39 @@ public class GameManager : MonoBehaviour
     {
         boatCracks.sprite = crack3;
         gameState = GameState.Dead;
+        StartCoroutine(Death());
+        
+    }
+
+    IEnumerator Death()
+    {
+        tentacle1.SetActive(true);
+        tentacle2.SetActive(true);
+        tentacle3.SetActive(true);
+        tentacle1.transform.DOMoveX(18f,0.8f);
+        tentacle2.transform.DOMoveX(-19f,0.8f);
+        tentacle3.transform.DOMoveX(-17f,0.8f);
+        yield return new WaitForSeconds(0.8f);
+        boatCracks.sprite = crack3;
+        yield return new WaitForSeconds(0.5f);
         loseScreen.SetActive(true);
     }
 
     public void TakeDamage()
     {
         BossLevelCurrentHP -= 1;
-        StartCoroutine(BoatShake());
+        if (boss && BossLevelCurrentHP <= 0)
+        {
+            Die();
+        }
+        else
+            StartCoroutine(BoatShake());
 
     }
 
     IEnumerator BoatShake()
     {
+
         float ogf = 0.7f;
         float ogamp = 1f;
         yr.freq = 5f;
@@ -121,10 +145,7 @@ public class GameManager : MonoBehaviour
         {
             boatCracks.sprite = crack2;
         }
-        else if (boss && BossLevelCurrentHP <= 0)
-        {
-            Die();
-        }
+
     }
 
    
