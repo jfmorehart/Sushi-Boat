@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CuttingBoardPopup : MonoBehaviour
 {
@@ -109,10 +110,14 @@ public class CuttingBoardPopup : MonoBehaviour
 
     public IEnumerator CutDelay()
     {
+        RectTransform rect = knife.GetComponent<RectTransform>();
         moving = false;
         SoundManager.Instance.PlaySoundEffect(cutSound);
         UpdateCut();
-        yield return new WaitForSeconds(0.5f);
+        Tween cut = rect.DOAnchorPos(new Vector2(rect.anchoredPosition.x,168.5f),0.2f);
+        yield return cut.WaitForCompletion();
+        Tween back = rect.DOAnchorPos(new Vector2(rect.anchoredPosition.x,238.5f),0.2f);
+        yield return back.WaitForCompletion();
         moving = true;
         
         
