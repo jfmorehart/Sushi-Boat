@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,8 +34,7 @@ public class GameManager : MonoBehaviour
 
     public bool tutorial = false;
 	public bool boss = false;
-
-    public bool bossLevel = false;
+    
 
     public static bool paused;
 
@@ -50,7 +51,13 @@ public class GameManager : MonoBehaviour
     public Sprite crack1;
     public Sprite crack2;
     public Sprite crack3;
-    
+    public GameObject tentacle1;
+    public GameObject tentacle2;
+    public GameObject tentacle3;
+
+    public GameObject hpBar;
+
+    public Sprite damaged;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -93,30 +100,58 @@ public class GameManager : MonoBehaviour
 
     public void Die()
     {
+        boatCracks.sprite = crack3;
         gameState = GameState.Dead;
+        StartCoroutine(Death());
+        
+    }
+
+    IEnumerator Death()
+    {
+        tentacle1.SetActive(true);
+        tentacle2.SetActive(true);
+        tentacle3.SetActive(true);
+        tentacle1.transform.DOMoveX(18f,0.8f);
+        tentacle2.transform.DOMoveX(-19f,0.8f);
+        tentacle3.transform.DOMoveX(-17f,0.8f);
+        yield return new WaitForSeconds(0.8f);
+        boatCracks.sprite = crack3;
+        yield return new WaitForSeconds(0.5f);
         loseScreen.SetActive(true);
     }
 
     public void TakeDamage()
     {
         BossLevelCurrentHP -= 1;
-        StartCoroutine(BoatShake());
+        hpBar.transform.GetChild(BossLevelCurrentHP).GetComponent<Image>().sprite = damaged;
+        if (boss && BossLevelCurrentHP <= 0)
+        {
+            Die();
+        }
+        else
+            StartCoroutine(BoatShake());
 
     }
 
     IEnumerator BoatShake()
     {
-        float ogf = yr.freq;
-        float ogamp = yr.amp;
+
+        float ogf = 0.7f;
+        float ogamp = 1f;
         yr.freq = 5f;
-        yr.amp = 4;
-        yield return new WaitForSeconds(3f);
+        yr.amp = 3f;
+        yield return new WaitForSeconds(1.5f);
         yr.freq = ogf;
         yr.amp = ogamp;
-        if (bossLevel && BossLevelCurrentHP <= 0)
+        if (BossLevelCurrentHP == 2)
         {
-            Die();
+            boatCracks.sprite = crack1;
         }
+        else if (BossLevelCurrentHP == 1)
+        {
+            boatCracks.sprite = crack2;
+        }
+
     }
 
    

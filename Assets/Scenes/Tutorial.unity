@@ -1124,10 +1124,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 419397959}
     m_Modifications:
-    - target: {fileID: 4395350491696372666, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+    - target: {fileID: 223606020223827337, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991579034511230106, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426540619234659564, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Name
+      value: Image8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335177444755405129, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 274b493a814f6af4c868437b23dbc46a, type: 3}
+      objectReference: {fileID: 21300000, guid: 13db2e5ae962d2b4e806ac9c1510cdf2, type: 3}
+    - target: {fileID: 3500310296155735435, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Name
+      value: Image7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524729984922392802, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13db2e5ae962d2b4e806ac9c1510cdf2, type: 3}
     - target: {fileID: 6558166821513901687, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1208,6 +1228,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7019531572361148298, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 692a95df2ba3ae3478d19c5e3f31efb5, type: 3}
     - target: {fileID: 7606818522577443687, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
       propertyPath: m_Name
       value: TutorialStuff
@@ -1234,7 +1258,10 @@ PrefabInstance:
       objectReference: {fileID: 1277775549}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6558166821513901687, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 1016043177}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
 --- !u!224 &578041794 stripped
@@ -1776,6 +1803,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 997772523764935496, guid: 4dbdffba429294823b96af9de5d95f9e, type: 3}
   m_PrefabInstance: {fileID: 904254753}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1016043176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016043177}
+  - component: {fileID: 1016043179}
+  - component: {fileID: 1016043178}
+  m_Layer: 5
+  m_Name: Image6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1016043177
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016043176}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 578041794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1016043178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016043176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fda24b37968f8f9459b2c5394c1ddc63, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1016043179
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016043176}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1067795832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2277,85 +2379,93 @@ PrefabInstance:
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialBoat
       value: 
-      objectReference: {fileID: 1754498851477151231, guid: ab479a85c7563424daef5188a9c0c577, type: 3}
+      objectReference: {fileID: 1754498851477151231, guid: fd583e44294115e4c811c01f61c1d511, type: 3}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.size
-      value: 16
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.size
-      value: 7
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[0]
+      value: "Ahoy there! Been seein' a fair share of you rookies lately. Now hold
+        on\u2026 what've ye got there in yer hand, lad?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialText.Array.data[1]
+      value: Humph! Trying to get rich off all that meteor nonsense huh? It's cursed
+        I tell you! You best be careful because people are going missing...
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[2]
-      value: Humph! Trying to get rich off all that meteor nonsense huh? It's cursed
-        I tell you! Seen at least a dozen lads just like you go missing after searching
-        for that dang thing! You best be careful...
+      value: You're set on it, eh? Well, you aren't gonna last long out there without
+        any money!
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[3]
-      value: You're set on it, eh? Well, you aren't gonna last long out there without
-        any money! If you want to earn a coin or two aboard this here ship, ye best
-        know what to do.
+      value: "Well looky here! Yer first customer! Let\u2019s make them some sushi."
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[4]
-      value: Well looky here, seems like ye've got yer first customer! It's time
-        to get to work. Our sushi here relies on fish, rice, and sometimes a bit
-        o' seaweed. Let's reel in some fish.
+      value: It's best to aim for the healthier lookin fish and avoid the greener
+        ones. Now, let's get to slicin' and dicin'!
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[5]
-      value: Now you may have noticed that some of the fish looks a tad bit... grimier
-        than the others. The greener the fish, the worse they are! It's best to aim
-        for the healthier lookin fish and especially those rare gold ones.
+      value: Good job! Now, customers will prefer that the rice isn't undercooked
+        or burnt, though you can serve whatever ya have if you're short on time.
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[6]
-      value: Ah, good catch! Now, let's get to slicin' and dicin'!
+      value: Well done! Let's bring everything on over to this here prepping station
+        when you're ready.
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[7]
-      value: Go ahead and aim for those lines for a better cut. A clean cut will
-        getcha more money..
+      value: That's a pleased customer if I've ever seen one! Remember, the quicker
+        ye serve, the more people will show up!
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[8]
-      value: Now, onto the rice. Customers will prefer that sweet spot in the middle
-        where the rice isn't undercooked or burnt, though you can serve whatever
-        ya have.
+      value: <color=red>REMEMBER</color> keep an eye out if a customer wants seaweed
+        and bring it to the table if needed.
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[9]
-      value: Well done! Ye can either stash the rice away in one o' them bowls for
-        later or start preppin' the sushi right away! Let's bring everything on over
-        to this here prepping station when you're ready.
+      value: Finally, not all sushi is created equal! To make the most money, you
+        gotta be both quick AND careful with your preparation!
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[10]
-      value: Great Job! Now serve it to the hungry customer!
+      value: 'That''s about it! Well done, matey! Do be careful around that meteor
+        though, I''ve been seeing some VERY strange stuff out there and the fish
+        ain''t right... Good luck. You''re gonna need it. '
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[11]
-      value: "That's a pleased customer if ever I've seen one! But ye best be quick
-        about it, folks 'round these parts aren\u2019t known for their patience.
-        Remember, the quicker ye serve, the more people will show up!\r\n"
+      value: "That's about it! Well done, matey! Do be careful around that meteor
+        though, I've been seeing some VERY strange stuff out there and the fish ain't
+        right... Good luck. You're gonna need it. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[12]
-      value: "Though, er, an angry customer will give you nothing\u2026 Just something
-        to keep in mind."
+      value: "That's about it! Well done, matey! Do be careful around that meteor
+        though, I've been seeing some VERY strange stuff out there and the fish ain't
+        right... Good luck. You're gonna need it. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[13]
-      value: Some might fancy a bit o' seaweed in their sushi, so keep an eye out
-        for that and bring it to the table if needed.
+      value: "That's about it! Well done, matey! Do be careful around that meteor
+        though, I've been seeing some VERY strange stuff out there and the fish ain't
+        right... Good luck. You're gonna need it. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[14]
-      value: Finally, not all sushi is created equal. Some of it will be gross and
-        grimy if you have poor fish, rice and cuts. To make the most money, you gotta
-        be both quick AND careful with your preparation!
+      value: "That's about it! Well done, matey! Do be careful around that meteor
+        though, I've been seeing some VERY strange stuff out there and the fish ain't
+        right... Good luck. You're gonna need it. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialText.Array.data[15]
@@ -2386,9 +2496,13 @@ PrefabInstance:
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.data[5]
       value: 
-      objectReference: {fileID: 1613641830}
+      objectReference: {fileID: 1016043176}
     - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
       propertyPath: tutorialImages.Array.data[6]
+      value: 
+      objectReference: {fileID: 1613641830}
+    - target: {fileID: 579131510611097453, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
+      propertyPath: tutorialImages.Array.data[7]
       value: 
       objectReference: {fileID: 578041795}
     - target: {fileID: 2444008448748192443, guid: 772e10fac62953b449fdf7456d42662a, type: 3}
@@ -3758,7 +3872,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: maxBoatCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: customerPerBoat
@@ -3767,6 +3881,18 @@ PrefabInstance:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: minimumOrderTime
       value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[0].preDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[0].orderTime
+      value: 999999999
       objectReference: {fileID: 0}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: tempMenu
@@ -3791,6 +3917,10 @@ PrefabInstance:
     - target: {fileID: 5333148722577665677, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333148722577665677, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: m_Volume
+      value: 0.515
       objectReference: {fileID: 0}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x

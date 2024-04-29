@@ -41,7 +41,7 @@ public class ThoughtBubble : Station
 
             Debug.Log("CONGRATS");
 			orderSR.sprite = rightOrder;
-			if (GameManager.Instance.bossLevel)
+			if (GameManager.Instance.boss)
 			{
 				if (item.quality >= 0.85f)
 				{
@@ -73,10 +73,9 @@ public class ThoughtBubble : Station
 			order.FailOrder();
 			orderFailed = true;
             item.quality = 0;
-            if (GameManager.Instance.bossLevel)
+            if (GameManager.Instance.boss)
             {
 	            SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
-	            GameManager.Instance.TakeDamage();
             }
             else
             {

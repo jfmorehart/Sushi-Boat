@@ -82,7 +82,8 @@ public class TutorialManager : MonoBehaviour
         Vector3 spawnPos = CustomerSpawner.Instance.spawn.position;
         GameObject c = Instantiate(tutorialBoat);
         c.transform.position = spawnPos;
-        customer = c.transform.GetChild(1).gameObject;
+        c.GetComponent<CustomerBoat>().timer = 99999;
+        customer = c.transform.GetChild(0).gameObject;
     }
     IEnumerator Tutorial()
     {
@@ -91,9 +92,6 @@ public class TutorialManager : MonoBehaviour
         riceCooker.GetComponent<Collider2D>().enabled = false;
         riceDrawer.GetComponent<Collider2D>().enabled = false;
         cooler.GetComponent<Collider2D>().enabled = false;
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
@@ -130,9 +128,6 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         HideImage();
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         textUI.SetActive(false);
         bool flag1 = false;
         cooler.GetComponent<Collider2D>().enabled = true;
@@ -165,9 +160,6 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         HideImage();
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         textUI.SetActive(false);
         bool flag2 = false;
         riceDrawer.GetComponent<Collider2D>().enabled = true;
@@ -229,10 +221,6 @@ public class TutorialManager : MonoBehaviour
             prepTable.BlinkOff();
             yield return null;
         }
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
-        textUI.SetActive(false);
         
         bool flag4 = false;
         while (!flag4)
@@ -263,16 +251,19 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
-        ShowText();
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         ShowImage();
-        ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         HideImage();
+        ShowText();
+        ShowImage();
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+        HideImage();
+        ShowText();
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+        
         ShowText();
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));

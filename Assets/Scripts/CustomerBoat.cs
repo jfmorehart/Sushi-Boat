@@ -11,6 +11,7 @@ public class CustomerBoat : MonoBehaviour
 	private bool leaving = false;
 
 	public bool bossLevel;
+	public bool dealDamage = false;
 
 	public float timer;
 
@@ -22,6 +23,7 @@ public class CustomerBoat : MonoBehaviour
 
 	public void Init()
 	{
+		dealDamage = false;
 		if (CustomerSpawner.Instance.numOrdersThisWave < 2)
 		{
 			transform.GetChild(0).gameObject.SetActive(true);
@@ -150,7 +152,8 @@ public class CustomerBoat : MonoBehaviour
 			timeElapsed += Time.deltaTime;
 			yield return null;
 		}
-
+		if(dealDamage)
+			GameManager.Instance.TakeDamage();
 		CustomerSpawner.Instance.currentBoatCount = Mathf.Max(0, CustomerSpawner.Instance.currentBoatCount - 1);
 		Destroy(gameObject);
 	}

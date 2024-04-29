@@ -38,7 +38,7 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.DayGoing)
+        if (GameManager.Instance.gameState == GameManager.GameState.DayGoing&& !GameManager.Instance.tutorial)
         {
             waveTime += Time.deltaTime;
             EvaluateWave();
