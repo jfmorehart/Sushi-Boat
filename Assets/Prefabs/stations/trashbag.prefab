@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3828458371045588481}
   - component: {fileID: 7998119487648244328}
   - component: {fileID: 7650744698255599222}
+  - component: {fileID: 6464706040661354787}
   m_Layer: 0
   m_Name: trashbag
   m_TagString: Untagged
@@ -150,3 +151,21 @@ MonoBehaviour:
   onStation: {fileID: 0}
   blinker: {fileID: 0}
   dispose: {fileID: 0}
+--- !u!114 &6464706040661354787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682874879120897928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d122dc21816413248b940192aecc48e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickScale: 1.2
+  squashScale: {x: 1.05, y: 0.95, z: 1}
+  squashDuration: 0.1
+  stretchScale: {x: 0.95, y: 1.05, z: 1}
+  stretchDuration: 0.1
+  returnDuration: 0.1

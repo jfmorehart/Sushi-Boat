@@ -565,10 +565,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1157397905148115600, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b82a8f18628d3456d84e7b696f608339, type: 3}
-    - target: {fileID: 1157397905148115600, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -710,10 +706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: served
       objectReference: {fileID: 0}
-    - target: {fileID: 8817914028805572681, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b82a8f18628d3456d84e7b696f608339, type: 3}
     - target: {fileID: 8817914028805572681, guid: 82c0dacf5f1414fb1bb209eb00f168bf, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1118,6 +1110,7 @@ MonoBehaviour:
   floor: 0
   trackingHook: 0
   dist: {fileID: 2100000, guid: a0cdd8acb19994d72b19a73f5d7c8064, type: 2}
+  locked: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
