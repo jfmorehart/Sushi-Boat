@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+	public GameObject credit;
 	private void Start()
 	{
-
+		
 	}
 	public void StartGame()
     {
@@ -27,6 +28,11 @@ public class MenuManager : MonoBehaviour
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
+    }
+
+    public void Credits()
+    {
+	    credit.SetActive(!credit.activeSelf);
     }
     
     

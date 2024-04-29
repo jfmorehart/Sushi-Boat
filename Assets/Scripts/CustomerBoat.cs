@@ -97,6 +97,7 @@ public class CustomerBoat : MonoBehaviour
 		}
 		transform.localScale = targetScale;
 		ready = true;
+		GameManager.Instance.bell.Ring();
 
 	}
 
@@ -137,6 +138,7 @@ public class CustomerBoat : MonoBehaviour
 			yield return null;
 		}
 		ready = true;
+		GameManager.Instance.bell.Ring();
 		//transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
 		//transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
 	}

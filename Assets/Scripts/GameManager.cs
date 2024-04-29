@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     public static bool paused;
 
+    public Bell bell;
+
     
     
     //boss stuff
@@ -71,6 +73,8 @@ public class GameManager : MonoBehaviour
         else {
             boss = false;
 	    }
+
+        bell = GameObject.Find("Bell").GetComponent<Bell>();
     }
 
     // Update is called once per frame
