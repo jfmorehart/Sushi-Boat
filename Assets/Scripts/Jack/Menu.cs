@@ -65,8 +65,8 @@ public class Menu : MonoBehaviour
 		int fed = OrderManager.Instance.numOrdersEaten;
 		int missed = OrderManager.Instance.totalOrders - OrderManager.Instance.numOrdersEaten;
 		missed = Mathf.Max(missed, 0);
-		peoplefed.text = fed.ToString() + ".";
-		peoplemissed.text = missed.ToString() + ".";
+		peoplefed.text = fed.ToString();
+		peoplemissed.text = missed.ToString();
 		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
 		scoretext.text = "$" + GameManager.Instance.money.ToString();
 		int prev = Progress.GetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1);
