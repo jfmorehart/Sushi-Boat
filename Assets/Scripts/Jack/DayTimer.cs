@@ -8,7 +8,7 @@ public class DayTimer : MonoBehaviour
     public static DayTimer ins;
 
     [SerializeField]
-    float secondsPerDay;
+    public float secondsPerDay;
 
     public static float secondsRemainingToday;
     [SerializeField] bool live;

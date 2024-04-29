@@ -1,10 +1,10 @@
-Shader "Unlit/FishQuality"
+Shader "Unlit/Waves"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _qual ("Quality0-1", Float) = 1
-        _tint("Color", Color) = (1, 1, 1, 1)
+        _mcol ("Main Color", Color) = (0, 0, 1, 1)
+        _off("timing offset", Float) = 0.5
     }
     SubShader
     {
@@ -39,8 +39,8 @@ Shader "Unlit/FishQuality"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float _qual;
-            float4 _tint;
+            float4 _mcol;
+            float _off;
 
             v2f vert (appdata v)
             {
@@ -53,17 +53,12 @@ Shader "Unlit/FishQuality"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                int mask = step(col.a, 0.2f);
-                col = float4(0, 0, 0, 0) * mask + col * 1 - mask;
-                col = (_qual + 0.3) * col + (1 - _qual) * _tint * (1 - mask);
-                col = pow(col, min(1.4, min(_qual + 0.8, 2))); 
-              
-                //int rmask = step(0.5, _qual) * step(0.5, col.b);
-                //col = rmask * float4(0.7, 0.6, 0.1, 1) + (1 - rmask) * col;
-                //col *= 1 - mask;
-                return col;
+                float speed = lerp(sin((_Time.y * 0.1) + _off + 0.3), 1, 0.9);
+                float sterm =  0.05 * sin(i.uv.x * 40 + _Time.y * _off * speed);
+                int alpha = step(i.uv.y - 0.5 - sin(_Time.y) * 0.1, sterm);
+                float4 col = _mcol - sterm;
+                col.a = 1;
+                return col * alpha;
             }
             ENDCG
         }

@@ -86,7 +86,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   tutorial: 0
   boss: 0
-  bossLevel: 0
   BossLevelMaxHP: 3
   BossLevelCurrentHP: 3
   loseScreen: {fileID: 0}
@@ -96,6 +95,11 @@ MonoBehaviour:
   crack1: {fileID: 0}
   crack2: {fileID: 0}
   crack3: {fileID: 0}
+  tentacle1: {fileID: 0}
+  tentacle2: {fileID: 0}
+  tentacle3: {fileID: 0}
+  hpBar: {fileID: 0}
+  damaged: {fileID: 0}
 --- !u!1 &3736635013895125465
 GameObject:
   m_ObjectHideFlags: 0

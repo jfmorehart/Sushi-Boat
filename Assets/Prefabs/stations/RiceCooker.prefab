@@ -548,9 +548,9 @@ MonoBehaviour:
   cooking: 0
   riceTimer: 0
   minUsableTime: 1
-  timeUntilCooked: 5
-  gracePeriod: 2
-  timeUntilBurned: 10
+  timeUntilCooked: 8
+  gracePeriod: 5
+  timeUntilBurned: 16
   progressBar: {fileID: 7661809637449514522}
   middle: {fileID: 6656023382168435174}
   _initPos: {x: 0, y: 0}
@@ -710,12 +710,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d122dc21816413248b940192aecc48e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickScale: 1.2
   squashScale: {x: 1.05, y: 0.95, z: 1}
   squashDuration: 0.1
   stretchScale: {x: 0.95, y: 1.05, z: 1}
   stretchDuration: 0.1
   returnDuration: 0.1
-  toSquish: {fileID: 2548852571542641260}
 --- !u!1 &8580630309116865216
 GameObject:
   m_ObjectHideFlags: 0

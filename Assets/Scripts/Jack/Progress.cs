@@ -33,6 +33,7 @@ public static class Progress
 		Save();
 	}
 	public static int GetScoreOnLevel(int level) {
+		if (level < 1) level = 1;
 		scores = PlayerPrefs.GetString("scores", "00000");
 		if (scores.Length < 5) scores = "00000";
 		Debug.Log(level + "  " + scores);
@@ -48,7 +49,10 @@ public static class Progress
 	{
 		Debug.Log("setting " + level + " to " + score);
 		scores = PlayerPrefs.GetString("scores", "00000");
+
+		Debug.Log("got scores " + scores + " " + scores.Length);
 		if (scores.Length < 5) scores = "00000";
+		Debug.Log("post reset " + scores);
 
 		char[] ch = scores.ToCharArray();
 		ch[level - 1] = score.ToString()[0];

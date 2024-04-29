@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3556832424530388265}
   - component: {fileID: 1030302938568300730}
   - component: {fileID: 731859197468109457}
+  - component: {fileID: 8419208424840817191}
   m_Layer: 0
   m_Name: cupboard
   m_TagString: Untagged
@@ -150,6 +151,24 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 8483664940922779806}
   blinker: {fileID: 0}
+--- !u!114 &8419208424840817191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588149302957898358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d122dc21816413248b940192aecc48e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickScale: 1.2
+  squashScale: {x: 1.05, y: 0.95, z: 1}
+  squashDuration: 0.1
+  stretchScale: {x: 0.95, y: 1.05, z: 1}
+  stretchDuration: 0.1
+  returnDuration: 0.1
 --- !u!1 &7086483912500443520
 GameObject:
   m_ObjectHideFlags: 0
