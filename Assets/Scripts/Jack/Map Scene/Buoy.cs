@@ -41,9 +41,10 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 		regScale = transform.localScale;
 		bigScale = regScale * 1.25f;
 
-		if(Progress.maxUnlockedLevel >= levelToLoad) {
-			unlocked = true;
+		int pscore = Progress.GetScoreOnLevel(levelToLoad - 1);
+		if (pscore >= 0 || levelToLoad == 0) {
 			int score = Progress.GetScoreOnLevel(levelToLoad);
+			unlocked = true;
 			//Debug.Log(levelToLoad + " " + score);
 			for(int i = 0; i < stars.Length; i++) {
 				stars[i].GetComponent<SpriteRenderer>().color = (i < score)? Color.white : Color.black;

@@ -1144,6 +1144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Image7
       objectReference: {fileID: 0}
+    - target: {fileID: 4395350491696372666, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 274b493a814f6af4c868437b23dbc46a, type: 3}
     - target: {fileID: 6524729984922392802, guid: c30e539dccd70e94597a4402e06fd61c, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -69,7 +69,8 @@ public class Menu : MonoBehaviour
 		peoplemissed.text = missed.ToString() + ".";
 		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
 		scoretext.text = "$" + GameManager.Instance.money.ToString();
-		Progress.SetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1, starCount);
+		int prev = Progress.GetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1);
+		Progress.SetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1, Mathf.Max(starCount, prev));
 		Progress.Save();
 	}
 	//Defunct?
