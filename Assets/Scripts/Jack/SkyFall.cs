@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SkyFall : MonoBehaviour
 {
-    public Vector2 start;
-    public Vector2 end;
+    public Vector3 start;
+    public Vector3 end;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,6 @@ public class SkyFall : MonoBehaviour
     void Update()
     {
         float lpos = DayTimer.secondsRemainingToday / DayTimer.ins.secondsPerDay;
-        transform.localPosition = Vector2.Lerp(start, end, 1 - lpos);
+        transform.localPosition = Vector3.Lerp(start, end, 1 - lpos);
     }
 }

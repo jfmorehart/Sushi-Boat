@@ -95,8 +95,8 @@ public class BossLogic : MonoBehaviour
 				cc.target = cc.boatTarget;
 				cc.trackingHook = false;
 				Hook.ins.active = false;
-				SoundManager.Instance.BackGroundMusicSource.clip = bossbackGroundMusic;
-				SoundManager.Instance.BackGroundMusicSource.Play();
+				//SoundManager.Instance.BackGroundMusicSource.clip = bossbackGroundMusic;
+				//SoundManager.Instance.BackGroundMusicSource.Play();
 				yield break;
 			}
 		}

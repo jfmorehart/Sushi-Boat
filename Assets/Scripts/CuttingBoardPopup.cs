@@ -28,13 +28,8 @@ public class CuttingBoardPopup : MonoBehaviour
     public Sprite[] lines;
 
     public AudioClip cutSound;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    public void Init(ItemInstance item, CuttingBoard board)
+	public void Init(ItemInstance item, CuttingBoard board)
     {
         CameraController cc = Camera.main.GetComponent<CameraController>();
         cc.locked = true;
@@ -78,6 +73,9 @@ public class CuttingBoardPopup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DayTimer.secondsRemainingToday < 1) {
+            CloseBoard();
+	    }
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if(correctCutPositions.Count>0)
@@ -155,7 +153,9 @@ public class CuttingBoardPopup : MonoBehaviour
         }
         totalDist += minDiff;
         posToRemove = correctCutPositions[indexToRemove];
-        lineToChange= activeCutLines[indexToRemove];
+        //activeCutLines[indexToRemove].GetComponent<Image>().material.color = Color.gray;
+
+		lineToChange = activeCutLines[indexToRemove];
         GameObject l = Instantiate(spawnLine,transform);
         spawnedLines.Add(l);
         if (minDiff <= 100)

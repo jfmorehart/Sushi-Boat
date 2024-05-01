@@ -1919,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6555925477020956079, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.29
+      objectReference: {fileID: 0}
     - target: {fileID: 8842810177074432831, guid: 2ca6a8283c88e49edafec1700ee91029, type: 3}
       propertyPath: cuttingBoardUI
       value: 
@@ -2073,7 +2077,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3000
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 0b263195443c94f0a8dd1463d7654b19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2110,7 +2114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: targetScore
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: minimumOrderTime

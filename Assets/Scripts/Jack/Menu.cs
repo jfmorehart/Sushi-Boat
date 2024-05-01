@@ -57,8 +57,19 @@ public class Menu : MonoBehaviour
 		Debug.Log(score + " score");
 
 
-		int starCount = Mathf.FloorToInt((score * 11f) * 0.333f);
-		for(int i = 0; i < 3; i++) {
+		int starCount = 0;
+		if(score > 0.2f) {
+			starCount = 1;
+		}
+		if (score > 0.5f)
+		{
+			starCount = 2;
+		}
+		if (score > 0.95f)
+		{
+			starCount = 3;
+		}
+		for (int i = 0; i < 3; i++) {
 			stars[i].color =  i < starCount ? Color.white : Color.black;
 		}
 
