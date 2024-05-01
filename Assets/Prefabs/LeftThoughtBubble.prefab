@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 4400658000941150007}
   - component: {fileID: 3846236546282555678}
   - component: {fileID: 2796490780177649420}
-  - component: {fileID: 6034840712648362526}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -138,10 +137,12 @@ MonoBehaviour:
   onStation: {fileID: 0}
   blinker: {fileID: 0}
   orderAdded: 0
+  recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
   rightOrder: {fileID: 21300000, guid: 5666707bba8024a1d949be3f9e2f8e53, type: 3}
   orderSR: {fileID: 2796490780177649420}
   successSoundEffect: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+  okSoundEffect: {fileID: 0}
   failureSoundEffect: {fileID: 8300000, guid: 46b4e8682b803db4fab7da651cb118f3, type: 3}
   orderComplete: 0
   orderFailed: 0
@@ -197,48 +198,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6034840712648362526
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382464442198775897}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -2.5316978, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.79, y: 7.84}
-    newSize: {x: 3.2, y: 2.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 8.263398, y: 2.4}
-  m_EdgeRadius: 0

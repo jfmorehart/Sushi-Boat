@@ -55,7 +55,7 @@ Shader "Unlit/Waves"
             {
                 float speed = lerp(sin((_Time.y * 0.1) + _off + 0.3), 1, 0.9);
                 float sterm =  0.05 * sin(i.uv.x * 40 + _Time.y * _off * speed);
-                int alpha = step(i.uv.y - 0.5 - sin(_Time.y) * 0.1, sterm);
+                int alpha = step(i.uv.y - 0.6 - sin(_Time.y) * 0.08, sterm);
                 float4 col = _mcol - sterm;
                 col.a = 1;
                 return col * alpha;

@@ -15,7 +15,7 @@ public class Station : Clickable
 
     public GameObject blinker;
 
-    
+	public bool applyShaderSaturation = true;
 	public virtual void Start()
 	{
 		UpdateSprite();
@@ -66,6 +66,12 @@ public class Station : Clickable
 		if (onStation != null)
 		{
 			onStation.material.SetFloat("_qual", itemOnStation.quality);
+			if (applyShaderSaturation) {
+				onStation.material.SetInteger("_nosat", 0);
+			}
+			else {
+				onStation.material.SetInteger("_nosat", 1);
+			}
 		}
 	}
 
