@@ -556,6 +556,8 @@ MonoBehaviour:
   - {fileID: 4642948161142316660}
   activeCutLines: []
   cuttingBoard: {fileID: 0}
+  spawnLine: {fileID: 6123087133114921911, guid: f863fbad78d986548922f61a8871686e, type: 3}
+  spawnedLines: []
   im: {fileID: 6248714134332229411}
   shadow: {fileID: 8816906987826832720}
   lines:

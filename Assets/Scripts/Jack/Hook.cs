@@ -30,6 +30,9 @@ public class Hook : MonoBehaviour
 	FishAnimInfo fishAnim;
 	float xorigin;
 
+
+	private CoolerSlot[] slots;
+	public AudioClip coolerFull;
 	private void Awake()
 	{
 		xorigin = transform.position.x;
@@ -44,6 +47,7 @@ public class Hook : MonoBehaviour
 		{
 			floor = f.transform.position.y + distFromFloor;
 		}
+		slots = (CoolerSlot[])FindObjectsByType(typeof(CoolerSlot), FindObjectsSortMode.None);
 	}
     void ResetPos() {
         transform.position = new Vector3(transform.position.x, -1, 0);
@@ -109,7 +113,13 @@ public class Hook : MonoBehaviour
 					Sprite sp = onHook.GetComponent<SpriteRenderer>().sprite;
 				    InventoryManager.Instance.AddItem(new ItemInstance(onHook.data.fishItem, onHook.quality, sp));
 				    onHook.Despawn();
-				    SoundManager.Instance.PlaySoundEffect(fishOutofWater);
+				    //SoundManager.Instance.PlaySoundEffect(fishOutofWater);
+				    if(CoolerIsFull())
+					    SoundManager.Instance.PlaySoundEffect(coolerFull);
+				    else
+				    {
+					    SoundManager.Instance.PlaySoundEffect(fishOutofWater);
+				    }
 					goinDown = false;
 					audioSource.Play();
 
@@ -130,4 +140,12 @@ public class Hook : MonoBehaviour
 		}
 
     }
+	bool CoolerIsFull() { 
+		foreach(CoolerSlot cs in slots) { 
+			if(cs.itemOnStation == null) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

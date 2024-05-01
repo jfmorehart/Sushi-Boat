@@ -15016,6 +15016,7 @@ MonoBehaviour:
   sinAmp: 0.5
   ready: 0
   bossLevel: 0
+  dealDamage: 0
   timer: 0
 --- !u!1 &2145094408952559909
 GameObject:
@@ -30961,6 +30962,14 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3846236546282555678, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
+      propertyPath: okSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: ced04ac501c876b4aa2a3c5e30105007, type: 3}
+    - target: {fileID: 3846236546282555678, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
+      propertyPath: successSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: bfa7b1a37c43560438d3f70bb0189b36, type: 3}
     - target: {fileID: 4400658000941150007, guid: 9b7dd8e1a1fb14a8babae5c1b6cf24c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12

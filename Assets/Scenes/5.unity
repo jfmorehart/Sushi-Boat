@@ -2552,8 +2552,8 @@ MonoBehaviour:
   grabbyEnd: {x: 0, y: -12.6}
   tentaclesEnd: {x: 0, y: -7.6}
   cutscene: 1
-  cutsceneMusic: {fileID: 8300000, guid: a28c81ba6eb0e1d4c87bd048eea70fa1, type: 3}
-  bossbackGroundMusic: {fileID: 8300000, guid: ec672b65b03d04e4e988e2c33dbafa2a, type: 3}
+  cutsceneMusic: {fileID: 8300000, guid: 193765126df3d2f458468e32580f59f8, type: 3}
+  bossbackGroundMusic: {fileID: 8300000, guid: c688a5170bbfcdf43a3327c2fb76b696, type: 3}
 --- !u!1 &1208474620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4199,6 +4199,10 @@ PrefabInstance:
       propertyPath: anims.Array.data[3]
       value: 
       objectReference: {fileID: 9100000, guid: 8026c50aebb3141b9ac2f1145c0aa312, type: 2}
+    - target: {fileID: 5333148722577665677, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -11,6 +11,7 @@ public class FullCoolerIcon : MonoBehaviour
 
 	public float freq;
 	public float amp;
+    
 
 	private void Start()
 	{

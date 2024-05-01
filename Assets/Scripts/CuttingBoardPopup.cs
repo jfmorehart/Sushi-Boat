@@ -16,6 +16,8 @@ public class CuttingBoardPopup : MonoBehaviour
     public List<GameObject> activeCutLines;
     private bool moving = true;
     public CuttingBoard cuttingBoard;
+    public GameObject spawnLine;
+    public List<GameObject> spawnedLines;
 
     public Image im;
     public Image shadow;
@@ -56,6 +58,11 @@ public class CuttingBoardPopup : MonoBehaviour
         cutPositions = new List<float>();
         correctCutPositions = new List<float>(item.itemData.cutPositions);
         activeCutLines = new List<GameObject>();
+        foreach (var l in spawnedLines)
+        {
+            Destroy(l);
+        }
+        spawnedLines.Clear();
         totalDist = 0;
         
         for (int j = 0; j < correctCutPositions.Count; j++)
@@ -149,15 +156,17 @@ public class CuttingBoardPopup : MonoBehaviour
         totalDist += minDiff;
         posToRemove = correctCutPositions[indexToRemove];
         lineToChange= activeCutLines[indexToRemove];
+        GameObject l = Instantiate(spawnLine,transform);
+        spawnedLines.Add(l);
         if (minDiff <= 100)
         {
-            lineToChange.GetComponent<Image>().sprite = lines[1];
+            l.GetComponent<Image>().sprite = lines[1];
         }
         else
         {
-            lineToChange.GetComponent<Image>().sprite = lines[2];
+            l.GetComponent<Image>().sprite = lines[2];
         }
-        lineToChange.GetComponent<RectTransform>().localPosition = new Vector3(
+        l.GetComponent<RectTransform>().localPosition = new Vector3(
             cutPositions[cutPositions.Count-1],
             lineToChange.GetComponent<RectTransform>().localPosition.y,
             lineToChange.GetComponent<RectTransform>().localPosition.z);

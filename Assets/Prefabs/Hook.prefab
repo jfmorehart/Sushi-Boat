@@ -363,6 +363,7 @@ MonoBehaviour:
   distFromFloor: 0
   hooked: {fileID: 8300000, guid: 28a732c9106f6894684f8ab76ec9fc2b, type: 3}
   fishOutofWater: {fileID: 8300000, guid: 35dcb16964079da42ada59d4b344b3be, type: 3}
+  coolerFull: {fileID: 8300000, guid: 1f1677d9f45deaa44827966ab6904d76, type: 3}
 --- !u!61 &2907407016531697501
 BoxCollider2D:
   m_ObjectHideFlags: 0
