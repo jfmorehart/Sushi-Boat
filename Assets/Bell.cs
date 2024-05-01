@@ -11,9 +11,11 @@ public class Bell : MonoBehaviour
     public AudioClip bellSound;
 
     public Transform bellIcon;
+    CameraController cam;
     // Update is called once per frame
     void Update()
     {
+        cam = Camera.main.GetComponent<CameraController>();
         float noise = Mathf.PerlinNoise1D(Time.time * noisefreq) * noiseamp;
 
         float sin = Mathf.Sin(Time.time * freq) * amp;
@@ -21,12 +23,14 @@ public class Bell : MonoBehaviour
         if (ringing)
         {
             transform.GetChild(1).eulerAngles = new Vector3(0, 0, deg);
-            bellIcon.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, deg);
+            if(cam.trackingHook&& bellIcon.gameObject.activeSelf)
+                bellIcon.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, deg);
         }
         else
         {
             transform.GetChild(1).eulerAngles = new Vector3(0, 0, 0);
-            bellIcon.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, 0);
+            if(cam.trackingHook&& bellIcon.gameObject.activeSelf)
+                bellIcon.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, 0);
         }
 
         
@@ -39,12 +43,17 @@ public class Bell : MonoBehaviour
 
     IEnumerator RingCouroutine()
     {
-        bellIcon.gameObject.SetActive(true);
+        if (cam.trackingHook)
+        {
+            bellIcon.gameObject.SetActive(true);
+            bellIcon.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, 0);
+        }
         ringing = true;
         SoundManager.Instance.PlaySoundEffect(bellSound);
         yield return new WaitForSeconds(2f);
         ringing = false;
-        bellIcon.gameObject.SetActive(false);
+        if (cam.trackingHook)
+            bellIcon.gameObject.SetActive(false);
     }
     
     

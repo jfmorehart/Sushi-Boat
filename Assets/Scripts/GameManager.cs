@@ -118,9 +118,9 @@ public class GameManager : MonoBehaviour
         tentacle1.transform.DOMoveX(18f,0.8f);
         tentacle2.transform.DOMoveX(-19f,0.8f);
         tentacle3.transform.DOMoveX(-17f,0.8f);
-        yield return new WaitForSeconds(0.8f);
         boatCracks.sprite = crack3;
-        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(BoatShake());
+        yield return new WaitForSeconds(2.5f);
         loseScreen.SetActive(true);
     }
 
@@ -128,33 +128,36 @@ public class GameManager : MonoBehaviour
     {
         BossLevelCurrentHP -= 1;
         hpBar.transform.GetChild(BossLevelCurrentHP).GetComponent<Image>().sprite = damaged;
-        if (boss && BossLevelCurrentHP <= 0)
+        if (BossLevelCurrentHP == 2)
+        {
+            boatCracks.sprite = crack1;
+            StartCoroutine(BoatShake());
+        }
+        else if (BossLevelCurrentHP == 1)
+        {
+            boatCracks.sprite = crack2;
+            StartCoroutine(BoatShake());
+        }
+        else if (boss && BossLevelCurrentHP <= 0)
         {
             Die();
+            
         }
-        else
-            StartCoroutine(BoatShake());
+        
 
     }
 
     IEnumerator BoatShake()
     {
-
         float ogf = 0.7f;
         float ogamp = 1f;
         yr.freq = 5f;
         yr.amp = 3f;
+        Camera.main.GetComponent<CameraShake>().TriggerShake();
         yield return new WaitForSeconds(1.5f);
         yr.freq = ogf;
         yr.amp = ogamp;
-        if (BossLevelCurrentHP == 2)
-        {
-            boatCracks.sprite = crack1;
-        }
-        else if (BossLevelCurrentHP == 1)
-        {
-            boatCracks.sprite = crack2;
-        }
+
 
     }
 
