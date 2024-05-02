@@ -72,6 +72,7 @@ public class Customer : Station
 
     public void ReactToFood(float quality) {
 		ren.material.SetFloat("_rh", 0);
+        StopSteam();
 		if (GameManager.Instance.boss) return;
 		state = Mathf.RoundToInt((1 - quality) * 3);
         state = Mathf.Clamp(state, 0, 3);
@@ -158,6 +159,9 @@ public class Customer : Station
                     else{
                         float l = 1 - (parentBoat.timer / maxTime);
 						ren.material.SetFloat("_rh", l);
+                        if(l > 0.9 && !steaming) {
+                            StartSteam();
+                        }
 						transform.localPosition = lpos + Random.insideUnitCircle * l * l * l * 0.25f;
 					}
 				}

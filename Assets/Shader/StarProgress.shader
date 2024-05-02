@@ -3,7 +3,7 @@ Shader "UI/StarProgress"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _prog("progress", Float) = 0.5
+        _prog("progress", Float) = 0
     }
     SubShader
     {

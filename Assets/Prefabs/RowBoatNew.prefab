@@ -51,6 +51,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
@@ -220,6 +221,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   leftCustomer: 1
   bubble: {fileID: 8643662064426989123}
   doubleBubble: {fileID: 3592385368104559872}
@@ -327,6 +329,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
@@ -639,6 +642,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   leftCustomer: 1
   bubble: {fileID: 3305141320113558043}
   doubleBubble: {fileID: 5882697048760238529}
@@ -802,6 +806,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   leftCustomer: 0
   bubble: {fileID: 4354166391108389793}
   doubleBubble: {fileID: 1712576380323000293}
@@ -1164,6 +1169,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
@@ -1361,6 +1367,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}
@@ -1474,6 +1481,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
@@ -1673,6 +1681,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: f3c56e540ff2e44eba2dfc0ba7bc0521, type: 3}
@@ -1870,6 +1879,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 0}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
   orderAdded: 0
   recipe: {fileID: 0}
   wrongOrder: {fileID: 21300000, guid: 2ac97311fcaf54d9fa453a9cfd070826, type: 3}

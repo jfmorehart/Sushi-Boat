@@ -4136,7 +4136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: targetScore
-      value: 75
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: customerBoat
@@ -4168,11 +4168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[2].preDelay
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[3].preDelay
-      value: 30
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[4].preDelay
@@ -4192,7 +4192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[0].orderTime
-      value: 60
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[1].numOrders
@@ -4200,11 +4200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[1].orderTime
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[2].numOrders
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[2].orderTime
@@ -4212,7 +4212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[3].numOrders
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: waves.Array.data[3].orderTime
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 700880288488978938, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: waves.Array.data[4].numOrders
