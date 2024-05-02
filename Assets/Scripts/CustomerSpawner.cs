@@ -64,6 +64,13 @@ public class CustomerSpawner : MonoBehaviour
                 waveLive = true;
                 SpawnBoat();
                 waveTime = 0;
+            }
+            else { 
+	            //if the day is ending and we want to give them more points
+                if(DayTimer.secondsRemainingToday < waves[currentWave].preDelay * 2) {
+					waveTime += 2 * Time.deltaTime;
+                    //effectively cut the preDelay by 1/3
+				}
 	        }
 	    }
     }
