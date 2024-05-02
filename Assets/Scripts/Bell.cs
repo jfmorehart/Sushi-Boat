@@ -52,7 +52,7 @@ public class Bell : MonoBehaviour
         SoundManager.Instance.PlaySoundEffect(bellSound);
         yield return new WaitForSeconds(2f);
         ringing = false;
-        if (cam.trackingHook)
+        if(bellIcon.gameObject.activeSelf)
             bellIcon.gameObject.SetActive(false);
     }
     

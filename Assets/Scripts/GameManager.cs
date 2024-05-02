@@ -148,8 +148,8 @@ public class GameManager : MonoBehaviour
     {
         float ogf = 0.7f;
         float ogamp = 1f;
-        yr.freq = 5f;
-        yr.amp = 3f;
+        yr.freq = 4f;
+        yr.amp = 1.5f;
         Camera.main.GetComponent<CameraShake>().TriggerShake();
         yield return new WaitForSeconds(1.5f);
         yr.freq = ogf;

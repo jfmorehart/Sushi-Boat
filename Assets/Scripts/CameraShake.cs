@@ -9,6 +9,7 @@ public class CameraShake : MonoBehaviour
     public float shakeFrequency = 10.0f; 
 
     private Vector3 originalPos;
+    private bool shaking = false;
 
     void Awake()
     {
@@ -17,23 +18,25 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
-        if (shakeDuration > 0)
+        if (shaking)
         {
             float xOffset = Mathf.PerlinNoise(Time.time * shakeFrequency, 0f) * 2 - 1;
             float yOffset = Mathf.PerlinNoise(0f, Time.time * shakeFrequency) * 2 - 1;
 
-            transform.localPosition = originalPos + new Vector3(xOffset, yOffset, 0) * shakeMagnitude;
-
-            shakeDuration -= Time.deltaTime;
-        }
-        else
-        {
-            shakeDuration = 0f;
+            transform.localPosition = originalPos + new Vector3(xOffset/4f, yOffset, 0) * shakeMagnitude;
         }
     }
 
     public void TriggerShake()
     {
-        shakeDuration = 1.5f; // Or whatever duration you prefer
+        StartCoroutine(Shake()); // Or whatever duration you prefer
+    }
+
+    public IEnumerator Shake()
+    {
+        shaking = true;
+        yield return new WaitForSeconds(shakeDuration);
+        shaking = false;
+        transform.localPosition = originalPos;
     }
 }

@@ -37,8 +37,7 @@ public class BossLogic : MonoBehaviour
 
 	IEnumerator Grab()
 	{
-		SoundManager.Instance.BackGroundMusicSource.clip = cutsceneMusic;
-		SoundManager.Instance.BackGroundMusicSource.Play();
+		SoundManager.Instance.StartBGM(cutsceneMusic);
 		yield return new WaitForSeconds(2f);
 		CameraController cc = Camera.main.GetComponent<CameraController>();
 		cc.target = cc.fishTarget;
@@ -95,8 +94,7 @@ public class BossLogic : MonoBehaviour
 				cc.target = cc.boatTarget;
 				cc.trackingHook = false;
 				Hook.ins.active = false;
-				//SoundManager.Instance.BackGroundMusicSource.clip = bossbackGroundMusic;
-				//SoundManager.Instance.BackGroundMusicSource.Play();
+				SoundManager.Instance.StartBGM(bossbackGroundMusic);
 				yield break;
 			}
 		}

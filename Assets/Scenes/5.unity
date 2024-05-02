@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87528509e5746c44b19c6c582598d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDuration: 0
+  shakeDuration: 1.5
   shakeMagnitude: 2
   shakeFrequency: 10
 --- !u!1 &571827509
@@ -4245,11 +4245,11 @@ PrefabInstance:
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: crack1
       value: 
-      objectReference: {fileID: 21300000, guid: 389c5e5ec345bda42b3aa5284496a948, type: 3}
+      objectReference: {fileID: 21300000, guid: 39789c1b818a6474c8533c17bf750931, type: 3}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: crack2
       value: 
-      objectReference: {fileID: 21300000, guid: 23ff30e67292e2840875407090ab79a1, type: 3}
+      objectReference: {fileID: 21300000, guid: 5dc1373b7eea66f43a49e367561b3d8f, type: 3}
     - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: crack3
       value: 
@@ -4312,7 +4312,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 8026c50aebb3141b9ac2f1145c0aa312, type: 2}
     - target: {fileID: 5333148722577665677, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: Mute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
