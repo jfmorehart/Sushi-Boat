@@ -1421,6 +1421,8 @@ MonoBehaviour:
   shakeDuration: 1.5
   shakeMagnitude: 2
   shakeFrequency: 10
+  cutscenePos: {x: 0, y: 0, z: 0}
+  cutscene: 0
 --- !u!1 &571827509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +2979,7 @@ MonoBehaviour:
   grabbyEnd: {x: 0, y: -7}
   tentaclesEnd: {x: 0, y: -7.6}
   cutscene: 1
-  cutsceneMusic: {fileID: 8300000, guid: 193765126df3d2f458468e32580f59f8, type: 3}
+  cutsceneMusic: {fileID: 8300000, guid: a333067579d2c9442837a9899abe438c, type: 3}
   bossbackGroundMusic: {fileID: 8300000, guid: c688a5170bbfcdf43a3327c2fb76b696, type: 3}
 --- !u!1 &1208474620
 GameObject:
@@ -4752,10 +4754,6 @@ PrefabInstance:
       propertyPath: anims.Array.data[3]
       value: 
       objectReference: {fileID: 9100000, guid: 8026c50aebb3141b9ac2f1145c0aa312, type: 2}
-    - target: {fileID: 5333148722577665677, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
-      propertyPath: Mute
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6145869849579022723, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

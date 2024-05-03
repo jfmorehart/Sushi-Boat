@@ -45,39 +45,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialText:
-  - "Ahoy there! Seems it\u2019s your first time on me trusty old vessel, eh? Been
-    seein' a fair share o' you youngins lately!"
-  - "Now hold on\u2026 what've ye got there in yer hand, lad?"
-  - "Humph! Well don't be gettin' yer hopes too high with all that nonsense. A bunch
-    a baloney if ya ask me! Out here, there\u2019s nothin\u2019 but hungry mouths
-    and some good ol\u2019 regular fish."
-  - Though, if ye aim to earn a coin or two aboard this here ship, ye best know what
-    to do.
-  - Well looky here, seems like ye've got yer first customer! Go on and take their
-    order.
-  - 'Now that ye''ve taken their order, it''s time to get to work! Our sushi here
-    relies on fish, rice, and sometimes a bit o'' seaweed. Let''s reel in some fish.
-
-'
-  - Ah, good catch! Now, let's get to slicin' and dicin'!
-  - Now, onto the rice. Mind ye, me rice cooker's a tad wonky, so best to keep an
-    eye on it.
-  - Well done! Once it's cooked, ye can either stash it away in one o' them bowls
-    for later or start preppin' the sushi right away! Let's get everything ready.
-    Bring it all on over to this here prepping station.
-  - Great Job! Now serve it to the hungry customer!
-  - "That's a pleased customer if ever I've seen one! But ye best be quick about
-    it, folks 'round these parts aren\u2019t known for their patience. Remember,
-    the quicker ye serve, the better the tips!\r\n"
-  - "But don\u2019t be pushing yerself too hard cause you can wait a bit to take
-    their orders if yer feeling overwhelmed. It\u2019ll help with their patience,
-    but it also means fewer tips!"
-  - "Though, er, an angry customer will give you nothing\u2026 Just something to
-    keep in mind."
-  - Some might fancy a bit o' seaweed in their sushi, so keep an eye out for that
-    and bring it to the table if needed.
-  - Well done, matey! Seems ye've got the hang of it. Good luck!
+  - "Ahoy there! Been seein' a fair share of you rookies lately. Now hold on\u2026
+    what've ye got there in yer hand, lad?"
+  - Humph! Trying to get rich off all that meteor nonsense huh? It's cursed I tell
+    you! You best be careful because people are going missing...
+  - You're set on it, eh? Well, you aren't gonna last long out there without any
+    money!
+  - "Well looky here! Yer first customer! Let\u2019s make them some sushi."
+  - It's best to aim for the healthier lookin fish and avoid the greener ones. Now,
+    let's get to slicin' and dicin'!
+  - Good job! Now, customers will prefer that the rice isn't undercooked or burnt,
+    though you can serve whatever ya have if you're short on time.
+  - Well done! Let's bring everything on over to this here prepping station when
+    you're ready.
+  - That's a pleased customer if I've ever seen one! Remember, the quicker ye serve,
+    the more people will show up!
+  - <color=red>REMEMBER</color> keep an eye out if a customer wants seaweed and bring
+    it to the table if needed.
+  - Finally, not all sushi is created equal! To make the most money, you gotta be
+    both quick AND careful with your preparation!
+  - 'That''s about it! Well done, matey! Do be careful around that meteor though,
+    I''ve been seeing some VERY strange stuff out there and the fish ain''t right...
+    Good luck. You''re gonna need it. '
   tutorialImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -92,7 +85,7 @@ MonoBehaviour:
   riceCooker: {fileID: 0}
   prepTable: {fileID: 0}
   customer: {fileID: 0}
-  tutorialBoat: {fileID: 1754498851477151231, guid: 430ce15944081ce4f8560c67316d3352, type: 3}
+  tutorialBoat: {fileID: 1754498851477151231, guid: fd583e44294115e4c811c01f61c1d511, type: 3}
   cookedRice: {fileID: 11400000, guid: 0ea2e64f06942499499b918ef9a3626e, type: 2}
   cutTuna: {fileID: 11400000, guid: 32748f7e1b85646f993766b0feea3c72, type: 2}
   tunaNigiri: {fileID: 11400000, guid: a7ab8a06cc0aac14e8cbcc25148637a4, type: 2}

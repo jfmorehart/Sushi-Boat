@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class TutorialManager : MonoBehaviour
     public Hook hook;
 
 
+    private Vector3 ogScale;
 
     public void SkipTutorial()
     {
@@ -39,6 +41,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ogScale = textUI.transform.GetChild(1).GetComponent<RectTransform>().localScale;
         StartCoroutine(Tutorial());
     }
 
@@ -53,9 +56,22 @@ public class TutorialManager : MonoBehaviour
         textUI.SetActive(true);
         if (textIndex<=tutorialText.Length-1)
         {
-            textUI.GetComponentInChildren<TMP_Text>().text = tutorialText[textIndex];
+            StartCoroutine(SquashAndStretch());
+            textUI.transform.GetChild(1).GetComponentInChildren<TMP_Text>().text = tutorialText[textIndex];
             textIndex++;
         }
+    }
+    IEnumerator SquashAndStretch()
+    {
+        RectTransform rect = textUI.transform.GetChild(1).GetComponent<RectTransform>();
+        rect.localScale = ogScale;
+        Tween squash1 = rect.DOScale(new Vector3( ogScale.x*1.1f,ogScale.y*0.9f,ogScale.z),0.2f);
+        yield return squash1.WaitForCompletion();
+        Tween stretch1 = rect.DOScale(new Vector3( ogScale.x*0.9f,ogScale.y*1.1f,ogScale.z),0.2f);
+        yield return stretch1.WaitForCompletion();
+        Tween back = rect.DOScale(ogScale,0.2f);
+        yield return back.WaitForCompletion();
+        rect.localScale = ogScale;
     }
     public void ShowImage()
     {

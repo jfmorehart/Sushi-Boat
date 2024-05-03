@@ -43,7 +43,8 @@ public class BossLogic : MonoBehaviour
 		cc.target = cc.fishTarget;
 		cc.trackingHook = true;
 		Hook.ins.active = false;
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(3f);
+		Camera.main.GetComponent<CameraShake>().CutScene(1.5f);
 		float st = Time.time;
 
 		while (true) {
@@ -80,8 +81,10 @@ public class BossLogic : MonoBehaviour
 	}
 	IEnumerator Rise() {
 		float st = Time.time;
+		
 		while (true)
 		{
+			Camera.main.GetComponent<CameraShake>().cutscene=true;
 			if (Vector3.Distance(tentacles.position, tentaclesEnd) > 0.1f)
 			{
 				tentacles.transform.position = Vector3.Lerp(start, tentaclesEnd, (Time.time - st) / 2);
@@ -89,6 +92,9 @@ public class BossLogic : MonoBehaviour
 			}
 			else
 			{
+				CameraShake c = Camera.main.GetComponent<CameraShake>();
+				c.cutscene=false;
+				c.transform.localPosition = c.cutscenePos;
 				GameManager.Instance.gameState = GameManager.GameState.DayGoing;
 				CameraController cc = Camera.main.GetComponent<CameraController>();
 				cc.target = cc.boatTarget;

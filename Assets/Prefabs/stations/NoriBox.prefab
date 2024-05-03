@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 0cdeec1d058534b0188fc8e6d081b4b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae879c974df07c3409494d2b68a4cce5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.2, y: 8.21}
+    oldSize: {x: 6.35, y: 6.02}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   DraggablePrefab: {fileID: 6685310026644520896, guid: 99a6b9bf1a8304ea199cdfaf11ca0cd6, type: 3}
   onStation: {fileID: 0}
   blinker: {fileID: 0}
+  applyShaderSaturation: 1
 --- !u!114 &4769539972274866464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d122dc21816413248b940192aecc48e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickScale: 1.2
   squashScale: {x: 1.05, y: 0.95, z: 1}
   squashDuration: 0.1
   stretchScale: {x: 0.95, y: 1.05, z: 1}
   stretchDuration: 0.1
   returnDuration: 0.1
-  toSquish: {fileID: 0}
