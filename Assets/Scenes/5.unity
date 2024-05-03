@@ -4734,6 +4734,10 @@ PrefabInstance:
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 846742314}
+    - target: {fileID: 1122643501793134482, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
+      propertyPath: damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a6a89eb63e57e1745b93a93a74ebaf77, type: 3}
     - target: {fileID: 2392860159122746706, guid: 1f92f314729df4cb996965fee7351f44, type: 3}
       propertyPath: m_Name
       value: ---------Managers---------

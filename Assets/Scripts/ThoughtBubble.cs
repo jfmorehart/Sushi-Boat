@@ -76,6 +76,7 @@ public class ThoughtBubble : Station
             if (GameManager.Instance.boss)
             {
 	            SoundManager.Instance.PlaySoundEffect(failureSoundEffect);
+	            
             }
             else
             {
@@ -91,6 +92,11 @@ public class ThoughtBubble : Station
         OrderManager.Instance.numOrdersEaten += 1;
 
         transform.parent.parent.GetComponent<Customer>().ReactToFood(item.quality);
+        if (GameManager.Instance.boss&& orderFailed)
+        {
+	        transform.parent.parent.parent.GetComponent<CustomerBoat>().dealDamage=true;
+	        transform.parent.parent.parent.GetComponent<CustomerBoat>().StartCoroutine(transform.parent.parent.parent.GetComponent<CustomerBoat>().Leave());
+        }
 		//OrderManager.Instance.UpdateOrderUI();
 		//Destroy(gameObject);
 		//GetComponent<Collider2D>().enabled = false;

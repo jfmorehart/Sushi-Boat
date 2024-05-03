@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public Bell bell;
 
-    
+    public AudioClip damageSound;
     
     //boss stuff
     public int BossLevelMaxHP = 3;
@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour
         yr.freq = 4f;
         yr.amp = 1.5f;
         Camera.main.GetComponent<CameraShake>().TriggerShake();
+        SoundManager.Instance.PlaySoundEffect(damageSound);
         yield return new WaitForSeconds(1.5f);
         yr.freq = ogf;
         yr.amp = ogamp;

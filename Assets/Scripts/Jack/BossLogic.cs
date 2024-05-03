@@ -97,9 +97,11 @@ public class BossLogic : MonoBehaviour
 				c.transform.localPosition = c.cutscenePos;
 				GameManager.Instance.gameState = GameManager.GameState.DayGoing;
 				CameraController cc = Camera.main.GetComponent<CameraController>();
-				cc.target = cc.boatTarget;
-				cc.trackingHook = false;
 				Hook.ins.active = false;
+				cc.trackingHook = false;
+				cc.target = cc.boatTarget;
+				
+				
 				SoundManager.Instance.StartBGM(bossbackGroundMusic);
 				yield break;
 			}
