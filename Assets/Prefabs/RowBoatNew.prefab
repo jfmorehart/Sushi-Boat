@@ -535,6 +535,11 @@ MonoBehaviour:
   bossLevel: 0
   dealDamage: 0
   timer: 0
+  timerMax: 0
+  annoyed: 0
+  angry: 0
+  anger1: {fileID: 8300000, guid: fa4d863e9acd23947bc91c35a14728dd, type: 3}
+  anger2: {fileID: 8300000, guid: 269633e8f3ade7b409f051fb947f20ad, type: 3}
 --- !u!1 &2145094408952559909
 GameObject:
   m_ObjectHideFlags: 0

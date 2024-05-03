@@ -14,7 +14,11 @@ public class CustomerBoat : MonoBehaviour
 	public bool dealDamage = false;
 
 	public float timer;
-
+	public float timerMax;
+	public bool annoyed;
+	public bool angry;
+	public AudioClip anger1;
+	public AudioClip anger2;
 	private void Start()
 	{
 		Init();
@@ -38,7 +42,24 @@ public class CustomerBoat : MonoBehaviour
 	private void Update()
 	{
 		timer -= Time.deltaTime;
+		if (timer < timerMax / 2)
+		{
+			if (!annoyed)
+			{
+				annoyed = true;
+				SoundManager.Instance.PlaySoundEffect(anger1);
+			}
+			
+		}
 
+		if (timer < timerMax / 10)
+		{
+			if (!angry)
+			{
+				angry = true;
+				SoundManager.Instance.PlaySoundEffect(anger2);
+			}
+		}
 		if(timer < 0) {
 			StartCoroutine(Leave());
 			leaving = true;

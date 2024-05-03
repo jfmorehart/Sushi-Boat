@@ -92,6 +92,7 @@ public class CustomerSpawner : MonoBehaviour
 		c.transform.position = spawnPos;
 		OrderManager.Instance.totalOrders += waves[currentWave].numOrders;
 		c.GetComponent<CustomerBoat>().timer = waves[currentWave].orderTime;
+		c.GetComponent<CustomerBoat>().timerMax = waves[currentWave].orderTime;
 	}
 
     public Sprite GetCustomerState(int customer, int state) {
