@@ -61,7 +61,7 @@ public class Menu : MonoBehaviour
 		if(score > 0.2f) {
 			starCount = 1;
 		}
-		if (score > 0.5f)
+		if (score > 0.75f)
 		{
 			starCount = 2;
 		}
