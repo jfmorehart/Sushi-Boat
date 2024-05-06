@@ -24,6 +24,7 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
 	private void Awake()
 	{
+		unlocked = false;
 		if (levelToLoad == 1)
 		{
 			Progress.Load();
@@ -42,10 +43,10 @@ public class Buoy : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 		bigScale = regScale * 1.25f;
 
 		int pscore = Progress.GetScoreOnLevel(levelToLoad - 1);
-		if (pscore >= 0 || levelToLoad == 0) {
+		if (pscore > 0 || levelToLoad == 1) {
 			int score = Progress.GetScoreOnLevel(levelToLoad);
 			unlocked = true;
-			//Debug.Log(levelToLoad + " " + score);
+			Debug.Log(levelToLoad + " " + pscore);
 			for(int i = 0; i < stars.Length; i++) {
 				stars[i].GetComponent<SpriteRenderer>().color = (i < score)? Color.white : Color.black;
 				stars[i].GetComponent<SpriteRenderer>().enabled = true;

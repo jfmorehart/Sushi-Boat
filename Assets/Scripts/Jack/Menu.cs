@@ -69,17 +69,24 @@ public class Menu : MonoBehaviour
 		{
 			starCount = 3;
 		}
-		for (int i = 0; i < 3; i++) {
-			stars[i].color =  i < starCount ? Color.white : Color.black;
+		if (!GameManager.Instance.boss) {
+			for (int i = 0; i < 3; i++)
+			{
+				stars[i].color = i < starCount ? Color.white : Color.black;
+			}
+
+			int fed = OrderManager.Instance.numOrdersEaten;
+			int missed = OrderManager.Instance.totalOrders - OrderManager.Instance.numOrdersEaten;
+			missed = Mathf.Max(missed, 0);
+			peoplefed.text = fed.ToString();
+			peoplemissed.text = missed.ToString();
+			quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
+			scoretext.text = "$" + GameManager.Instance.money.ToString();
+		}
+		else {
+			transform.GetChild(0).GetComponent<FinalNews>().EndOfDayScreen();
 		}
 
-		int fed = OrderManager.Instance.numOrdersEaten;
-		int missed = OrderManager.Instance.totalOrders - OrderManager.Instance.numOrdersEaten;
-		missed = Mathf.Max(missed, 0);
-		peoplefed.text = fed.ToString();
-		peoplemissed.text = missed.ToString();
-		quality.text = ((int)(OrderManager.Instance.averageOrderQuality * 100)).ToString() + "%";
-		scoretext.text = "$" + GameManager.Instance.money.ToString();
 		int prev = Progress.GetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1);
 		Progress.SetScoreOnLevel(SceneManager.GetActiveScene().buildIndex - 1, Mathf.Max(starCount, prev));
 		Progress.Save();
