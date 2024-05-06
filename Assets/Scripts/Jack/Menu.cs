@@ -23,6 +23,9 @@ public class Menu : MonoBehaviour
 	public TMP_Text peoplemissed;
 	public TMP_Text scoretext;
 
+	public AudioClip winClip;
+	public AudioClip loseClip;
+
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -68,6 +71,15 @@ public class Menu : MonoBehaviour
 		if (score > 0.95f)
 		{
 			starCount = 3;
+		}
+
+		if (starCount == 0)
+		{
+			SoundManager.Instance.PlaySoundEffect(loseClip);
+		}
+		else
+		{
+			SoundManager.Instance.PlaySoundEffect(winClip);
 		}
 		if (!GameManager.Instance.boss) {
 			for (int i = 0; i < 3; i++)

@@ -275,6 +275,8 @@ MonoBehaviour:
   peoplefed: {fileID: 7877453112067311969}
   peoplemissed: {fileID: 9117752177014679361}
   scoretext: {fileID: 187944574852731585}
+  winClip: {fileID: 8300000, guid: 2766205fe21b7ce48b8ad56d544d5429, type: 3}
+  loseClip: {fileID: 8300000, guid: 452d23db40d9cdd45b4e3ab06a892664, type: 3}
 --- !u!1 &2893057455145617715
 GameObject:
   m_ObjectHideFlags: 0
