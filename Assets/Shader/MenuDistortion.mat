@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: MenuDistortion
   m_Shader: {fileID: 4800000, guid: e8fd721e89cc445efa65a3b97466b4f2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -77,6 +77,8 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _freq: 0.3
+    - _intensity: 0.5
     - _yval: -20
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
