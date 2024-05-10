@@ -75,12 +75,15 @@ public class Menu : MonoBehaviour
 
 		if (starCount == 0)
 		{
-			SoundManager.Instance.PlaySoundEffect(loseClip);
+			if(!GameManager.Instance.boss)
+				SoundManager.Instance.PlaySoundEffect(loseClip);
 		}
 		else
 		{
 			SoundManager.Instance.PlaySoundEffect(winClip);
 		}
+
+		SoundManager.Instance.BackGroundMusicSource.volume = 0.3f;
 		if (!GameManager.Instance.boss) {
 			for (int i = 0; i < 3; i++)
 			{
